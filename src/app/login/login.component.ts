@@ -11,13 +11,22 @@ providers : [AuthenticateService]
 export class LoginComponent {
 
    public user = new UserComponent('','');
-  public errorMsg = '';
-
+  public errorMsg1 = '';
+  public errorMsg2 = '';
+  public login_page = false;
   constructor(private _service:AuthenticateService) { }
-
+  sendmsg() {
+      if(!this._service.sendmsg(this.user)) {
+        this.errorMsg1 = 'User not registered ...';
+      }
+      else
+      {
+        this.login_page = true;
+      }
+  }
   login() {
     if(!this._service.login(this.user)) {
-      this.errorMsg = 'Failed to login! try again ...';
+      this.errorMsg2 = 'Failed to login! try again ...';
     }
 }
 
