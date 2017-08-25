@@ -10,11 +10,14 @@ providers : [AuthenticateService]
 })
 export class LoginComponent {
 
-   public user = new UserComponent('','');
+   public user = new UserComponent;
+   
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
-  constructor(private _service:AuthenticateService) { }
+  constructor(private _service:AuthenticateService) {
+    this.user.create('','');
+   }
   sendmsg() {
       if(!this._service.sendmsg(this.user)) {
         this.errorMsg1 = 'User not registered ...';
