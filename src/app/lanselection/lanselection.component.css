@@ -1,0 +1,113 @@
+.app-content{
+  margin: 100px;
+  padding: 50px;
+
+}
+
+.app-input-icon {
+  font-size: 16px;
+}
+
+
+form {
+  width:100%;
+  margin: 4em auto;
+  padding: 3em 2em 2em 2em;
+  
+  height:100%;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+
+}
+
+.corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky{
+  position: fixed;
+}
+
+.corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* positions */
+.corner-ribbon.top-right{
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+#err {
+  color : red;
+}
+.mat-fab {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+    min-width: 0;
+    border-radius: 50%;
+    width:10vw;
+    height:10vw;
+   padding-left:50px;
+    flex-shrink: 0;
+	margin-left:50px;
+}
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: #f83030;
+	
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3vw;
+    line-height: 1;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-font-feature-settings: 'liga';
+    -moz-osx-font-smoothing: grayscale;
+	margin-left:-50px;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+.middle{
+  margin: auto;
+}
+img.responsive-img, video.responsive-video {
+  position:absolute;
+  top:30%;
+  /* height: fit-content; */
+max-width:20%;
+margin:0 40%;
+}
+
+.lang_icon {width:30%;
+text-align:center;}
+
+.division{position:absolute;
+top:68%;
+margin : 2% 20%;
+}
+
+.lang > td,th{
+text-align: center;}

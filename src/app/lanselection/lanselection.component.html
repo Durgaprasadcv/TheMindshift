@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Thirumalai-Window size</title>
+        <style type="text/css">
+        
+            html,body{height: 100%;margin: 0px;}
+        </style>
+    </head>
+    <body>
+        <div id="left"></div>
+        <script type="text/javascript">//<![CDATA[ 
+            function resize()
+            {
+                var heights = window.innerHeight;
+                document.getElementById("left").style.height = heights + "px";
+            }
+            resize();
+            window.onresize = function() {
+                resize();
+            };
+            //]]>  
+
+        </script> 
+    
+
+
+<div >
+	<div class="middle">
+		<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" >
+	</div>
+	<div class="division">
+	  <table class="lang">
+	 		  <tr>
+	    	<th>
+      			<a [routerLink] = "['/bcarousel']"><img src="assets/images/kan.png"  class="lang_icon"></a>
+	    	</th>
+	   		<th>
+	  			<a [routerLink] = "['/bcarousel']"><img src="assets/images/hindi.png"  class="lang_icon" ></a>
+			</th>
+			<th>
+				<a [routerLink] = "['/bcarousel']"><img src="assets/images/eng.png"  class="lang_icon" ></a>
+			</th>
+			<th>
+				<a [routerLink] = "['/bcarousel']"><img src="assets/images/tam.png"  class="lang_icon" ></a>
+			</th>
+			<th>
+				<a [routerLink] = "['/bcarousel']"><img src="assets/images/telugu.png"   class="lang_icon"></a>
+			</th>
+		</tr>
+		<tr>
+			<th>
+	  			kannada
+	 		</th>
+	 		<th>
+	  			Hindi
+	 		</th>
+	 		<th>
+	  			English
+	 		</th>
+	 		<th>
+	  			Tamil
+	 		</th>
+	 		<th>
+	  			Telugu
+			 </th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>	

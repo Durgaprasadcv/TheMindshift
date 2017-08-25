@@ -14,13 +14,25 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import 'hammerjs';
+import { MyNewComponentComponent } from './my-new-component/my-new-component.component';
+import { StrcarouselComponent } from './strcarousel/strcarousel.component';
+import { LanselectionComponent } from './lanselection/lanselection.component';
+import { BcarouselComponent } from './bcarousel/bcarousel.component';
+import { PrserviceComponent } from './prservice/prservice.component';
+import { ChapterComponent } from './chapter/chapter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    MyNewComponentComponent,
+    StrcarouselComponent,
+    LanselectionComponent,
+    BcarouselComponent,
+    PrserviceComponent,
+    ChapterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +45,11 @@ import 'hammerjs';
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
-      { path: '', component: LoginComponent },
+      { path: 'lanselection', component: LanselectionComponent },
+      { path: 'bcarousel', component: BcarouselComponent },
+      { path: 'strcarousel', component:StrcarouselComponent },
+      { path: 'chapter', component:ChapterComponent },
+    { path: '', component: StrcarouselComponent },
       { path: '**', component: LoginComponent }
 ])
   ],
