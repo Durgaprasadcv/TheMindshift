@@ -6,23 +6,18 @@ import { Http, Headers } from '@angular/http';
 
 
 
-var users = [];
- /* new UserComponent.create('8904045317','1243'),
-  new UserComponent.create('9964245317','8765'),
-  new UserComponent.create('9986001466','3654')
-];*/
+let users = [
+  new UserComponent('8904045317','1243'),
+  new UserComponent('9964245317','8765'),
+  new UserComponent('9986001466','3654')
+];
 
 @Injectable()
 export class AuthenticateService {
 
   public returnmsg ;
-  public usercomp = new UserComponent;
   public msg = '';
-  constructor(private _router: Router,private http: Http) { 
-    users.push(this.usercomp.create('8904045317','1243'));
-    users.push(this.usercomp.create('9964245317','8765'));
-    users.push(this.usercomp.create('9986001466','3654'));
-  }
+  constructor(private _router: Router,private http: Http) { }
   logout() {
     localStorage.removeItem("user");
     this._router.navigate(['/login']);

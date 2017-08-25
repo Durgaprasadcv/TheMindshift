@@ -1,8 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Injectable
-} from '@angular/core';
+import { Component, OnInit ,Injectable,Inject} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,13 +7,10 @@ import {
 })
 @Injectable()
 export class UserComponent implements OnInit {
-  public username;
-  public password;
-  constructor() {}
 
-  ngOnInit() {}
-  create(a, b) {
-    this.username = a;
-    this.password = b;
+  constructor(public username: string, public password: string) { }
+
+  ngOnInit() {
   }
+
 }
