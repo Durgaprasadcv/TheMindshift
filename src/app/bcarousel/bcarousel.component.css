@@ -1,44 +1,64 @@
 body {
-  font-family:Arial;
-  font-size:12px;
- 
-}
-.example-desc {
-  margin:3px 0;
-  padding:5px;
+  font-family: Arial;
+  font-size: 12px;
 }
 
-#carousel {
-  width:960px;
-  margin-left:auto;
-  margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: auto;
-  height:662px;
-  position:relative;
-  clear:both;
-  overflow:hidden;
-  background:#FFF;
+.example-desc {
+  margin: 3px 0;
+  padding: 5px;
 }
+
+@media screen and (max-width: 680px) {
+  #carousel {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: auto;
+    height: 400px;
+    position: relative;
+    clear: both;
+    background: #FFF;
+  }
+}
+
+@media screen and (min-width: 681px) {
+  #carousel {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: auto;
+    height: 662px;
+    position: relative;
+    clear: both;
+    background: #FFF;
+  }
+}
+
 #carousel img {
-  visibility:hidden; /* hide images until carousel can handle them */
-  cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+  visibility: hidden;
+  /* hide images until carousel can handle them */
+  cursor: pointer;
+  /* otherwise it's not as obvious items can be clicked */
 }
 
 .split-left {
-  width:600px;
-  float:left;
-}
-.split-right {
-  width:400px;
-  float:left;
-  margin-left:10px;
-}
-#callback-output {
-  height:250px;
-  overflow:scroll;
-}
-textarea#newoptions {
-  width:430px;
+  width: 600px;
+  float: left;
 }
 
+.split-right {
+  width: 400px;
+  float: left;
+  margin-left: 10px;
+}
+
+#callback-output {
+  height: 250px;
+  overflow: scroll;
+}
+
+textarea#newoptions {
+  width: 430px;
+}
