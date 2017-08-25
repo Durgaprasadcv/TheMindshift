@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <div class="fb">
    <div class="f">
     <img src="assets/images/logo.png" alt="MindShift" class="responsive-img valign profile-image-login" >
@@ -23,3 +24,56 @@
     </form >
   </div>
  </div>
+=======
+<div class="app-content">
+
+  <div class="group">
+
+<!--<form>
+<img class="logocls" src="assets/logo.jpeg" />
+   <div class="col-lg-6">
+        <input  type="text" required [(ngModel)]="user.username" id="username" name="username" >
+        <md-placeholder>
+          <i class="material-icons app-input-icon">perm_phone_msg</i> Mobile number
+        </md-placeholder>
+      </div>
+
+      <md-input-container>
+        <input mdInput type="text" required [(ngModel)]="user.username" id="username" name="username" >
+        <md-placeholder>
+          <i class="material-icons"></i> OTP
+        </md-placeholder>
+      </md-input-container>
+  </form>-->
+<form role="form" [hidden]="login_page" (submit)="sendmsg()"><br>
+  <img class="logocls" src="assets/logo.jpeg" />
+      <md-input-container>
+        <input mdInput type="text" required [(ngModel)]="user.username" id="username" name="username" >
+        <md-placeholder>
+          <i class="material-icons app-input-icon">perm_phone_msg</i> Mobile number
+        </md-placeholder>
+      </md-input-container><br><br>
+
+      <button md-raised-button color="warn" type="submit" name="action">Generate OTP</button><br><br>
+      <span id="err"><small>{{errorMsg1}}</small></span>
+    </form >
+    <form role="form" [hidden]="!login_page" (submit)="login()"><br>
+      <md-input-container>
+        <input mdInput type="text" required [(ngModel)]="user.username" id="username" name="username" >
+        <md-placeholder>
+          <i class="material-icons app-input-icon">face</i>Username
+        </md-placeholder>
+      </md-input-container><br><br>
+      <md-input-container>
+        <input mdInput type="password" required [(ngModel)]="user.password" id="password" name="password" >
+        <md-placeholder >
+          <i class="material-icons app-input-icon">lock_open</i>Password
+        </md-placeholder>
+      </md-input-container><br><br>
+      <button md-raised-button color="warn" type="submit" name="action">LOGIN</button><br><br>
+      <span id="err"><small>{{errorMsg2}}</small></span>
+      <md-slide-toggle color="primary"><small>Remember me!</small></md-slide-toggle>
+    </form >
+  </div>
+</div>
+>>>>>>> 6b07bae289b55340d8ee37ecad64aacb59cffcc7
