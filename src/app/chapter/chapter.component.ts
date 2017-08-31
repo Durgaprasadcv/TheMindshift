@@ -14,6 +14,7 @@ export class ChapterComponent implements OnInit {
    }
 
   ngOnInit() {
+    webGlObject1.init();
   }
 
 }

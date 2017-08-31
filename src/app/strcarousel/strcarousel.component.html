@@ -16,9 +16,9 @@
    </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div *ngFor="let i of iproducts " class="{{i.act}} item">
+      <div *ngFor="let i of iproducts " class="{{i.Image_Act}} item">
           <a [routerLink] = "['/login']">
-            <img src="{{i.Imgurl}}" alt="Los Angeles" style="width:auto;height:auto;">
+            <img src="{{i.Imag_Path}}" alt="Carousel" class="ab">
           </a>
         </div>
      </div>

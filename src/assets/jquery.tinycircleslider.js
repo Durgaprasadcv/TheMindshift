@@ -17,7 +17,7 @@
         ,   dotsSnap: false
         ,   dotsHide: true
         ,   radius: 140
-        ,   start: 0
+        ,   start: 10
         }
     ;
 

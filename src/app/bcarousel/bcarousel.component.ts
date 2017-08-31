@@ -18,15 +18,11 @@ import 'rxjs/add/operator/map';
 export class BcarouselComponent implements OnInit {
   name:string;
   iproducts: IProduct[];
-constructor(private _product: ProductService) {
- webGlObject.init();
+constructor(private _product: ProductService,private _router: Router) {
 }
   ngOnInit(): void {
-    this._product.getproducts()
+    webGlObject.init();
+    this._product.getproducts1()
     .subscribe(iproducts => this.iproducts = iproducts);
- }
- foo()
- {
-   webGlObject.init();
  }
   }

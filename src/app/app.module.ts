@@ -20,6 +20,8 @@ import { LanselectionComponent } from './lanselection/lanselection.component';
 import { BcarouselComponent } from './bcarousel/bcarousel.component';
 import { PrserviceComponent } from './prservice/prservice.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { RegisComponent } from './regis/regis.component';
+import { SmenuComponent } from './smenu/smenu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ChapterComponent } from './chapter/chapter.component';
     LanselectionComponent,
     BcarouselComponent,
     PrserviceComponent,
-    ChapterComponent
+    ChapterComponent,
+    RegisComponent,
+    SmenuComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { ChapterComponent } from './chapter/chapter.component';
       { path: 'bcarousel', component: BcarouselComponent },
       { path: 'strcarousel', component:StrcarouselComponent },
       { path: 'chapter', component:ChapterComponent },
-    { path: '', component: StrcarouselComponent },
+      { path: 'regis', component:RegisComponent },
+      { path: 'smenu', component:SmenuComponent },
+      { path: '', component: StrcarouselComponent },
       { path: '**', component: LoginComponent }
 ])
   ],

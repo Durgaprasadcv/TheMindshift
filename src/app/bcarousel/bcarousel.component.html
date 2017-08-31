@@ -8,12 +8,17 @@
 </head>
 <body>
 <div  >
-<div id="carousel" onload="javascript:foo()">
-        
-        <a [routerLink] = "['/chapter']">  <img src="assets/images/Poster 5.jpg" id="item-1" style="width:60%;height:50%;" /></a>
-        <a [routerLink] = "['/chapter']"> <img src="assets/images/Poster 6.jpg" id="item-2"  style="width:60%;height:50%;"/></a>
-        <a [routerLink] = "['/chapter']"> <img src="assets/images/Poster 4.1.jpg" id="item-3"  style="width:60%;height:50%;"/></a>
-</div>
+<div id="carousel">
+      <div>
+        <a> <img src="{{iproducts[0].Imag_Path}}" id="{{iproducts[0].Image_Act}}" class="ab1" /></a>
+      </div>
+      <div>
+        <a> <img src="{{iproducts[1].Imag_Path}}" id="{{iproducts[1].Image_Act}}" class="ab1"/></a>
+      </div>
+        <div>
+        <a> <img src="{{iproducts[2].Imag_Path}}" id="{{iproducts[2].Image_Act}}"  class="ab1"/></a>
+        </div>
+  </div>
 </div>
 </body>
 </html>

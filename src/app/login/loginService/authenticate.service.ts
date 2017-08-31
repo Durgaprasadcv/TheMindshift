@@ -25,26 +25,48 @@ export class AuthenticateService {
   sendmsg(user) {
     console.log('sendmsg');
     let authenticatedUser = users.find(u => u.username === user.username);
-    if (authenticatedUser && authenticatedUser.username === user.username){
-      this.msg = "Your OTP for MindShift is "+authenticatedUser.password;
-      console.log('http://sms.djitsoft.com/api/sms.php?uid=646a6974736f6674&pin=539ff3ddc863f&route=4&mobile='+user.username+'&message='+this.msg+'&pushid=1');
-      this.http.get('http://sms.djitsoft.com/api/sms.php?uid=646a6974736f6674&pin=539ff3ddc863f&route=4&mobile='+user.username+'&message='+this.msg+'&pushid=1')
-      .subscribe(
-        data => this.returnmsg = data,
-        err => console.log('foo'),
-        () => console.log('Got response from API', this.returnmsg)
-      );
-      return true;
-    }
-    return false;
+    //if (authenticatedUser && authenticatedUser.username === user.username){
+    //  this.msg = "Your OTP for MindShift is "+authenticatedUser.password;
+      //console.log('http://sms.djitsoft.com/api/sms.php?uid=646a6974736f6674&pin=539ff3ddc863f&route=4&mobile='+user.username+'&message='+this.msg+'&pushid=1');
+     // this.http.get('http://sms.djitsoft.com/api/sms.php?uid=646a6974736f6674&pin=539ff3ddc863f&route=4&mobile='+user.username+'&message='+this.msg+'&pushid=1')
+     // .subscribe(
+     //   data => this.returnmsg = data,
+     //   err => console.log('foo'),
+     //   () => console.log('Got response from API', this.returnmsg)
+     // );
+     // return true;
+   // }
+    //return false;
+    const body = {Mobile: user.username};
+    console.log('http://lg.djitsoft.xyz/api/RequestOTP');
+    this.http.post('http://lg.djitsoft.xyz/api/RequestOTP',body)
+    .subscribe(
+      data => this.returnmsg = data,
+      err => console.log('foo'),
+      () => console.log('Got response from API(OTP)', this.returnmsg)
+    );
+    return true;
+
   }
   login(user) {
     let authenticatedUser = users.find(u => u.username === user.username);
-    if (authenticatedUser && authenticatedUser.password === user.password){
-      localStorage.setItem("user", authenticatedUser.username);
-      this._router.navigate(['/lanselection']);
-      return true;
-    }
+    //if (authenticatedUser && authenticatedUser.password === user.password){
+    //  localStorage.setItem("user", authenticatedUser.username);
+    //  c
+    //  return true;
+   // }
+   // return false;
+   const body1 = {Mobile:user.username,OTP:user.password};
+   this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body1)
+   .subscribe(
+     data => this.returnmsg = data.status,
+     err => console.log('foo'),
+     () => {if(this.returnmsg==200)
+      {
+        this._router.navigate(['/lanselection']);
+      }
+     }
+   );
     return false;
   }
 

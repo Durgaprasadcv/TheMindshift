@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticateService} from "./loginService/authenticate.service";
 import {UserComponent} from "../user/user.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
-  constructor(private _service:AuthenticateService) { }
+  constructor(private _service:AuthenticateService,private _router: Router) { }
   sendmsg() {
       if(!this._service.sendmsg(this.user)) {
         this.errorMsg1 = 'User not registered ...';
@@ -28,6 +29,10 @@ export class LoginComponent {
     if(!this._service.login(this.user)) {
       this.errorMsg2 = 'Failed to login! try again ...';
     }
+    else
+      {
+        this._router.navigate(['/lanselection']);
+      }
 }
 
 }

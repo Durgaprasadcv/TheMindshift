@@ -1,5 +1,4 @@
 export interface IProduct {
-    ImgID: string;
-    Imgurl: string;
-    act:string;
+    Imag_Path: string;
+    Image_Act:string;
  }

@@ -13,10 +13,8 @@ import 'rxjs/add/operator/map';
 export class StrcarouselComponent implements OnInit {
   iproducts: IProduct[];
   constructor(private _product: ProductService) { }
-
   ngOnInit() : void {
     this._product.getproducts()
     .subscribe(iproducts => this.iproducts = iproducts);
  }
-
 }
