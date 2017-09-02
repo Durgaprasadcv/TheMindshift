@@ -11,19 +11,21 @@ providers : [AuthenticateService]
 })
 export class LoginComponent {
   public returnmsg1;
-   public user = new UserComponent('','');
+  public user = new UserComponent('','');
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
   constructor(private _service:AuthenticateService,private _router: Router,private http: Http) { }
   sendmsg() {
-      //if(!this._service.sendmsg(this.user)) {
-     //   this.errorMsg1 = 'User not registered ...';
-     // }
-    //  else
-    //  {
-    //    this.login_page = true;
-    //  }
+      /*
+      if(!this._service.sendmsg(this.user)) {
+        this.errorMsg1 = 'User not registered ...';
+     }
+      else
+      {
+        this.login_page = true;
+     }
+  */
     const body = {Mobile:this.user.username};
     this.http.post('http://lg.djitsoft.xyz/api/RequestOTP',body)
     .subscribe(

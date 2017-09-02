@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -8,6 +7,7 @@ import { IProduct } from './product';
 
 @Injectable()
 export class ProductService {
+  public returnmsg;
 //  private _producturl='assets/json/product.json';
 //return this._http.get(`http://lg.djitsoft.xyz/api/Banner_list`)
   constructor(private _http: Http) { }
@@ -24,5 +24,33 @@ export class ProductService {
   .do(data => console.log(JSON.stringify(data)));
   
 }
-
+webRequest(scope,type,url,body,fun_id,loader){
+  switch(type)
+  {
+    case 'get' :
+    { 
+      console.log('POST Method')
+      this._http.get(url)
+      .subscribe(
+       data =>  {
+       this.returnmsg = data.json();
+       scope.webresponse(fun_id,data);
+       },
+       err => console.log('failed'),
+       () => console.log('Success Return data:',this.returnmsg));
+      break;
+     }
+    case 'post' :{
+      console.log("GET Method");
+      this._http.post(url,body)
+      .subscribe(
+       data =>  {
+       this.returnmsg = data.json();
+       scope.webresponse(fun_id,data);
+       },
+       err => console.log('failed'),
+       () => console.log('Success Return data:',this.returnmsg));
+      break;}
+}
+}
 }

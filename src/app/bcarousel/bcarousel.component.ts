@@ -23,7 +23,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
 }
   ngOnInit(): void {
    // webGlObject.init();
-    this.http.get('http://lg.djitsoft.xyz/api/Banner_list1')
+    this.http.get('http://lg.djitsoft.xyz/api/ListTestModules')
     .subscribe(
           data => {this.returnmsg = data.json();  },
           err => console.log('failed'),

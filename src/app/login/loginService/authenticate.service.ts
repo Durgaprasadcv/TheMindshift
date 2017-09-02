@@ -32,49 +32,47 @@ export class AuthenticateService {
      //   () => console.log('Got response from API', this.returnmsg)
      // );
      //return true;
-   // }
-    //return false;
-  //this.http.get('http://lg.djitsoft.xyz/api/RequestOTP?Mobile='+user.username+'&Lat=01&Long=02')
-    const body = {Mobile:'9900696593'};
-    console.log('http://lg.djitsoft.xyz/api/RequestOTP');
-    this.http.post('http://lg.djitsoft.xyz/api/RequestOTP',body)
-    .subscribe(
-      data => this.returnmsg = data.status,
-      err => console.log('foo'),
-      () => console.log('Got response from API(OTP)', this.returnmsg)
-    );
-    return false;
- //  if( this.returnmsg==200)
- // {
- //   return true;
- // }
- // else
- //   {
- //     return false;
- //   }
-    
+     // }
+     //return false;
 
-  }
+    }
   login(user) {
     let authenticatedUser = users.find(u => u.username === user.username);
     //if (authenticatedUser && authenticatedUser.password === user.password){
     //  localStorage.setItem("user", authenticatedUser.username);
-    //  c
+    //  this._router.navigate(['/lanselection']);
     //  return true;
    // }
    // return false;
-  // const body1 = {Mobile:user.username,OTP:user.password};
-   //this.http.get('http://lg.djitsoft.xyz/api/VerifyOTP?Mobile='+user.username+'&OTP='+user.password)
-  // this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body1)
- //  .subscribe(
- //    data => this.returnmsg1 = data,
- //    err => console.log('foo'),
-//     () => console.log('return data',this.returnmsg1.status)
-//   );
-//   console.log('return data',this.returnmsg1.status);
-   //if(this.returnmsg1.status==200)
-  return true;
-//  this._router.navigate(['/lanselection']);
+  }
+  webRequest(scope,type,url,body,fun_id,loader){
+    switch(type)
+    {
+      case 'get' :
+      { 
+        console.log('POST Method')
+        this.http.get(url)
+        .subscribe(
+         data =>  {
+         this.returnmsg = data.json();
+         scope.webresponse(fun_id,data);
+         },
+         err => console.log('failed'),
+         () => console.log('Success Return data:',this.returnmsg));
+        break;
+       }
+      case 'post' :{
+        console.log("GET Method");
+        this.http.post(url,body)
+        .subscribe(
+         data =>  {
+         this.returnmsg = data.json();
+         scope.webresponse(fun_id,data);
+         },
+         err => console.log('failed'),
+         () => console.log('Success Return data:',this.returnmsg));
+        break;}
+  }
   }
 
   checkCredentials() {

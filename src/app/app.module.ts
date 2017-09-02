@@ -23,6 +23,7 @@ import { ChapterComponent } from './chapter/chapter.component';
 import { RegisComponent } from './regis/regis.component';
 import { SmenuComponent } from './smenu/smenu.component';
 import { VideoComponent } from './video/video.component';
+import { WebresponseComponent } from './webresponse/webresponse.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { VideoComponent } from './video/video.component';
     ChapterComponent,
     RegisComponent,
     SmenuComponent,
-    VideoComponent
+    VideoComponent,
+    WebresponseComponent
   ],
   imports: [
     BrowserModule,
