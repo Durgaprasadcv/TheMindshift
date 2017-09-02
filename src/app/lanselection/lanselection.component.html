@@ -23,51 +23,42 @@
 
         </script> 
     
+	<md-sidenav-container class="example-container">
+			<md-sidenav #sidenav class="example-sidenav">
+				<md-nav-list>
+				  <a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
+			  </md-nav-list>
+		  </md-sidenav>
+		  <md-toolbar color="primary">
+		  <button md-icon-button (click)="sidenav.toggle()">
+			  <md-icon>menu</md-icon>
+		  </button>￼
+		  </md-toolbar>
+		  <div >
+				<div class="middle">
+					<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" >
+				</div>
+				<div class="division">
+				  <table class="lang">
+						<tr>
+						<th *ngFor="let i of returnmsg ">
+								<a [routerLink] = "['/bcarousel']">
+								  <img src="{{i.Lang_Img}}" alt="lan" class="lang_icon">
+							</a>
+						</th>
+					</tr>
+					<tr>
+						<th *ngFor="let i of returnmsg ">
+							  {{i.Lang_Tittle}}
+						</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		  
+		  </md-sidenav-container>
 
 
-<div >
-	<div class="middle">
-		<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" >
-	</div>
-	<div class="division">
-	  <table class="lang">
-	 		  <tr>
-	    	<th>
-      			<a [routerLink] = "['/bcarousel']"><img src="assets/images/kan.png"  class="lang_icon"></a>
-	    	</th>
-	   		<th>
-	  			<a [routerLink] = "['/bcarousel']"><img src="assets/images/hindi.png"  class="lang_icon" ></a>
-			</th>
-			<th>
-				<a [routerLink] = "['/bcarousel']"><img src="assets/images/eng.png"  class="lang_icon" ></a>
-			</th>
-			<th>
-				<a [routerLink] = "['/bcarousel']"><img src="assets/images/tam.png"  class="lang_icon" ></a>
-			</th>
-			<th>
-				<a [routerLink] = "['/bcarousel']"><img src="assets/images/telugu.png"   class="lang_icon"></a>
-			</th>
-		</tr>
-		<tr>
-			<th>
-	  			kannada
-	 		</th>
-	 		<th>
-	  			Hindi
-	 		</th>
-	 		<th>
-	  			English
-	 		</th>
-	 		<th>
-	  			Tamil
-	 		</th>
-	 		<th>
-	  			Telugu
-			 </th>
-			</tr>
-		</table>
-	</div>
-</div>
 
 </body>
 </html>	

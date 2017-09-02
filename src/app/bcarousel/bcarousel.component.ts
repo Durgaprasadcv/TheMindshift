@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import 'assets/external.js'
 declare var webGlObject: any;
-
-import { IProduct } from '../product';
 import { ProductService } from '../product.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -17,12 +15,31 @@ import 'rxjs/add/operator/map';
 })
 export class BcarouselComponent implements OnInit {
   name:string;
-  iproducts: IProduct[];
-constructor(private _product: ProductService,private _router: Router) {
+  public returnmsg;
+  public returnmsg_menu;
+  public initc = false;
+constructor(private _product: ProductService,private _router: Router,private http:Http) {
+  this.initc = false;
 }
   ngOnInit(): void {
-    webGlObject.init();
-    this._product.getproducts1()
-    .subscribe(iproducts => this.iproducts = iproducts);
+   // webGlObject.init();
+    this.http.get('http://lg.djitsoft.xyz/api/Banner_list1')
+    .subscribe(
+          data => {this.returnmsg = data.json();  },
+          err => console.log('failed'),
+         () => console.log('Success Return data:',this.returnmsg));
+    this.http.get('assets/json/product2.json')
+    .subscribe(
+           data => this.returnmsg_menu = data.json(),
+           err => console.log('failed'),
+          () => console.log('Success Return data:',this.returnmsg_menu));
  }
-  }
+ initcarousel(t) :void {
+ 
+   if(t && !this.initc)
+    {
+      webGlObject.init();
+      this.initc = true;
+    }
+ }
+ }

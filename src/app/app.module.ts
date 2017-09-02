@@ -22,6 +22,7 @@ import { PrserviceComponent } from './prservice/prservice.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { RegisComponent } from './regis/regis.component';
 import { SmenuComponent } from './smenu/smenu.component';
+import { VideoComponent } from './video/video.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SmenuComponent } from './smenu/smenu.component';
     PrserviceComponent,
     ChapterComponent,
     RegisComponent,
-    SmenuComponent
+    SmenuComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { SmenuComponent } from './smenu/smenu.component';
       { path: 'chapter', component:ChapterComponent },
       { path: 'regis', component:RegisComponent },
       { path: 'smenu', component:SmenuComponent },
+      { path: 'video', component:VideoComponent },
       { path: '', component: StrcarouselComponent },
       { path: '**', component: LoginComponent }
 ])

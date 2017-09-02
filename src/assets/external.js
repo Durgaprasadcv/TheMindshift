@@ -2,8 +2,6 @@ var webGlObject = (function() {
 return { 
     init: function() { 
    $(document).ready(function () {
-  //  $("#item-1").css("z-index"); 
-   // alert($('#item').css('zIndex'));
   var carousel = $("#carousel").waterwheelCarousel({
     flankingItems: 3,
     movingToCenter: function ($item) {

@@ -1,10 +1,7 @@
 <md-sidenav-container class="example-container">
   <md-sidenav #sidenav class="example-sidenav">
       <md-nav-list>
-      <a md-list-item  ><md-icon mdListIcon>home</md-icon>Home</a>
-      <a md-list-item  ><md-icon mdListIcon>folder</md-icon>Organization</a>
-      <a md-list-item  ><md-icon mdListIcon>folder</md-icon>Region</a>
-      <a md-list-item  ><md-icon mdListIcon>folder</md-icon>Create Desgination</a>
+        <a md-list-item *ngFor="let i of returnmsg " >{{i.mn}}</a>
     </md-nav-list>
 </md-sidenav>
 <md-toolbar color="primary">

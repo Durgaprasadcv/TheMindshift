@@ -1,20 +1,42 @@
-<div id="circleslider3">
-  <div class="viewport circleborder">
-    <ul class="overview">
-      <li><a  [routerLink] = "['/chapter']" ><img src="assets/images/hdr3.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr2.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr1.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr4.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr5.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']" ><img src="assets/images/hdr3.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr2.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr1.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr4.jpg" /></a></li>
-      <li><a [routerLink] = "['/chapter']"><img src="assets/images/hdr5.jpg" /></a></li>
-    </ul>
-  </div>
+<md-sidenav-container class="example-container">
+    <md-sidenav #sidenav class="example-sidenav">
+        <md-nav-list>
+          <a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
+      </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary">
+  <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon class="md-24" >menu</md-icon>
+  </button>￼
+  </md-toolbar>
+  <div id="circleslider3">
+      <div class="viewport circleborder">
+        <ul class="overview">
+           <!--
+            <li *ngFor="let i of returnmsg ">
+                <a [routerLink] = "['/video']">
+                  <img src="{{i.chp}}"/>
+                </a>
+            </li>
+          -->    
+          <!--
+            <li><a [routerLink] = "['/video']"><img src="{{returnmsg[0].chp}}" /></a></li>
+            <li><a [routerLink] = "['/video']"><img src="{{returnmsg[1].chp}}" /></a></li>
+            <li><a [routerLink] = "['/video']"><img src="{{returnmsg[2].chp}}" /></a></li>
+            <li><a [routerLink] = "['/video']"><img src="{{returnmsg[3].chp}}" /></a></li>
+            <li><a [routerLink] = "['/video']"><img src="{{returnmsg[4].chp}}" /></a></li>
+            -->
+         
+          <li><a [routerLink] = "['/video']"><img src="assets/images/hdr3.jpg" /></a></li>
+          <li><a [routerLink] = "['/video']"><img src="assets/images/hdr2.jpg" /></a></li>
+          <li><a [routerLink] = "['/video']"><img src="assets/images/hdr1.jpg" /></a></li>
+          <li><a [routerLink] = "['/video']"><img src="assets/images/hdr4.jpg" /></a></li>
+          <li><a [routerLink] = "['/video']"><img src="assets/images/hdr5.jpg" /></a></li>
+        
+        </ul>
+      </div>
+      <div class="dot" title="art"></div>
+      <div class="thumb"></div>
+    </div>
+  </md-sidenav-container>
 
-  <div class="dot" title="art"></div>
-  <div class="overlay"></div>
-  <div class="thumb"></div>
-</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../product';
 import { ProductService } from '../product.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -11,10 +10,13 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./strcarousel.component.css']
   })
 export class StrcarouselComponent implements OnInit {
-  iproducts: IProduct[];
-  constructor(private _product: ProductService) { }
+  public returnmsg1;
+  constructor(private _product: ProductService,private http:Http) { }
   ngOnInit() : void {
-    this._product.getproducts()
-    .subscribe(iproducts => this.iproducts = iproducts);
+    this.http.get('http://lg.djitsoft.xyz/api/Banner_list')
+    .subscribe(
+          data => this.returnmsg1 = data.json(),
+          err => console.log('failed'),
+          () => console.log('Success Return data:',this.returnmsg1));
  }
 }

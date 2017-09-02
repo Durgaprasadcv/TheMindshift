@@ -1,24 +1,39 @@
 <html>
 <head>
-<script src="assets/external.js"></script>
 <style type="text/css">
       
           html,body{width:auto;height:100%;margin: 0px;}
       </style>
 </head>
 <body>
-<div  >
-<div id="carousel">
-      <div>
-        <a> <img src="{{iproducts[0].Imag_Path}}" id="{{iproducts[0].Image_Act}}" class="ab1" /></a>
-      </div>
-      <div>
-        <a> <img src="{{iproducts[1].Imag_Path}}" id="{{iproducts[1].Image_Act}}" class="ab1"/></a>
-      </div>
-        <div>
-        <a> <img src="{{iproducts[2].Imag_Path}}" id="{{iproducts[2].Image_Act}}"  class="ab1"/></a>
-        </div>
-  </div>
-</div>
+    <md-sidenav-container class="example-container">
+        <md-sidenav #sidenav class="example-sidenav">
+            <md-nav-list>
+              <a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
+          </md-nav-list>
+      </md-sidenav>
+      <md-toolbar color="primary">
+      <button md-icon-button (click)="sidenav.toggle()">
+          <md-icon class="md-24" >menu</md-icon>
+      </button>￼
+      </md-toolbar>
+      <div  >
+          <div id="carousel">
+            
+            <span *ngFor="let i of returnmsg;let last= last;"  >
+            <img  src="{{i.Imag_Path}}" id="{{i.Image_Act}}" class="ab1" />
+            {{ last ? initcarousel(last):null }}
+          </span>
+            <!--
+                 <img src="assets/images/corousel/1.png" id="item-1" class="ab1" />
+                 <img src="assets/images/corousel/2.png" id="item-2" class="ab1"/>
+                 <img src="assets/images/corousel/3.png" id="item-3"  class="ab1"/>
+                -->  
+                    
+          </div>
+          </div>
+      </md-sidenav-container>
+
+
 </body>
 </html>

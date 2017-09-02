@@ -1,16 +1,13 @@
 [{
-    "ImgID": "item-1",
-    "Imgurl": "assets/images/Poster 5.jpg",
-     "act": "active"
+    "Imag_Path": "assets/images/Poster 5.jpg",
+     "Image_Act": "active"
  },
  
  {
-    "ImgID": "item-2",
-    "Imgurl": "assets/images/Poster 6.jpg",
-    "act": ""
+    "Imag_Path": "assets/images/Poster 6.jpg",
+    "Image_Act": ""
  },
  {
-    "ImgID": "item-3",
-    "Imgurl": "assets/images/Poster 4.1.jpg",
-    "act": ""
+    "Imag_Path": "assets/images/Poster 4.1.jpg",
+    "Image_Act": ""
  }]
