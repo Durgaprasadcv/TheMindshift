@@ -11,5 +11,11 @@ export class VideoComponent implements OnInit {
 
   ngOnInit() {
   }
+  public open(video)
+  {
+  //alert('hai');
+    var video1 = document.getElementById("Video1");
+   var button = document.getElementById("buttonbar");
+  }
 
 }
