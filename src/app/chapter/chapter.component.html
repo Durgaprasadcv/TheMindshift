@@ -15,7 +15,7 @@
            
           <li *ngFor="let i of returnmsg;let last= last;"  >
              <a [routerLink] = "['/video']">
-              <img src="{{i.chp}}"/>
+              <img src="{{i.image_url}}"/>
             </a>
           {{ last ? initcarousel(last):null }}
           </li>

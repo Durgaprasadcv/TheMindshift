@@ -25,7 +25,7 @@ export class ChapterComponent implements OnInit {
     //this._service.webRequest(this,'post',`http://lg.djitsoft.xyz/api/RequestOTP`,body,'123','');
     //console.log('in chapter',this.r1)
     //webGlObject1.init();
-   this.http.get('assets/json/product1.json')
+   this.http.get('http://lg.djitsoft.xyz/api/TestModuleDetails?modul_id=1')
     .subscribe(
           data => this.returnmsg = data.json(),
           err => console.log('failed'),
