@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
   selector: 'app-bcarousel',
   templateUrl: './bcarousel.component.html',
   providers: [ProductService],
-  styleUrls: ['./bcarousel.component.css']
+  styleUrls: ['./bcarousel.component.less','./bcarousel.component.css']
 })
 export class BcarouselComponent implements OnInit {
   name:string;
@@ -22,7 +22,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
   this.initc = false;
 }
   ngOnInit(): void {
-   // webGlObject.init();
+    webGlObject.init();
     this.http.get('http://lg.djitsoft.xyz/api/ListTestModules')
     .subscribe(
           data => {this.returnmsg = data.json();  },

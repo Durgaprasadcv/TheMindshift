@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+	
+	
+	<link rel="stylesheet" href="assets/css/angular-material.min.css">	
+	<link rel="stylesheet" href="assets/css/font-awesome.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">	
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	
+	
+	<link href="assets/css/toastr.css" rel="stylesheet"/>	
+<link href="assets/css/style.css" rel="stylesheet"></script>
+
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel="stylesheet" href="assets/css/angular-material.css">
+<link rel="stylesheet" href="assets/css/material.indigo-blue.min.css">
+<link href="newassets/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+<link href="newassets/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+<link href="newassets/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+<link href="newassets/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">        
+<link href="newassets/vendors/bower_components/google-material-color/dist/palette.css" rel="stylesheet">
+
+<!-- CSS -->
+<link href="newassets/css/app.min.1.css" rel="stylesheet">
+<link href="newassets/css/app.min.2.css" rel="stylesheet"> 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel="stylesheet" href="assets/css/angular-material.css">
+<link rel="stylesheet" href="assets/css/material.indigo-blue.min.css">
+<link rel="stylesheet" href="assets/css/uploadvideo.css">
+<link rel="stylesheet" href="materials/usercss.css"/>
+<link rel="stylesheet" href="materials/fileuplode.css"/>
+
+<script src="assets/js/jquery.countdown360.js" type="text/javascript" charset="utf-8"></script>	
+<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
+</head>
+<body data-ma-header="teal" ng-app="MyApp">
+	<div ng-controller="AppCtrl">
+		
+        <header id="header" class="media">
+			
+			
+            <div class="pull-left h-logo">
+				<center> <a class="hidden-xs">
+                    Mindshift  
+                    <small>Training App</small>
+				</a></center>
+                
+                <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
+                    <div class="mc-wrap">
+                        <div class="mcw-line top palette-White bg"></div>
+                        <div class="mcw-line center palette-White bg"></div>
+                        <div class="mcw-line bottom palette-White bg"></div>
+					</div>
+				</div>
+			</div>
+			
+            <ul class="pull-right h-menu">
+                <li class="hm-alerts" data-user-alert="sua-messages" data-ma-action="sidebar-open" data-ma-target="user-alerts">
+                    <a href="#"><i class="hm-icon zmdi zmdi-notifications"></i></a>
+				</li>
+                <li class="dropdown hm-profile">
+                    <a data-toggle="dropdown" href="#">
+                        <img src="img/profile-pics/1.jpg" alt="">
+					</a>
+                    
+                    <ul class="dropdown-menu pull-right dm-icon">
+                        <li>
+							<a href="#view_profile"><i class="zmdi zmdi-account"></i> View Profile</a>
+						</li>
+						
+						<li>
+							<a href="#reset_pass"><i class="zmdi zmdi-account"></i>Reset Password</a>
+						</li>
+						
+                        <li>
+                            <a href="login.html"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+						</li>
+					</ul>
+				</li>
+			</ul>        
+		</header>
+		
+        <section id="main">
+            <aside id="s-user-alerts" class="sidebar">
+                <ul class="tab-nav tn-justified tn-icon m-t-10" data-tab-color="teal">
+                    <li><a class="sua-messages" href="#sua-messages" data-toggle="tab"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a class="sua-notifications" href="#sua-notifications" data-toggle="tab"><i class="zmdi zmdi-notifications"></i></a></li>
+                    <li><a class="sua-tasks" href="#sua-tasks" data-toggle="tab"><i class="zmdi zmdi-view-list-alt"></i></a></li>
+				</ul>
+			</aside>
+			
+            <aside id="s-main-menu" class="sidebar">
+                <div class="smm-header">
+                    <i class="zmdi zmdi-long-arrow-left" data-ma-action="sidebar-close"></i>
+				</div>
+                <ul class="main-menu">
+					
+					<ul class="main-menu">
+						<li data-ma-action="sidebar-close">						
+							<a href="#view">Home</a>
+						</li>	
+						<li data-ma-action="sidebar-close">						
+							<a href="#testpreview">Create Test</a>
+						</li>
+						<li data-ma-action="sidebar-close">						
+							<a href="#Createuser">Create User</a>
+						</li>
+						<!--<li data-ma-action="sidebar-close">						
+							<a href="#createorg">Organization</a>
+						</li>	
+						<li data-ma-action="sidebar-close">						
+							<a href="#createRegion">Region</a>
+						</li>							
+						<li data-ma-action="sidebar-close">						
+							<a href="#createdesig">Create Desgination</a>
+						</li>	
+						<li data-ma-action="sidebar-close">						
+							<a href="#testpreview">Create Test</a>
+						</li>	
+						<li data-ma-action="sidebar-close">						
+							<a href="#Createuser">Create User</a>
+						</li>	-->
+						
+						<!-- <li data-ma-action="sidebar-close">						
+							<a href="#CreateTest">Create</a>
+						</li> -->	
+						
+						<!-- <li data-ma-action="sidebar-close">						
+							<a href="#testCreate">Create Test</a>
+						</li>	 -->
+						
+						
+						<!--<li data-ma-action="sidebar-close">						
+							<a href="#createzone">Create Zone</a>
+						</li>						
+						<li data-ma-action="sidebar-close">						
+							<a href="#createdept">Create Department</a>
+						</li>					
+						<li data-ma-action="sidebar-close">						
+							<a href="#createvenue">Create Venue</a>
+						</li>					
+						<li data-ma-action="sidebar-close">						
+							<a href="#createvenue-link">Create Venue-Link</a>
+						</li>						
+						<li data-ma-action="sidebar-close">						
+							<a href="#creategroup">Create Group</a>
+						</li>
+						<li data-ma-action="sidebar-close">						
+							<a href="#Group_type">Group Type</a>
+						</li>
+						<li data-ma-action="sidebar-close">						
+							<a href="#AssignTest">Assign Test</a>
+						</li>-->
+						<!-- <li class="sub-menu">
+							<a data-ma-action="submenu-toggle">View Reports</a>
+							<ul>
+                            <li data-ma-action="sidebar-close"><a href="#staff_report">Staff</a></li>
+                            <li data-ma-action="sidebar-close"><a href="#department_report">Department</a></li>
+                            <li data-ma-action="sidebar-close"><a href="#">Region</a></li>
+                            <li data-ma-action="sidebar-close"><a href="#">Zone</a></li>
+                            <li data-ma-action="sidebar-close"><a href="#">Organisation</a></li>                          
+							</ul>
+						</li>-->
+						
+						
+						<li data-ma-action="sidebar-close">						
+							<a href="#TakeTest">Take Test</a>
+						</li>
+						 <li  data-ma-action="sidebar-close">						
+							<a href="#Allreport">All Report</a>
+						</li> 
+						
+						<li class="sub-menu">
+							<a data-ma-action="submenu-toggle">Category Reports</a>
+							<ul>
+								<li data-ma-action="sidebar-close"><a href="#catReports">C</a></li>
+								<li data-ma-action="sidebar-close"><a href="#catReports">C++</a></li>
+								<li data-ma-action="sidebar-close"><a href="#catReports">JAVA</a></li>                      
+							</ul>
+						</li>
+						
+						<li  data-ma-action="sidebar-close">						
+							<a href="#Departmentdetails">Department-details</a>
+						</li>
+						<li  data-ma-action="sidebar-close">						
+							<a href="#Uploadvideo">Upload Video</a>
+						</li>
+					</ul>
+				</ul>
+			</aside>
+			
+            <section id="content">
+				<div class="container">
+					<div class="card">					
+						<div class="card-body">
+							<center><div ng-view></div></center>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+		</section>
+		
+	</div>
+</body>
+		
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ 	<script src="assets/angular.min.js"></script>	  
+	<script src="assets/js/angular-material.min.js"></script>
+	<script src="assets/js/angular-animate.min.js"></script>	
+	<script src="assets/js/angular-aria.min.js"></script>
+	<script src="assets/js/angular-messages.min.js"></script>
+<script src="js/material/angular-route.min.js"></script>
+	<script src="assets/js/ngStorage.min.js"></script>		
+	<script src="assets/js/jquery-ui.min.js"></script>	
+	<script src="assets/js/toastr.js"></script>	
+	<script src="assets/js/Chartmy.js"></script>
+        <script src="newassets/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="newassets/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="newassets/vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="newassets/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+        <script src="newassets/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+        <script src="newassets/vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+
+        <script src="newassets/vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="newassets/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="newassets/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+        <script src="newassets/vendors/sparklines/jquery.sparkline.min.js"></script>
+        <script src="newassets/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+      
+		
+		<script src="assets/js/ui-bootstrap-tpls-0.6.0.js"> </script>
+		<script src="assets/js/svg-assets-cache.js"></script>	
+		<script src="assets/js/ng-file-upload.min.js"></script>
+		
+	<!--pagination-->
+	<script src="assets/js/pagination.js"></script>
+	<script src="assets/js/dataGrid.js"></script>
+	
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="assets/css/angular-material.css">
+    <link rel="stylesheet" href="assets/css/material.indigo-blue.min.css">
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/k/dirPagination.js"></script>
+	
+
+<!-- ngVideo! -->
+<script type="text/javascript" src="js/ng-video.js"></script>
+<!-- Angular app! -->
+<script src="assets/js/chart.js/Chart.min.js"></script>
+<script src="assets/js/chart.js/angular-chart.min.js"></script>
+
+<script language="javascript" src="models/global/webrequest.js"></script>
+	<script language="javascript" src="models/global/constant.js"></script>
+	<script language="javascript" src="models/global/global.js"></script>
+
+	<script type="text/javascript" src="js/ng-video.js"></script>
+	<script type="text/javascript" src="js/Default.js"></script>
+	<script type="text/javascript" src="js/Seekable.js"></script>	
+
+<script src="models/app.js"></script>
+<script src="models/MyApp.js"></script>
+<script src="models/CreateOrgcontroller.js"></script>
+<script src="models/CreateRegioncontroller.js"></script>
+<script src="models/CreateDesigcontroller.js"></script>
+<script src="models/usercontroller.js"></script>
+<script src="models/CreateZone.js"></script>
+<script src="models/CreateDeptcontroller.js"></script>
+<script src="models/CreateVenuecontroller.js"></script>
+<script src="models/venuelinkController.js"></script>
+<script src="models/CreateGroupcontroller.js"></script>
+<script src="models/AssigntestController.js"></script>
+<script src="models/uploadvideos.js"></script>
+<script src="models/GroupTypeController.js"></script>
+<script src="models/reset_pass_controller.js"></script>
+<script src="models/profile_Controller.js"></script>
+<script src="models/testcontroller.js"></script>
+<script src="models/Videoreport.js"></script>
+<script src="models/VideoController.js"></script>
+	
+        <script src="newassets/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="newassets/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="newassets/vendors/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+		
+		<script src="newassets/vendors/bootgrid/jquery.bootgrid.updated.min.js"></script>
+		<script src="newassets/js/actions.js"></script>     
+		<script src="newassets/js/functions.js"></script>
+		<script src="newassets/js/demo.js"></script>
+	
+
+	
+  
+<!-- Mirrored from byrushan.com/projects/mae/1-0/index.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 12 Nov 2016 07:46:39 GMT -->
+</html>
