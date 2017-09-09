@@ -1,5 +1,5 @@
 <md-sidenav-container class="example-container">
-	<md-sidenav #sidenav class="example-sidenav">
+	<!--<md-sidenav #sidenav class="example-sidenav">
 		<md-nav-list>
 			<a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
 		</md-nav-list>
@@ -8,10 +8,22 @@
 		<button md-icon-button (click)="sidenav.toggle()">
 			<md-icon>menu</md-icon>
 		</button>￼
-	</md-toolbar><!-- -->
+	</md-toolbar> -->
 	<div class="container">
-			<div fxLayout="row" fxLayoutAlign="space-around center" class="content">
-					<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" fxFlex>
+			<div fxLayout="column" fxLayoutAlign="space-around center" class="content">
+					<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" style="margin-bottom:10%" fxFlex>
+			<div flex>
+					<div layout-xs="column" layout-sm="column"  layout="row" class="lang_selection" >
+						 <div layout-xs="row" layout-sm="row"  layout="column" class="blocks" *ngFor="let i of returnmsg" link="black" flex>
+								<div flex><a [routerLink] = "['/bcarousel']" link="black">
+							<div flex><img src="{{i.Lang_Img}}" alt="language" style="max-width:20%;margin-left:40%"></div>
+							<div flex><h6  style="text-align:center;color:black;">
+								{{i.Lang_Tittle}}
+							</h6></div>
+						</a></div>
+						</div>
+					</div>
+		</div>
 			</div>
 	</div><!--
 	<div style="border-style: solid;" class="division">
@@ -30,21 +42,7 @@
 			</tr>
 		</table>
 		</div>-->
-		<br>
-		<br>
-		<br>
 
-		<div style="margin-left:15%">
-					<div style="display: flex;flex-wrap: wrap;" >
-						 <div class="blocks" *ngFor="let i of returnmsg" link="black">
-								<a [routerLink] = "['/bcarousel']" link="black">
-							<img src="{{i.Lang_Img}}" alt="language" style="max-width:20%;margin-left:40%">
-							<h6  style="text-align:center;color:black;">
-								{{i.Lang_Tittle}}
-							</h6>
-						</a>
-						</div>
-					</div>
-		</div>
+		
 		  
 </md-sidenav-container>

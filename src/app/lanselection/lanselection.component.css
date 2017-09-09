@@ -130,3 +130,16 @@ text-align: center;}
 .example-sidenav {
   padding: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .lang_selection
+  {
+    display: block;
+  }
+}
+@media screen and (min-width: 601px) {
+  .lang_selection
+  {
+    display: flex;
+  }
+}
