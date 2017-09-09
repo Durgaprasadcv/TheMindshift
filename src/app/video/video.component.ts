@@ -24,7 +24,8 @@ export class VideoComponent implements OnInit {
   name: string;
   resl;
   z;
-  returnmsg1
+  returnmsg1;
+ timerinstance ;
   seasons = [
     {
       "id":1,
@@ -37,7 +38,6 @@ export class VideoComponent implements OnInit {
   ];
   constructor(private _router: Router,public dialog: MdDialog,private http:Http) { }
 ngOnInit() {
-
   const body = {user_id:'32'};
 
   this.http.post('http://lg.djitsoft.xyz/api/gettest',body)
@@ -47,6 +47,7 @@ ngOnInit() {
         () =>{
           console.log('Success Return data:',this.returnmsg1.test[0].no_of_questions)
     let timer = Observable.timer(1000,1000);
+    console.log(this.returnmsg1);
     this.j=this.returnmsg1.test[0].no_of_questions;
     this.z=0;
     for(var i=0;i<this.returnmsg1.test[0].no_of_questions;i++)
@@ -56,7 +57,7 @@ ngOnInit() {
         console.log('Time',this.returnmsg1.test[0].question[this.z].Pause_time);
         console.log('Time',this.returnmsg1.test[0].question[1].Pause_time);
       }
-    timer.subscribe(t=>{this.ticks=this.ticks+1;
+    this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
     this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
    // console.log('Time',this.ticks1);
  if(this.j==this.z)
@@ -73,9 +74,11 @@ ngOnInit() {
         });
         dialogRef.afterClosed().subscribe(result => {
           this.resl= result;
-          this.api.getDefaultMedia().play();
+          //this.api.getDefaultMedia().play();
           console.log('The dialog was closed',this.resl);
-              this.api.getDefaultMedia().currentTime = this.returnmsg1.test[0].question[this.z]. Pause_time+1;
+          this.z++;
+             // this.api.getDefaultMedia().currentTime = this.returnmsg1.test[0].question[this.z].answers[0];
+            //  this.api.seekTime(this.returnmsg1.test[0].question[this.z].answers[0], false);
               this.api.getDefaultMedia().play();
         });
       
@@ -139,9 +142,12 @@ if(this.ticks1==4)
 }
  onPlayerReady(api:VgAPI) {
   this.api = api;
+  
+  this.api.fsAPI.enterElementInFullScreen;
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
     () => {
        this.api.getDefaultMedia().pause();
+       this.timerinstance.unsubscribe();
        this._router.navigate(['/bcarousel']);
     }
 );

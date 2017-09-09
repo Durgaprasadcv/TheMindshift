@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http , Response } from '@angular/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-lanselection',
   templateUrl: './lanselection.component.html',
@@ -8,7 +9,12 @@ import { Http , Response } from '@angular/http';
 export class LanselectionComponent implements OnInit {
   public returnmsg;
   public returnmsg_menu;
-  constructor(private http:Http) { }
+  constructor(private http:Http,private _router: Router) { 
+    if(localStorage.getItem("language"))
+    {
+      this._router.navigate(['/bcarousel']);
+    }
+  }
   ngOnInit() : void {
     this.http.get('http://lg.djitsoft.xyz/api/Language_Avilable')
     .subscribe(
@@ -21,6 +27,11 @@ export class LanselectionComponent implements OnInit {
            data => this.returnmsg_menu = data.json(),
            err => console.log('failed'),
            () => console.log('Success Return data:',this.returnmsg_menu));
+ }
+ selectlang(i)
+ {
+   localStorage.setItem("language", JSON.stringify(i));
+          this._router.navigate(['/bcarousel']);
  }
 }
 

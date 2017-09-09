@@ -17,6 +17,7 @@ export class AuthenticateService {
   constructor(private _router: Router,private http: Http) { }
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("language");
     this._router.navigate(['/login']);
   }
   sendmsg(user) {

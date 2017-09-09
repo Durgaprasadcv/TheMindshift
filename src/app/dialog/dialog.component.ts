@@ -14,7 +14,7 @@ export class DialogComponent implements OnInit {
     public dialogRef: MdDialogRef<DialogComponent>,
     @Inject(MD_DIALOG_DATA) public data: any) { }
     onNoClick(): void {
-          this.dialogRef.close(999);
+          this.dialogRef.close(this.favoriteSeason);
     }
    ngOnInit() {
     let timer = Observable.timer(1000,1000);

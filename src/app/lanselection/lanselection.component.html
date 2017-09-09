@@ -15,7 +15,7 @@
 			<div flex>
 					<div layout-xs="column" layout-sm="column"  layout="row" class="lang_selection" >
 						 <div layout-xs="row" layout-sm="row"  layout="column" class="blocks" *ngFor="let i of returnmsg" link="black" flex>
-								<div flex><a [routerLink] = "['/bcarousel']" link="black">
+								<div flex><a (click)="selectlang(i)"  link="black"><!--[routerLink] = "['/bcarousel']"-->
 							<div flex><img src="{{i.Lang_Img}}" alt="language" style="max-width:20%;margin-left:40%"></div>
 							<div flex><h6  style="text-align:center;color:black;">
 								{{i.Lang_Tittle}}

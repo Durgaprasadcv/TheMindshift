@@ -16,7 +16,12 @@ export class LoginComponent {
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
-  constructor(private _service:AuthenticateService,private _router: Router,private http: Http) { }
+  constructor(private _service:AuthenticateService,private _router: Router,private http: Http) { 
+    if(localStorage.getItem("user"))
+    {
+      this._router.navigate(['/lanselection']);
+    }
+  }
   sendmsg() {
       /*
       if(!this._service.sendmsg(this.user)) {
@@ -50,6 +55,7 @@ export class LoginComponent {
  this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body)
  .subscribe(
    data =>{ this.returnmsg1 = data.json();
+     localStorage.setItem("user", JSON.stringify(this.returnmsg1));
           this._router.navigate(['/lanselection']);},
        err => {console.log('failed');
        this.errorMsg2 = 'Failed to login! try again ...';
