@@ -94,18 +94,21 @@ form {
   margin: auto;
 }
 img.responsive-img, video.responsive-video {
-  position:absolute;
-  top:30%;
-  /* height: fit-content; */
+ /* position:absolute;
+  top:10%;
+   height: fit-content; 
+margin:0 40%;*/
+margin-top: 10%;
 max-width:20%;
-margin:0 40%;
 }
 
 .lang_icon {width:30%;
-text-align:center;}
+text-align:center;
+max-width:5%;}
 
-.division{position:absolute;
-top:68%;
+.division{
+position:absolute;
+top:20%;
 margin : 2% 20%;
 }
 

@@ -1,64 +1,50 @@
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Thirumalai-Window size</title>
-        <style type="text/css">
-        
-            html,body{height: 100%;margin: 0px;}
-        </style>
-    </head>
-    <body>
-        <div id="left"></div>
-        <script type="text/javascript">//<![CDATA[ 
-            function resize()
-            {
-                var heights = window.innerHeight;
-                document.getElementById("left").style.height = heights + "px";
-            }
-            resize();
-            window.onresize = function() {
-                resize();
-            };
-            //]]>  
-
-        </script> 
-    
-	<md-sidenav-container class="example-container">
-			<md-sidenav #sidenav class="example-sidenav">
-				<md-nav-list>
-				  <a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
-			  </md-nav-list>
-		  </md-sidenav>
-		  <md-toolbar color="primary">
-		  <button md-icon-button (click)="sidenav.toggle()">
-			  <md-icon>menu</md-icon>
-		  </button>￼
-		  </md-toolbar>
-		  <div >
-				<div class="middle">
-					<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" >
-				</div>
-				<div class="division">
-				  <table class="lang">
-						<tr>
-						<th *ngFor="let i of returnmsg ">
-								<a [routerLink] = "['/bcarousel']">
-								  <img src="{{i.Lang_Img}}" alt="lan" class="lang_icon">
-							</a>
-						</th>
-					</tr>
-					<tr>
-						<th *ngFor="let i of returnmsg ">
-							  {{i.Lang_Tittle}}
-						</th>
-						</tr>
-					</table>
-				</div>
+<md-sidenav-container class="example-container">
+	<md-sidenav #sidenav class="example-sidenav">
+		<md-nav-list>
+			<a md-list-item *ngFor="let j of returnmsg_menu " >{{j.mn}}</a>
+		</md-nav-list>
+	</md-sidenav>
+	<md-toolbar color="primary">
+		<button md-icon-button (click)="sidenav.toggle()">
+			<md-icon>menu</md-icon>
+		</button>￼
+	</md-toolbar><!-- -->
+	<div class="container">
+			<div fxLayout="row" fxLayoutAlign="space-around center" class="content">
+					<img src="assets/images/logo.png" alt="MindShift" class="responsive-img" fxFlex>
 			</div>
+	</div><!--
+	<div style="border-style: solid;" class="division">
+		<table class="lang">
+			<tr>
+				<th *ngFor="let i of returnmsg ">
+					<a [routerLink] = "['/bcarousel']">
+						<img src="{{i.Lang_Img}}" alt="lan" class="lang_icon">
+					</a>
+				</th>
+			</tr>
+			<tr>
+				<th *ngFor="let i of returnmsg ">
+					{{i.Lang_Tittle}}
+				</th>
+			</tr>
+		</table>
+		</div>-->
+		<br>
+		<br>
+		<br>
+
+		<div style="margin-left:15%">
+					<div style="display: flex;flex-wrap: wrap;" >
+						 <div class="blocks" *ngFor="let i of returnmsg" link="black">
+								<a [routerLink] = "['/bcarousel']" link="black">
+							<img src="{{i.Lang_Img}}" alt="language" style="max-width:20%;margin-left:40%">
+							<h6  style="text-align:center;color:black;">
+								{{i.Lang_Tittle}}
+							</h6>
+						</a>
+						</div>
+					</div>
+		</div>
 		  
-		  </md-sidenav-container>
-
-
-
-</body>
-</html>	
+</md-sidenav-container>

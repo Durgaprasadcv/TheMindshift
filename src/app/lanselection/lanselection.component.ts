@@ -14,7 +14,8 @@ export class LanselectionComponent implements OnInit {
     .subscribe(
           data => this.returnmsg = data.json(),
           err => console.log('failed'),
-          () => console.log('Success Return data:',this.returnmsg));
+          () => {console.log('Success Return data:',this.returnmsg),
+          console.log('length Return data:',this.returnmsg.length)});
    this.http.get('assets/json/product2.json')
   .subscribe(
            data => this.returnmsg_menu = data.json(),

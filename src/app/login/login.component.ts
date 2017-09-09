@@ -3,6 +3,7 @@ import {AuthenticateService} from "./loginService/authenticate.service";
 import {UserComponent} from "../user/user.component";
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
+import {MdInputModule} from '@angular/material';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

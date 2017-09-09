@@ -1,21 +1,103 @@
 import { Component, OnInit } from '@angular/core';
-
+import {VgAPI} from 'videogular2/core';
+import {Observable} from 'rxjs/Rx';
+import { Router } from '@angular/router';
+import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
+import {DialogComponent} from "../dialog/dialog.component";
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  title = 'app';
+  i=0;
+  preload:string = 'auto';
+  api:VgAPI;
+  ticks =0;
+  ticks1 =0;
+  target: any;
+  pausetime;
+  animal: string;
+  name: string;
+  resl;
+  seasons = [
+    {
+      "id":1,
+      "name":'op1'
+    },
+    {
+      "id":2,
+      "name":'op2'
+    }
+  ];
+  constructor(private _router: Router,public dialog: MdDialog) { }
+ngOnInit() {
+    let timer = Observable.timer(1000,1000);
+    timer.subscribe(t=>{this.ticks=this.ticks+1;
+    this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
+    console.log('Time system',this.ticks);
+    console.log('Time',this.ticks1);
+    if(this.ticks1==5)
+      this.api.getDefaultMedia().pause();
+    if(this.ticks1==4)
+    {
+      let dialogRef=this.dialog.open(DialogComponent, {
+        height: '220px',
+        width:'600px',
+        data: {name:'Would you like to continue?',seasons:this.seasons,timer:'15'}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.resl= result;
+        this.api.getDefaultMedia().play();
+        console.log('The dialog was closed',this.resl);
+        if (this.resl == 1) {
+             this.api.getDefaultMedia().currentTime = 20;
+           } 
+           else if(this.resl == 2) {
+           this.api.getDefaultMedia().currentTime = 15;
+           }
+           else if(this.resl == 999) {
+            this.api.getDefaultMedia().currentTime = 10;
+            }
+            else{
+              this.api.getDefaultMedia().currentTime = 6;
+            }
+      });
+    }
+    if(this.ticks1==25)
+      this.api.getDefaultMedia().pause();
+    if(this.ticks1==24)
+    {
+      let dialogRef=this.dialog.open(DialogComponent, {
+        height: '220px',
+        width:'600px',
+        data: {name:'Would you like to continue?',seasons:this.seasons,timer:'15'}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.resl= result;
+        if (this.resl == 1) {
+             this.api.getDefaultMedia().currentTime = 135;
+           } 
+           else if(this.resl == 2) {
+           this.api.getDefaultMedia().currentTime = 62;
+           }
+           else{
+            this.api.getDefaultMedia().currentTime = 26;
+           }
+           this.api.getDefaultMedia().play();
+      });
+    }
+  });
   }
-  public open(video)
-  {
-  //alert('hai');
-    var video1 = document.getElementById("Video1");
-   var button = document.getElementById("buttonbar");
+  onPlayerReady(api:VgAPI) {
+      this.api = api;
+      this.api.getDefaultMedia().subscriptions.ended.subscribe(
+        () => {
+           this.api.getDefaultMedia().pause();
+           this._router.navigate(['/bcarousel']);
+        }
+    );
   }
-
 }

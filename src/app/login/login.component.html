@@ -1,16 +1,22 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="content">
+        <img src="assets/images/logo.png" alt="MindShift" class="responsive-img" fxFlex>
+  </div>
+</div>
+<!--
  <div class="fb">
    <div class="f">
     <img src="assets/images/logo.png" alt="MindShift" class="responsive-img valign profile-image-login" >
-  </div>
-<div class="fa">
- <form role="form" [hidden]="login_page" (submit)="sendmsg()" id=example1><br>
-      <md-input-container>
-        <input mdInput placeholder="Moblie No" required [(ngModel)]="user.username" name="username">
-        </md-input-container>
-           <button md-raised-button color="warn" type="submit" name="action">Generate OTP</button><br><br>
-           <span id="err"><small>{{errorMsg1}}</small></span>
+  </div> -->
+<div>
+ <form [hidden]="login_page" (submit)="sendmsg()" class="fa"><br>
+      <md-form-field >
+        <input mdInput placeholder="Mobile no" required [(ngModel)]="user.username" name="username">
+      </md-form-field> <br>
+      <button md-raised-button color="warn" type="submit" name="action">Generate OTP</button><br><br>
+      <span id="err"><small>{{errorMsg1}}</small></span>
    </form >
-    <form role="form" [hidden]="!login_page" (submit)="login()"><br>
+  <form role="form" [hidden]="!login_page" (submit)="login()"class="fa"><br>
       <md-input-container>
         <input mdInput placeholder="Moblie No" required [(ngModel)]="user.username"  name="username" >
       </md-input-container><br><br>
@@ -19,7 +25,5 @@
       </md-input-container><br><br>
       <button md-raised-button color="warn" type="submit" name="action">LOGIN</button><br><br>
       <span id="err"><small>{{errorMsg2}}</small></span>
-      <md-slide-toggle color="primary"><small>Remember me!</small></md-slide-toggle>
-    </form >
-  </div>
- </div>
+  </form >
+</div>

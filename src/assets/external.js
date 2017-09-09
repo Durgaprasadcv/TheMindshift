@@ -18,7 +18,7 @@ return {
     },
     clickedCenter: function ($item) {
       $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-      location.href='/chapter'
+      location.href='/video'
     }
   });
 

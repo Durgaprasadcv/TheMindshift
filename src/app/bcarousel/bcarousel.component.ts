@@ -41,5 +41,5 @@ constructor(private _product: ProductService,private _router: Router,private htt
       webGlObject.init();
       this.initc = true;
     }
- }
+  }
  }
