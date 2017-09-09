@@ -29,6 +29,7 @@
     "hammerjs": "^2.0.8",
     "responsive-directives-angular2": "^0.4.2",
     "rxjs": "^5.4.1",
+    "sockjs": "^0.3.18",
     "videogular2": "^5.5.1",
     "zone.js": "^0.8.14"
   },
