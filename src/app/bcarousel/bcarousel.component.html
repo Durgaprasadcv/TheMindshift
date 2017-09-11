@@ -134,8 +134,8 @@
     <!-- Sidebar text -->
     <!--  <div class="sidebar-text">Text</div> -->
 </aside>
-  <div class="bord" >
-        <div class="container" >
+  <div class="bord"  >
+        <div style="width:100%;">
                 <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
@@ -164,12 +164,11 @@
                   </a>
                 </div>
               </div>
-              <br>
 <div class="bord" *ngFor="let i of returnmsg ">
   <a [routerLink] = "['/video']">
-      <img src="{{i.Imag_Path}}" alt="Carousel"width="50%">
+      <img src="{{i.Imag_Path}}" alt="Carousel"width="30%">
   </a>
-  <h5 style=" display: inline-block;"><pre> Test:{{i.Imag_Path}}</pre></h5>
+  <h6 style=" display: inline-block;"><pre>   Test:{{i.Imag_Path}}   </pre></h6>
 </div>
 </div>
 </md-sidenav-container>
