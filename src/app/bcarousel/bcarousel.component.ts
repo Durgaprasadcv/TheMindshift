@@ -23,6 +23,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
   this.initc = false;
 }
   ngOnInit(): void {
+    this._service.checkCredentials();
     webGlObject.init();
     this._product.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Banner_list`,'0','1','');
   /*  this.http.get('http://lg.djitsoft.xyz/api/Banner_list')
@@ -45,6 +46,11 @@ constructor(private _product: ProductService,private _router: Router,private htt
     }
   } logout():void {
     this._service.logout();
+}
+selectbcarousel(i)
+{
+  localStorage.setItem("bcarousel", JSON.stringify(i));
+  this._router.navigate(['/video']);
 }
 webresponse(fun_id,r2)
 {
