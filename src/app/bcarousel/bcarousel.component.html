@@ -118,57 +118,25 @@
                 <span class="sidebar-badge badge-circle">i</span>
             </a>
         </li>
+        <li>
+            <a href="#">
+                Follow Up
+                <span class="sidebar-badge badge-circle">i</span>
+            </a>
+        </li>
     </ul>
+    <div>
+    <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+  </div>
     <!-- Sidebar divider -->
     <!-- <div class="sidebar-divider"></div> -->
     
     <!-- Sidebar text -->
     <!--  <div class="sidebar-text">Text</div> -->
 </aside>
-
-<div class="wrapper">
-    <!-- Sidebar Constructor -->
-    <div class="constructor">
-        <h2 class="headline">Material Sidebar (Profile menu)</h2>
-        <p class="subhead">Based on <a href="https://www.google.com/design/spec/material-design/introduction.html" target="_blank">Material Design by Google</a>.</p>
-        <p>Icons from <a href="https://zavoloklom.github.io/material-design-iconic-font" target="_blank">Material Design Iconic Font</a></p>
-        <p>Tested on Win8.1 with browsers: Chrome 37,  Firefox 32, Opera 25, IE 11, Safari 5.1.7</p>
-        <hr />
-        <p>You can use this sidebar in Bootstrap (v3) projects. HTML-markup like <a href="https://getbootstrap.com/components/#navbar" target="_blank">Navbar bootstrap component</a> will make your work easier.</p>
-        <p>Dropdown menu and sidebar toggle button works with JQuery and Bootstrap.min.js</p>
-        <hr />
-        <h2 class="headline">Sidebar Constructor</h2>
-        <p>
-            <label for="sidebar-position">Sidebar postion</label>
-            <select id="sidebar-position" name="sidebar-position">
-                <option value="">Default</option>
-                <option value="sidebar-fixed-left">Float on left</option>
-                <option value="sidebar-fixed-right">Float on right</option>
-                <option value="sidebar-stacked">Stacked on left</option>
-            </select>
-        </p>
-        <p>
-            <label for="sidebar-theme">Sidebar theme</label>
-            <select id="sidebar-theme" name="sidebar-theme">
-                <option value="sidebar-default">Default</option>
-                <option value="sidebar-inverse">Inverse</option>
-                <option value="sidebar-colored">Colored</option>
-                <option value="sidebar-colored-inverse">Colored-Inverse</option>
-            </select>
-        </p>
-        <p>
-            <label for="sidebar-header">Sidebar header cover</label>
-            <select id="sidebar-header" name="sidebar-header">
-                <option value="header-cover">Image cover</option>
-                <option value="">Color cover</option>
-            </select>
-        </p>
-    </div>
-</div>
-  <div style="border-style: solid;border-color: red;height:100%;width:100%">
-    <div style="border-style: solid;border-color: green;height:50%;width:100%">
+  <div class="bord" >
         <div class="container" >
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"style="border-style: solid;border-color: green;height:50%;width:100%">
+                <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -178,15 +146,11 @@
               
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                      <img src="https://unsplash.it/1400/600?image=114">
-                    </div>
-                    <div class="item">
-                      <img src="https://unsplash.it/1400/600?image=622">
-                    </div>
-                    <div class="item">
-                      <img src="https://unsplash.it/1400/600?image=315">
-                    </div>
+                      <div *ngFor="let i of returnmsg " class="{{i.Image_Act}} item">
+                          <a [routerLink] = "['/video']">
+                            <img src="{{i.Imag_Path}}" alt="Carousel" class="ab">
+                          </a>
+                        </div>
                   </div>
               
                   <!-- Controls -->
@@ -199,9 +163,14 @@
                     <span class="sr-only">Next</span>
                   </a>
                 </div>
-              
               </div>
-    </div>
+              <br>
+<div class="bord" *ngFor="let i of returnmsg ">
+  <a [routerLink] = "['/video']">
+      <img src="{{i.Imag_Path}}" alt="Carousel"width="50%">
+  </a>
+  <h5 style=" display: inline-block;"><pre> Test:{{i.Imag_Path}}</pre></h5>
+</div>
 </div>
 
 </md-sidenav-container>

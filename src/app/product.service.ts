@@ -29,27 +29,27 @@ webRequest(scope,type,url,body,fun_id,loader){
   {
     case 'get' :
     { 
-      console.log('POST Method')
+      console.log('GET Method')
       this._http.get(url)
       .subscribe(
        data =>  {
        this.returnmsg = data.json();
        scope.webresponse(fun_id,data);
        },
-       err => console.log('failed'),
-       () => console.log('Success Return data:',this.returnmsg));
+       err => console.log(' web service:failed'),
+       () => console.log('web service:Success Return data:',this.returnmsg));
       break;
      }
     case 'post' :{
-      console.log("GET Method");
+      console.log("POST Method");
       this._http.post(url,body)
       .subscribe(
        data =>  {
        this.returnmsg = data.json();
        scope.webresponse(fun_id,data);
        },
-       err => console.log('failed'),
-       () => console.log('Success Return data:',this.returnmsg));
+       err => console.log('web service:failed'),
+       () => console.log('web service:Success Return data:',this.returnmsg));
       break;}
 }
 }

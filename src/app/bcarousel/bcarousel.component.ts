@@ -6,11 +6,12 @@ import { ProductService } from '../product.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {AuthenticateService} from "../login/loginService/authenticate.service";
 
 @Component({
   selector: 'app-bcarousel',
   templateUrl: './bcarousel.component.html',
-  providers: [ProductService],
+  providers: [ProductService,AuthenticateService],
   styleUrls: ['./bcarousel.component.less','./bcarousel.component.css']
 })
 export class BcarouselComponent implements OnInit {
@@ -18,12 +19,13 @@ export class BcarouselComponent implements OnInit {
   public returnmsg;
   public returnmsg_menu;
   public initc = false;
-constructor(private _product: ProductService,private _router: Router,private http:Http) {
+constructor(private _product: ProductService,private _router: Router,private http:Http,private _service:AuthenticateService) {
   this.initc = false;
 }
   ngOnInit(): void {
     webGlObject.init();
-    this.http.get('http://lg.djitsoft.xyz/api/ListTestModules')
+    this._product.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Banner_list`,'0','1','');
+  /*  this.http.get('http://lg.djitsoft.xyz/api/Banner_list')
     .subscribe(
           data => {this.returnmsg = data.json();  },
           err => console.log('failed'),
@@ -32,7 +34,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
     .subscribe(
            data => this.returnmsg_menu = data.json(),
            err => console.log('failed'),
-          () => console.log('Success Return data:',this.returnmsg_menu));
+          () => console.log('Success Return data:',this.returnmsg_menu));*/
  }
  initcarousel(t) :void {
  
@@ -41,5 +43,11 @@ constructor(private _product: ProductService,private _router: Router,private htt
       webGlObject.init();
       this.initc = true;
     }
-  }
+  } logout():void {
+    this._service.logout();
+}
+webresponse(fun_id,r2)
+{
+  this.returnmsg = r2.json();
+}
  }
