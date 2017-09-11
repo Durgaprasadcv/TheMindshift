@@ -1,17 +1,17 @@
 <div class="cars">
-<md-sidenav-container class="example-container">
-	<md-toolbar color="primary">
-		<button md-icon-button class="sidebar-toggle ">
+  <md-sidenav-container class="example-container">
+    <md-toolbar color="primary">
+      <button md-icon-button class="sidebar-toggle ">
 			<md-icon>menu</md-icon>
 		</button>￼
-	</md-toolbar>
-  <!-- Overlay for fixed sidebar -->
-<div class="sidebar-overlay"></div>
+    </md-toolbar>
+    <!-- Overlay for fixed sidebar -->
+    <div class="sidebar-overlay"></div>
 
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default open" role="navigation">
-    <!-- Sidebar header -->
-    <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
+    <!-- Material sidebar -->
+    <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default open" role="navigation">
+      <!-- Sidebar header -->
+      <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
         <!-- Top bar -->
         <div class="top-bar"></div>
         <!-- Sidebar toggle button -->
@@ -20,161 +20,161 @@
         </button>
         <!-- Sidebar brand image -->
         <div class="sidebar-image">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53474/atom_profile_01.jpg">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53474/atom_profile_01.jpg">
         </div>
         <!-- Sidebar brand name -->
         <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
             john.doe@gmail.com
             <b class="caret"></b>
         </a>
-    </div>
+      </div>
 
-    <!-- Sidebar navigation -->
-    <ul class="nav sidebar-nav">
+      <!-- Sidebar navigation -->
+      <ul class="nav sidebar-nav">
         <li class="dropdown">
-            <ul id="settings-dropdown" class="dropdown-menu">
-                <li>
-                    <a href="#" tabindex="-1">
+          <ul id="settings-dropdown" class="dropdown-menu">
+            <li>
+              <a href="#" tabindex="-1">
                         Profile
                     </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
+            </li>
+            <li>
+              <a href="#" tabindex="-1">
                         Settings
                     </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
+            </li>
+            <li>
+              <a href="#" tabindex="-1">
                         Help
                     </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
+            </li>
+            <li>
+              <a href="#" tabindex="-1">
                         Exit
                     </a>
-                </li>
-            </ul>
+            </li>
+          </ul>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 <i class="sidebar-icon md-inbox"></i>
                 Inbox
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 <i class="sidebar-icon md-star"></i>
                 Starred
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 <i class="sidebar-icon md-send"></i>
                 Sent Mail
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 <i class="sidebar-icon md-drafts"></i>
                 Drafts
             </a>
         </li>
         <li class="divider"></li>
         <li class="dropdown">
-            <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
+          <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
                 All Mail
                 <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#" tabindex="-1">
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#" tabindex="-1">
                         Social
                         <span class="sidebar-badge">12</span>
                     </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
+            </li>
+            <li>
+              <a href="#" tabindex="-1">
                         Promo
                         <span class="sidebar-badge">0</span>
                     </a>
-                </li>
-            </ul>
+            </li>
+          </ul>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 Trash
                 <span class="sidebar-badge">3</span>
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 Spam
                 <span class="sidebar-badge">456</span>
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 Follow Up
                 <span class="sidebar-badge badge-circle">i</span>
             </a>
         </li>
         <li>
-            <a href="#">
+          <a href="#">
                 Follow Up
                 <span class="sidebar-badge badge-circle">i</span>
             </a>
         </li>
-    </ul>
-    <div>
-    <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
-  </div>
-    <!-- Sidebar divider -->
-    <!-- <div class="sidebar-divider"></div> -->
-    
-    <!-- Sidebar text -->
-    <!--  <div class="sidebar-text">Text</div> -->
-</aside>
-  <div class="bord"  >
-        <div style="width:100%;">
-                <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  </ol>
-              
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner" role="listbox">
-                      <div *ngFor="let i of returnmsg " class="{{i.Image_Act}} item">
-                          <a [routerLink] = "['/video']">
+      </ul>
+      <div>
+        <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+      </div>
+      <!-- Sidebar divider -->
+      <!-- <div class="sidebar-divider"></div> -->
+
+      <!-- Sidebar text -->
+      <!--  <div class="sidebar-text">Text</div> -->
+    </aside>
+    <div class="bord">
+      <div style="width:100%;">
+        <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div *ngFor="let i of returnmsg " class="{{i.Image_Act}} item">
+              <a [routerLink]="['/video']">
                             <img src="{{i.Imag_Path}}" alt="Carousel" class="ab">
                           </a>
-                        </div>
-                  </div>
-              
-                  <!-- Controls -->
-                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                   </a>
-                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                   </a>
-                </div>
-              </div>
-<div class="bord" *ngFor="let i of returnmsg ">
-  <a [routerLink] = "['/video']">
-      <img src="{{i.Imag_Path}}" alt="Carousel"width="30%">
-  </a>
-  <h6 style=" display: inline-block;"><pre>   Test:{{i.Imag_Path}}   </pre></h6>
+        </div>
+      </div>
+      <div class="bord" *ngFor="let i of returnmsg ">
+        <a [routerLink]="['/video']">
+      <img src="{{i.Imag_Path}}" alt="Carousel"width="30%">  
+        <h6 style=" display: inline-block;"><pre>   Test Name   </pre></h6>
+        </a>
+      </div>
+    </div>
+  </md-sidenav-container>
 </div>
-</div>
-</md-sidenav-container>
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
   window.plugins.orientationLock.unlock();
-  
-  </script>
+
+</script>
