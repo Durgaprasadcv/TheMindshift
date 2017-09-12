@@ -55,6 +55,7 @@ import {
   MdTooltipModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
+import { VideoListsComponent } from './video-lists/video-lists.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     BcarouselComponent,
     VideoComponent,
     WebresponseComponent,
-    DialogComponent
+    DialogComponent,
+    VideoListsComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +91,7 @@ import {CdkTableModule} from '@angular/cdk/table';
       { path: 'bcarousel', component: BcarouselComponent },
       { path: 'video', component:VideoComponent },
       { path: 'dialog', component:DialogComponent },
+      { path: 'video-lists', component:VideoListsComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

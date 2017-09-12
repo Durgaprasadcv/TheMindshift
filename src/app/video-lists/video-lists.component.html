@@ -1,0 +1,15 @@
+<div>
+    <h1>Module Name</h1>
+    <h2>Module Description</h2>
+</div>
+<div *ngFor="let i of returnmsg;let last= last;">
+<div class="bord">
+  <pre>
+    Chapter ID:{{i.Chap_id}}
+    Module ID:{{i.modul_id}}
+    Chapter Title:{{i.Chap_tittle}}
+    Chapter Description:{{i.Chap_Des}}
+    <a (click)="selectvideolists(i)">click here to view video</a>
+  </pre>
+</div>
+</div>

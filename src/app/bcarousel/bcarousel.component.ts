@@ -40,7 +40,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
 selectbcarousel(i)
 {
   localStorage.setItem("bcarousel", JSON.stringify(i));
-  this._router.navigate(['/video']);
+  this._router.navigate(['/video-lists',i]);
 }
 webresponse(fun_id,r2)
 {
