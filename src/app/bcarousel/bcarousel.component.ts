@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import 'assets/external.js'
-declare var webGlObject: any;
+import 'assets/bcarousel.js'
+declare var bcarouselObject: any;
 import { ProductService } from '../product.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -24,14 +24,14 @@ constructor(private _product: ProductService,private _router: Router,private htt
 }
   ngOnInit(): void {
     this._service.checkCredentials();
-    webGlObject.init();
+    bcarouselObject.init();
     this._product.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Banner_list`,'0','1','');
  }
  initcarousel(t) :void {
  
    if(t && !this.initc)
     {
-      webGlObject.init();
+      bcarouselObject.init();
       this.initc = true;
     }
   } logout():void {
@@ -41,6 +41,11 @@ selectbcarousel(i)
 {
   localStorage.setItem("bcarousel", JSON.stringify(i));
   this._router.navigate(['/video-lists',i]);
+}
+selectcards(i)
+{
+  localStorage.setItem("bcarousel", JSON.stringify(i));
+  this._router.navigate(['/video']);
 }
 webresponse(fun_id,r2)
 {

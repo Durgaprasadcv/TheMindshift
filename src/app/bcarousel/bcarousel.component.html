@@ -166,7 +166,7 @@
       </div>
     <div class="bord">
       <div class="bord" *ngFor="let i of returnmsg ">
-        <a>
+        <a (click)="selectcards(i)">
       <img src="{{i.Imag_Path}}" alt="Carousel"width="30%">  
         <h6 style=" display: inline-block;"><pre>   Test Name   </pre></h6>
         </a>
