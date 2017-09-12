@@ -12,3 +12,13 @@
 .cars{
    max-width:100%;
 }
+
+.sidebar-toggle.mat-icon-button:focus
+{
+    background-color: rgba(255, 255, 255, 0);
+}
+.logout-badge
+{
+        color: #f44336 !important;
+    background-color:  rgba(255,255,255,.15) !important;
+}

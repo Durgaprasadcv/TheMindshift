@@ -1,4 +1,5 @@
-<vg-player (onPlayerReady)="onPlayerReady($event)">
+<div id='video_div'>
+  <vg-player (onPlayerReady)="onPlayerReady($event)">
   <vg-buffering></vg-buffering>
   <vg-controls>
         <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
@@ -12,10 +13,16 @@
   <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
       <source src="assets/video/Sales_story.mp4" type="video/mp4">
   </video>
-</vg-player><!--
+  
+</vg-player>
+</div><!--
 Ticks (every second) : {{ticks}}
 <br>
 Ticks (every second) : {{ticks1}}-->
 <script>
   window.plugins.orientationLock.lock("landscape");
+  var elem = document.getElementById("singleVideo");
+if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+}
   </script>

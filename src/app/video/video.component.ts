@@ -142,8 +142,9 @@ if(this.ticks1==4)
 }
  onPlayerReady(api:VgAPI) {
   this.api = api;
-  
-  this.api.fsAPI.enterElementInFullScreen;
+  //this.target = this.api.getMediaById();
+  //this.api.fsAPI.enterElementInFullScreen;
+  this.api.fsAPI.toggleFullscreen;
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
     () => {
        this.api.getDefaultMedia().pause();

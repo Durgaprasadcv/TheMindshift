@@ -3,7 +3,10 @@
   padding: 50px;
 
 }
-
+.langpage
+{
+  zoom:2;
+}
 .app-input-icon {
   font-size: 16px;
 }
@@ -99,7 +102,7 @@ img.responsive-img, video.responsive-video {
    height: fit-content; 
 margin:0 40%;*/
 margin-top: 10%;
-max-width:20%;
+max-width:35%;
 }
 
 .lang_icon {width:30%;
@@ -132,14 +135,14 @@ text-align: center;}
 }
 
 @media screen and (max-width: 600px) {
-  .lang_selection
+  /*.lang_selection
   {
     display: block;
-  }
+  }*/
 }
 @media screen and (min-width: 601px) {
-  .lang_selection
+  /*.lang_selection
   {
     display: flex;
-  }
+  }*/
 }

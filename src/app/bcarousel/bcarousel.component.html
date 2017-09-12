@@ -1,6 +1,6 @@
 <div class="cars">
   <md-sidenav-container class="example-container">
-    <md-toolbar color="primary">
+    <md-toolbar color="primary" >
       <button md-icon-button class="sidebar-toggle ">
 			<md-icon>menu</md-icon>
 		</button>￼
@@ -24,7 +24,7 @@
         </div>
         <!-- Sidebar brand name -->
         <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-            john.doe@gmail.com
+            vishal@mindshift.co.in
             <b class="caret"></b>
         </a>
       </div>
@@ -55,10 +55,10 @@
             </li>
           </ul>
         </li>
-        <li>
+       <!-- <li>
           <a href="#">
                 <i class="sidebar-icon md-inbox"></i>
-                Inbox
+                Test
             </a>
         </li>
         <li>
@@ -99,17 +99,23 @@
                     </a>
             </li>
           </ul>
-        </li>
+        </li>-->
         <li>
-          <a href="#">
-                Trash
+          <a >
+                Test
                 <span class="sidebar-badge">3</span>
             </a>
         </li>
         <li>
+          <a >
+                Results
+                <span class="sidebar-badge">10</span>
+            </a>
+        </li>
+       <!-- <li>
           <a href="#">
-                Spam
-                <span class="sidebar-badge">456</span>
+                Follow Up
+                <span class="sidebar-badge badge-circle">i</span>
             </a>
         </li>
         <li>
@@ -117,17 +123,12 @@
                 Follow Up
                 <span class="sidebar-badge badge-circle">i</span>
             </a>
-        </li>
-        <li>
-          <a href="#">
-                Follow Up
-                <span class="sidebar-badge badge-circle">i</span>
-            </a>
-        </li>
+        </li>-->
+         <li>
+        <a (click)="logout()">Logout <span class="sidebar-badge logout-badge"><md-icon>exit_to_app</md-icon></span></a>
+      </li>
       </ul>
-      <div>
-        <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
-      </div>
+     
       <!-- Sidebar divider -->
       <!-- <div class="sidebar-divider"></div> -->
 
