@@ -11,6 +11,7 @@
 }
 .cars{
    max-width:100%;
+   zoom:2.4;
 }
 
 .sidebar-toggle.mat-icon-button:focus
