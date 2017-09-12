@@ -26,16 +26,6 @@ constructor(private _product: ProductService,private _router: Router,private htt
     this._service.checkCredentials();
     webGlObject.init();
     this._product.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Banner_list`,'0','1','');
-  /*  this.http.get('http://lg.djitsoft.xyz/api/Banner_list')
-    .subscribe(
-          data => {this.returnmsg = data.json();  },
-          err => console.log('failed'),
-         () => console.log('Success Return data:',this.returnmsg));
-    this.http.get('assets/json/product2.json')
-    .subscribe(
-           data => this.returnmsg_menu = data.json(),
-           err => console.log('failed'),
-          () => console.log('Success Return data:',this.returnmsg_menu));*/
  }
  initcarousel(t) :void {
  

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
 import {DialogComponent} from "../dialog/dialog.component";
 import { Http , Response } from '@angular/http';
+//import 'assets/video.js'
+//declare var videoObject: any;
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
@@ -145,6 +147,11 @@ if(this.ticks1==4)
   //this.target = this.api.getMediaById();
   //this.api.fsAPI.enterElementInFullScreen;
   this.api.fsAPI.toggleFullscreen;
+  this.api.getDefaultMedia().subscriptions.loadedData.subscribe(
+    () => {
+   //   videoObject.init();
+    }
+);
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
     () => {
        this.api.getDefaultMedia().pause();

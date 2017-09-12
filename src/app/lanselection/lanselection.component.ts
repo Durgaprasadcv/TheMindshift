@@ -21,17 +21,6 @@ export class LanselectionComponent implements OnInit {
   ngOnInit() : void {
     this._service1.checkCredentials();
     this._service.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Language_Avilable`,'0','12','');
-   /* this.http.get('http://lg.djitsoft.xyz/api/Language_Avilable')
-    .subscribe(
-          data => this.returnmsg = data.json(),
-          err => console.log('failed'),
-          () => {console.log('Success Return data:',this.returnmsg),
-          console.log('length Return data:',this.returnmsg.length)});
-   this.http.get('assets/json/product2.json')
-  .subscribe(
-           data => this.returnmsg_menu = data.json(),
-           err => console.log('failed'),
-           () => console.log('Success Return data:',this.returnmsg_menu));*/
  }
  selectlang(i)
  {

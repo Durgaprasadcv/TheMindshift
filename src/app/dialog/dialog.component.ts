@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
-import {StrcarouselComponent} from "../strcarousel/strcarousel.component";
 import {Observable} from 'rxjs/Rx';
 @Component({
   selector: 'app-dialog',
