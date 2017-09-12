@@ -22,3 +22,7 @@
   width: 100%;
   height: 100%;
 }
+vg-player:fullscreen {
+            width:100% !important;
+            height:100% !important; 
+        }
