@@ -46,7 +46,11 @@ selectbcarousel(i)
 selectcards(j)
 {
  // localStorage.setItem("bcarousel", JSON.stringify(j));
-  this._router.navigate(['/video',j]);
+//  var str = Object.keys(j.video_path).map(function(key){ 
+//   return encodeURIComponent(key) + '=' + encodeURIComponent(j[key]); 
+// }).join('&');
+// console.log(str);
+  this._router.navigate(['/video']);
 }
 webresponse(fun_id,r2)
 {
