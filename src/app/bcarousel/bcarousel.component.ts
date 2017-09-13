@@ -17,7 +17,7 @@ import {AuthenticateService} from "../login/loginService/authenticate.service";
 export class BcarouselComponent implements OnInit {
   name:string;
   public returnmsg;
-  public returnmsg_menu;
+  public returnmsg1;
   public initc = false;
 constructor(private _product: ProductService,private _router: Router,private http:Http,private _service:AuthenticateService) {
   this.initc = false;
@@ -25,7 +25,8 @@ constructor(private _product: ProductService,private _router: Router,private htt
   ngOnInit(): void {
     this._service.checkCredentials();
     bcarouselObject.init();
-    this._product.webRequest(this,'get',`http://lg.djitsoft.xyz/api/Banner_list`,'0','1','');
+    const body = {user_id:'32'};
+    this._product.webRequest(this,'post',`http://lg.djitsoft.xyz/api/gettest`,body,'2','');
  }
  initcarousel(t) :void {
  
@@ -39,16 +40,18 @@ constructor(private _product: ProductService,private _router: Router,private htt
 }
 selectbcarousel(i)
 {
-  localStorage.setItem("bcarousel", JSON.stringify(i));
-  this._router.navigate(['/video-lists',i]);
+  //localStorage.setItem("bcarousel", JSON.stringify(i));
+  //this._router.navigate(['/video-lists',i]);
 }
-selectcards(i)
+selectcards(j)
 {
-  localStorage.setItem("bcarousel", JSON.stringify(i));
-  this._router.navigate(['/video']);
+ // localStorage.setItem("bcarousel", JSON.stringify(j));
+  this._router.navigate(['/video',j]);
 }
 webresponse(fun_id,r2)
 {
-  this.returnmsg = r2.json();
+  console.log("fid",fun_id,"data",r2.json());
+      this.returnmsg1 = r2.json();
+      console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
 }
- }
+}

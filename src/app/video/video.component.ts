@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {VgAPI} from 'videogular2/core';
+import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
 import {Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
 import {DialogComponent} from "../dialog/dialog.component";
 import { Http , Response } from '@angular/http';
-//import 'assets/video.js'
-//declare var videoObject: any;
+import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from '@angular/router';
+import 'assets/video.js'
+declare var videoObject: any;
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
@@ -26,6 +29,7 @@ export class VideoComponent implements OnInit {
   name: string;
   resl;
   z;
+  xxx=0;
   returnmsg1;
  timerinstance ;
   seasons = [
@@ -38,10 +42,17 @@ export class VideoComponent implements OnInit {
       "name":'op2'
     }
   ];
-  constructor(private _router: Router,public dialog: MdDialog,private http:Http) { }
+  constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
+  }
 ngOnInit() {
+  this.route.params.subscribe(params => {
+    //let id = Number.parseInt(params['id']);
+    //this.person = this.peopleService.get(id);
+    console.log('data from carousel route to video',params)
+  });
+ // videoObject.init();
+ // this.fullscreen();
   const body = {user_id:'32'};
-
   this.http.post('http://lg.djitsoft.xyz/api/gettest',body)
   .subscribe(
         data => this.returnmsg1 = data.json(),
@@ -142,6 +153,11 @@ if(this.ticks1==4)
   }*/
 });
 }
+fullscreen()
+{
+  document.getElementById("demo").innerHTML = "full screen function called!"
+  this.api.fsAPI.toggleFullscreen();
+}
  onPlayerReady(api:VgAPI) {
   this.api = api;
   //this.target = this.api.getMediaById();
@@ -149,7 +165,10 @@ if(this.ticks1==4)
   this.api.fsAPI.toggleFullscreen;
   this.api.getDefaultMedia().subscriptions.loadedData.subscribe(
     () => {
+      this.api.fsAPI.toggleFullscreen();
    //   videoObject.init();
+        this.fullscreen();
+     //   $ ('#button_id').click();
     }
 );
   this.api.getDefaultMedia().subscriptions.ended.subscribe(

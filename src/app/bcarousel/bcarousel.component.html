@@ -146,10 +146,14 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div *ngFor="let i of returnmsg " class="{{i.Image_Act}} item">
-              <a (click)="selectbcarousel(i)">
-                            <img src="{{i.Imag_Path}}" alt="Carousel" class="ab">
-                          </a>
+            <div class="active item">
+           <img src="assets/images/Poster 5.jpg" alt="Carousel" class="ab">
+            </div>
+            <div class="item">
+                <img src="assets/images/Poster 6.jpg" alt="Carousel" class="ab">
+                 </div>
+            <div class="item">
+                 <img src="assets/images/Poster 4.1.jpg" alt="Carousel" class="ab">
             </div>
           </div>
 
@@ -165,10 +169,10 @@
         </div>
       </div>
     <div class="bord">
-      <div class="bord" *ngFor="let i of returnmsg ">
-        <a (click)="selectcards(i)">
-      <img src="{{i.Imag_Path}}" alt="Carousel"width="30%">  
-        <h6 style=" display: inline-block;"><pre>   Test Name   </pre></h6>
+      <div class="bord" *ngFor="let i of returnmsg1.test ">
+        <a (click)="selectcards(i)"> 
+        <img src="{{i.test_image}}" alt="Carousel"width="30%">  
+        <h6 style=" display: inline-block;"><pre>{{i.test_name}}</pre></h6>
         </a>
       </div>
     </div>

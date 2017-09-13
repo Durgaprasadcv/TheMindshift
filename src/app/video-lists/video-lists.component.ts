@@ -16,7 +16,7 @@ export class VideoListsComponent implements OnInit {
     this.route.params.subscribe(params => {
       //let id = Number.parseInt(params['id']);
       //this.person = this.peopleService.get(id);
-      console.log('route',params['Image_Act'])
+      console.log('data from carousel route to videolist',params)
     });
     this._service.webRequest(this,'post',`http://lg.djitsoft.xyz/api/TestModuleDetails?modul_id=1`,'0','123','');
   }
