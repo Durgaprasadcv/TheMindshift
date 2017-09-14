@@ -10,15 +10,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VideoListsComponent implements OnInit {
  returnmsg;
+ id_received;
   constructor(private _service:ProductService,private _router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.id_received=id
+    //this.video_path_html=this.returnmsg1.test[id].video_path;
+    console.log('data from carousel route to video',id)
+    //this.route.params.subscribe(params => {
       //let id = Number.parseInt(params['id']);
       //this.person = this.peopleService.get(id);
-      console.log('data from carousel route to videolist',params)
-    });
-    this._service.webRequest(this,'post',`http://lg.djitsoft.xyz/api/TestModuleDetails?modul_id=1`,'0','123','');
+      //console.log('data from carousel route to videolist',params)
+   // });
+   const body = {user_id:'32'};
+   this._service.webRequest(this,'post',`http://lg.djitsoft.xyz/api/gettest`,body,'123','');
   }
   webresponse(fun_id,r2)
   {
@@ -27,7 +33,8 @@ export class VideoListsComponent implements OnInit {
   }
   selectvideolists(i)
   {
+    let id = i;
     localStorage.setItem("videolist", JSON.stringify(i));
-           this._router.navigate(['/video']);
+           this._router.navigate(['/video',id]);
   }
 }
