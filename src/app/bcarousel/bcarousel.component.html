@@ -169,8 +169,8 @@
         </div>
       </div>
     <div *ngIf="returnmsg1" class="bord">
-      <div class="bord"  *ngFor="let i of returnmsg1.test ">
-        <a (click)="selectcards(i)"> 
+      <div class="bord"  *ngFor="let i of returnmsg1.test  let ia = index">
+        <a (click)="selectcards(ia)"> 
         <img src="{{i.test_image}}" alt="Carousel"width="30%">  
         <h6 style=" display: inline-block;text-align:center;">{{i.test_name}}</h6>
         </a>

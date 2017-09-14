@@ -50,12 +50,17 @@ selectcards(j)
 //   return encodeURIComponent(key) + '=' + encodeURIComponent(j[key]); 
 // }).join('&');
 // console.log(str);
-  this._router.navigate(['/video']);
+  this.returnmsg=j;
+  let id = this.returnmsg;
+  this._router.navigate(['/video',id]);
+  console.log(j);
+  console.log(this.returnmsg);
 }
 webresponse(fun_id,r2)
 {
-  console.log("fid",fun_id,"data",r2.json());
+//  console.log("fid",fun_id,"data",r2.json());
       this.returnmsg1 = r2.json();
-      console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
+    //  console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
 }
 }
+836484

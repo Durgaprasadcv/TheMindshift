@@ -31,7 +31,11 @@ export class VideoComponent implements OnInit {
   z;
   xxx=0;
   returnmsg1;
- timerinstance ;
+  returnmsg2;
+ timerinstance;
+ video_path_html;
+  art='aaaa';
+  isValid = false;
   seasons = [
     {
       "id":1,
@@ -45,11 +49,16 @@ export class VideoComponent implements OnInit {
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
+  let id = this.route.snapshot.paramMap.get('id');
+  //this.video_path_html=this.returnmsg1.test[id].video_path;
+  console.log('data from carousel route to video',id)
+  /*
   this.route.params.subscribe(params => {
     //let id = Number.parseInt(params['id']);
     //this.person = this.peopleService.get(id);
-    console.log('data from carousel route to video',params)
-  });
+    this.returnmsg2=params;
+    console.log('data from carousel route to video',this.returnmsg2)
+  });*/
  // videoObject.init();
  // this.fullscreen();
   const body = {user_id:'32'};
@@ -58,32 +67,35 @@ ngOnInit() {
         data => this.returnmsg1 = data.json(),
         err => console.log('failed'),
         () =>{
-          console.log('Success Return data:',this.returnmsg1.test[0].no_of_questions)
+          this.isValid = true;
+          this.video_path_html=this.returnmsg1.test[id].video_path;
+          console.log('Success Return data id:',this.returnmsg1.test[id].video_path);
+          console.log('Success Return data:',this.returnmsg1.test[id].no_of_questions);
     let timer = Observable.timer(1000,1000);
-    console.log(this.returnmsg1);
-    this.j=this.returnmsg1.test[0].no_of_questions;
+    this.j=this.returnmsg1.test[id].no_of_questions;
     this.z=0;
+    /*
     for(var i=0;i<this.returnmsg1.test[0].no_of_questions;i++)
       {
         console.log('Time',this.returnmsg1.test[0].question[0].question_title);
         console.log('Time',this.returnmsg1.test[0].question[1].question_title);
         console.log('Time',this.returnmsg1.test[0].question[this.z].Pause_time);
         console.log('Time',this.returnmsg1.test[0].question[1].Pause_time);
-      }
+      }*/
     this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
     this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
    // console.log('Time',this.ticks1);
  if(this.j==this.z)
   { }
  else {
-    { if((this.returnmsg1.test[0].question[this.z]. Pause_time)==this.ticks1)
+    { if((this.returnmsg1.test[id].question[this.z]. Pause_time)==this.ticks1)
       this.api.getDefaultMedia().pause();
-      if((this.returnmsg1.test[0].question[this.z]. Pause_time-1)==this.ticks1)
+      if((this.returnmsg1.test[id].question[this.z]. Pause_time-1)==this.ticks1)
         {
           let dialogRef=this.dialog.open(DialogComponent, {
             height: '220px',
             width:'700px', 
-            data: {name:this.returnmsg1.test[0].question[this.z].question_title,seasons:this.returnmsg1.test[0].question[this.z].type_options,timer:this.returnmsg1.test[0].question[this.z].wait_time}
+            data: {name:this.returnmsg1.test[id].question[this.z].question_title,seasons:this.returnmsg1.test[id].question[this.z].type_options,timer:this.returnmsg1.test[id].question[this.z].wait_time}
         });
         dialogRef.afterClosed().subscribe(result => {
           this.resl= result;
