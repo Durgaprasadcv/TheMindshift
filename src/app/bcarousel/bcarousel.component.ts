@@ -41,7 +41,8 @@ constructor(private _product: ProductService,private _router: Router,private htt
 selectbcarousel(i)
 {
   //localStorage.setItem("bcarousel", JSON.stringify(i));
-  //this._router.navigate(['/video-lists',i]);
+  let id = i;
+  this._router.navigate(['/video-lists',id]);
 }
 selectcards(j)
 {

@@ -143,19 +143,25 @@
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
           </ol>
-
-          <!-- Wrapper for slides -->
+          
+          <!-- Wrapper for slides --><!-- -->
           <div class="carousel-inner" role="listbox">
-            <div class="active item">
-           <img src="assets/images/Poster 5.jpg" alt="Carousel" class="ab">
-            </div>
-            <div class="item">
-                <img src="assets/images/Poster 6.jpg" alt="Carousel" class="ab">
-                 </div>
-            <div class="item">
-                 <img src="assets/images/Poster 4.1.jpg" alt="Carousel" class="ab">
-            </div>
+            <div *ngIf="returnmsg1" class="active item">
+                <a (click)="selectbcarousel(0)"> 
+           <img src="{{returnmsg1.category[0].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>  
           </div>
+            <div *ngIf="returnmsg1" class="item">
+                <a (click)="selectbcarousel(1)"> 
+                <img src="{{returnmsg1.category[1].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>
+              </div>
+            <div *ngIf="returnmsg1" class="item">
+                <a (click)="selectbcarousel(2)">   
+                 <img src="{{returnmsg1.category[2].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>
+                </div>
+          </div> 
 
           <!-- Controls -->
           <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -175,6 +181,8 @@
         <h6 style=" display: inline-block;text-align:center;">{{i.test_name}}</h6>
         </a>
       </div>
+    </div>
+    <div>
     </div>
   </md-sidenav-container>
   </div>

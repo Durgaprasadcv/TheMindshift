@@ -91,7 +91,7 @@ import { VideoListsComponent } from './video-lists/video-lists.component';
       { path: 'bcarousel', component: BcarouselComponent },
       { path: 'video/:id', component:VideoComponent },
       { path: 'dialog', component:DialogComponent },
-      { path: 'video-lists', component:VideoListsComponent },
+      { path: 'video-lists/:id', component:VideoListsComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

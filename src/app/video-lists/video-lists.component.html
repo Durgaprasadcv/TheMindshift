@@ -1,15 +1,24 @@
 <div>
-    <h1>Module Name</h1>
-    <h2>Module Description</h2>
+<div *ngIf="returnmsg">
+    <h1>Module:{{returnmsg.category[id_received].Test_Mod_Id}} </h1>
+    <h2>Module Name:{{returnmsg.category[id_received].Test_Mod_Tittle}}  </h2>
+    <h2>Module Description:{{returnmsg.category[id_received].Test_Mod_dec}}</h2>
 </div>
-<div *ngFor="let i of returnmsg;let last= last;">
-<div class="bord">
-  <pre>
-    Chapter ID:{{i.Chap_id}}
-    Module ID:{{i.modul_id}}
-    Chapter Title:{{i.Chap_tittle}}
-    Chapter Description:{{i.Chap_Des}}
-    <a (click)="selectvideolists(i)">click here to view video</a>
-  </pre>
+<div *ngIf="returnmsg">
+ <div *ngFor="let i of returnmsg.test  let ia = index">
+<!--  --> 
+<div *ngIf="i.category_id==id_received">
+  <div  class="bord">
+    <a (click)="selectvideolists(ia)"> 
+        <img src="{{i.test_image}}" alt="Carousel"width="30%">  
+        <h6 style=" display: inline-block;text-align:center;">{{i.test_name}}</h6>
+      </a>
+    </div>
 </div>
 </div>
+</div>
+</div>
+     
+      
+      
+  
