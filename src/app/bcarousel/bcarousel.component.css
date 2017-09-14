@@ -50,3 +50,14 @@
   img{
       vertical-align: top;
   }
+  .listimg{
+      max-width:40%;
+      color:black;
+      padding:5px;
+      border-radius: 5% 5%;
+  }
+  .testdetail{
+    display: inline-block;
+    padding:5px;
+    color:black;
+  }

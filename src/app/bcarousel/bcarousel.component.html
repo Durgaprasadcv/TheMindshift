@@ -135,7 +135,7 @@
       <!--  <div class="sidebar-text">Text</div> -->
     </aside>
 
-    <div style="width:100%;">
+    <div >
         <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -170,9 +170,9 @@
       </div>
     <div *ngIf="returnmsg1" class="bord">
       <div class="bord"  *ngFor="let i of returnmsg1.test  let ia = index">
-        <a (click)="selectcards(ia)"> 
-        <img src="{{i.test_image}}" alt="Carousel"width="30%">  
-        <h6 style=" display: inline-block;text-align:center;">{{i.test_name}}</h6>
+        <a (click)="selectcards(ia)" > 
+        <img src="{{i.test_image}}" alt="Carousel" class="listimg">  
+        <h6 class="testdetail">{{i.test_name}}</h6>
         </a>
       </div>
     </div>
