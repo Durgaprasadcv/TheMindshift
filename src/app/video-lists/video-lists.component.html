@@ -7,7 +7,7 @@
 <div *ngIf="returnmsg">
  <div *ngFor="let i of returnmsg.test  let ia = index">
 <!--  --> 
-<div *ngIf="i.category_id==id_received">
+<div *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
   <div  class="bord">
     <a (click)="selectvideolists(ia)"> 
         <img src="{{i.test_image}}" alt="Carousel"width="30%">  
