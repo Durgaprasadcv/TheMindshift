@@ -9,6 +9,9 @@ return{
              if (elem.requestFullscreen) {
              elem.requestFullscreen();
             }
+            (function(){
+                this.api.fsAPI.toggleFullscreen();
+               })();
     });
 }
 }

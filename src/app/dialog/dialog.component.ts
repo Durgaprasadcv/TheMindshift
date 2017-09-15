@@ -7,13 +7,13 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-  favoriteSeason=999;
+  result=999;
   ticks=this.data.timer;
   constructor( 
     public dialogRef: MdDialogRef<DialogComponent>,
     @Inject(MD_DIALOG_DATA) public data: any) { }
     onNoClick(): void {
-          this.dialogRef.close(this.favoriteSeason);
+          this.dialogRef.close(this.result);
     }
    ngOnInit() {
     let timer = Observable.timer(1000,1000);

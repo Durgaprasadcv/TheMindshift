@@ -1,8 +1,8 @@
 <div>
 <div *ngIf="returnmsg">
-    <h1>Module:{{returnmsg.category[id_received].Test_Mod_Id}} </h1>
-    <h2>Module Name:{{returnmsg.category[id_received].Test_Mod_Tittle}}  </h2>
-    <h2>Module Description:{{returnmsg.category[id_received].Test_Mod_dec}}</h2>
+    <h4>Module:{{returnmsg.category[id_received].Test_Mod_Id}} </h4>
+    <h4>Module Name:{{returnmsg.category[id_received].Test_Mod_Tittle}}  </h4>
+    <h4>Module Description:{{returnmsg.category[id_received].Test_Mod_dec}}</h4>
 </div>
 <div *ngIf="returnmsg">
  <div *ngFor="let i of returnmsg.test  let ia = index">

@@ -16,7 +16,6 @@ declare var videoObject: any;
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-  title = 'app';
   i=0;
   j;
   preload:string = 'auto';
@@ -29,141 +28,56 @@ export class VideoComponent implements OnInit {
   name: string;
   resl;
   z;
-  xxx=0;
   returnmsg1;
   returnmsg2;
  timerinstance;
  video_path_html;
-  art='aaaa';
   isValid = false;
-  seasons = [
-    {
-      "id":1,
-      "name":'op1'
-    },
-    {
-      "id":2,
-      "name":'op2'
-    }
-  ];
+  option;
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
   let id = this.route.snapshot.paramMap.get('id');
-  //this.video_path_html=this.returnmsg1.test[id].video_path;
-  console.log('data from carousel route to video',id)
-  /*
-  this.route.params.subscribe(params => {
-    //let id = Number.parseInt(params['id']);
-    //this.person = this.peopleService.get(id);
-    this.returnmsg2=params;
-    console.log('data from carousel route to video',this.returnmsg2)
-  });*/
- // videoObject.init();
- // this.fullscreen();
+  console.log('data from carousel route to video',id);
   const body = {user_id:'32'};
   this.http.post('http://lg.djitsoft.xyz/api/gettest',body)
   .subscribe(
-        data => this.returnmsg1 = data.json(),
-        err => console.log('failed'),
-        () =>{
-          this.isValid = true;
-          this.video_path_html=this.returnmsg1.test[id].video_path;
-          console.log('Success Return data id:',this.returnmsg1.test[id].video_path);
-          console.log('Success Return data:',this.returnmsg1.test[id].no_of_questions);
-    let timer = Observable.timer(1000,1000);
-    this.j=this.returnmsg1.test[id].no_of_questions;
-    this.z=0;
-    /*
-    for(var i=0;i<this.returnmsg1.test[0].no_of_questions;i++)
-      {
-        console.log('Time',this.returnmsg1.test[0].question[0].question_title);
-        console.log('Time',this.returnmsg1.test[0].question[1].question_title);
-        console.log('Time',this.returnmsg1.test[0].question[this.z].Pause_time);
-        console.log('Time',this.returnmsg1.test[0].question[1].Pause_time);
-      }*/
-    this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
-    this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
-   // console.log('Time',this.ticks1);
- if(this.j==this.z)
-  { }
- else {
-    { if((this.returnmsg1.test[id].question[this.z]. Pause_time)==this.ticks1)
-      this.api.getDefaultMedia().pause();
-      if((this.returnmsg1.test[id].question[this.z]. Pause_time-1)==this.ticks1)
-        {
-          let dialogRef=this.dialog.open(DialogComponent, {
-            height: '220px',
-            width:'700px', 
-            data: {name:this.returnmsg1.test[id].question[this.z].question_title,seasons:this.returnmsg1.test[id].question[this.z].type_options,timer:this.returnmsg1.test[id].question[this.z].wait_time}
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          this.resl= result;
-          //this.api.getDefaultMedia().play();
-          console.log('The dialog was closed',this.resl);
-          this.z++;
-             // this.api.getDefaultMedia().currentTime = this.returnmsg1.test[0].question[this.z].answers[0];
-            //  this.api.seekTime(this.returnmsg1.test[0].question[this.z].answers[0], false);
-              this.api.getDefaultMedia().play();
-        });
-      
-       }
-      
-  
-  }
-}
-});
-    /*
-if(this.ticks1==4)
-  {
-    let dialogRef=this.dialog.open(DialogComponent, {
-      height: '220px',
-      width:'600px',
-      data: {name:'Would you like to continue?',seasons:this.seasons,timer:'15'}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.resl= result;
-      this.api.getDefaultMedia().play();
-      console.log('The dialog was closed',this.resl);
-      if (this.resl == 1) {
-           this.api.getDefaultMedia().currentTime = 20;
-         } 
-         else if(this.resl == 2) {
-         this.api.getDefaultMedia().currentTime = 15;
-         }
-         else if(this.resl == 999) {
-          this.api.getDefaultMedia().currentTime = 10;
-          }
-          else{
-            this.api.getDefaultMedia().currentTime = 6;
-          }
-    });
-  }
-  if(this.ticks1==25)
-    this.api.getDefaultMedia().pause();
-  if(this.ticks1==24)
-  {
-    let dialogRef=this.dialog.open(DialogComponent, {
-      height: '220px',
-      width:'600px',
-      data: {name:'Would you like to continue?',seasons:this.seasons,timer:'15'}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.resl= result;
-      if (this.resl == 1) {
-           this.api.getDefaultMedia().currentTime = 135;
-         } 
-         else if(this.resl == 2) {
-         this.api.getDefaultMedia().currentTime = 62;
-         }
-         else{
-          this.api.getDefaultMedia().currentTime = 26;
-         }
-         this.api.getDefaultMedia().play();
-    });
-  }*/
-});
+    data => this.returnmsg1 = data.json(),
+    err => console.log('failed'),
+    () =>{
+            this.isValid = true;
+            this.video_path_html=this.returnmsg1.test[id].video_path;
+            let timer = Observable.timer(1000,1000);
+            this.j=this.returnmsg1.test[id].no_of_questions;
+            this.z=0;
+            this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
+            this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
+            if(this.j==this.z)
+            { }
+            else
+            { 
+                if((this.returnmsg1.test[id].question[this.z]. Pause_time)==this.ticks1)
+                this.api.getDefaultMedia().pause();
+                if((this.returnmsg1.test[id].question[this.z]. Pause_time-1)==this.ticks1)
+                {
+                  let dialogRef=this.dialog.open(DialogComponent, {
+                    height: '220px',
+                    width:'700px', 
+                    data: {name:this.returnmsg1.test[id].question[this.z].question_title,option:this.returnmsg1.test[id].question[this.z].type_options,timer:this.returnmsg1.test[id].question[this.z].wait_time}
+                  });
+                  dialogRef.afterClosed().subscribe(result => {
+                  this.resl= result;
+                  //this.api.getDefaultMedia().play();
+                  console.log('The dialog was closed',this.resl);
+                  this.z++;
+                  // this.api.getDefaultMedia().currentTime = this.returnmsg1.test[0].question[this.z].answers[0];
+                  //  this.api.seekTime(this.returnmsg1.test[0].question[this.z].answers[0], false);
+                  this.api.getDefaultMedia().play();
+                  });
+                }
+            }
+            });
+          });
 }
 fullscreen()
 {
@@ -177,10 +91,10 @@ fullscreen()
   this.api.fsAPI.toggleFullscreen;
   this.api.getDefaultMedia().subscriptions.loadedData.subscribe(
     () => {
-      this.api.fsAPI.toggleFullscreen();
-   //   videoObject.init();
-        this.fullscreen();
-     //   $ ('#button_id').click();
+      //this.api.fsAPI.toggleFullscreen();
+      //videoObject.init();
+      //this.fullscreen();
+      //$ ('#button_id').click();
     }
 );
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
