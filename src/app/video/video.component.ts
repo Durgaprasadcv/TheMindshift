@@ -30,10 +30,13 @@ export class VideoComponent implements OnInit {
   z;
   returnmsg1;
   returnmsg2;
- timerinstance;
- video_path_html;
+  timerinstance;
+  video_path_html;
   isValid = false;
   option;
+  q_answer=0;
+  marks=0;
+  dis=0;
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
@@ -53,9 +56,16 @@ ngOnInit() {
             this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
             this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
             if(this.j==this.z)
-            { }
-            else
             { 
+              if(this.dis==0)
+              {
+              console.log('Total Correct Answer',this.q_answer);
+              console.log('Total Marks',this.marks);
+              this.dis=1;
+              } 
+            }
+            else
+            {  //  const body = {test_id:0,c_answer:0,t_marks:,questions};
                 if((this.returnmsg1.test[id].question[this.z]. Pause_time)==this.ticks1)
                 this.api.getDefaultMedia().pause();
                 if((this.returnmsg1.test[id].question[this.z]. Pause_time-1)==this.ticks1)
@@ -67,6 +77,23 @@ ngOnInit() {
                   });
                   dialogRef.afterClosed().subscribe(result => {
                   this.resl= result;
+                  if(this.returnmsg1.test[id].question[this.z].type_options[this.resl].id==this.returnmsg1.test[id].question[this.z].answers)
+                  {
+                    console.log('Correct Answer');
+                    this.q_answer++;
+                    this.marks=this.marks+this.returnmsg1.test[id].question[this.z].marks_assigned;
+                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[id].question[this.z].type_options[this.resl].Option_skip;
+                  }
+                  else if(this.resl==999)
+                  {
+                    console.log('Not Answered');
+                  }
+                  else
+                  {
+                    console.log('Wrong Answer');
+                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[id].question[this.z].type_options[this.resl].Option_skip;
+                  }
+
                   //this.api.getDefaultMedia().play();
                   console.log('The dialog was closed',this.resl);
                   this.z++;
@@ -88,7 +115,7 @@ fullscreen()
   this.api = api;
   //this.target = this.api.getMediaById();
   //this.api.fsAPI.enterElementInFullScreen;
-  this.api.fsAPI.toggleFullscreen;
+  //this.api.fsAPI.toggleFullscreen;
   this.api.getDefaultMedia().subscriptions.loadedData.subscribe(
     () => {
       //this.api.fsAPI.toggleFullscreen();
@@ -99,6 +126,7 @@ fullscreen()
 );
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
     () => {
+      alert("hai");
        this.api.getDefaultMedia().pause();
        this.timerinstance.unsubscribe();
        this._router.navigate(['/bcarousel']);
@@ -106,7 +134,3 @@ fullscreen()
 );
 }
 }
-
- 
-
-

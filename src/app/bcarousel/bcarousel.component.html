@@ -178,7 +178,10 @@
       <div class="bord"  *ngFor="let i of returnmsg1.test  let ia = index">
         <a (click)="selectcards(ia)" > 
         <img src="{{i.test_image}}" alt="Carousel" class="listimg">  
-        <h6 class="testdetail">{{i.test_name}}</h6>
+        <div>
+        <h6 class="testdetail">Test Name: {{i.test_name}}</h6>
+        <h6 class="testdetail">Test Description: {{i.test_description}}</h6>
+        </div>
         </a>
       </div>
     </div>

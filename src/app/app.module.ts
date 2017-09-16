@@ -56,6 +56,7 @@ import {
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import { VideoListsComponent } from './video-lists/video-lists.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { VideoListsComponent } from './video-lists/video-lists.component';
     VideoComponent,
     WebresponseComponent,
     DialogComponent,
-    VideoListsComponent
+    VideoListsComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ import { VideoListsComponent } from './video-lists/video-lists.component';
       { path: 'video/:id', component:VideoComponent },
       { path: 'dialog', component:DialogComponent },
       { path: 'video-lists/:id', component:VideoListsComponent },
+      { path: 'report', component:ReportComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])
