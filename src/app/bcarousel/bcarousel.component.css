@@ -4,7 +4,7 @@
 }
 .bord{
     border-style: solid;
-    border-color: #A9A9A9
+    border-color: white;
 }
 .example-container{
     width:100%;
@@ -55,7 +55,6 @@
       max-width:100%;
       color:black;
       padding:5px;
-      border-radius: 5% 5%;
   }
   .testdetail{
     display: inline-block;
@@ -65,4 +64,26 @@
   .backgrnd
   {
     background-size: 100% 100%;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .rel_division{
+    position:relative; 
+  }
+  .absolute_division{
+    position:absolute;
+    top:40%;
+    left: 10%;
+    right:10%;
+
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    vertical-align:middle;
+    text-align:center;
+  }
+  .text_style{
+    vertical-align:middle;
+    text-align:center;
   }

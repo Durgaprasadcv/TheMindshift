@@ -12,9 +12,13 @@ export class VideoListsComponent implements OnInit {
  returnmsg;
  id_received;
  count=0;
-  constructor(private _service:ProductService,private _router: Router,private route: ActivatedRoute) { }
+  constructor(private _service:ProductService,private _router: Router,private route: ActivatedRoute) 
+  {
+    this.count=0;
+   }
 
   ngOnInit() {
+    this.count=0;
     let id = this.route.snapshot.paramMap.get('id');
     this.id_received=id
     //this.video_path_html=this.returnmsg1.test[id].video_path;
@@ -38,9 +42,15 @@ export class VideoListsComponent implements OnInit {
     localStorage.setItem("videolist", JSON.stringify(i));
            this._router.navigate(['/video',id]);
   }
-  incr_count()
+  incr_count(i)
   {
-    this.count++;
+    if(i==0)
+    {
+      this.count=0;
+    }
+    else{
+      this.count++;
+    }
     return this.count;
   }
 }

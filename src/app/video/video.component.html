@@ -11,7 +11,7 @@
       <vg-fullscreen></vg-fullscreen>
   </vg-controls>
 
-  <video *ngIf="isValid" [vgMedia]="media" #media id="singleVideo" preload="auto" width="100%" crossorigin autoplay>
+  <video *ngIf="isValid" [vgMedia]="media" #media id="singleVideo" preload="auto"crossorigin autoplay>
       <source src="{{video_path_html}}" type="video/mp4">
       </video>  
 </vg-player>

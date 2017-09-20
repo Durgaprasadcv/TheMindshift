@@ -19,7 +19,7 @@ export class LoginComponent {
   constructor(private _service:AuthenticateService,private _router: Router,private http: Http) { 
     if(localStorage.getItem("user"))
     {
-      this._router.navigate(['/lanselection']);
+      this._router.navigate(['/bcarousel']);
     }
   }
   sendmsg() {
@@ -56,7 +56,7 @@ export class LoginComponent {
  .subscribe(
    data =>{ this.returnmsg1 = data.json();
      localStorage.setItem("user", JSON.stringify(this.returnmsg1));
-          this._router.navigate(['/lanselection']);},
+          this._router.navigate(['/bcarousel']);},
        err => {console.log('failed');
        this.errorMsg2 = 'Failed to login! try again ...';
       },

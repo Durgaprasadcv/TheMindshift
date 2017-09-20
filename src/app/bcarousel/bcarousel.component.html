@@ -2,10 +2,26 @@
   <md-sidenav-container class="example-container">
     <!-- Overlay for fixed sidebar -->
     <div class="sidebar-overlay"></div>
-    <md-toolbar color="primary">
-        <button md-icon-button class="sidebar-toggle ">
+    <md-toolbar color="white">
+      <div style="width:10%">
+      <button md-icon-button class="sidebar-toggle ">
         <md-icon>menu</md-icon>
-      </button>￼
+      </button>
+      </div>
+      ￼<div style="width:80%;text-align:center;">
+        <h3>MINDSHIFT</h3>
+      </div>
+      <div style="width:5%">
+        <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">
+          <i class="material-icons">tune</i>
+        </button>
+        <md-menu #menu="mdMenu">
+          <button md-menu-item>Option 1</button>
+          <button md-menu-item>Option 2</button>
+          <button md-menu-item>Option 3</button>
+          <button md-menu-item>Option 4</button>
+        </md-menu>
+      </div>
       </md-toolbar>  
 <!-- Material sidebar -->
     <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default" role="navigation">
@@ -175,9 +191,14 @@
   <!--      </div>-->
         <div *ngIf="returnmsg1" class="bord">
             <div class="bord"  *ngFor="let i of returnmsg1.category  let ia = index">
+            <div class="rel_division">
             <a (click)="selectbcarousel(ia)" > 
               <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
             </a>
+            <div >
+            <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
+            </div>
+            </div>
             </div>
             </div>
           </div>

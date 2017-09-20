@@ -13,12 +13,34 @@
     color:black;
   }
   .cnter{
-    text-align: center;
+    text-align: left;
+    font-size:500%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .cntera{
+    text-align: left;
+    font-size:200%;
+    font-style: normal;
+    font-weight: bold;
   }
   .chapter
   {
+      background-color:#A9A9A9;
+      font-size:large;
       color: black;
+      font-style: normal;
+      font-weight: bold;
   }
   a{
     color: black; 
+  }
+  .chap_heading{
+    font-size:250%;
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .disp_none{
+      display:none;
   }
