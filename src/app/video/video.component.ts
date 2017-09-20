@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
 import {DialogComponent} from "../dialog/dialog.component";
+import {ReportComponent} from "../report/report.component";
 import { Http , Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
@@ -37,12 +38,31 @@ export class VideoComponent implements OnInit {
   q_answer=0;
   marks=0;
   dis=0;
+  reload=0;
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
+  (function()
+  {
+    if( window.localStorage )
+    {
+      if( !localStorage.getItem('firstLoad') )
+      {
+        localStorage['firstLoad'] = true;
+        window.location.reload();
+      }  
+      else
+        localStorage.removeItem('firstLoad');
+    }
+  })();
+  //this.fullscreen();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from carousel route to video',id);
   const body = {user_id:'32'};
+  //if(id!='undefined')
+  //{
+  ///  location.reload();
+  //}
   this.http.post('http://lg.djitsoft.xyz/api/gettest',body)
   .subscribe(
     data => this.returnmsg1 = data.json(),
@@ -59,9 +79,21 @@ ngOnInit() {
             { 
               if(this.dis==0)
               {
+                if(this.returnmsg1.test[id].stop_time==this.ticks1)
+                {
+                this.api.getDefaultMedia().pause();
+                let dialogRef=this.dialog.open(ReportComponent, {
+                  height: '220px',
+                  width:'700px', 
+                  data: {t_question:this.returnmsg1.test[id].no_of_questions,c_answer:this.q_answer,t_marks:this.marks}
+                });
+                dialogRef.afterClosed().subscribe(result => {
+                  this._router.navigate(['/bcarousel']);
+                });
               console.log('Total Correct Answer',this.q_answer);
               console.log('Total Marks',this.marks);
               this.dis=1;
+              }
               } 
             }
             else
@@ -108,29 +140,11 @@ ngOnInit() {
 }
 fullscreen()
 {
-  document.getElementById("demo").innerHTML = "full screen function called!"
+ // document.getElementById("demo").innerHTML = "full screen function called!"
   this.api.fsAPI.toggleFullscreen();
 }
- onPlayerReady(api:VgAPI) {
+ onPlayerReady(api:VgAPI) { 
   this.api = api;
-  //this.target = this.api.getMediaById();
-  //this.api.fsAPI.enterElementInFullScreen;
-  //this.api.fsAPI.toggleFullscreen;
-  this.api.getDefaultMedia().subscriptions.loadedData.subscribe(
-    () => {
-      //this.api.fsAPI.toggleFullscreen();
-      //videoObject.init();
-      //this.fullscreen();
-      //$ ('#button_id').click();
-    }
-);
-  this.api.getDefaultMedia().subscriptions.ended.subscribe(
-    () => {
-      alert("hai");
-       this.api.getDefaultMedia().pause();
-       this.timerinstance.unsubscribe();
-       this._router.navigate(['/bcarousel']);
-    }
-);
+  videoObject.init();
 }
 }

@@ -1,5 +1,6 @@
-<div id='video_div'>
-  <vg-player (onPlayerReady)="onPlayerReady($event)">
+<body>
+<div id='video_div' *ngIf="isValid">
+  <vg-player *ngIf="isValid" (onPlayerReady)="onPlayerReady($event)">
   <vg-buffering></vg-buffering>
   <vg-controls>
         <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
@@ -10,7 +11,7 @@
       <vg-fullscreen></vg-fullscreen>
   </vg-controls>
 
-  <video [vgMedia]="media" webkit-playsinline playsinline #media id="singleVideo" preload="auto" crossorigin autoplay *ngIf="isValid">
+  <video *ngIf="isValid" [vgMedia]="media" #media id="singleVideo" preload="auto" width="100%" crossorigin autoplay>
       <source src="{{video_path_html}}" type="video/mp4">
       </video>  
 </vg-player>
@@ -18,6 +19,7 @@
 <h1 >{{video_path_html}}</h1>
 Ticks (every second) : {{ticks}}
 <br>
-Ticks (every second) : {{ticks1}}-->
+Ticks (every second) : {{ticks1}}
 <p id="demo">not called full screen</p>
-<button id="button_id" type="button" (click)="fullscreen()">fullscreen!</button>
+<button id="button_id" type="button" style='display:none' (click)="fullscreen()">fullscreen!</button>-->
+</body>

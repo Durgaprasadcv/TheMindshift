@@ -1,23 +1,23 @@
 <div>
-<div *ngIf="returnmsg">
-    <h4>Module:{{returnmsg.category[id_received].Test_Mod_Id}} </h4>
-    <h4>Module Name:{{returnmsg.category[id_received].Test_Mod_Tittle}}  </h4>
-    <h4>Module Description:{{returnmsg.category[id_received].Test_Mod_dec}}</h4>
+    <div *ngIf="returnmsg">
+        <img src="{{returnmsg.category[id_received].Test_Mod_ImgId}}" alt="Carousel" width="100%">
+    </div>
+<div class="cnter" *ngIf="returnmsg">
+    <h2>{{returnmsg.category[id_received].Test_Mod_Tittle}}</h2>
+    <h5>{{returnmsg.category[id_received].Test_Mod_dec}}</h5>
 </div>
+<h4>CHAPTERS</h4>
 <div *ngIf="returnmsg">
  <div *ngFor="let i of returnmsg.test  let ia = index">
 <!--  --> 
-<div *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
-  <div  class="bord">
-    <a (click)="selectvideolists(ia)"> 
-        <img src="{{i.test_image}}" alt="Carousel"width="30%">  
-        <h6 class="testdetail">Test Name: {{i.test_name}}</h6>
-        <h6 class="testdetail">Test Description: {{i.test_description}}</h6>
+<div class="bord" *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
+    <a (click)="selectvideolists(ia)">  
+        <h5 class="chapter">{{incr_count()}}  {{i.test_name}}</h5>
+        <h5 class="chapter"> {{i.test_description}}</h5>
       </a>
     </div>
-</div>
-</div>
-</div>.
+    </div>
+  </div>
 </div>
      
       

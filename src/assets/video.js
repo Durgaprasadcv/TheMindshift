@@ -1,18 +1,17 @@
 var videoObject = (function() { 
 return{
     init: function() {
-        $(document).ready(function()
-		{
-            $ ('#button_id').click();
-             window.plugins.orientationLock.lock("landscape");
-             var elem = document.getElementById("singleVideo");
-             if (elem.requestFullscreen) {
-             elem.requestFullscreen();
-            }
-            (function(){
-                this.api.fsAPI.toggleFullscreen();
-               })();
-    });
+            //  window.plugins.orientationLock.lock("landscape");
+            //  var elem = document.getElementById("singleVideo");
+            //  if (elem.requestFullscreen) {
+            //  elem.requestFullscreen();
+            // }
+            // (function(){
+            //     this.api.fsAPI.toggleFullscreen();
+            //    })();
+            //  alert('hi');  
+            console.log('fullscreennn');
+            $('#button_id').click();
 }
 }
 }

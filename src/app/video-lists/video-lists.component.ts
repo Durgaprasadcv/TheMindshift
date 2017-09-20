@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoListsComponent implements OnInit {
  returnmsg;
  id_received;
+ count=0;
   constructor(private _service:ProductService,private _router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -36,5 +37,10 @@ export class VideoListsComponent implements OnInit {
     let id = i;
     localStorage.setItem("videolist", JSON.stringify(i));
            this._router.navigate(['/video',id]);
+  }
+  incr_count()
+  {
+    this.count++;
+    return this.count;
   }
 }

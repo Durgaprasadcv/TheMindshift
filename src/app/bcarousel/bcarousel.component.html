@@ -136,15 +136,15 @@
     </aside>
 
     <div >
-        <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
-          <!-- Indicators -->
+    <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
+          <!-- Indicators 
           <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
+          </ol>-->
           
-          <!-- Wrapper for slides --><!-- -->
+          <!-- Wrapper for slides --><!-- 
           <div class="carousel-inner" role="listbox">
             <div *ngIf="returnmsg1" class="active item">
                 <a (click)="selectbcarousel(0)"> 
@@ -161,9 +161,9 @@
                  <img src="{{returnmsg1.category[2].Test_Mod_ImgId}}" alt="Carousel" class="ab">
                 </a>
                 </div>
-          </div> 
+          </div> -->
 
-          <!-- Controls -->
+          <!-- Controls 
           <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -171,22 +171,17 @@
           <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
-                  </a>
-        </div>
-      </div>
-    <div *ngIf="returnmsg1" class="bord">
-      <div class="bord"  *ngFor="let i of returnmsg1.test  let ia = index">
-        <a (click)="selectcards(ia)" > 
-        <img src="{{i.test_image}}" alt="Carousel" class="listimg">  
-        <div>
-        <h6 class="testdetail">Test Name: {{i.test_name}}</h6>
-        <h6 class="testdetail">Test Description: {{i.test_description}}</h6>
-        </div>
-        </a>
-      </div>
-    </div>
-    <div>
-    </div>
+                  </a>-->
+  <!--      </div>-->
+        <div *ngIf="returnmsg1" class="bord">
+            <div class="bord"  *ngFor="let i of returnmsg1.category  let ia = index">
+            <a (click)="selectbcarousel(ia)" > 
+              <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
+            </a>
+            </div>
+            </div>
+          </div>
+      <!---->
   </md-sidenav-container>
   </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
