@@ -1,30 +1,83 @@
 <div class="cars">
-  <md-sidenav-container class="example-container">
     <!-- Overlay for fixed sidebar -->
     <div class="sidebar-overlay"></div>
-    <md-toolbar color="white">
-      <div style="width:10%">
+    <div class="tool_bar">
+      <div style="display:inline-block;width:10%">
       <button md-icon-button class="sidebar-toggle ">
         <md-icon>menu</md-icon>
       </button>
       </div>
-      ￼<div style="width:80%;text-align:center;">
-        <h3>MINDSHIFT</h3>
+      ￼<div class="title_app">
+        <p>MINDSHIFT</p>
       </div>
-      <div style="width:5%">
+<!--    <div style="display:inline-block;width:10%">
         <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">
           <i class="material-icons">tune</i>
         </button>
         <md-menu #menu="mdMenu">
-          <button md-menu-item>Option 1</button>
-          <button md-menu-item>Option 2</button>
-          <button md-menu-item>Option 3</button>
-          <button md-menu-item>Option 4</button>
+          <button md-menu-item><span>Option 1</span></button>
+          <button md-menu-item><span>Option 2</span></button>
+          <button md-menu-item><span>Option 3</span></button>
+          <button md-menu-item><span>Option 4</span></button>
         </md-menu>
-      </div>
-      </md-toolbar>  
-<!-- Material sidebar -->
-    <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default" role="navigation">
+      </div>-->
+    </div>  
+    <div class="main_content" >
+    <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
+          <!-- Indicators 
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>-->
+          
+          <!-- Wrapper for slides --><!-- 
+          <div class="carousel-inner" role="listbox">
+            <div *ngIf="returnmsg1" class="active item">
+                <a (click)="selectbcarousel(0)"> 
+           <img src="{{returnmsg1.category[0].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>  
+          </div>
+            <div *ngIf="returnmsg1" class="item">
+                <a (click)="selectbcarousel(1)"> 
+                <img src="{{returnmsg1.category[1].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>
+              </div>
+            <div *ngIf="returnmsg1" class="item">
+                <a (click)="selectbcarousel(2)">   
+                 <img src="{{returnmsg1.category[2].Test_Mod_ImgId}}" alt="Carousel" class="ab">
+                </a>
+                </div>
+          </div> -->
+
+          <!-- Controls 
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>-->
+  <!--      </div>-->
+        <div *ngIf="returnmsg1" class="bord">
+            <div class="bord"  *ngFor="let i of returnmsg1.category  let ia = index">
+            <div class="rel_division">
+            <a (click)="selectbcarousel(ia)" > 
+              <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
+            </a>
+            <div >
+            <a (click)="selectbcarousel(ia)" > 
+              <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
+            </a>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+      <!---->
+  <!-- Material sidebar -->
+  <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default" role="navigation">
       <!-- Sidebar header -->
       <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
         <!-- Top bar -->
@@ -150,60 +203,6 @@
       <!-- Sidebar text -->
       <!--  <div class="sidebar-text">Text</div> -->
     </aside>
-
-    <div >
-    <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
-          <!-- Indicators 
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>-->
-          
-          <!-- Wrapper for slides --><!-- 
-          <div class="carousel-inner" role="listbox">
-            <div *ngIf="returnmsg1" class="active item">
-                <a (click)="selectbcarousel(0)"> 
-           <img src="{{returnmsg1.category[0].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>  
-          </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(1)"> 
-                <img src="{{returnmsg1.category[1].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>
-              </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(2)">   
-                 <img src="{{returnmsg1.category[2].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>
-                </div>
-          </div> -->
-
-          <!-- Controls 
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>-->
-  <!--      </div>-->
-        <div *ngIf="returnmsg1" class="bord">
-            <div class="bord"  *ngFor="let i of returnmsg1.category  let ia = index">
-            <div class="rel_division">
-            <a (click)="selectbcarousel(ia)" > 
-              <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
-            </a>
-            <div >
-            <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
-            </div>
-            </div>
-            </div>
-            </div>
-          </div>
-      <!---->
-  </md-sidenav-container>
   </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>

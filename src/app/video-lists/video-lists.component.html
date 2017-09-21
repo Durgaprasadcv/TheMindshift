@@ -15,10 +15,12 @@
  <div *ngFor="let i of returnmsg.test  let ia = index">
 <!--  --> 
 <div class="bord" *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
+    <a (click)="selectvideolists(ia)">
     <div style="display:inline-block;width:90%;">
         <p class="chapter">&nbsp;&nbsp;&nbsp;{{incr_count(1)}}&nbsp;&nbsp;{{i.test_name}}</p>
         <p class="chapter"> {{i.test_description}}</p>
     </div>
+    </a>
     <div style="display:inline-block;width:8%;">
         <a (click)="selectvideolists(ia)">
              <img src="assets/images/play.png" alt="play" style="height:98%;width:98%;"/>

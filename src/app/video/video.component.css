@@ -1,6 +1,6 @@
 @media only screen and (orientation:portrait){
   #video_div { 
-    width:100%;
+    max-width:100%;
     height:100%;
     background-color: black; 
     /* -webkit-transform: rotate(90deg);
@@ -10,7 +10,7 @@
     transform: rotate(90deg); */
   }
   video { 
-    width:100%;
+    max-width:100%;
     background-color: black; 
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -25,7 +25,7 @@
 @media only screen and (orientation:landscape){
   #video_div {  
     height:100%;
-    width:100%;
+    max-width:100%;
      -webkit-transform: rotate(0deg);
      -moz-transform: rotate(0deg);
      -o-transform: rotate(0deg);
@@ -33,8 +33,7 @@
      transform: rotate(0deg);
   }
   video{
-    height:100%;
-    width:100%;
+    max-width:100%;
   }
 }
 body{
@@ -43,5 +42,5 @@ body{
 #singleVideo:-webkit-full-screen {
 }
 vg-player:fullscreen {
-            width:100% !important; 
+            max-width:100% !important; 
 }
