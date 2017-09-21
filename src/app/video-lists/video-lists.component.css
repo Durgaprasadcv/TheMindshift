@@ -13,15 +13,17 @@
     color:black;
   }
   .cnter{
+    color:black;
     text-align: left;
     font-size:500%;
-    font-style: normal;
+    font-family:Verdana;
     font-weight: bold;
   }
   .cntera{
+    color:black;
     text-align: left;
     font-size:200%;
-    font-style: normal;
+    font-family:Verdana;
     font-weight: bold;
   }
   .chapter
@@ -29,7 +31,7 @@
       background-color:#A9A9A9;
       font-size:large;
       color: black;
-      font-style: normal;
+      font-family:Verdana;
       font-weight: bold;
   }
   a{
@@ -38,7 +40,7 @@
   .chap_heading{
     font-size:250%;
     color: black;
-    font-style: normal;
+    font-family:Verdana;
     font-weight: bold;
   }
   .disp_none{
