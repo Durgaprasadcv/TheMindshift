@@ -42,19 +42,21 @@ export class VideoComponent implements OnInit {
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
-  (function()
-  {
-    if( window.localStorage )
-    {
-      if( !localStorage.getItem('firstLoad') )
-      {
-        localStorage['firstLoad'] = true;
-        window.location.reload();
-      }  
-      else
-        localStorage.removeItem('firstLoad');
-    }
-  })();
+  // (function()
+  // {
+  //   if( window.localStorage )
+  //   { 
+  //     {
+  //     if( !localStorage.getItem('firstLoad') )
+  //     {
+  //       localStorage['firstLoad'] = true;
+  //       window.location.reload();
+  //     }  
+  //     else
+  //       localStorage.removeItem('firstLoad');
+  //   }
+  // }
+  // })();
   //this.fullscreen();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from carousel route to video',id);
