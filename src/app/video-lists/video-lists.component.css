@@ -46,3 +46,8 @@
   .disp_none{
       display:none;
   }
+  .back_button{
+    position:fixed;
+    top:90%;
+    left:49%;
+  }

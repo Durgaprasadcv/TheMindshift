@@ -53,4 +53,8 @@ export class VideoListsComponent implements OnInit {
     }
     return this.count;
   }
+  back()
+  {
+    this._router.navigate(['/bcarousel']);
+  }
 }
