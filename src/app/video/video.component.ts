@@ -44,12 +44,12 @@ export class VideoComponent implements OnInit {
 ngOnInit() {
   (function()
   {
-    if( window.localStorage )
+    if( localStorage )
     {
       if( !localStorage.getItem('firstLoad') )
       {
         localStorage['firstLoad'] = true;
-        window.location.reload();
+        location.reload();
       }  
       else
         localStorage.removeItem('firstLoad');
