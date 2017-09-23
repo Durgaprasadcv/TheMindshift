@@ -42,21 +42,21 @@ export class VideoComponent implements OnInit {
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
-  // (function()
-  // {
-  //   if( window.localStorage )
-  //   { 
-  //     {
-  //     if( !localStorage.getItem('firstLoad') )
-  //     {
-  //       localStorage['firstLoad'] = true;
-  //       window.location.reload();
-  //     }  
-  //     else
-  //       localStorage.removeItem('firstLoad');
-  //   }
-  // }
-  // })();
+  (function()
+  {
+    if( window.localStorage )
+    { 
+      {
+      if( !localStorage.getItem('firstLoad') )
+      {
+        localStorage['firstLoad'] = true;
+        window.location.reload();
+      }  
+      else
+        localStorage.removeItem('firstLoad');
+    }
+  }
+  })();
   //this.fullscreen();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from carousel route to video',id);
@@ -65,29 +65,32 @@ ngOnInit() {
   //{
   ///  location.reload();
   //}
-  this.http.post('http://lg.djitsoft.xyz/api/gettest',body)
+  this.http.post('http://lg.djitsoft.xyz/api/gettest_detail/'+id,body)
   .subscribe(
     data => this.returnmsg1 = data.json(),
     err => console.log('failed'),
     () =>{
             this.isValid = true;
-            this.video_path_html=this.returnmsg1.test[id].video_path;
+            this.video_path_html=this.returnmsg1.test[0].video_path;
             let timer = Observable.timer(1000,1000);
-            this.j=this.returnmsg1.test[id].no_of_questions;
+            this.j=this.returnmsg1.test[0].no_of_questions;
             this.z=0;
             this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
+            if(this.api.getDefaultMedia())
+            { 
+              
             this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
             if(this.j==this.z)
-            { 
+              { 
               if(this.dis==0)
               {
-                if(this.returnmsg1.test[id].stop_time==this.ticks1)
+                if(this.returnmsg1.test[0].stop_time==this.ticks1)
                 {
                 this.api.getDefaultMedia().pause();
                 let dialogRef=this.dialog.open(ReportComponent, {
                   height: '220px',
                   width:'700px', 
-                  data: {t_question:this.returnmsg1.test[id].no_of_questions,c_answer:this.q_answer,t_marks:this.marks}
+                  data: {t_question:this.returnmsg1.test[0].no_of_questions,c_answer:this.q_answer,t_marks:this.marks}
                 });
                 dialogRef.afterClosed().subscribe(result => {
                   this._router.navigate(['/bcarousel']);
@@ -100,34 +103,35 @@ ngOnInit() {
             }
             else
             {  //  const body = {test_id:0,c_answer:0,t_marks:,questions};
-                if((this.returnmsg1.test[id].question[this.z]. Pause_time)==this.ticks1)
+                if((this.returnmsg1.test[0].question[this.z].Pause_time)==this.ticks1)
                 this.api.getDefaultMedia().pause();
-                if((this.returnmsg1.test[id].question[this.z]. Pause_time-1)==this.ticks1)
+                if((this.returnmsg1.test[0].question[this.z].Pause_time-1)==this.ticks1)
                 {
                   let dialogRef=this.dialog.open(DialogComponent, {
                     height: '220px',
                     width:'700px', 
-                    data: {name:this.returnmsg1.test[id].question[this.z].question_title,option:this.returnmsg1.test[id].question[this.z].type_options,timer:this.returnmsg1.test[id].question[this.z].wait_time}
+                    data: {name:this.returnmsg1.test[0].question[this.z].question_title,option:this.returnmsg1.test[0].question[this.z].type_options,timer:this.returnmsg1.test[0].question[this.z].wait_time}
                   });
                   dialogRef.afterClosed().subscribe(result => {
                   this.resl= result;
-                  if(this.returnmsg1.test[id].question[this.z].type_options[this.resl].id==this.returnmsg1.test[id].question[this.z].answers)
+                  if(this.resl==999)
+                  {
+                    console.log('Not Answered');
+                  }else if(this.returnmsg1.test[0].question[this.z].type_options.length>0){
+                    if(this.returnmsg1.test[0].question[this.z].type_options[this.resl].id==this.returnmsg1.test[0].question[this.z].answers)
                   {
                     console.log('Correct Answer');
                     this.q_answer++;
-                    this.marks=this.marks+this.returnmsg1.test[id].question[this.z].marks_assigned;
-                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[id].question[this.z].type_options[this.resl].Option_skip;
+                    this.marks=this.marks+this.returnmsg1.test[0].question[this.z].marks_assigned;
+                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[0].question[this.z].type_options[this.resl].Option_skip;
                   }
-                  else if(this.resl==999)
-                  {
-                    console.log('Not Answered');
-                  }
+                  
                   else
                   {
                     console.log('Wrong Answer');
-                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[id].question[this.z].type_options[this.resl].Option_skip;
+                    this.api.getDefaultMedia().currentTime=this.returnmsg1.test[0].question[this.z].type_options[this.resl].Option_skip;
                   }
-
+                }
                   //this.api.getDefaultMedia().play();
                   console.log('The dialog was closed',this.resl);
                   this.z++;
@@ -137,6 +141,7 @@ ngOnInit() {
                   });
                 }
             }
+          }
             });
           });
 }
