@@ -1,6 +1,7 @@
-<div style="clear: both">
-<h5 style="float: left">{{data.name}}</h5><h5 style="float: right" style="text-align:right;">{{ticks}}</h5>
+<div class="question">
+<h5 class="q_division">{{data.name}}</h5><h5 class="timer_div">{{ticks}}</h5>
 </div>
+<br>
 <br>
 <md-radio-group class="example-radio-group" [(ngModel)]="result">
     <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">

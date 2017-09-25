@@ -78,10 +78,12 @@
     right:10%;
     font-size: 1em;
     color: white;
-    font-family: "Open Sans light";
     font-weight: bold;
     vertical-align:middle;
     text-align:center;
+    font-family: Lato;
+    font-style: normal;
+    font-variant: normal;
   }
   .text_style{
     vertical-align:middle;
@@ -112,3 +114,20 @@
   {
     font-size: 12px;
   }
+  .button_div{
+    display:inline-block;
+    width:10%;
+  }
+.headding_div{
+  font-family:'TrajanProRegular';
+}
+.mindshift_head{
+  margin-top:4%;
+}
+.button_styl{
+  display:inline-block;
+  width:10%;
+}
+.back_image{
+  background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);
+}

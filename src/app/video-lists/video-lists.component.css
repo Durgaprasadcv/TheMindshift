@@ -16,15 +16,17 @@
     color:black;
     text-align: left;
     font-size:2.5em;
-    font-family: "Open Sans light";
-    font-weight: bold;
+    font-family: Lato;
+    font-style: normal;
+    font-variant: normal;
   }
   .cntera{
     color:black;
     text-align: left;
     font-size:1.5em;
-    font-family: "Open Sans light";
-    font-weight: bold;
+    font-family: Lato;
+    font-style: normal;
+    font-variant: normal;
   }
   .chapter
   {
@@ -32,8 +34,9 @@
       background-color:#ebe8e8;
       font-size:large;
       color: black;
-      font-family: "Open Sans light";
-      font-weight: bold;
+      font-family: Lato;
+      font-style: normal;
+      font-variant: normal;
   }
   a{
     color: black; 
@@ -41,8 +44,10 @@
   .chap_heading{
     font-size:1.5em;
     color: black;
-    font-family: "Open Sans light";
-    font-weight: bold;
+    font-family: Lato;
+    font-style: normal;
+    font-variant: normal;
+    text-align:center;
   }
   .disp_none{
       display:none;
@@ -54,4 +59,17 @@
   }
   p{
     margin: 0px 4% 10px;
+  }
+  .chapter_div{
+    display:inline-block;
+    width:85%;
+  }
+  .icon_div{
+    display:inline-block;
+    width:8%;
+  }
+  .icon_styl{
+    height:98%;
+    width:98%;
+    vertical-align:20%;
   }

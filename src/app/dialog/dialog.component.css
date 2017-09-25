@@ -1,5 +1,4 @@
 .example-radio-group {
-    display: inline-flex;
     flex-direction: row;
   }
   
@@ -9,4 +8,14 @@
   
   .example-selected-value {
     margin: 15px 0;
+  }
+  .question{
+    clear: both;
+  }
+  .q_division{
+    float: left;
+  }
+  .timer_div{
+    float: right;
+    text-align:right;
   }
