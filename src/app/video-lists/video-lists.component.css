@@ -1,11 +1,11 @@
 .bord{
     border-style: solid;
     border-color: white;
-    background-color: #A9A9A9;
+    background-color: #ebe8e8;
 }
 .greybord{
     border-style: solid;
-    border-color: grey;
+    border-color: #ebe8e8;
 }
 .testdetail{
     display: inline-block;
@@ -15,32 +15,33 @@
   .cnter{
     color:black;
     text-align: left;
-    font-size:500%;
-    font-family:Verdana;
+    font-size:2.5em;
+    font-family: "Open Sans";
     font-weight: bold;
   }
   .cntera{
     color:black;
     text-align: left;
     font-size:1.5em;
-    font-family:Verdana;
+    font-family: "Open Sans";
     font-weight: bold;
   }
   .chapter
   {
-      background-color:#A9A9A9;
+      padding: 2%;
+      background-color:#ebe8e8;
       font-size:large;
       color: black;
-      font-family:Verdana;
+      font-family: "Open Sans";
       font-weight: bold;
   }
   a{
     color: black; 
   }
   .chap_heading{
-    font-size:2em;
+    font-size:1.5em;
     color: black;
-    font-family:Verdana;
+    font-family: "Open Sans";
     font-weight: bold;
   }
   .disp_none{
