@@ -34,6 +34,8 @@
   }
   video{
     height:80%;
+    width:75% !important;
+    margin:auto;
   }
 }
 body{
@@ -42,5 +44,5 @@ body{
 #singleVideo:-webkit-full-screen {
 }
 vg-player:fullscreen {
-            max-width:100% !important; 
+            max-width:80% !important; 
 }

@@ -19,7 +19,7 @@ export class AuthenticateService {
     localStorage.removeItem("user");
     localStorage.removeItem("language");
     this._router.navigate(['/login']);
-    window.location.reload();
+    // window.location.reload();
   }
   sendmsg(user) {
     console.log('sendmsg');
