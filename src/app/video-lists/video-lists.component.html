@@ -19,14 +19,14 @@
 <!--  --> 
 <div class="bord" *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
     <a (click)="selectvideolists(i.test_id)">
-    <div style="display:inline-block;width:90%;">
+    <div style="display:inline-block;width:85%;">
         <p class="chapter">&nbsp;&nbsp;&nbsp;{{incr_count(1)}}&nbsp;&nbsp;{{i.test_name}}</p>
         <p class="chapter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.test_description}}</p>
     </div>
     </a>
     <div style="display:inline-block;width:8%;">
         <a (click)="selectvideolists(ia)">
-             <img src="assets/images/play.png" alt="play" style="height:98%;width:98%;"/>
+             <img src="assets/images/play.png" alt="play" style="height:98%;width:98%;vertical-align:20%;"/>
         </a>
     </div>
     </div>
