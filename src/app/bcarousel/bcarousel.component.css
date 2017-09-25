@@ -76,9 +76,9 @@
     top:40%;
     left: 10%;
     right:10%;
-    font-size: 1.5rem;
+    font-size: 1em;
     color: white;
-    font-style: verdana;
+    font-family: "Open Sans light";
     font-weight: bold;
     vertical-align:middle;
     text-align:center;
@@ -108,7 +108,6 @@
     overflow: hidden;
 
   }
-
   .cust_font
   {
     font-size: 12px;
