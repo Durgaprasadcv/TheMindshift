@@ -1,9 +1,10 @@
 .example-radio-group {
-    flex-direction: row;
+  display: inline-flex;
+  flex-direction: column;
   }
   
   .example-radio-button {
-    margin: 5px;
+    margin: 0px;
   }
   
   .example-selected-value {
@@ -12,10 +13,45 @@
   .question{
     clear: both;
   }
-  .q_division{
-    float: left;
-  }
   .timer_div{
     float: right;
     text-align:right;
   }
+  .alert_head{
+    float: left;
+    text-align:left;
+  }
+  @media only screen and (orientation:portrait){
+    #pop_up { 
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    #main_div{
+      margin-left: 30%;
+      /* margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }
+  @media only screen and (orientation:landscape){
+    #pop_up { 
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+     -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    #main_div{
+      /* margin-left: 10%; 
+      margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }
+  .opt_div{
+    text-align:left;
+  }
+ 

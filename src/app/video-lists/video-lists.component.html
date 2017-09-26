@@ -9,7 +9,7 @@
     <p>{{returnmsg.category[id_received].Test_Mod_Tittle}}</p>
 </div>
 <div class="cntera" *ngIf="returnmsg">
-   <p>{{returnmsg.category[id_received].Test_Mod_dec}}</p>
+   <p class="justify">{{returnmsg.category[id_received].Test_Mod_dec}}</p>
 </div>
 <div class="chap_heading">
 <p>CHAPTERS</p>
@@ -20,8 +20,8 @@
 <div class="bord" *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
     <a (click)="selectvideolists(i.test_id)">
     <div class="chapter_div">
-        <p class="chapter">&nbsp;&nbsp;&nbsp;{{incr_count(1)}}&nbsp;&nbsp;{{i.test_name}}</p>
-        <p class="chapter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.test_description}}</p>
+        <p class="chapter">{{incr_count(1)}}&nbsp;&nbsp;{{i.test_name}}</p>
+        <p class="chapter_des">{{i.test_description}}</p>
     </div>
     </a>
     <div class="icon_div">

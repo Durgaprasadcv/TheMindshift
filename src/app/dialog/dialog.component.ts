@@ -16,6 +16,7 @@ export class DialogComponent implements OnInit {
           this.dialogRef.close(this.result);
     }
    ngOnInit() {
+    this.dialogRef.updateSize('70%', '40%');
     let timer = Observable.timer(1000,1000);
     timer.subscribe(t=>{this.ticks=this.ticks-1;
     if(this.ticks==0)

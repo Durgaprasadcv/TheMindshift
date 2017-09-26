@@ -20,6 +20,9 @@
     font-style: normal;
     font-variant: normal;
   }
+  .justify{
+    text-align: justify;
+  }
   .cntera{
     color:black;
     text-align: left;
@@ -29,6 +32,16 @@
     font-variant: normal;
   }
   .chapter
+  {
+      padding: 2%;
+      background-color:#ebe8e8;
+      font-size:large;
+      color: black;
+      font-family: Lato;
+      font-style: normal;
+      font-variant: normal;
+  }
+  .chapter_des
   {
       padding: 2%;
       background-color:#ebe8e8;

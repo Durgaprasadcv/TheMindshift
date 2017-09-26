@@ -39,6 +39,8 @@ export class VideoComponent implements OnInit {
   marks=0;
   dis=0;
   reload=0;
+  h='220px';
+  w='700px';
   constructor(private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
   }
 ngOnInit() {
@@ -78,7 +80,6 @@ ngOnInit() {
             this.timerinstance = timer.subscribe(t=>{this.ticks=this.ticks+1;
             if(this.api.getDefaultMedia())
             { 
-              
             this.ticks1= Math.trunc(this.api.getDefaultMedia().currentTime);
             if(this.j==this.z)
               { 
@@ -107,9 +108,16 @@ ngOnInit() {
                 this.api.getDefaultMedia().pause();
                 if((this.returnmsg1.test[0].question[this.z].Pause_time-1)==this.ticks1)
                 {
+                  if(window.innerHeight > window.innerWidth){
+                    this.w='220px';
+                    this.h='700px';
+                    }
+                    else{
+                      this.h='220px';
+                      this.w='700px';
+                    }
                   let dialogRef=this.dialog.open(DialogComponent, {
-                    height: '220px',
-                    width:'700px', 
+                    disableClose:true,
                     data: {name:this.returnmsg1.test[0].question[this.z].question_title,option:this.returnmsg1.test[0].question[this.z].type_options,timer:this.returnmsg1.test[0].question[this.z].wait_time}
                   });
                   dialogRef.afterClosed().subscribe(result => {

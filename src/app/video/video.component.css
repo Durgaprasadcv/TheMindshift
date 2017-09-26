@@ -38,9 +38,7 @@
     margin:auto;
   }
 }
-body{
-  background-color: black;
-}
+
 #singleVideo:-webkit-full-screen {
 }
 vg-player:fullscreen {
