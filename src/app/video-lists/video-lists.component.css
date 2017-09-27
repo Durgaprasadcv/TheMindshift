@@ -68,7 +68,7 @@
   .back_button{
     position:fixed;
     top:90%;
-    left:49%;
+    left:44%;
   }
   p{
     margin: 0px 4% 10px;
@@ -85,4 +85,30 @@
     height:98%;
     width:98%;
     vertical-align:20%;
+  }
+  .index{
+    display:inline-block;
+    width:5%;
+  }
+  .head{
+    display:inline-block;
+    width:90%;
+  }
+  .head_des{
+    display:inline-block;
+    width:90%;
+  }
+  .index_des{
+    display:inline-block;
+    width:5%;
+  }
+  .button_color{
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 100%;
+    padding-top: 17px;
+    font-size:3em;
+    height:1.5em;
+    width: 1.5em;
+    text-align: center;
   }
