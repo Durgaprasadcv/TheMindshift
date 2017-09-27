@@ -86,3 +86,19 @@
     width:98%;
     vertical-align:20%;
   }
+  .index{
+    display:inline-block;
+    width:5%;
+  }
+  .head{
+    display:inline-block;
+    width:90%;
+  }
+  .head_des{
+    display:inline-block;
+    width:90%;
+  }
+  .index_des{
+    display:inline-block;
+    width:5%;
+  }
