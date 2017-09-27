@@ -1,5 +1,5 @@
 <button md-icon-button (click)="back()" class="back_button">
-    <i class="material-icons button_color">keyboard_backspace</i>
+    <i class="material-icons">keyboard_backspace</i>
 </button>
 <div>
     <div *ngIf="returnmsg">
@@ -20,21 +20,8 @@
 <div class="bord" *ngIf="i.category_id==returnmsg.category[id_received].Test_Mod_Id">
     <a (click)="selectvideolists(i.test_id)">
     <div class="chapter_div">
-        <div>
-        <div class="index">
-            <p class="chapter">&nbsp;&nbsp;{{incr_count(1)}}</p>
-        </div>
-        <div class="head">
-            <p class="chapter">{{i.test_name}}</p>
-        </div>
-        </div>
-        <div>
-        <div class="index_des">
-        </div>
-        <div class="head_des">
-            <p class="chapter_des">{{i.test_description}}</p>
-        </div>
-        </div>
+        <p class="chapter">{{incr_count(1)}}&nbsp;&nbsp;{{i.test_name}}</p>
+        <p class="chapter_des">{{i.test_description}}</p>
     </div>
     </a>
     <div class="icon_div">
