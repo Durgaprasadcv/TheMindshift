@@ -40,7 +40,7 @@ constructor(private _product: ProductService,private _router: Router,private htt
 }
 selectbcarousel(i)
 {
-  if(this.returnmsg1.category[i].display==0)
+  if(this.returnmsg1.category[i].display==1)
   {
   //localStorage.setItem("bcarousel", JSON.stringify(i));
   let id = i;

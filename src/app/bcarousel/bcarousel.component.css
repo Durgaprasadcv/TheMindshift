@@ -55,7 +55,6 @@
     -webkit-filter: brightness(0.3);
     filter: brightness(0.3);
       max-width:100%;
-      background-color: rgba(18, 17, 17, 0.67);
   }
   .testdetail{
     display: inline-block;
@@ -88,7 +87,7 @@
   }
   .absolute_division_up{
     position:absolute;
-    top:30%;
+    top:25%;
     left: 10%;
     right:10%;
     font-size: 1em;
