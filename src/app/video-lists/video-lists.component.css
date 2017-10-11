@@ -86,3 +86,13 @@
     width:98%;
     vertical-align:20%;
   }
+  .button_color{
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 100%;
+    padding-top: 17px;
+    font-size:3em;
+    height:1.5em;
+    width: 1.5em;
+    text-align: center;
+  }
