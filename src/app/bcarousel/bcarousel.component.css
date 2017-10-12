@@ -54,7 +54,7 @@
   .listimg{
     -webkit-filter: brightness(0.3);
     filter: brightness(0.3);
-      width:100%;
+      max-width:100%;
   }
   .testdetail{
     display: inline-block;
