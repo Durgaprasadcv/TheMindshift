@@ -9,10 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import 'hammerjs';
-import { LanselectionComponent } from './lanselection/lanselection.component';
 import { BcarouselComponent } from './bcarousel/bcarousel.component';
 import { VideoComponent } from './video/video.component';
-import { WebresponseComponent } from './webresponse/webresponse.component';
 import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
@@ -64,10 +62,8 @@ import { ReportComponent } from './report/report.component';
     LoginComponent,
     HomeComponent,
     UserComponent,
-    LanselectionComponent,
     BcarouselComponent,
     VideoComponent,
-    WebresponseComponent,
     DialogComponent,
     VideoListsComponent,
     ReportComponent
@@ -89,7 +85,6 @@ import { ReportComponent } from './report/report.component';
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'lanselection', component: LanselectionComponent },
       { path: 'bcarousel', component: BcarouselComponent },
       { path: 'video/:id', component:VideoComponent },
       { path: 'dialog', component:DialogComponent },

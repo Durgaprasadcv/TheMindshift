@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {ProductService} from "../product.service";
+import { WebService } from '../webservice/web.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-video-lists',
   templateUrl: './video-lists.component.html',
-  providers : [ProductService],
+  providers : [WebService],
   styleUrls: ['./video-lists.component.css']
 })
 export class VideoListsComponent implements OnInit {
  returnmsg;
  id_received;
  count=0;
-  constructor(private _service:ProductService,private _router: Router,private route: ActivatedRoute) 
+  constructor(private webservice:WebService,private _router: Router,private route: ActivatedRoute) 
   {
     this.count=0;
    }
@@ -22,19 +22,18 @@ export class VideoListsComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.id_received=id
     //this.video_path_html=this.returnmsg1.test[id].video_path;
-    console.log('data from carousel route to video',id)
+    console.log('data from bcarousel to video-list',id)
     //this.route.params.subscribe(params => {
       //let id = Number.parseInt(params['id']);
       //this.person = this.peopleService.get(id);
       //console.log('data from carousel route to videolist',params)
    // });
    const body = {user_id:'32'};
-   this._service.webRequest(this,'post',`http://lg.djitsoft.xyz/api/gettest`,body,'123','');
+   this.webservice.webRequest(this,'post',this.webservice.video_list,body,'123','');
   }
-  webresponse(fun_id,r2)
+  webresponse(fun_id,return_data)
   {
-    this.returnmsg = r2.json();
-    console.log('hhh',fun_id,r2.json());
+    this.returnmsg = return_data.json();
   }
   selectvideolists(i)
   {

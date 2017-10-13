@@ -60,8 +60,8 @@
                     <span class="sr-only">Next</span>
                   </a>-->
   <!--      </div>-->
-        <div *ngIf="returnmsg1">
-            <div class="bord"  *ngFor="let i of returnmsg1.category  let ia = index">
+        <div *ngIf="returnmsg">
+            <div class="bord"  *ngFor="let i of returnmsg.category  let ia = index">
             <div class="rel_division">
             <a (click)="selectbcarousel(ia)" > 
               <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
@@ -87,7 +87,7 @@
           
           <!-- Wrapper for slides --><!-- -->
           <div class="carousel-inner corousel_others" role="listbox">
-            <div *ngIf="returnmsg1" class="active item">
+            <div *ngIf="returnmsg" class="active item">
                 <a (click)="selectbcarousel(0)"> 
            <img src="assets/images/Poster 4.1.jpg" alt="Carousel" class="ab">
                 </a>  
