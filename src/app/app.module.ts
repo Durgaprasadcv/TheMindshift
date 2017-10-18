@@ -55,6 +55,7 @@ import {
 import {CdkTableModule} from '@angular/cdk/table';
 import { VideoListsComponent } from './video-lists/video-lists.component';
 import { ReportComponent } from './report/report.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import { ReportComponent } from './report/report.component';
  //     { path: '**', component: LoginComponent },
     ])
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

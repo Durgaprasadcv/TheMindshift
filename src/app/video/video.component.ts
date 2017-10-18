@@ -11,11 +11,12 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { WebService } from '../webservice/web.service';
 import 'assets/video.js'
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 declare var videoObject: any;
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  providers : [WebService],
+  providers : [WebService,ScreenOrientation],
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
@@ -44,24 +45,25 @@ export class VideoComponent implements OnInit {
   h='220px';
   w='700px';
   pop_parms;
-  constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
+  constructor(screenOrientation: ScreenOrientation,private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
+    screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 ngOnInit() {
-  // (function()
-  // {
-  //   if( window.localStorage )
-  //   { 
-  //     {
-  //     if( !localStorage.getItem('firstLoad') )
-  //     {
-  //       localStorage['firstLoad'] = true;
-  //       window.location.reload();
-  //     }  
-  //     else
-  //       localStorage.removeItem('firstLoad');
-  //   }
-  // }
-  // })();
+  (function()
+  {
+    if( window.localStorage )
+    { 
+      {
+      if( !localStorage.getItem('firstLoad') )
+      {
+        localStorage['firstLoad'] = true;
+       window.location.reload(true);
+      }  
+      else
+        localStorage.removeItem('firstLoad');
+    }
+  }
+  })();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
   const body = {user_id:'32'};

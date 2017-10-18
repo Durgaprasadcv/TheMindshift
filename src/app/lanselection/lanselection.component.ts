@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Http , Response } from '@angular/http';
 import { Router } from '@angular/router';
-import {ProductService} from "../product.service";
+import { WebService } from '../webservice/web.service';
 import {AuthenticateService} from "../login/loginService/authenticate.service";
 @Component({
   selector: 'app-lanselection',
   templateUrl: './lanselection.component.html',
-  providers : [ProductService,AuthenticateService],
+  providers : [WebService,AuthenticateService],
   styleUrls: ['./lanselection.component.css']
 })
 export class LanselectionComponent implements OnInit {
   public returnmsg;
   public returnmsg_menu;
-  constructor(private http:Http,private _router: Router,private _service:ProductService,private _service1:AuthenticateService) { 
+  constructor(private http:Http,private _router: Router,private _service:WebService,private _service1:AuthenticateService) { 
     if(localStorage.getItem("language"))
     {
       this._router.navigate(['/bcarousel']);
