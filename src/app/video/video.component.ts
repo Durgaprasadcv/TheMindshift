@@ -49,21 +49,21 @@ export class VideoComponent implements OnInit {
     screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 ngOnInit() {
-  (function()
-  {
-    if( window.localStorage )
-    { 
-      {
-      if( !localStorage.getItem('firstLoad') )
-      {
-        localStorage['firstLoad'] = true;
-       window.location.reload(true);
-      }  
-      else
-        localStorage.removeItem('firstLoad');
-    }
-  }
-  })();
+  // (function()
+  // {
+  //   if( window.localStorage )
+  //   { 
+  //     {
+  //     if( !localStorage.getItem('firstLoad') )
+  //     {
+  //       localStorage['firstLoad'] = true;
+  //      window.location.reload(true);
+  //     }  
+  //     else
+  //       localStorage.removeItem('firstLoad');
+  //   }
+  // }
+  // })();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
   const body = {user_id:'32'};

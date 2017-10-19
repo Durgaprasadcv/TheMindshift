@@ -89,7 +89,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
       { path: 'bcarousel', component: BcarouselComponent },
       { path: 'video/:id', component:VideoComponent },
       { path: 'dialog', component:DialogComponent },
-      { path: 'video-lists/:id', component:VideoListsComponent },
+      { path: 'video-lists/:ida', component:VideoListsComponent },
       { path: 'report', component:ReportComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },

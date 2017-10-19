@@ -19,7 +19,7 @@ export class VideoListsComponent implements OnInit {
 
   ngOnInit() {
     this.count=0;
-    let id = this.route.snapshot.paramMap.get('id');
+    let id = this.route.snapshot.paramMap.get('ida');
     this.id_received=id
     //this.video_path_html=this.returnmsg1.test[id].video_path;
     console.log('data from bcarousel to video-list',id)
