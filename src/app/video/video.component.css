@@ -42,3 +42,6 @@
 /* vg-player:fullscreen {
             max-width:80% !important; 
 } */
+md-dialog-container{
+  opacity: 0 !important;
+}

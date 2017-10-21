@@ -1,19 +1,26 @@
-<div id="pop_up">
-<div id="main_div">
-<div class="question">
-<h5 class="alert_head">{{data.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5><h5 class="timer_div">{{ticks}}</h5>
+<div>
+<div>
+<div class="alert_head">
+<h5>{{data.name}}&nbsp;</h5>
 </div>
-<br>
-<br>
-<br>
+<div class="timer_div">
+<h5>{{ticks}}</h5>
+</div>
+</div>
 <div class="opt_div">
 <md-radio-group class="example-radio-group" [(ngModel)]="result">
     <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">
-      {{opt.name}}
+      <h5>{{opt.name}}</h5>
     </md-radio-button>
 </md-radio-group>
+</div> 
+<div class="submit" [hidden]="c_answer||w_answer">
+<button md-raised-button (click)="onNoClick(result)">Submit</button>
 </div>
-<br>
-<button md-raised-button [md-dialog-close]="result">Submit</button>
+<div class="r_answer" *ngIf="c_answer">
+  <h6>Correct Answer</h6>
 </div>
+<div class="w_answer" *ngIf="w_answer">
+    <h6>Wrong Answer</h6>
+  </div>
 </div>
