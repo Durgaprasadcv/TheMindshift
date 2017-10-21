@@ -17,6 +17,7 @@ export class DialogComponent implements OnInit {
     @Inject(MD_DIALOG_DATA) public data: any) { }
     onNoClick(result): void {
           //  this.dialogRef.close(this.result);
+          if(result!=999){
             if(this.data.ans.type_options[this.result].id==this.data.ans.answers)
             {
               console.log('fro dialog, correct');
@@ -30,6 +31,7 @@ export class DialogComponent implements OnInit {
               this.c_answer=0;
               this.tic=0;
             }
+          }
             let timer = Observable.timer(1000,1000);
             timer.subscribe(t=>{this.tic=this.tic+1;
             if(this.tic==2)
