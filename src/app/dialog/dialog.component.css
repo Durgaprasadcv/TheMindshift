@@ -25,12 +25,29 @@
   }
   @media only screen and (orientation:portrait){
     #pop_up { 
+      /* -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      margin-left: 30%; */
+
+      position: absolute;
       -webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
       -o-transform: rotate(90deg);
      -ms-transform: rotate(90deg);
       transform: rotate(90deg);
-      margin-left: 30%;
+    
+      transform-origin: bottom left;
+      width: 85vh;
+      height: 100vw;
+      margin-top: -100vw;
+      margin-left: -25vw;
+      /* object-fit: cover; */
+    
+      z-index: 4;
+      visibility: visible;
     }
     #main_div{
       margin-left: 30%;
@@ -76,19 +93,25 @@
     float: left;
     text-align:center;
     margin-top: 5%;
-    width:100%;
+    margin-left: 25%;
+    width:50%;
     background-color: rgb(12, 180, 88);
   }
   .w_answer{
     text-align:center;
     float: left;
     margin-top: 5%;
-    width:100%;
+    margin-left: 25%;
+    width:50%;
     background-color: red;
   }
-  md-dialog-container{
-    opacity: 0 !important;
+  .progress{
+    margin-top: 5%;
+    margin-left: 25%;
+    width:50%;
+    height:5%;
+    float: left;
   }
-  #cdk-overlay-pane{
-    opacity: 0 !important;
+  .progress-bar{
+    height:100%;
   }

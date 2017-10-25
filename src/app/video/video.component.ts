@@ -137,6 +137,7 @@ pop_up()
   dialogRef.afterClosed().subscribe(result => {
     this.skip(result);
     this.z++;
+    if(result!= undefined)
     this.api.getDefaultMedia().play();
   });
   return;
@@ -148,7 +149,7 @@ skip(result)
   {
     console.log('Not Answered');
   }
-  else if(this.returnmsg1.question[this.z].type_options.length>0)
+  else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
   {
     if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
     {
