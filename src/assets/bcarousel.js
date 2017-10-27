@@ -31,6 +31,17 @@ $(document).ready(function() {
         $('#sidebar').removeClass('open');
     });
 
+    // $(".carousel").swipe({
+        
+    //       swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+        
+    //         if (direction == 'left') $(this).carousel('next');
+    //         if (direction == 'right') $(this).carousel('prev');
+        
+    //       },
+    //       allowPageScroll:"vertical"
+        
+    //     });
 });
 
 // Sidebar constructor
@@ -132,6 +143,6 @@ $(document).ready(function() {
 // 	}
 
 // })(jQuery.fn.removeClass);
-    }
+}
 } 
 })(bcarouselObject||{})

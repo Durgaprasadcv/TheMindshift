@@ -74,46 +74,17 @@
             </div>
             </div>
             </div>
-            </div>
-
-             <!---->
-          <div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">
-          <!-- Indicators -->
-          <!-- <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol> -->
-          
-          <!-- Wrapper for slides --><!-- -->
-          <!-- <div class="carousel-inner corousel_others" role="listbox">
-            <div *ngIf="returnmsg" class="active item">
-                <a (click)="selectbcarousel(0)"> 
-           <img src="assets/images/Poster 4.1.jpg" alt="Carousel" class="ab">
-                </a>  
           </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(1)"> 
-                <img src="assets/images/Poster 5.jpg" alt="Carousel" class="ab">
-                </a>
-              </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(2)">   
-                 <img src="assets/images/Poster 6.jpg" alt="Carousel" class="ab">
-                </a>
-                </div>
-          </div>  -->
+        <!-- loop each avatar in our avatar list -->
+        <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
+            <div>
+                <img class="swipe_img" [src]="avatar.image" [alt]="avatar.name">
+            </div>
+            <!-- <div>
+                <a class="header">{{avatar.name}}</a>
+            </div> -->
+        </div>
 
-          <!-- Controls -->
-          <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a> -->
-       </div>
           </div>
       <!---->
   <!-- Material sidebar -->
