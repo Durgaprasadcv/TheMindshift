@@ -10,8 +10,9 @@
       ￼<div class="title_app headding_div">
         <p class="mindshift_head">MINDSHIFT</p>
       </div>
-<!--    <div class="button_styl">
-        <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">
+      <!-- <div class="button_styl"> -->
+          <!-- <a href="#demo" data-toggle="collapse" class=" dashboard_button"><i class="material-icons">tune</i></a> -->
+        <!-- <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">
           <i class="material-icons">tune</i>
         </button>
         <md-menu #menu="mdMenu">
@@ -19,8 +20,8 @@
           <button md-menu-item><span>Option 2</span></button>
           <button md-menu-item><span>Option 3</span></button>
           <button md-menu-item><span>Option 4</span></button>
-        </md-menu>
-      </div>-->
+        </md-menu> -->
+      <!-- </div> -->
     </div>  
     <div class="main_content" >
     <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
@@ -60,6 +61,99 @@
                     <span class="sr-only">Next</span>
                   </a>-->
   <!--      </div>-->
+  <!-- <div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+      <div class="dashboard_title">
+        <p >Self Help Shift</p>
+      </div>
+      <div class="container dashboard_bar"> 
+        <div  class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+            <span class="sr-only">70% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+        <div class="dashboard_title">
+          <p >Sales Shift</p>
+        </div>
+        <div class="container dashboard_bar"> 
+          <div  class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              <span class="sr-only">70% Complete</span>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+      <div class="dashboard_title">
+        <p >Cust. Service Shift</p>
+      </div>
+      <div class="container dashboard_bar"> 
+        <div  class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:72%">
+            <span class="sr-only">70% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+      <div class="dashboard_title">
+        <p >Communication Shift</p>
+      </div>
+      <div class="container dashboard_bar"> 
+        <div  class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+            <span class="sr-only">70% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+      <div class="dashboard_title">
+        <p >Team Work Shift</p>
+      </div>
+      <div class="container dashboard_bar"> 
+        <div  class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:69%">
+              <span class="sr-only">70% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 padding_null">
+      <div class="dashboard_title">
+        <p >Product Shift</p>
+      </div>
+      <div class="container dashboard_bar"> 
+        <div  class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:56%">
+            <span class="sr-only">70% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div>
+    <div *ngIf="return_bar">
+        <div class="bord"  *ngFor="let i of return_bar.learningTest  let ia = index">
+          <div class="col-xs-12 col-sm-12 padding_null">
+            <div class="dashboard_title">
+              <p >{{i.learning_module_name}}</p>
+            </div>
+            <div class="container dashboard_bar"> 
+              <div  class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" [style.width.%]="i.module_percent" [style.background-color]="i.color_code">
+                  <span class="sr-only">70% Complete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div>
         <div *ngIf="returnmsg">
             <div class="bord"  *ngFor="let i of returnmsg.category  let ia = index">
             <div class="rel_division">
@@ -75,6 +169,7 @@
             </div>
             </div>
           </div>
+        </div>
         <!-- loop each avatar in our avatar list -->
         <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
             <div>

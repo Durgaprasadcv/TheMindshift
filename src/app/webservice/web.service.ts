@@ -10,6 +10,7 @@ public main_url='http://lg.djitsoft.xyz/api/';
 public modules=this.main_url+'gettest';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
+public dashbar=this.main_url+'getLearningTest';
 public returnmsg;
 constructor(private _http: Http,private _router: Router) { }
 webRequest(scope,type,url,body,fun_id,loader){

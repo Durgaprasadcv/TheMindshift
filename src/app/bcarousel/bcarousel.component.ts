@@ -41,6 +41,7 @@ export class BcarouselComponent implements OnInit {
 
   name:string;
   public returnmsg;
+  public return_bar;
   public initc = false;
 constructor(private webservice: WebService,private _router: Router,private http:Http) {
   this.initc = false;
@@ -50,6 +51,8 @@ constructor(private webservice: WebService,private _router: Router,private http:
     bcarouselObject.init();
     const body = {user_id:'32'};
     this.webservice.webRequest(this,'post',this.webservice.modules,body,'2','');
+    const body1 = {uid:'32'};
+    this.webservice.webRequest(this,'post',this.webservice.dashbar,body1,'3','');
  }
  initcarousel(t) :void {
    if(t && !this.initc)
@@ -83,7 +86,15 @@ constructor(private webservice: WebService,private _router: Router,private http:
   }
 webresponse(fun_id,return_data){
 //  console.log("fid",fun_id,"data",r2.json());
+if(fun_id==2)
+{
       this.returnmsg = return_data.json();
+}
+if(fun_id==3)
+{
+  this.return_bar = return_data.json();
+  console.log(this.return_bar);
+}
     //  console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
 }
    // action triggered when user swipes
