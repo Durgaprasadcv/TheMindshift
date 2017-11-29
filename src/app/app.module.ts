@@ -56,6 +56,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { VideoListsComponent } from './video-lists/video-lists.component';
 import { ReportComponent } from './report/report.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ReportRoughComponent } from './report-rough/report-rough.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     VideoComponent,
     DialogComponent,
     VideoListsComponent,
-    ReportComponent
+    ReportComponent,
+    ReportRoughComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +93,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
       { path: 'dialog', component:DialogComponent },
       { path: 'video-lists/:ida', component:VideoListsComponent },
       { path: 'report', component:ReportComponent },
+      { path: 'report-rough', component:ReportRoughComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])
