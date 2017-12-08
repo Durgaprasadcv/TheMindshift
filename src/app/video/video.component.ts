@@ -11,12 +11,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { WebService } from '../webservice/web.service';
 import 'assets/video.js'
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 declare var videoObject: any;
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  providers : [WebService,ScreenOrientation],
+  providers : [WebService],
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
@@ -45,7 +44,8 @@ export class VideoComponent implements OnInit {
   h='220px';
   w='700px';
   pop_parms;
-  constructor(screenOrientation: ScreenOrientation,private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
+  local_pause:any[];
+  constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
    // screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 ngOnInit() {
@@ -69,11 +69,27 @@ ngOnInit() {
   const body = {user_id:'32'};
   this.webservice.webRequest(this,'post','http://lg.djitsoft.xyz/api/gettest_detail/'+id,body,'123','');
 }
+question_update(test_id,test_name,answer_time,question_no,marks_per_question){
+  const body = {
+    test_id:test_id,
+    test_name:test_name,
+    answer_time:answer_time,
+    question_no:question_no,
+    marks_per_question:marks_per_question,
+    user_id:'32'};
+  this.webservice.webRequest(this,'post',this.webservice.question_update,body,'1234','');
+}
 webresponse(fun_id,return_data)
 {
+  if(fun_id==123)
+  {
  this.returnmsg = return_data.json();
  this.returnmsg1=this.returnmsg.test[0];
  this.video_questions();
+  }
+  if(1234){
+    console.log('response of question update',return_data.json());
+  }
 }
 video_questions(){
   this.isValid = true;
@@ -83,16 +99,30 @@ video_questions(){
   this.z=0;
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
-  { 
+  {
+    if((JSON.parse( localStorage.getItem('lastpause')))>0)
+    {
+      if(Math.trunc(this.api.getDefaultMedia().currentTime)==0){
+        this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause')));
+        console.log((JSON.parse( localStorage.getItem('lastpause'))));
+      }
+     // this.api.getDefaultMedia().currentTime=JSON.parse( localStorage.getItem('lastpause'));
+     //this.api.getDefaultMedia().currentTime=10;
+    }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
+    if(this.returnmsg1.stop_time>this.ticks){
+    localStorage.setItem('lastpause',  JSON.stringify(this.ticks));
+    }
     if(this.j==this.z)
-    { 
+    {  console.log('end');
       //report
     
       if(this.dis==0)
       {
         if(this.returnmsg1.stop_time==this.ticks)
         {
+          console.log('end');
+        localStorage.setItem('lastpause',  JSON.stringify(this.dis));
         this.api.getDefaultMedia().pause();
         let dialogRef=this.dialog.open(ReportComponent, {
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks}
@@ -148,11 +178,13 @@ skip(result)
   if(this.resl==999)
   {
     console.log('Not Answered');
+    this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0);
   }
   else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
   {
     if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
     {
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned);
       console.log('Correct Answer');
       this.q_answer++;
       this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
@@ -164,6 +196,7 @@ skip(result)
     else
     {
       console.log('Wrong Answer');
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0);
       if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
       {
         this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;

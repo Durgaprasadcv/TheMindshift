@@ -57,7 +57,16 @@ import { VideoListsComponent } from './video-lists/video-lists.component';
 import { ReportComponent } from './report/report.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ReportRoughComponent } from './report-rough/report-rough.component';
+// Import the library
 
+// Import angular2-fusioncharts
+import { FusionChartsModule } from 'angular2-fusioncharts';
+
+// Import FusionCharts library
+import * as FusionCharts from 'fusioncharts';
+// Import FusionCharts Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import { CreateTestComponent } from './create-test/create-test.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +78,8 @@ import { ReportRoughComponent } from './report-rough/report-rough.component';
     DialogComponent,
     VideoListsComponent,
     ReportComponent,
-    ReportRoughComponent
+    ReportRoughComponent,
+    CreateTestComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +95,7 @@ import { ReportRoughComponent } from './report-rough/report-rough.component';
     VgOverlayPlayModule,
     VgBufferingModule,
     FlexLayoutModule,
+    FusionChartsModule.forRoot(FusionCharts, Charts),
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
@@ -94,6 +105,7 @@ import { ReportRoughComponent } from './report-rough/report-rough.component';
       { path: 'video-lists/:ida', component:VideoListsComponent },
       { path: 'report', component:ReportComponent },
       { path: 'report-rough', component:ReportRoughComponent },
+      { path: 'create-test', component:CreateTestComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

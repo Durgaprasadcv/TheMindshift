@@ -1,0 +1,32 @@
+<h5>Create Test</h5>
+<div class="col-xs-12">
+<div class="col-xs-12">
+<h6>Enter Test Details</h6>
+<br>
+<p>Enter Test Name: <input type = "text" [(ngModel)] = "TestName"></p>
+<p>Enter Test Discription: <input type = "text" [(ngModel)]= "TestDescription"></p>
+<p>Enter Test Video Link: <input type = "text" [(ngModel)]= "TestVideo"></p>
+</div>
+<hr>
+<!-- *ngFor="let i of nums" -->
+<div class="col-xs-12">
+<h6>Enter Questions Details</h6>
+<br>
+<p>Enter Question Title: <input type = "text" [(ngModel)]= "QuestionTitle"></p>
+<p>Enter Question Type: <input type = "text" [(ngModel)]= "QuestionType"></p>
+<p>Enter Marks Allocated: <input type = "text"[(ngModel)]= "Marks"></p>
+<p>Enter Pause Time: <input type = "text" [(ngModel)]= "PauseTime"></p>
+<p>Enter Waiting Time: <input type = "text" [(ngModel)]= "WaitTime"></p>
+<p>Enter Options: <input type = "text" [(ngModel)]= "Questionoption"></p>
+</div>
+</div>
+<div class="marginbuttom" id="div1">
+</div>
+<div class="col-xs-12">
+<button  (click)="myFunc()" class="button">Upload Test</button>
+<button  (click)="myFunc1()" class="button">add</button>
+<button  (click)="myFunc2()" class="button">console</button>
+</div>
+<!-- document.createElement(element) -->
+
+
