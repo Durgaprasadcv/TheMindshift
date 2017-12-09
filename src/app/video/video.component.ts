@@ -87,7 +87,7 @@ webresponse(fun_id,return_data)
  this.returnmsg1=this.returnmsg.test[0];
  this.video_questions();
   }
-  if(1234){
+  if(fun_id==1234){
     console.log('response of question update',return_data.json());
   }
 }
@@ -100,18 +100,18 @@ video_questions(){
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
   {
-    if((JSON.parse( localStorage.getItem('lastpause')))>0)
+    if((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')))>0)
     {
       if(Math.trunc(this.api.getDefaultMedia().currentTime)==0){
-        this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause')));
-        console.log((JSON.parse( localStorage.getItem('lastpause'))));
+        this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
+        console.log((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
       }
      // this.api.getDefaultMedia().currentTime=JSON.parse( localStorage.getItem('lastpause'));
      //this.api.getDefaultMedia().currentTime=10;
     }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
     if(this.returnmsg1.stop_time>this.ticks){
-    localStorage.setItem('lastpause',  JSON.stringify(this.ticks));
+    localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.ticks));
     }
     if(this.j==this.z)
     {  console.log('end');
