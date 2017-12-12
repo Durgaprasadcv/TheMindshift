@@ -139,11 +139,11 @@
     <div *ngIf="return_bar">
         <div class="bord"  *ngFor="let i of return_bar.learningTest  let ia = index">
           <div class="col-xs-12 col-sm-12 padding_null">
-            <div class="dashboard_title">
+            <!-- <div class="dashboard_title">
               <p >{{i.learning_module_name}}</p>
-            </div>
+            </div> -->
             <div class="container dashboard_bar"> 
-              <div  class="progress">
+              <div  class="progress margin_null">
                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" [style.width.%]="i.module_percent" [style.background-color]="i.color_code">
                   <span class="sr-only">70% Complete</span>
                 </div>

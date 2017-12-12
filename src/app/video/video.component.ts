@@ -66,8 +66,10 @@ ngOnInit() {
   // })();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
-  const body = {user_id:'32'};
-  this.webservice.webRequest(this,'post','http://lg.djitsoft.xyz/api/gettest_detail/'+id,body,'123','');
+  const body = {
+    user_id:'32',
+    test_id:id};
+  this.webservice.webRequest(this,'post','http://lg.djitsoft.xyz/api/gettest_detail_uid',body,'123','');
 }
 question_update(test_id,test_name,answer_time,question_no,marks_per_question){
   const body = {
@@ -95,7 +97,8 @@ video_questions(){
   this.isValid = true;
   this.video_path_html=this.returnmsg1.video_path;
   let timer = Observable.timer(1000,1000);
-  this.j=this.returnmsg1.no_of_questions;
+  this.j=this.returnmsg1.question.length;
+  console.log('no of question',this.j);
   this.z=0;
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
@@ -105,13 +108,18 @@ video_questions(){
       if(Math.trunc(this.api.getDefaultMedia().currentTime)==0){
         this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
         console.log((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+        //this.api.getDefaultMedia().play();
       }
      // this.api.getDefaultMedia().currentTime=JSON.parse( localStorage.getItem('lastpause'));
      //this.api.getDefaultMedia().currentTime=10;
     }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
     if(this.returnmsg1.stop_time>this.ticks){
-    localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.ticks));
+    localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.ticks+1));
+    }
+        if(this.returnmsg1.stop_time==this.ticks){
+      localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+      this._router.navigate(['/bcarousel']);
     }
     if(this.j==this.z)
     {  console.log('end');
@@ -122,7 +130,7 @@ video_questions(){
         if(this.returnmsg1.stop_time==this.ticks)
         {
           console.log('end');
-        localStorage.setItem('lastpause',  JSON.stringify(this.dis));
+        localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.dis));
         this.api.getDefaultMedia().pause();
         let dialogRef=this.dialog.open(ReportComponent, {
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks}

@@ -186,8 +186,9 @@
 }
 .dashboard_bar{
   float:right;
-  width:70%;
-  padding:0 !important;
+  width:100%;
+  padding-left:1vw !important;
+  padding-right: 1vw !important;
   margin: 0 !important;
 }
 .padding_null{
@@ -199,4 +200,7 @@
 }
 .top_69pr{
   top:69% !important;
+}
+.margin_null{
+  margin:0 !important;
 }
