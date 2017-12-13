@@ -16,9 +16,11 @@ export class AuthenticateService {
   public msg = '';
   constructor(private _router: Router,private http: Http) { }
   logout() {
+    localStorage.clear();
     localStorage.removeItem("user");
     localStorage.removeItem("language");
     this._router.navigate(['/login']);
+    console.log('clear');
     // window.location.reload();
   }
   sendmsg(user) {

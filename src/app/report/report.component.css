@@ -1,0 +1,48 @@
+  @media only screen and (orientation:portrait){
+    #pop_up { 
+      /* -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      margin-left: 30%; */
+
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    
+      transform-origin: bottom left;
+      width: 85vh;
+      height: 100vw;
+      margin-top: -100vw;
+      margin-left: -50vw;
+      /* object-fit: cover; */
+    
+      z-index: 4;
+      visibility: visible;
+    }
+    #main_div{
+      margin-left: 30%;
+      /* margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }
+  @media only screen and (orientation:landscape){
+    #pop_up { 
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+     -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    #main_div{
+      /* margin-left: 10%; 
+      margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }

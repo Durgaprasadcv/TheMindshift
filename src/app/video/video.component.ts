@@ -45,6 +45,8 @@ export class VideoComponent implements OnInit {
   w='700px';
   pop_parms;
   local_pause:any[];
+  test_count;
+  popup_count=0;
   constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
    // screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
@@ -66,11 +68,13 @@ ngOnInit() {
   // })();
   let id = this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
+  //to get test details
   const body = {
     user_id:'32',
     test_id:id};
-  this.webservice.webRequest(this,'post','http://lg.djitsoft.xyz/api/gettest_detail_uid',body,'123','');
+  this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'123','');
 }
+//to update result
 question_update(test_id,test_name,answer_time,question_no,marks_per_question){
   const body = {
     test_id:test_id,
@@ -83,12 +87,14 @@ question_update(test_id,test_name,answer_time,question_no,marks_per_question){
 }
 webresponse(fun_id,return_data)
 {
+  // test details response
   if(fun_id==123)
   {
  this.returnmsg = return_data.json();
  this.returnmsg1=this.returnmsg.test[0];
  this.video_questions();
   }
+  // result update response
   if(fun_id==1234){
     console.log('response of question update',return_data.json());
   }
@@ -96,44 +102,81 @@ webresponse(fun_id,return_data)
 video_questions(){
   this.isValid = true;
   this.video_path_html=this.returnmsg1.video_path;
+  if((JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']')))>0)
+  {
+    this.test_count=JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']'))+1;
+    localStorage.setItem('testcount['+this.returnmsg1.test_id+']',  JSON.stringify(this.test_count));
+  }
+  else{
+    localStorage.setItem('testcount['+this.returnmsg1.test_id+']',  JSON.stringify(1));
+  }
   let timer = Observable.timer(1000,1000);
-  this.j=this.returnmsg1.question.length;
+  this.j=this.returnmsg1.question.length;   //total no of questions
   console.log('no of question',this.j);
-  this.z=0;
+  this.z=0;       //question count
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
   {
+    //retrieve the last pause time 
     if((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')))>0)
     {
       if(Math.trunc(this.api.getDefaultMedia().currentTime)==0){
-        this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
-        console.log((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+        if(this.popup_count==0)
+        {
+          this.popup_count=1;
+          this.api.getDefaultMedia().pause();
+        let dialogRef=this.dialog.open(ReportComponent, {
+          disableClose:true,
+          data: {report:0}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if(result){
+            this.api.getDefaultMedia().currentTime=0;
+            localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+            console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+            console.log('pop result',result);
+          }
+          else{
+            this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
+            console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+            console.log('pop result',result);
+          }
+          this.api.getDefaultMedia().play();
+          this.popup_count=0;
+        });
+      }
+        
         //this.api.getDefaultMedia().play();
       }
      // this.api.getDefaultMedia().currentTime=JSON.parse( localStorage.getItem('lastpause'));
      //this.api.getDefaultMedia().currentTime=10;
     }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
-    if(this.returnmsg1.stop_time>this.ticks){
+    
+    // update the current time to local storage
+    if(this.returnmsg1.stop_time>this.ticks&&this.ticks>0){
     localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.ticks+1));
     }
-        if(this.returnmsg1.stop_time==this.ticks){
+
+    // setting pause time to 0 after completion of test in local storage
+    if(this.returnmsg1.stop_time==this.ticks&&this.j!=this.z){
       localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
       this._router.navigate(['/bcarousel']);
     }
+
+    //checking wheather questions ended
     if(this.j==this.z)
-    {  console.log('end');
-      //report
-    
+    {
       if(this.dis==0)
       {
         if(this.returnmsg1.stop_time==this.ticks)
         {
           console.log('end');
-        localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.dis));
+        localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
         this.api.getDefaultMedia().pause();
         let dialogRef=this.dialog.open(ReportComponent, {
-          data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks}
+          disableClose:true,
+          data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks,report:1}
         });
         dialogRef.afterClosed().subscribe(result => {
           this._router.navigate(['/bcarousel']);
@@ -144,6 +187,7 @@ video_questions(){
       }
       } 
     }
+    // executed for each questions
     else
     {  //  const body = {test_id:0,c_answer:0,t_marks:,questions};
       if((this.returnmsg1.question[this.z].Pause_time)==this.ticks)
@@ -157,6 +201,7 @@ video_questions(){
   });
 
 }
+//pop up the question 
 pop_up()
 {
   if(window.innerHeight > window.innerWidth)
@@ -168,10 +213,12 @@ pop_up()
     this.h='220px';
     this.w='700px';
   }
+  //dialog box for question
   let dialogRef=this.dialog.open(DialogComponent, {
     disableClose:true,
     data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z]}
   });
+  // handling result after dialog box is closed
   dialogRef.afterClosed().subscribe(result => {
     this.skip(result);
     this.z++;
@@ -180,14 +227,17 @@ pop_up()
   });
   return;
 }
+//skip the video depending on result
 skip(result)
 {
   this.resl= result;
+  //if question is not answered
   if(this.resl==999)
   {
     console.log('Not Answered');
     this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0);
   }
+  // if question is answred correctly
   else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
   {
     if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
@@ -201,6 +251,7 @@ skip(result)
         this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
       }
     } 
+    //if question is answered wrong
     else
     {
       console.log('Wrong Answer');

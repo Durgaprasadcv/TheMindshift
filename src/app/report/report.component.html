@@ -1,4 +1,9 @@
-<h5>Total question:{{data.t_question}}</h5>
-<h5>Total Correct Answer:{{data.c_answer}}</h5>
-<h5>Total Marks:{{data.t_marks}}</h5>
-<button md-raised-button (click)="onNoClick()" >close</button> 
+<div id="pop_up">
+<h5 *ngIf="report_display">Total question:{{data.t_question}}</h5>
+<h5 *ngIf="report_display">Total Correct Answer:{{data.c_answer}}</h5>
+<h5 *ngIf="report_display">Total Marks:{{data.t_marks}}</h5>
+<button *ngIf="report_display" md-raised-button (click)="onNoClick()" >close</button> 
+<h5 *ngIf="!report_display">Do you want to continue in last paused position ?</h5>
+<button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(0)" ><h5>Yes</h5></button> 
+<button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(1)" ><h5>No</h5></button> 
+</div>

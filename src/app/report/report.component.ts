@@ -8,12 +8,15 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-
+ report_display=this.data.report;
   constructor(private route: ActivatedRoute,public dialogRef: MdDialogRef<ReportComponent>,
     @Inject(MD_DIALOG_DATA) public data: any) { }
   
     onNoClick(): void {
       this.dialogRef.close();
+    }
+    onNoClick_pause(value): void {
+      this.dialogRef.close(value);
     }
 
   ngOnInit() {
@@ -22,6 +25,7 @@ export class ReportComponent implements OnInit {
       //this.person = this.peopleService.get(id);
     //  console.log('data in report',params)
    // });
+   this.dialogRef.updateSize('55%', '65%');
   }
 
 }
