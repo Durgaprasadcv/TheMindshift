@@ -65,12 +65,13 @@ constructor(private webservice: WebService,private _router: Router,private http:
     this.webservice.logout();
   }
   selectbcarousel(i){
-    if(this.returnmsg.category[i].display==1)
-    {
+    // if(this.returnmsg.category[i].display==1)
+    // {
       //localStorage.setItem("bcarousel", JSON.stringify(i));
-      let id = i;
-      this._router.navigate(['/video-lists',id]);
-    }
+    //   let id = i;
+    //   this._router.navigate(['/video-lists',id]);
+    // }
+    this._router.navigate(['/video',i]);
   }
   selectcards(j){
       // localStorage.setItem("bcarousel", JSON.stringify(j));

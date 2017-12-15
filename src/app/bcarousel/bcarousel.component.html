@@ -23,7 +23,7 @@
         </md-menu> -->
       <!-- </div> -->
     </div>  
-    <div class="main_content" >
+    <div *ngIf="returnmsg" class="main_content" >
     <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
           <!-- Indicators 
           <ol class="carousel-indicators">
@@ -135,51 +135,106 @@
       </div>
     </div>
   </div> -->
-  <div class="hai">
+  <!-- <div class="hai">
     <div *ngIf="return_bar">
         <div class="bord"  *ngFor="let i of return_bar.learningTest  let ia = index">
-          <div class="col-xs-12 col-sm-12 padding_null">
+          <div class="col-xs-12 col-sm-12 padding_null"> -->
             <!-- <div class="dashboard_title">
               <p >{{i.learning_module_name}}</p>
             </div> -->
-            <div class="container dashboard_bar"> 
+            <!-- <div class="container dashboard_bar"> 
               <div  class="progress margin_null">
                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" [style.width.%]="i.module_percent" [style.background-color]="i.color_code">
                   <span class="sr-only">70% Complete</span>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> -->
+          <!-- </div>
         </div>
       </div>
-    </div>
-  <div class="hello">
+    </div> -->
+  <div class="hello padding_lr_4px">
         <div *ngIf="returnmsg">
-            <div class="bord"  *ngFor="let i of returnmsg.category  let ia = index">
+            <div class="bord" >
             <div class="rel_division">
-            <a (click)="selectbcarousel(ia)" > 
-              <img src="{{i.Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
-            </a>
-            <div >
+            <!-- <a (click)="selectbcarousel(ia)" >  -->
+              <img src="{{returnmsg.category[0].Test_Mod_ImgId}}" alt="Carousel" class="listimg">  
+            <!-- </a> -->
+            <!-- <div >
             <a (click)="selectbcarousel(ia)" > 
               <h6 class="absolute_division_up" *ngIf="i.display==0">(Comming Soon)</h6>
               <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
             </a>
+            </div> -->
+            <div>
+              <p class="font_9px">{{returnmsg.category[0].Test_Mod_dec}}</p>
             </div>
             </div>
             </div>
           </div>
         </div>
         <!-- loop each avatar in our avatar list -->
-        <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
-            <div>
-                <img class="swipe_img" [src]="avatar.image" [alt]="avatar.name">
-            </div>
+        <!-- <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
+            <div class="padding_lr_5px">
+                <img class="swipe_img" [src]="avatars[idx].image" [alt]="avatar.name">
+            </div> -->
             <!-- <div>
                 <a class="header">{{avatar.name}}</a>
             </div> -->
-        </div>
-
+        <!-- </div> -->
+        <div class="grey_div"></div>
+<h6 class="font_9px">CHAPTER</h6>
+<div  class="test_banner">
+  <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selectbcarousel(i.test_id)">
+  <img class="col"  src="{{i.test_image}}" >
+</a>
+</div>
+<div class="grey_div"></div>
+<h6 class="font_9px">CHARACTER</h6>
+<div  class="test_banner">
+  <img class="col" *ngFor="let i of returnmsg.characters  let ia = index" src="{{i.Imag_Path}}" >
+</div>
+<h6 class="yourshift_class font_9px">YOUR SHIFT</h6>
+<div class="clearfix bg_color_white test_banner">
+    
+                    <div class="c100 p50 big bg_color_white  font_160px col">
+                        <span>50%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+             <div class="c100 p50 big bg_color_white  font_160px col">
+                        <span>50%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+             <div class="c100 p50 big bg_color_white font_160px col">
+                        <span>50%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+             <div class="c100 p50 big bg_color_white font_160px col">
+                        <span>50%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+             <div class="c100 p50 big bg_color_white font_160px col">
+                        <span>50%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+    
+                </div>
+<button class="button_div_class">RESUME</button>
           </div>
       <!---->
   <!-- Material sidebar -->

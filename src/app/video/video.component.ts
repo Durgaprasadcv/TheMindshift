@@ -143,7 +143,7 @@ video_questions(){
           }
           this.api.getDefaultMedia().play();
           this.popup_count=0;
-        });
+        } );
       }
         
         //this.api.getDefaultMedia().play();

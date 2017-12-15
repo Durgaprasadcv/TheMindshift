@@ -19,6 +19,7 @@ export class VideoListsComponent implements OnInit {
 
   ngOnInit() {
     this.count=0;
+    //receiving data of previous page
     let id = this.route.snapshot.paramMap.get('ida');
     this.id_received=id
     //this.video_path_html=this.returnmsg1.test[id].video_path;
@@ -28,13 +29,17 @@ export class VideoListsComponent implements OnInit {
       //this.person = this.peopleService.get(id);
       //console.log('data from carousel route to videolist',params)
    // });
+
+   //api call
    const body = {user_id:'32'};
    this.webservice.webRequest(this,'post',this.webservice.video_list,body,'123','');
   }
+  //response from api
   webresponse(fun_id,return_data)
   {
     this.returnmsg = return_data.json();
   }
+  //navigation to video page
   selectvideolists(i)
   {
     let id = i;
@@ -52,6 +57,7 @@ export class VideoListsComponent implements OnInit {
     }
     return this.count;
   }
+  //back button
   back()
   {
     this._router.navigate(['/bcarousel']);
