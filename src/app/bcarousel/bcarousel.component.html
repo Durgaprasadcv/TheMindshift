@@ -183,57 +183,68 @@
             </div> -->
         <!-- </div> -->
         <div class="grey_div"></div>
-<h6 class="font_9px">CHAPTER</h6>
 <div  class="test_banner">
   <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selectbcarousel(i.test_id)">
-  <img class="col"  src="{{i.test_image}}" >
+    <div class="col rel_division" >
+  <img class="col_img"  src="{{i.test_image}}" >
+  <p class="test_name">{{i.test_name}}</p>
+  <div >
+    <a (click)="selectbcarousel(i.test_id)" > 
+      <img class="absolute_division_up play_img"  src="assets/images/play_button.png" >
+    </a>
+    </div>
+</div>
 </a>
 </div>
 <div class="grey_div"></div>
-<h6 class="font_9px">CHARACTER</h6>
 <div  class="test_banner">
-  <img class="col" *ngFor="let i of returnmsg.characters  let ia = index" src="{{i.Imag_Path}}" >
+  <a *ngFor="let i of returnmsg.characters  let ia = index">
+    <div class="col" >
+      <img class="col_img"  src="{{i.Imag_Path}}" >
+      <p class="test_name">{{i.Imag_Tittle}}</p>
+    </div>
+  </a>
 </div>
 <h6 class="yourshift_class font_9px">YOUR SHIFT</h6>
-<div class="clearfix bg_color_white test_banner">
-    
-                    <div class="c100 p50 big bg_color_white  font_160px col">
-                        <span>50%</span>
-                        <div class="slice">
+<div class="shift_banner">
+  <div  class=" c100 p10 big bg_color_white  font_160px col_percentge">
+    <span>10%</span>
+    <div class="slice ">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div>
+             <div class="c100 p20 big bg_color_white  font_160px col_percentge">
+                        <span>20%</span>
+                        <div class="slice ">
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
                     </div>
-             <div class="c100 p50 big bg_color_white  font_160px col">
-                        <span>50%</span>
-                        <div class="slice">
+             <div class="c100 p90 big bg_color_white font_160px col_percentge">
+                        <span>90%</span>
+                        <div class="slice ">
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
                     </div>
-             <div class="c100 p50 big bg_color_white font_160px col">
-                        <span>50%</span>
-                        <div class="slice">
+             <div class="c100 p40 big bg_color_white font_160px col_percentge">
+                        <span>40%</span>
+                        <div class="slice ">
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
                     </div>
-             <div class="c100 p50 big bg_color_white font_160px col">
-                        <span>50%</span>
-                        <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-             <div class="c100 p50 big bg_color_white font_160px col">
-                        <span>50%</span>
-                        <div class="slice">
+             <div class="c100 p75 big bg_color_white font_160px col_percentge">
+                        <span>75%</span>
+                        <div class="slice ">
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
                     </div>
     
                 </div>
+                
 <button class="button_div_class">RESUME</button>
           </div>
       <!---->
