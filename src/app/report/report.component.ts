@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {Observable} from 'rxjs/Rx';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -10,7 +11,7 @@ import {Observable} from 'rxjs/Rx';
 export class ReportComponent implements OnInit {
  report_display=this.data.report;
   constructor(private route: ActivatedRoute,public dialogRef: MdDialogRef<ReportComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    @Inject(MD_DIALOG_DATA) public data: any,private _router: Router) { }
   
     onNoClick(): void {
       this.dialogRef.close();
@@ -26,6 +27,9 @@ export class ReportComponent implements OnInit {
     //  console.log('data in report',params)
    // });
    this.dialogRef.updateSize('55%', '65%');
+  }
+  selectvideo(){
+    this.dialogRef.close();
   }
 
 }

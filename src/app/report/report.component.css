@@ -30,6 +30,30 @@
       margin-right: 10%;
       margin-bottom: 10%;  */
     }
+    .container{
+      width: 13%;
+      height: 125px;
+      display:inline-block;
+    
+  }
+  .img_div_back{
+    width:24% !important;
+  }
+  .img_div_front{
+    width:24% !important;
+  }
+  .img_div_center{
+    width:23% !important;
+     
+  }
+  .heading{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 22px ;
+    width:67% !important; 
+    font-weight: bold;
+  }
   }
   @media only screen and (orientation:landscape){
     #pop_up { 
@@ -45,4 +69,96 @@
       margin-right: 10%;
       margin-bottom: 10%;  */
     }
+    .container{
+      width: 19%;
+      height: 125px;
+      display:inline-block;
+    
+  }
+  }
+  .col_percentge{
+    height:50px;
+    margin: 0 !important;
+    width:20%;
+    display: inline-block;
+  }
+  .shift_banner{
+    height:150px;
+    width:auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .font_160px{
+    font-size:40px !important;
+    }
+
+   
+  .prec{
+      top: 30px;
+      position: relative;
+      font-size: 30px;
+  }
+  
+  .circle{
+      position: relative;
+      top: 5px;
+      left: 5px;
+      text-align: center;
+      width: 90px;
+      height: 90px;
+      border-radius: 100%;
+      background-color: #E6F4F7;
+  }
+  
+  .active-border{
+      position: relative;
+      text-align: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+  
+      background-color:#39B4CC;
+      background-image:
+          linear-gradient(162deg, transparent 50%, #A2ECFB 50%),
+          linear-gradient(90deg, #A2ECFB 50%, transparent 50%);
+      
+  }
+  .img_size{
+    height:60px !important;
+    width:60px !important;
+  }
+  .inline_block{
+    display:inline-block;
+  }
+  .img_div_back{
+    width:33%;
+  }
+  .img_div_front{
+    width:33%;
+  }
+  .img_div_center{
+    width:32%;
+     
+  }
+  .float_left{
+    float: left;
+  }
+  .float_right{
+    float: right;
+  }
+  .replay_icon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .heading{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 22px ;
+    font-weight: bold;
+  }
+  .margin_tb_25px{
+    margin-top:15px;
+    margin-bottom:15px;
   }

@@ -153,7 +153,7 @@
         </div>
       </div>
     </div> -->
-  <div class="hello padding_lr_4px">
+  <div class="hello">
         <div *ngIf="returnmsg">
             <div class="bord" >
             <div class="rel_division">
@@ -166,8 +166,8 @@
               <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
             </a>
             </div> -->
-            <div>
-              <p class="font_9px">{{returnmsg.category[0].Test_Mod_dec}}</p>
+            <div class="vh_10">
+              <p class="font_20px text_des">{{returnmsg.category[0].Test_Mod_dec}}</p>
             </div>
             </div>
             </div>
@@ -182,7 +182,9 @@
                 <a class="header">{{avatar.name}}</a>
             </div> -->
         <!-- </div> -->
+        <div class="white_div"></div>
         <div class="grey_div"></div>
+        <div class="white_div"></div>
 <div  class="test_banner">
   <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selectbcarousel(i.test_id)">
     <div class="col rel_division" >
@@ -196,22 +198,25 @@
 </div>
 </a>
 </div>
-<div class="grey_div"></div>
-<div  class="test_banner">
+<div  class="test_banner_character">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
-    <div class="col" >
-      <img class="col_img"  src="{{i.Imag_Path}}" >
+    <div class="col_character" >
+      <img class="col_img_character"  src="{{i.Imag_Path}}" >
       <p class="test_name">{{i.Imag_Tittle}}</p>
     </div>
   </a>
 </div>
-<h6 class="yourshift_class font_9px">YOUR SHIFT</h6>
+<div class="grey_div"></div>
+<h6 class="yourshift_class font_20px">YOUR SHIFT</h6>
 <div class="shift_banner">
   <div  class=" c100 p10 big bg_color_white  font_160px col_percentge">
     <span>10%</span>
     <div class="slice ">
       <div class="bar"></div>
       <div class="fill"></div>
+    </div>
+    <div>
+      <p class="shift_des">Sales</p>
     </div>
   </div>
              <div class="c100 p20 big bg_color_white  font_160px col_percentge">
@@ -220,12 +225,18 @@
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
+                        <div>
+                        <p class="shift_des">Cust. Service</p>
+                      </div>
                     </div>
              <div class="c100 p90 big bg_color_white font_160px col_percentge">
                         <span>90%</span>
                         <div class="slice ">
                             <div class="bar"></div>
                             <div class="fill"></div>
+                        </div>
+                        <div>
+                          <p class="shift_des">Communication</p>
                         </div>
                     </div>
              <div class="c100 p40 big bg_color_white font_160px col_percentge">
@@ -234,6 +245,9 @@
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
+                        <div>
+                          <p class="shift_des">Team Work</p>
+                        </div>
                     </div>
              <div class="c100 p75 big bg_color_white font_160px col_percentge">
                         <span>75%</span>
@@ -241,10 +255,12 @@
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
+                        <div>
+                          <p class="shift_des">Product</p>
+                        </div>
                     </div>
     
                 </div>
-                
 <button class="button_div_class">RESUME</button>
           </div>
       <!---->

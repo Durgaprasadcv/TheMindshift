@@ -301,7 +301,7 @@
 .c100 .slice {
   position: absolute;
   width: 1em;
-  height: 1em;
+  height: 10vh;
   clip: rect(0em, 1em, 1em, 0.5em);
 }
 .c100.p1 .bar {

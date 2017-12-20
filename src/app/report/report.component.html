@@ -1,8 +1,103 @@
 <div id="pop_up">
-<h5 *ngIf="report_display">Total question:{{data.t_question}}</h5>
+<!-- <h5 *ngIf="report_display">Total question:{{data.t_question}}</h5>
 <h5 *ngIf="report_display">Total Correct Answer:{{data.c_answer}}</h5>
-<h5 *ngIf="report_display">Total Marks:{{data.t_marks}}</h5>
-<button *ngIf="report_display" md-raised-button (click)="onNoClick()" >close</button> 
+<h5 *ngIf="report_display">Total Marks:{{data.t_marks}}</h5> -->
+<!-- <div *ngIf="report_display" class="shift_banner">
+    <div  class=" c100 p10 big bg_color_white  font_160px col_percentge">
+      <span>10%</span>
+      <div class="slice ">
+        <div class="bar"></div>
+        <div class="fill"></div>
+      </div>
+    </div>
+               <div class="c100 p20 big bg_color_white  font_160px col_percentge">
+                          <span>20%</span>
+                          <div class="slice ">
+                              <div class="bar"></div>
+                              <div class="fill"></div>
+                          </div>
+                      </div>
+               <div class="c100 p90 big bg_color_white font_160px col_percentge">
+                          <span>90%</span>
+                          <div class="slice ">
+                              <div class="bar"></div>
+                              <div class="fill"></div>
+                          </div>
+                      </div>
+               <div class="c100 p40 big bg_color_white font_160px col_percentge">
+                          <span>40%</span>
+                          <div class="slice ">
+                              <div class="bar"></div>
+                              <div class="fill"></div>
+                          </div>
+                      </div>
+               <div class="c100 p75 big bg_color_white font_160px col_percentge">
+                          <span>75%</span>
+                          <div class="slice ">
+                              <div class="bar"></div>
+                              <div class="fill"></div>
+                          </div>
+                      </div>
+      
+                  </div> -->
+                  <!-- <div *ngIf="report_display" class="shift_banner"> -->
+  <h2 *ngIf="report_display" class="heading margin_tb_25px">YOUR SHIFTS</h2>
+    <div>
+        <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 180" id="prec">20%</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 270" id="prec">20%</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 270" id="prec">20%</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 270" id="prec">20%</span>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 270" id="prec">20%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="report_display">
+            <div class="inline_block img_div_back">
+                <a (click)="selectvideo()" >
+                    <img class="img_size float_left"  src="assets/images/back.png" >
+                </a>
+            </div>
+            <div class="inline_block img_div_center">
+                    <a (click)="selectvideo()" >
+                    <img class="img_size replay_icon"  src="assets/images/replay.png" >
+                </a>
+            </div>
+        <div class="inline_block img_div_front">
+                <a (click)="selectvideo()" >
+                <img class="img_size float_right"  src="assets/images/front.png" >
+            </a>
+        </div>
+    </div>
+            <!-- </div> -->
+<!-- <button *ngIf="report_display" md-raised-button (click)="onNoClick()" >close</button>  -->
 <h5 *ngIf="!report_display">Do you want to continue in last paused position ?</h5>
 <button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(0)" ><h5>Yes</h5></button> 
 <button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(1)" ><h5>No</h5></button> 
