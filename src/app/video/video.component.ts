@@ -161,7 +161,8 @@ video_questions(){
     // setting pause time to 0 after completion of test in local storage
     if(this.returnmsg1.stop_time==this.ticks&&this.j!=this.z){
       localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
-      this._router.navigate(['/bcarousel']);
+     // this._router.navigate(['/bcarousel']);
+     window.history.back();
     }
 
     //checking wheather questions ended
@@ -179,7 +180,8 @@ video_questions(){
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks,report:1}
         });
         dialogRef.afterClosed().subscribe(result => {
-          this._router.navigate(['/bcarousel']);
+         // this._router.navigate(['/bcarousel']);
+          window.history.back();
         });
       console.log('Total Correct Answer',this.q_answer);
       console.log('Total Marks',this.marks);
