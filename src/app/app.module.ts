@@ -67,6 +67,7 @@ import * as FusionCharts from 'fusioncharts';
 // Import FusionCharts Charts module
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { CreateTestComponent } from './create-test/create-test.component';
+import { TestDetailsComponent } from './test-details/test-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,8 @@ import { CreateTestComponent } from './create-test/create-test.component';
     VideoListsComponent,
     ReportComponent,
     ReportRoughComponent,
-    CreateTestComponent
+    CreateTestComponent,
+    TestDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +108,7 @@ import { CreateTestComponent } from './create-test/create-test.component';
       { path: 'report', component:ReportComponent },
       { path: 'report-rough', component:ReportRoughComponent },
       { path: 'create-test', component:CreateTestComponent },
+      { path: 'test-details', component:TestDetailsComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

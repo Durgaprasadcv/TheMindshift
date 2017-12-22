@@ -1,0 +1,30 @@
+<div *ngIf="returnmsg" class="test_main">
+<div   *ngFor="let i of returnmsg.test  let ia = index ">
+<h4>Test Details</h4>
+<h5>Test Name:{{i.test_name}}</h5>
+<h5>Test Id:{{i.test_id}}</h5>
+<h5>Test Description:{{i.test_description}}</h5>
+<h5>Video Path:{{i.video_path}}</h5>
+<h5>Total no of Questions:{{i.no_of_questions}}</h5>
+<h5>Test Image Path:{{i.test_image}}</h5>
+<h5>Stop Time:{{i.stop_time}}</h5>
+<h4>Questions</h4>
+<div *ngIf="i.question.length">
+  <div *ngFor="let j of i.question  let ja = index ">
+    <h5 *ngIf="j.question_title">Question Title:{{j.question_title}} </h5>
+    <h5 *ngIf="j.Pause_time">Pause Time:{{j.Pause_time}} </h5>
+    <h5 *ngIf="j.wait_time">Wait Time:{{j.wait_time}} </h5>
+    <h5 *ngIf="j.marks_assigned">Marks:{{j.marks_assigned}} </h5>
+    <div *ngIf="j.type_options.length">
+        <div *ngFor="let k of j.type_options  let ka = index ">
+          <h5 *ngIf="k.name">Option Name:{{k.name}}</h5>
+          <h5 *ngIf="k.id">Option Id:{{k.id}}</h5>
+        </div>
+    </div>
+    <br>
+    <h5 *ngIf="j.answers">Answer Id:{{j.answers}}</h5>
+    <br>
+  </div>
+</div>
+</div>
+</div>
