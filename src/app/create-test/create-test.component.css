@@ -13,3 +13,12 @@ button{
 .marginbuttom{
    padding-bottom:10%;
 }
+.main_block{
+    width: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.video_pos{
+height:325px !important;
+margin-top:15px;
+}

@@ -1,5 +1,5 @@
-<h5>Create Test</h5>
-<div class="col-xs-12">
+<!-- <h5>Create Test</h5> -->
+<!-- <div class="col-xs-12">
 <div class="col-xs-12">
 <h6>Enter Test Details</h6>
 <br>
@@ -8,7 +8,6 @@
 <p>Enter Test Video Link: <input type = "text" [(ngModel)]= "TestVideo"></p>
 </div>
 <hr>
-<!-- *ngFor="let i of nums" -->
 <div class="col-xs-12">
 <h6>Enter Questions Details</h6>
 <br>
@@ -19,12 +18,103 @@
 <p>Enter Waiting Time: <input type = "text" [(ngModel)]= "WaitTime"></p>
 <p>Enter Options: <input type = "text" [(ngModel)]= "Questionoption"></p>
 </div>
-</div>
-<div class="marginbuttom" id="div1">
-</div>
-<div class="col-xs-12">
+</div> -->
+<!-- <div class="marginbuttom" id="div1">
+</div> -->
+<!-- <div class="col-xs-12">
 <button  (click)="myFunc()" class="button">Upload Test</button>
 <button  (click)="myFunc1()" class="button">add</button>
 <button  (click)="myFunc2()" class="button">console</button>
-</div>
+</div> -->
 <!-- document.createElement(element) -->
+<div class="col-md-12">
+<div class="col-md-6 container main_block">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="margin-20">
+          <h4>Add Test</h4>
+        </div>
+        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+          <div class="form-group">
+            <label>Test Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                Test Name is required (minimum 5 characters).
+              </small>
+              <br>
+              <label>Test Description</label>
+            <input type="text" class="form-control" formControlName="description">
+            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                Test Description is required (minimum 5 characters).
+              </small>
+              <br>
+              <label>Start Time</label>
+            <input type="text" class="form-control" formControlName="description">
+            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                    Start Time is required (minimum 5 characters).
+              </small>
+            <br>
+            <label>Stop Time</label>
+            <input type="text" class="form-control" formControlName="description">
+            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                    Stop Time is required (minimum 5 characters).
+              </small>
+              <br>
+              <label>Test Image Url</label>
+            <input type="text" class="form-control" formControlName="description">
+            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                    Test Image Url is required (minimum 5 characters).
+              </small>
+          </div>
+          <!--addresses-->
+          <div formArrayName="addresses">
+            <div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
+              <div class="panel-heading">
+                <span>Question {{i + 1}}</span>
+                <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)"></span>
+              </div>
+              <div class="panel-body" [formGroupName]="i">
+                <app-form-question [group]="myForm.controls.addresses.controls[i]"></app-form-question>
+              </div>
+            </div>
+          </div>
+  
+          <div class="margin-20">
+            <a (click)="addAddress()" style="cursor: default">
+              Add another question +
+            </a>
+          </div>
+  
+          <div class="margin-20">
+            <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+          </div>
+          <div class="clearfix"></div>
+  
+          <!-- <div class="margin-20">
+            <div>myForm details:-</div>
+            <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+            <pre>form value: <br>{{myForm.value | json}}</pre>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 main_block">   
+        <vg-player class="video_pos" (onPlayerReady)="onPlayerReady($event)">
+            <vg-buffering></vg-buffering>
+            <vg-controls>
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <vg-mute></vg-mute>
+                <vg-volume></vg-volume>
+            </vg-controls>
+            <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
+                <!-- <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4"> -->
+            </video>  
+        </vg-player>
+        <div class="col-xs-12">
+            <h5>Videos</h5>
+        </div>   
+        <!-- <button  (click)="myFunc2()" class="button">console</button>        -->
+    </div>
+</div>

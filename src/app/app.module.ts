@@ -68,6 +68,7 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { CreateTestComponent } from './create-test/create-test.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
+import { FormQuestionComponent } from './form-question/form-question.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +82,8 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     ReportComponent,
     ReportRoughComponent,
     CreateTestComponent,
-    TestDetailsComponent
+    TestDetailsComponent,
+    FormQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ import { TestDetailsComponent } from './test-details/test-details.component';
     VgBufferingModule,
     FlexLayoutModule,
     FusionChartsModule.forRoot(FusionCharts, Charts),
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
