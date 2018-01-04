@@ -66,21 +66,21 @@
                     Test Image Url is required (minimum 5 characters).
               </small>
           </div>
-          <!--addresses-->
-          <div formArrayName="addresses">
-            <div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
+          <!--question-->
+          <div formArrayName="test_question">
+            <div *ngFor="let address of myForm.controls.test_question.controls; let i=index" class="panel panel-default">
               <div class="panel-heading">
                 <span>Question {{i + 1}}</span>
-                <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)"></span>
+                <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.test_question.controls.length > 1" (click)="removeQuestion(i)"></span>
               </div>
               <div class="panel-body" [formGroupName]="i">
-                <app-form-question [group]="myForm.controls.addresses.controls[i]"></app-form-question>
+                <app-form-question [group]="myForm.controls.test_question.controls[i]"></app-form-question>
               </div>
             </div>
           </div>
   
           <div class="margin-20">
-            <a (click)="addAddress()" style="cursor: default">
+            <a (click)="addQuestion()" style="cursor: default">
               Add another question +
             </a>
           </div>
@@ -109,12 +109,25 @@
                 <vg-volume></vg-volume>
             </vg-controls>
             <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
-                <!-- <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4"> -->
+                <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
             </video>  
         </vg-player>
         <div class="col-xs-12">
             <h5>Videos</h5>
-        </div>   
-        <!-- <button  (click)="myFunc2()" class="button">console</button>        -->
+        </div> 
+        <button  (click)="myFunc1()" class="button">Preview</button>   
+        <button  (click)="myFunc2()" class="button">console</button>     
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Bob" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="avatar">Avatar</label>
+            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+            <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+          </div>
+          <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+        </form>
     </div>
 </div>

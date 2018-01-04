@@ -14,6 +14,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import 'assets/video.js'
 declare var videoObject: any;
+import {WebPreviewComponent} from "../web-preview/web-preview.component";
+import {ViewChild} from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'app-create-test',
@@ -22,7 +24,10 @@ declare var videoObject: any;
   styleUrls: ['./create-test.component.css']
 })
 export class CreateTestComponent implements OnInit {
-  public myForm: FormGroup;
+public myForm: FormGroup;
+loading: boolean = false;
+@ViewChild('fileInput') fileInput: ElementRef;
+form: FormGroup;
 QuestionTitle;
 QuestionType;
 Marks;
@@ -42,17 +47,35 @@ uniqueIdentifier;
 nums:number[] = [1,2,3,3] ;
 qnostr;
 k;
-  constructor(private webservice:WebService,private _fb: FormBuilder) { }
+i;
+j;
+z;
+ticks;
+timerinstance;
+api:VgAPI;
+w;
+h;
+resl;
+constructor(private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
+{
+  this.createForm();
+ }
+ createForm() {
+  this.form = this._fb.group({
+    name: ['', Validators.required],
+    avatar: null
+  });
+}
 
-  ngOnInit() { 
+ngOnInit() { 
 this.myForm = this._fb.group({
   name: ['', [Validators.required, Validators.minLength(5)]],
   description: ['', [Validators.required, Validators.minLength(5)]],
-  addresses: this._fb.array([])
+  test_question: this._fb.array([]),
 });
 
 // add address
-this.addAddress();
+this.addQuestion();
 
 /* subscribe to addresses value changes */
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
@@ -80,49 +103,41 @@ this.addAddress();
 
   }
   myFunc1(){
-    this.qno++
-    this.qnostr=String(this.qno);
-    var para = document.createElement("input");
-    para.setAttribute("id", this.qnostr);
-    var element = document.getElementById("div1");
-    element.appendChild(para);
-  }
+    let dialogRef=this.dialog.open(WebPreviewComponent, {
+      // disableClose:true,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    } );
+}
   myFunc2(){
-    //  for(this.k=0;this.k<this.qno;this.k++)
-    //  {
-    //   var x = ((document.getElementById(this.k+1) as HTMLInputElement).value);
-    //   console.log(x,'total',this.qnostr);
-    //  }
     console.log('data',this.myForm.value);
   }
   webresponse(fun_id,return_data){
     this.returnmsg = return_data.json();
     console.log('hai');
   }
-initAddress() {
+initQuestion() {
   return this._fb.group({
       pause_time: ['', Validators.required],
       wait_time: [''],
       question:[''],
       marks:[''],
-      option_no:['']
+      options: this._fb.array([]),
   });
 }
-
-addAddress() {
-  const control = <FormArray>this.myForm.controls['addresses'];
-  const addrCtrl = this.initAddress();
+addQuestion() {
+  const control = <FormArray>this.myForm.controls['test_question'];
+  const addrCtrl = this.initQuestion();
   
   control.push(addrCtrl);
-  
+  // this.addOption();
   /* subscribe to individual address value changes */
   // addrCtrl.valueChanges.subscribe(x => {
   //   console.log(x);
   // })
 }
-
-removeAddress(i: number) {
-  const control = <FormArray>this.myForm.controls['addresses'];
+removeQuestion(i: number) {
+  const control = <FormArray>this.myForm.controls['test_question'];
   control.removeAt(i);
 }
 
@@ -130,5 +145,36 @@ save(model: Customer) {
   // call API to save
   // ...
   console.log(model);
+}
+onFileChange(event) {
+  let reader = new FileReader();
+  if(event.target.files && event.target.files.length > 0) {
+    let file = event.target.files[0];
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.form.get('avatar').setValue({
+        filename: file.name,
+        filetype: file.type,
+        value: reader.result.split(',')[1]
+      })
+    };
+  }
+}
+
+onSubmit() {
+  const formModel = this.form.value;
+  this.loading = true;
+  // In a real-world app you'd have a http request / service call here like
+  // this.http.post('apiUrl', formModel)
+  setTimeout(() => {
+    console.log(formModel);
+    alert('done!');
+    this.loading = false;
+  }, 1000);
+}
+
+clearFile() {
+  this.form.get('avatar').setValue(null);
+  this.fileInput.nativeElement.value = '';
 }
 }

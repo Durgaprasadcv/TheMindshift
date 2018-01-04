@@ -69,6 +69,8 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { CreateTestComponent } from './create-test/create-test.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { FormQuestionComponent } from './form-question/form-question.component';
+import { OptionComponent } from './option/option.component';
+import { WebPreviewComponent } from './web-preview/web-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +85,9 @@ import { FormQuestionComponent } from './form-question/form-question.component';
     ReportRoughComponent,
     CreateTestComponent,
     TestDetailsComponent,
-    FormQuestionComponent
+    FormQuestionComponent,
+    OptionComponent,
+    WebPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -112,6 +116,7 @@ import { FormQuestionComponent } from './form-question/form-question.component';
       { path: 'report-rough', component:ReportRoughComponent },
       { path: 'create-test', component:CreateTestComponent },
       { path: 'test-details', component:TestDetailsComponent },
+      { path: 'web-preview', component:WebPreviewComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])
