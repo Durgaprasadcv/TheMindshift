@@ -43,43 +43,93 @@
                   <!-- <div *ngIf="report_display" class="shift_banner"> -->
   <h2 *ngIf="report_display" class="heading margin_tb_25px">YOUR SHIFTS</h2>
     <div>
-        <div *ngIf="report_display" class="container">
+        <!-- <div *ngIf="report_display" class="container">
             <div id="activeBorder" class="active-border">
                 <div id="circle" class="circle">
-                    <span class="prec 180" id="prec">20%</span>
+                    <span class="prec 180" id="prec">{{return_bar.learningTest[0].module_percent}}%</span>
+                </div>
+            </div>
+        </div> -->
+        <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[0].module_percent}} big bg_color_white  font_160px col_percentge">
+            <span>{{return_bar.learningTest[0].module_percent}}%</span>
+            <div class="slice ">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+            <div>
+              <p class="shift_des">Sales</p>
+            </div>
+          </div>
+          <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[1].module_percent}} big bg_color_white  font_160px col_percentge">
+            <span>{{return_bar.learningTest[1].module_percent}}%</span>
+            <div class="slice ">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+            <div>
+                <p class="shift_des">Customer<br> Service</p>
+            </div>
+          </div>
+          <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[2].module_percent}} big bg_color_white  font_160px col_percentge">
+            <span>{{return_bar.learningTest[2].module_percent}}%</span>
+            <div class="slice ">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+            <div>
+                <p class="shift_des">Communication</p>
+            </div>
+          </div>
+          <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[3].module_percent}} big bg_color_white  font_160px col_percentge">
+            <span>{{return_bar.learningTest[3].module_percent}}%</span>
+            <div class="slice ">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+            <div>
+                <p class="shift_des">Team Work</p>
+            </div>
+          </div>
+          <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[4].module_percent}} big bg_color_white  font_160px col_percentge">
+            <span>{{return_bar.learningTest[4].module_percent}}%</span>
+            <div class="slice ">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+            <div>
+                <p class="shift_des">Product</p>
+            </div>
+          </div>
+        <!-- <div *ngIf="report_display" class="container">
+            <div id="activeBorder" class="active-border">
+                <div id="circle" class="circle">
+                    <span class="prec 270" id="prec">{{return_bar.learningTest[1].module_percent}}%</span>
                 </div>
             </div>
         </div>
         <div *ngIf="report_display" class="container">
             <div id="activeBorder" class="active-border">
                 <div id="circle" class="circle">
-                    <span class="prec 270" id="prec">20%</span>
+                    <span class="prec 270" id="prec">{{return_bar.learningTest[2].module_percent}}%</span>
                 </div>
             </div>
         </div>
         <div *ngIf="report_display" class="container">
             <div id="activeBorder" class="active-border">
                 <div id="circle" class="circle">
-                    <span class="prec 270" id="prec">20%</span>
+                    <span class="prec 270" id="prec">{{return_bar.learningTest[3].module_percent}}%</span>
                 </div>
             </div>
         </div>
         <div *ngIf="report_display" class="container">
             <div id="activeBorder" class="active-border">
                 <div id="circle" class="circle">
-                    <span class="prec 270" id="prec">20%</span>
+                    <span class="prec 270" id="prec">{{return_bar.learningTest[4].module_percent}}%</span>
                 </div>
             </div>
-        </div>
-        <div *ngIf="report_display" class="container">
-            <div id="activeBorder" class="active-border">
-                <div id="circle" class="circle">
-                    <span class="prec 270" id="prec">20%</span>
-                </div>
-            </div>
-        </div>
+        </div> -->
     </div>
-    <div *ngIf="report_display">
+    <div class="pop_control" *ngIf="report_display">
             <div class="inline_block img_div_back">
                 <a (click)="selectvideo()" >
                     <img class="img_size float_left"  src="assets/images/back.png" >

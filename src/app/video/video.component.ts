@@ -47,6 +47,7 @@ export class VideoComponent implements OnInit {
   local_pause:any[];
   test_count;
   popup_count=0;
+  current_test;
   constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
    // screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
@@ -67,23 +68,24 @@ ngOnInit() {
   // }
   // })();
   let id = this.route.snapshot.paramMap.get('id');
+  this.current_test=this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
   //to get test details
   const body = {
-    user_id:'32',
+    user_id:(JSON.parse(localStorage.getItem('user'))),
     test_id:id};
   this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'123','');
 }
 //to update result
 question_update(test_id,test_name,answer_time,question_no,marks_per_question){
-  const body = {
+  const body1 = {
     test_id:test_id,
     test_name:test_name,
     answer_time:answer_time,
     question_no:question_no,
     marks_per_question:marks_per_question,
-    user_id:'32'};
-  this.webservice.webRequest(this,'post',this.webservice.question_update,body,'1234','');
+    user_id:(JSON.parse(localStorage.getItem('user')))};
+  this.webservice.webRequest(this,'post',this.webservice.save_result,body1,'1234','');
 }
 webresponse(fun_id,return_data)
 {
@@ -97,6 +99,9 @@ webresponse(fun_id,return_data)
   // result update response
   if(fun_id==1234){
     console.log('response of question update',return_data.json());
+  }
+  if(fun_id==1235){
+    console.log('test completed');
   }
 }
 video_questions(){
@@ -172,6 +177,11 @@ video_questions(){
       {
         if(this.returnmsg1.stop_time==this.ticks)
         {
+          const body2 = {
+            user_id:(JSON.parse(localStorage.getItem('user'))),
+            test_id:this.current_test
+          };
+          this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'1235','');
           console.log('end');
         localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
         this.api.getDefaultMedia().pause();

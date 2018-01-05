@@ -13,6 +13,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./bcarousel.component.less','./bcarousel.component.css']
 })
 export class BcarouselComponent implements OnInit {
+  uid;
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
   
       // our list of avatars
@@ -47,11 +48,13 @@ constructor(private webservice: WebService,private _router: Router,private http:
   this.initc = false;
 }
   ngOnInit(): void {
+    this.uid=(JSON.parse(localStorage.getItem('user')));
+    console.log('testt',this.uid);
     this.webservice.checkCredentials();
     bcarouselObject.init();
-    const body = {user_id:'32'};
+    const body = {user_id:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.modules,body,'2','');
-    const body1 = {uid:'32'};
+    const body1 = {uid:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.dashbar,body1,'3','');
  }
  initcarousel(t) :void {

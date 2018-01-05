@@ -55,12 +55,12 @@ export class LoginComponent {
  this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body)
  .subscribe(
    data =>{ this.returnmsg1 = data.json();
-     localStorage.setItem("user", JSON.stringify(this.returnmsg1));
+     localStorage.setItem("user", JSON.stringify(this.returnmsg1.uid));
           this._router.navigate(['/bcarousel']);},
        err => {console.log('failed');
        this.errorMsg2 = 'Failed to login! try again ...';
       },
-       () => console.log('Success return data',this.returnmsg1)
+       () => console.log('Success return data',this.returnmsg1.uid)
     
    );
 
