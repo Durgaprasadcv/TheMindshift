@@ -16,12 +16,15 @@ import 'assets/video.js'
 declare var videoObject: any;
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 import {ViewChild} from '@angular/core';
+import 'assets/bcarousel.js'
+declare var bcarouselObject: any;
+import 'rxjs/add/operator/map';
 @Component({
   moduleId: module.id,
   selector: 'app-create-test',
   templateUrl: './create-test.component.html',
   providers: [WebService],
-  styleUrls: ['./create-test.component.css']
+  styleUrls: ['./create-test.component.less','./create-test.component.css']
 })
 export class CreateTestComponent implements OnInit {
 public myForm: FormGroup;
@@ -68,6 +71,7 @@ constructor(private webservice:WebService,private _fb: FormBuilder,public API: V
 }
 
 ngOnInit() { 
+  bcarouselObject.init();
 this.myForm = this._fb.group({
   name: ['', [Validators.required, Validators.minLength(5)]],
   description: ['', [Validators.required, Validators.minLength(5)]],
@@ -81,6 +85,9 @@ this.addQuestion();
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
 //   console.log(x);
 // })
+  }
+  logout():void {
+    this.webservice.logout();
   }
   myFunc(){
     const body = {

@@ -48,6 +48,7 @@ export class VideoComponent implements OnInit {
   test_count;
   popup_count=0;
   current_test;
+  system_back=0;
   constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
    // screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
@@ -75,6 +76,15 @@ ngOnInit() {
     user_id:(JSON.parse(localStorage.getItem('user'))),
     test_id:id};
   this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'123','');
+}
+@HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    console.log('on back pressed');
+
+  if(this.system_back==0){
+   localStorage.setItem('replay',JSON.stringify(0));
+   localStorage.setItem('next_play',JSON.stringify(0));
+  }  
 }
 //to update result
 question_update(test_id,test_name,answer_time,question_no,marks_per_question){
@@ -107,6 +117,7 @@ webresponse(fun_id,return_data)
 video_questions(){
   this.isValid = true;
   this.video_path_html=this.returnmsg1.video_path;
+  localStorage.setItem('current_test',  JSON.stringify(this.returnmsg1.test_id));
   if((JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']')))>0)
   {
     this.test_count=JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']'))+1;
@@ -185,13 +196,35 @@ video_questions(){
           console.log('end');
         localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
         this.api.getDefaultMedia().pause();
+        localStorage.setItem('replay',JSON.stringify(0));
+        localStorage.setItem('next_play',JSON.stringify(0));
         let dialogRef=this.dialog.open(ReportComponent, {
           disableClose:true,
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks,report:1}
         });
         dialogRef.afterClosed().subscribe(result => {
          // this._router.navigate(['/bcarousel']);
+         if(result==0){
+           //home
+           this.system_back=1;
+           localStorage.setItem('replay',JSON.stringify(0));
+           localStorage.setItem('next_play',JSON.stringify(0));
           window.history.back();
+         }
+         else if(result==1){
+          //replay
+          this.system_back=1;
+          localStorage.setItem('next_play',JSON.stringify(0));
+          localStorage.setItem('replay',JSON.stringify(this.returnmsg1.test_id));
+          window.history.back();
+         }
+         else if(result==2){
+           //next
+           this.system_back=1;
+           localStorage.setItem('replay',JSON.stringify(0));
+           localStorage.setItem('next_play',JSON.stringify(this.returnmsg1.next_test_id));
+           window.history.back();
+         }
         });
       console.log('Total Correct Answer',this.q_answer);
       console.log('Total Marks',this.marks);

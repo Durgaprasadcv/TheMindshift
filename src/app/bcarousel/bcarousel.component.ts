@@ -44,6 +44,7 @@ export class BcarouselComponent implements OnInit {
   public returnmsg;
   public return_bar;
   public initc = false;
+  user_email;
 constructor(private webservice: WebService,private _router: Router,private http:Http) {
   this.initc = false;
 }
@@ -52,6 +53,14 @@ constructor(private webservice: WebService,private _router: Router,private http:
     console.log('testt',this.uid);
     this.webservice.checkCredentials();
     bcarouselObject.init();
+    if((JSON.parse(localStorage.getItem('next_play')))>0){
+      this._router.navigate(['/video',JSON.parse(localStorage.getItem('next_play'))]);
+    }
+    else if((JSON.parse(localStorage.getItem('replay')))>0){
+      this._router.navigate(['/video',JSON.parse(localStorage.getItem('replay'))]);
+    }
+    console.log(JSON.parse(localStorage.getItem('user_email')))
+    this.user_email=(JSON.parse(localStorage.getItem('user_email')));
     const body = {user_id:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.modules,body,'2','');
     const body1 = {uid:this.uid};
@@ -87,6 +96,16 @@ constructor(private webservice: WebService,private _router: Router,private http:
       this._router.navigate(['/video',id]);
       console.log(j);
       console.log(this.returnmsg);
+  }
+  resume(){
+   console.log('resume',this.returnmsg.resume.pause_time,'test id',this.returnmsg.resume.test_id);
+   if((JSON.parse(localStorage.getItem('current_test')))>0){
+    this._router.navigate(['/video',JSON.parse(localStorage.getItem('current_test'))]);
+   }
+   else{
+    localStorage.setItem('lastpause['+this.returnmsg.resume.test_id+']',  JSON.stringify(this.returnmsg.resume.pause_time+1));
+    this._router.navigate(['/video',this.returnmsg.resume.test_id]);
+   }
   }
 webresponse(fun_id,return_data){
 //  console.log("fid",fun_id,"data",r2.json());

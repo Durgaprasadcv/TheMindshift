@@ -219,41 +219,41 @@
       <p class="shift_des">Sales</p>
     </div>
   </div>
-             <div class="c100 p{{return_bar.learningTest[1].module_percent}} big bg_color_white  font_160px col_percentge">
-                        <span>{{return_bar.learningTest[1].module_percent}}%</span>
-                        <div class="slice ">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                        <div>
-                        <p class="shift_des">Customer<br> Service</p>
-                      </div>
-                    </div>
-             <div class="c100 p{{return_bar.learningTest[2].module_percent}} big bg_color_white font_160px col_percentge">
-                        <span>{{return_bar.learningTest[2].module_percent}}%</span>
-                        <div class="slice ">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                        <div>
-                          <p class="shift_des">Communication</p>
-                        </div>
-                    </div>
-             <div class="c100 p{{return_bar.learningTest[3].module_percent}} big bg_color_white font_160px col_percentge">
-                        <span>{{return_bar.learningTest[3].module_percent}}%</span>
-                        <div class="slice ">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                        <div>
-                          <p class="shift_des">Team Work</p>
-                        </div>
-                    </div>
-             <div class="c100 p{{return_bar.learningTest[4].module_percent}} big bg_color_white font_160px col_percentge">
-                        <span>{{return_bar.learningTest[4].module_percent}}%</span>
-                        <div class="slice ">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
+              <div class="c100 p{{return_bar.learningTest[1].module_percent}} big bg_color_white  font_160px col_percentge">
+                <span>{{return_bar.learningTest[1].module_percent}}%</span>
+                <div class="slice ">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+                <div>
+                  <p class="shift_des">Customer<br> Service</p>
+                </div>
+              </div>
+              <div class="c100 p{{return_bar.learningTest[2].module_percent}} big bg_color_white font_160px col_percentge">
+                <span>{{return_bar.learningTest[2].module_percent}}%</span>
+                <div class="slice ">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+                <div>
+                  <p class="shift_des">Communication</p>
+                </div>
+              </div>
+              <div class="c100 p{{return_bar.learningTest[3].module_percent}} big bg_color_white font_160px col_percentge">
+                <span>{{return_bar.learningTest[3].module_percent}}%</span>
+                <div class="slice ">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+                <div>
+                  <p class="shift_des">Team Work</p>
+                </div>
+              </div>
+              <div class="c100 p{{return_bar.learningTest[4].module_percent}} big bg_color_white font_160px col_percentge">
+                <span>{{return_bar.learningTest[4].module_percent}}%</span>
+                <div class="slice ">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
                         </div>
                         <div>
                           <p class="shift_des">Product</p>
@@ -261,7 +261,7 @@
                     </div>
     
                 </div>
-<button class="button_div_class">RESUME</button>
+<button (click)="resume()" class="button_div_class">RESUME</button>
           </div>
       <!---->
   <!-- Material sidebar -->
@@ -279,8 +279,8 @@
           <img src="assets/images/logo_.png">
         </div>
         <!-- Sidebar brand name -->
-        <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-            vishal@mindshift.co.in
+        <a *ngIf='user_email' data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+            {{user_email}}
             <b class="caret"></b>
         </a>
       </div>

@@ -43,7 +43,7 @@
     width:17% !important;
   }
   .img_div_center{
-    width:18% !important;
+    width:24% !important;
      
   }
   .heading{
@@ -184,3 +184,7 @@ font-size:17vw;
   .pop_control{
     margin-top: 30vw;
   }
+  .display_none
+{
+  display: none;
+}

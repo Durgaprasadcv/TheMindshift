@@ -43,8 +43,9 @@ export class ReportComponent implements OnInit {
     }
         //  console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
     }
-  selectvideo(){
-    this.dialogRef.close();
+  selectvideo(button_value):void{
+    // 0=home 1=replay 2=next
+    this.dialogRef.close(button_value);
   }
 
 }

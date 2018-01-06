@@ -27,7 +27,32 @@
 <button  (click)="myFunc2()" class="button">console</button>
 </div> -->
 <!-- document.createElement(element) -->
-<div class="col-md-12">
+<div class="cars">
+  <!-- Overlay for fixed sidebar -->
+  <div class="sidebar-overlay"></div>
+  <div class="tool_bar">
+    <div class="button_div">
+    <button md-icon-button class="sidebar-toggle ">
+      <md-icon>menu</md-icon>
+    </button>
+    </div>
+    ￼<div class="title_app headding_div">
+      <p class="mindshift_head">MINDSHIFT</p>
+    </div>
+    <!-- <div class="button_styl"> -->
+        <!-- <a href="#demo" data-toggle="collapse" class=" dashboard_button"><i class="material-icons">tune</i></a> -->
+      <!-- <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">
+        <i class="material-icons">tune</i>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item><span>Option 1</span></button>
+        <button md-menu-item><span>Option 2</span></button>
+        <button md-menu-item><span>Option 3</span></button>
+        <button md-menu-item><span>Option 4</span></button>
+      </md-menu> -->
+    <!-- </div> -->
+  </div>  
+<div class="col-md-12 margin_top">
 <div class="col-md-6 container main_block">
     <div class="row">
       <div class="col-md-12">
@@ -117,7 +142,7 @@
         </div> 
         <button  (click)="myFunc1()" class="button">Preview</button>   
         <button  (click)="myFunc2()" class="button">console</button>     
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Bob" formControlName="name">
@@ -128,6 +153,142 @@
             <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
           </div>
           <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
-        </form>
+        </form> -->
     </div>
 </div>
+<!---->
+  <!-- Material sidebar -->
+  <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default" role="navigation">
+    <!-- Sidebar header -->
+    <div class="sidebar-header header-cover back_image">
+      <!-- Top bar -->
+      <div class="top-bar"></div>
+      <!-- Sidebar toggle button 
+      <button type="button" class="sidebar-toggle">
+          <i class="material-icons">keyboard_backspace</i>
+      </button>-->
+      <!-- Sidebar brand image -->
+      <div class="sidebar-image">
+        <img src="assets/images/logo_.png">
+      </div>
+      <!-- Sidebar brand name -->
+      <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+          vishal@mindshift.co.in
+          <b class="caret"></b>
+      </a>
+    </div>
+
+    <!-- Sidebar navigation -->
+    <ul class="nav sidebar-nav cust_font">
+      <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+          <li>
+            <a href="#" tabindex="-1">
+                      Profile
+                  </a>
+          </li>
+          <li>
+            <a href="#" tabindex="-1">
+                      Settings
+                  </a>
+          </li>
+          <li>
+            <a href="#" tabindex="-1">
+                      Help
+                  </a>
+          </li>
+          <li>
+            <a href="#" tabindex="-1">
+                      Exit
+                  </a>
+          </li>
+        </ul>
+      </li>
+     <!-- <li>
+        <a href="#">
+              <i class="sidebar-icon md-inbox"></i>
+              Test
+          </a>
+      </li>
+      <li>
+        <a href="#">
+              <i class="sidebar-icon md-star"></i>
+              Starred
+          </a>
+      </li>
+      <li>
+        <a href="#">
+              <i class="sidebar-icon md-send"></i>
+              Sent Mail
+          </a>
+      </li>
+      <li>
+        <a href="#">
+              <i class="sidebar-icon md-drafts"></i>
+              Drafts
+          </a>
+      </li>
+      <li class="divider"></li>
+      <li class="dropdown">
+        <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
+              All Mail
+              <b class="caret"></b>
+          </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" tabindex="-1">
+                      Social
+                      <span class="sidebar-badge">12</span>
+                  </a>
+          </li>
+          <li>
+            <a href="#" tabindex="-1">
+                      Promo
+                      <span class="sidebar-badge">0</span>
+                  </a>
+          </li>
+        </ul>
+      </li>-->
+      <li >
+        <a >
+              Test
+              <span class="sidebar-badge ">3</span>
+          </a>
+      </li>
+      <li>
+        <a >
+              Results
+              <span class="sidebar-badge">10</span>
+          </a>
+      </li>
+     <!-- <li>
+        <a href="#">
+              Follow Up
+              <span class="sidebar-badge badge-circle">i</span>
+          </a>
+      </li>
+      <li>
+        <a href="#">
+              Follow Up
+              <span class="sidebar-badge badge-circle">i</span>
+          </a>
+      </li>-->
+       <li>
+      <a (click)="logout()">Logout <span class="sidebar-badge logout-badge"><md-icon>exit_to_app</md-icon></span></a>
+    </li> 
+      <button type="button" class="sidebar-toggle">
+          <i class="material-icons">keyboard_backspace</i>
+      </button>
+    </ul>
+   
+    <!-- Sidebar divider -->
+    <!-- <div class="sidebar-divider"></div> -->
+
+    <!-- Sidebar text -->
+    <!--  <div class="sidebar-text">Text</div> -->
+  </aside>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+window.plugins.orientationLock.unlock();
+</script>

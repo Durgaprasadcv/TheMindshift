@@ -130,23 +130,23 @@
         </div> -->
     </div>
     <div class="pop_control" *ngIf="report_display">
-            <div class="inline_block img_div_back">
+            <div class="inline_block img_div_back display_none">
                 <a (click)="selectvideo()" >
                     <img class="img_size float_left"  src="assets/images/back.png" >
                 </a>
             </div>
             <div class="inline_block img_div_center">
-                    <a (click)="selectvideo()" >
+                    <a (click)="selectvideo(1)" >
                     <img class="img_size replay_icon"  src="assets/images/replay.png" >
                 </a>
             </div>
             <div class="inline_block img_div_center">
-                <a (click)="selectvideo()" >
+                <a (click)="selectvideo(0)" >
                 <img class="img_size replay_icon"  src="assets/images/home.png" >
             </a>
         </div>
         <div class="inline_block img_div_front">
-                <a (click)="selectvideo()" >
+                <a (click)="selectvideo(2)" >
                 <img class="img_size float_right"  src="assets/images/front.png" >
             </a>
         </div>
