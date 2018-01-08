@@ -406,5 +406,8 @@ margin:0 !important;
   display: inline-block;
 }
 .margin_top{
-    margin-top: 6vh;
+    margin-top: 8vh;
+}
+.mat-form-field{
+  width: 100% !important;
 }

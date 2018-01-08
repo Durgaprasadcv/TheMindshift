@@ -190,13 +190,14 @@
     <div class="col rel_division" >
   <img class="col_img"  src="{{i.test_image}}" >
   <p class="test_name">{{i.test_name}}</p>
-  <div >
+  <div>
     <a (click)="selectbcarousel(i.test_id)" > 
       <img class="absolute_division_up play_img"  src="assets/images/play_button.png" >
     </a>
     </div>
 </div>
 </a>
+<h1 *ngIf="returnmsg.text_data=='NO Test Assigned'">No Test Assigned</h1>
 </div>
 <div  class="test_banner_character">
   <a *ngFor="let i of returnmsg.characters  let ia = index">

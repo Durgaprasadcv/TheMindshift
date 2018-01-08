@@ -71,6 +71,9 @@ import { TestDetailsComponent } from './test-details/test-details.component';
 import { FormQuestionComponent } from './form-question/form-question.component';
 import { OptionComponent } from './option/option.component';
 import { WebPreviewComponent } from './web-preview/web-preview.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { TestTableComponent } from './test-table/test-table.component';
+import { VideoTableComponent } from './video-table/video-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +90,10 @@ import { WebPreviewComponent } from './web-preview/web-preview.component';
     TestDetailsComponent,
     FormQuestionComponent,
     OptionComponent,
-    WebPreviewComponent
+    WebPreviewComponent,
+    CreateUserComponent,
+    TestTableComponent,
+    VideoTableComponent
   ],
   imports: [
     BrowserModule,
@@ -117,6 +123,9 @@ import { WebPreviewComponent } from './web-preview/web-preview.component';
       { path: 'create-test', component:CreateTestComponent },
       { path: 'test-details', component:TestDetailsComponent },
       { path: 'web-preview', component:WebPreviewComponent },
+      { path: 'create-user', component:CreateUserComponent },
+      { path: 'test-table', component:TestTableComponent },
+      { path: 'video-table', component:VideoTableComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])
