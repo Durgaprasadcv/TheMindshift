@@ -11,10 +11,13 @@ public modules=this.main_url+'gettest';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
 public dashbar=this.main_url+'getLearningTest';
-public CreateTest=this.main_url+'CreateTest';
+public create_test=this.main_url+'create_test';
 public save_result=this.main_url+'save_result';
 public gettest_detail_uid=this.main_url+'gettest_detail_uid';
 public test_completion=this.main_url+'test_completion';
+public get_users=this.main_url+'get_users';
+public UserRegister=this.main_url+'UserRegister';
+public get_video_library=this.main_url+'get_video_library';
 public returnmsg;
 constructor(private _http: Http,private _router: Router) { }
 webRequest(scope,type,url,body,fun_id,loader){

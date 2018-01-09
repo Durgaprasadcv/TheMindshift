@@ -142,4 +142,10 @@ if(fun_id==3)
     // toggle avatar visibility
     this.avatars.forEach((x, i) => x.visible = (i === nextIndex));
 }
+Tests(){
+  this._router.navigate(['/test-table']);
+}
+Users(){
+  this._router.navigate(['/create-user']);
+}
 }

@@ -69,29 +69,29 @@
               </small> -->
               <br>
               <md-form-field>
-                  <input mdInput placeholder="Test Description" formControlName="name">
+                  <input mdInput placeholder="Test Description" formControlName="description">
               </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                 Test Description is required (minimum 5 characters).
               </small> -->
               <br>
               <md-form-field>
-                  <input mdInput placeholder="Start Time" formControlName="name">
+                  <input mdInput placeholder="Start Time" formControlName="start_time">
               </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                     Start Time is required (minimum 5 characters).
               </small> -->
             <br>
             <md-form-field>
-                <input mdInput placeholder="Stop Time" formControlName="description">
+                <input mdInput placeholder="Stop Time" formControlName="end_time">
+            </md-form-field>
+            <br>
+            <md-form-field>
+                <input mdInput placeholder="Test Duration" formControlName="test_duration">
             </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                     Stop Time is required (minimum 5 characters).
               </small> -->
-              <br>
-              <md-form-field>
-                  <input mdInput placeholder="Stop Time" formControlName="description">
-              </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                     Test Image Url is required (minimum 5 characters).
               </small> -->
@@ -116,7 +116,8 @@
           </div>
   
           <div class="margin-20">
-            <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+            <!-- <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button> -->
+            <button  (click)="myFunc2()" class="btn btn-primary pull-right">Submit</button> 
           </div>
           <div class="clearfix"></div>
   
@@ -142,11 +143,13 @@
                 <!-- <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4"> -->
             </video>  
         </vg-player>
-        <div class="col-xs-12">
-            <h5>Videos</h5>
+        <div *ngIf="return_video" class="col-xs-12">
+          <br>
+            <h1>Videos</h1>
+            <h2 *ngFor="let i of return_video.video_library  let ia = index"  >{{i.vid_name}}</h2>
         </div> 
         <button  (click)="myFunc1()" class="button">Preview</button>   
-        <button  (click)="myFunc2()" class="button">console</button>     
+        <!-- <button  (click)="myFunc2()" class="button">console</button>      -->
         <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Name</label>
@@ -177,10 +180,10 @@
         <img src="assets/images/logo_.png">
       </div>
       <!-- Sidebar brand name -->
-      <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-          vishal@mindshift.co.in
-          <b class="caret"></b>
-      </a>
+      <a *ngIf='user_email' data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        {{user_email}}
+        <b class="caret"></b>
+    </a>
     </div>
 
     <!-- Sidebar navigation -->
@@ -255,13 +258,13 @@
         </ul>
       </li>-->
       <li >
-        <a >
+        <a (click)="Tests()">
               Test
               <span class="sidebar-badge ">3</span>
           </a>
       </li>
       <li>
-        <a >
+        <a (click)="Users()">
               Results
               <span class="sidebar-badge">10</span>
           </a>

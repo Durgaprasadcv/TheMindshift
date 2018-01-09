@@ -74,6 +74,7 @@ import { WebPreviewComponent } from './web-preview/web-preview.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { TestTableComponent } from './test-table/test-table.component';
 import { VideoTableComponent } from './video-table/video-table.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,8 @@ import { VideoTableComponent } from './video-table/video-table.component';
     WebPreviewComponent,
     CreateUserComponent,
     TestTableComponent,
-    VideoTableComponent
+    VideoTableComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +128,7 @@ import { VideoTableComponent } from './video-table/video-table.component';
       { path: 'create-user', component:CreateUserComponent },
       { path: 'test-table', component:TestTableComponent },
       { path: 'video-table', component:VideoTableComponent },
+      { path: 'side-navigation', component:SideNavigationComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

@@ -197,7 +197,7 @@
     </div>
 </div>
 </a>
-<h1 *ngIf="returnmsg.text_data=='NO Test Assigned'">No Test Assigned</h1>
+<h1 *ngIf="returnmsg.text_data=='NO Test Assigned'" class="no_test">No Test Assigned</h1>
 </div>
 <div  class="test_banner_character">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
@@ -358,14 +358,14 @@
           </ul>
         </li>-->
         <li >
-          <a >
-                Test
+          <a (click)="Tests()" >
+                Tests
                 <span class="sidebar-badge ">3</span>
             </a>
         </li>
         <li>
-          <a >
-                Results
+          <a (click)="Users()">
+                Users
                 <span class="sidebar-badge">10</span>
             </a>
         </li>

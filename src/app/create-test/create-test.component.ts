@@ -59,7 +59,8 @@ api:VgAPI;
 w;
 h;
 resl;
-constructor(private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
+return_video;
+constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
  }
@@ -75,9 +76,16 @@ ngOnInit() {
 this.myForm = this._fb.group({
   name: ['', [Validators.required, Validators.minLength(5)]],
   description: ['', [Validators.required, Validators.minLength(5)]],
+  start_time: ['', [Validators.required, Validators.minLength(5)]],
+  end_time: ['', [Validators.required, Validators.minLength(5)]],
+  test_duration: ['', [Validators.required, Validators.minLength(5)]],
   test_question: this._fb.array([]),
 });
 
+const body = {
+  // user_id:'32'
+};
+this.webservice.webRequest(this,'post',this.webservice.get_video_library,body,'2','');
 // add address
 this.addQuestion();
 
@@ -89,39 +97,54 @@ this.addQuestion();
   logout():void {
     this.webservice.logout();
   }
-  myFunc(){
-    const body = {
-      // user_id:'32'
-    QuestionTitle:this.QuestionTitle,
-    QuestionType:this.QuestionType,
-    Marks:this.Marks,
-    options:4,
-    PauseTime:this.PauseTime,
-    WaitTime:this.WaitTime,
-    TestName:this.TestName,
-    TestDescription:this.TestDescription,
-    TestVideo:this.TestVideo,
-    Question:1,
-    Loopid:2,
-    Questionoption:this.Questionoption,
-    optionloop:1
-  };
-   this.webservice.webRequest(this,'post',this.webservice.CreateTest,body,'123','');
+  // myFunc(){
+  //   const body = {
+  //     // user_id:'32'
+  //   QuestionTitle:this.QuestionTitle,
+  //   QuestionType:this.QuestionType,
+  //   Marks:this.Marks,
+  //   options:4,
+  //   PauseTime:this.PauseTime,
+  //   WaitTime:this.WaitTime,
+  //   TestName:this.TestName,
+  //   TestDescription:this.TestDescription,
+  //   TestVideo:this.TestVideo,
+  //   Question:1,
+  //   Loopid:2,
+  //   Questionoption:this.Questionoption,
+  //   optionloop:1
+  // };
+  //  this.webservice.webRequest(this,'post',this.webservice.CreateTest,body,'1','');
 
-  }
+  // }
   myFunc1(){
     let dialogRef=this.dialog.open(WebPreviewComponent, {
       // disableClose:true,
     });
     dialogRef.afterClosed().subscribe(result => {
     } );
+    this.api.getDefaultMedia().currentTime=0;
+    this.api.getDefaultMedia().play();
+    let timer = Observable.timer(1000,1000);
+    this.timerinstance = timer.subscribe(t=>{
+
+    });
 }
   myFunc2(){
     console.log('data',this.myForm.value);
+    const body = {
+      // user_id:'32'
+    
+  };
+   this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
   }
   webresponse(fun_id,return_data){
+    if(fun_id==1){
     this.returnmsg = return_data.json();
-    console.log('hai');
+    }else if(fun_id==2){
+    this.return_video=return_data.json();
+    console.log(this.return_video);
+    }
   }
 initQuestion() {
   return this._fb.group({
@@ -170,18 +193,18 @@ onFileChange(event) {
 
 onSubmit() {
   const formModel = this.form.value;
-  this.loading = true;
-  // In a real-world app you'd have a http request / service call here like
-  // this.http.post('apiUrl', formModel)
-  setTimeout(() => {
-    console.log(formModel);
-    alert('done!');
-    this.loading = false;
-  }, 1000);
+  this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
 }
 
 clearFile() {
   this.form.get('avatar').setValue(null);
   this.fileInput.nativeElement.value = '';
+}
+
+Tests(){
+  this._router.navigate(['/test-table']);
+}
+Users(){
+  this._router.navigate(['/create-user']);
 }
 }
