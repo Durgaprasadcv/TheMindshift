@@ -60,6 +60,7 @@ w;
 h;
 resl;
 return_video;
+uid
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
@@ -72,16 +73,18 @@ constructor(private _router: Router,private webservice:WebService,private _fb: F
 }
 
 ngOnInit() { 
+  this.uid=(JSON.parse(localStorage.getItem('user')));
   bcarouselObject.init();
+  
 this.myForm = this._fb.group({
-  name: ['', [Validators.required, Validators.minLength(5)]],
+  uid:[this.uid],
+  name: ['fftyf', [Validators.required, Validators.minLength(5)]],
   description: ['', [Validators.required, Validators.minLength(5)]],
   start_time: ['', [Validators.required, Validators.minLength(5)]],
   end_time: ['', [Validators.required, Validators.minLength(5)]],
   test_duration: ['', [Validators.required, Validators.minLength(5)]],
   test_question: this._fb.array([]),
 });
-
 const body = {
   // user_id:'32'
 };
@@ -150,7 +153,7 @@ initQuestion() {
   return this._fb.group({
       pause_time: ['', Validators.required],
       wait_time: [''],
-      question:[''],
+      question:['ddddd'],
       marks:[''],
       options: this._fb.array([]),
   });

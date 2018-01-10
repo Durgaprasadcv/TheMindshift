@@ -13,6 +13,7 @@ import { WebService } from '../webservice/web.service';
 export class ReportComponent implements OnInit {
  report_display=this.data.report;
  return_bar;
+ uid;
   constructor(private route: ActivatedRoute,public dialogRef: MdDialogRef<ReportComponent>,
     @Inject(MD_DIALOG_DATA) public data: any,private _router: Router,private webservice: WebService) { }
   
@@ -24,6 +25,7 @@ export class ReportComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.uid=(JSON.parse(localStorage.getItem('user')));
    // this.route.params.subscribe(params => {
     //  let id = Number.parseInt(params['id']);
       //this.person = this.peopleService.get(id);
@@ -31,7 +33,7 @@ export class ReportComponent implements OnInit {
    // });
    this.dialogRef.updateSize('55%', '65%');
    console.log(this.report_display);
-   const body1 = {uid:'32'};
+   const body1 = {uid:this.uid};
    this.webservice.webRequest(this,'post',this.webservice.dashbar,body1,'3','');
   }
   webresponse(fun_id,return_data){

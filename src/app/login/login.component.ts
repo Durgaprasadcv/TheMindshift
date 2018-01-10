@@ -62,10 +62,6 @@ export class LoginComponent {
        this.errorMsg2 = 'Failed to login! try again ...';
       },
        () => console.log('Success return data',this.returnmsg1.uid)
-    
    );
-
 }
-
-
 }

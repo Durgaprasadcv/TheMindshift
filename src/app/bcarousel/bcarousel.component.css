@@ -305,7 +305,7 @@
 .clearfix:after {clear: both;}
 .clearfix {*zoom: 1;}
 .bg_color_white{
-background-color:#ffffff00  !important;
+background-color:rgba(255, 255, 255, 0) !important;
 }
 .font_160px{
 font-size:16vw;
@@ -321,6 +321,7 @@ font-size:16vw;
   display: inline-block;
   margin-left: 2vw !important;
   margin-right: 2vw !important;
+  background-color: transparent;
 }
 .test_name{
   font-size: 18px;

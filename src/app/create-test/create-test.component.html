@@ -100,12 +100,14 @@
           <div formArrayName="test_question">
             <div *ngFor="let address of myForm.controls.test_question.controls; let i=index" class="panel panel-default">
               <div class="panel-heading">
-                <span>Question {{i + 1}}</span>
+                <a data-toggle="collapse" data-parent="#accordion" href="#{{i+1}}"><span >Question {{i + 1}}</span></a>
                 <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.test_question.controls.length > 1" (click)="removeQuestion(i)"></span>
               </div>
+              <div id="{{i+1}}" class="panel-collapse collapse in">
               <div class="panel-body" [formGroupName]="i">
                 <app-form-question [group]="myForm.controls.test_question.controls[i]"></app-form-question>
               </div>
+            </div>
             </div>
           </div>
   
