@@ -1,0 +1,124 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
+<div class="headding">
+<h1>Designation</h1>
+</div>
+<div class="add_user">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add">Create Designation</button>
+</div>
+<table *ngIf="returnmsg">
+  <tr>
+    <th>Designation ID</th>
+    <th>Designation Name</th>
+    <th>Designation Display Name</th>
+    <th>Designation Code</th>
+    <th>Designation Level</th>
+    <th>Designation Organization ID</th>
+    <th>control</th>
+  </tr>
+  <tr *ngFor="let i of returnmsg  let ia = index ">
+    <td>{{i.Designation_Id}}</td>
+    <td>{{i.Designation_Name}}&nbsp;{{i.User_Lastname}}</td>
+    <td>{{i.Designation_Disp_Name}}</td>
+    <td>{{i.Designation_code}}</td>
+    <td>{{i.Designation_Level}}</td>
+    <td>{{i.Designation_OrgID}}</td>
+    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_designation_id(i.Designation_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_designation_id(i.Designation_Id)" >Delete</button></td>
+  </tr>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Designation</h4>
+      </div>
+      <div class="modal-body">
+        <md-form-field>
+          <input mdInput placeholder="Designation Name" [(ngModel)]="Designation_Name" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Designation Display Name" [(ngModel)]="Designation_Disp_Name" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+          <input mdInput placeholder="Designation Code" [(ngModel)]="Designation_code" name="username">
+      </md-form-field> 
+      <md-form-field>
+          <input mdInput placeholder="Designation Level" [(ngModel)]="Designation_Level" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Designation Organization ID" [(ngModel)]="Designation_OrgID" name="username">
+      </md-form-field>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit Designation</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div class="modal fade" id="myModal_delete" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete User</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are You Want to Delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div class="modal fade" id="myModal_add" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Designation</h4>
+        </div>
+        <div class="modal-body">
+            <md-form-field>
+                <input mdInput placeholder="Designation Name" [(ngModel)]="Designation_Name" name="username">
+            </md-form-field>
+            <md-form-field>
+              <input mdInput placeholder="Designation Display Name" [(ngModel)]="Designation_Disp_Name" name="username">
+            </md-form-field>
+            <br>
+            <md-form-field>
+                <input mdInput placeholder="Designation Code" [(ngModel)]="Designation_code" name="username">
+            </md-form-field> 
+            <md-form-field>
+                <input mdInput placeholder="Designation Level" [(ngModel)]="Designation_Level" name="username">
+            </md-form-field>
+            <br>
+            <md-form-field>
+              <input mdInput placeholder="Designation Organization ID" [(ngModel)]="Designation_OrgID" name="username">
+            </md-form-field>
+            <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_designation()">Add Designation</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

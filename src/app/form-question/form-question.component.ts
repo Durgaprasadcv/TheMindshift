@@ -13,22 +13,30 @@ import { Http , Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
+import {CreateTestComponent} from "../create-test/create-test.component";
 import 'assets/video.js'
 declare var videoObject: any;
 @Component({
   moduleId: module.id,
   selector: 'app-form-question',
   templateUrl: './form-question.component.html',
+  providers: [CreateTestComponent],
   styleUrls: ['./form-question.component.css']
 })
 export class FormQuestionComponent implements OnInit {
   @Input('group')
   // contractGroup: FormGroup;
   public myForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private CreateTest:CreateTestComponent) { }
   
   ngOnInit() {
       this.addOption();
+      this.addOption();
+      /* subscribe to addresses value changes */
+this.myForm.controls['options'].valueChanges.subscribe(x => {
+  console.log(x);
+})
+console.log(this.myForm.controls.options);
   }
 
   addOption() {

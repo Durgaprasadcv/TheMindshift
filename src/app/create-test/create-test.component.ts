@@ -16,15 +16,13 @@ import 'assets/video.js'
 declare var videoObject: any;
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 import {ViewChild} from '@angular/core';
-import 'assets/bcarousel.js'
-declare var bcarouselObject: any;
 import 'rxjs/add/operator/map';
 @Component({
   moduleId: module.id,
   selector: 'app-create-test',
   templateUrl: './create-test.component.html',
   providers: [WebService],
-  styleUrls: ['./create-test.component.less','./create-test.component.css']
+  styleUrls: ['./create-test.component.css']
 })
 export class CreateTestComponent implements OnInit {
 public myForm: FormGroup;
@@ -60,7 +58,8 @@ w;
 h;
 resl;
 return_video;
-uid
+uid;
+public test_data;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
@@ -73,12 +72,36 @@ constructor(private _router: Router,private webservice:WebService,private _fb: F
 }
 
 ngOnInit() { 
+  this.test_data={
+    "description": "55",
+    "name": "151",
+    "test_question":[
+    {
+            "marks":"q1",
+            "options":[
+                            {"Option": "vvv", "skip_time": "11"},
+                            {"Option": "vvv", "skip_time": "33"}
+                    ],
+            "pause_time":"11",
+            "question":"q1",
+            "wait_time":"11"
+    },
+  
+  {
+  "marks":"q1",
+  "options":[
+  {"Option": "vvv", "skip_time": "11"},
+  {"Option": "vvv", "skip_time": "11"}],
+  "pause_time":"11",
+  "question":"q2",
+  "wait_time":"11"
+  }]
+  };
   this.uid=(JSON.parse(localStorage.getItem('user')));
-  bcarouselObject.init();
   
 this.myForm = this._fb.group({
   uid:[this.uid],
-  name: ['fftyf', [Validators.required, Validators.minLength(5)]],
+  name: ['fftyf'],
   description: ['', [Validators.required, Validators.minLength(5)]],
   start_time: ['', [Validators.required, Validators.minLength(5)]],
   end_time: ['', [Validators.required, Validators.minLength(5)]],
@@ -91,6 +114,7 @@ const body = {
 this.webservice.webRequest(this,'post',this.webservice.get_video_library,body,'2','');
 // add address
 this.addQuestion();
+this.edit();
 
 /* subscribe to addresses value changes */
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
@@ -158,17 +182,49 @@ initQuestion() {
       options: this._fb.array([]),
   });
 }
+
 addQuestion() {
   const control = <FormArray>this.myForm.controls['test_question'];
   const addrCtrl = this.initQuestion();
   
   control.push(addrCtrl);
+
   // this.addOption();
   /* subscribe to individual address value changes */
   // addrCtrl.valueChanges.subscribe(x => {
   //   console.log(x);
   // })
 }
+edit(){
+  for(let i=0;i<this.test_data.test_question.length;i++){
+    this.initQuestion_edit(i);
+    this.addQuestion_edit(i);
+  }
+}
+
+initQuestion_edit(i) {
+  return this._fb.group({
+      pause_time: [this.test_data.test_question[i].question, Validators.required],
+      wait_time: [''],
+      question:['sss'],
+      marks:[''],
+      options: this._fb.array([]),
+  });
+}
+addQuestion_edit(i) {
+  const control = <FormArray>this.myForm.controls['test_question'];
+  const addrCtrl = this.initQuestion_edit(i);
+  
+  control.push(addrCtrl);
+
+  // this.addOption();
+  /* subscribe to individual address value changes */
+  // addrCtrl.valueChanges.subscribe(x => {
+  //   console.log(x);
+  // })
+
+}
+
 removeQuestion(i: number) {
   const control = <FormArray>this.myForm.controls['test_question'];
   control.removeAt(i);

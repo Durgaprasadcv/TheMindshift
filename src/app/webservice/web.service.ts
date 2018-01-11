@@ -18,6 +18,12 @@ public test_completion=this.main_url+'test_completion';
 public get_users=this.main_url+'get_users';
 public UserRegister=this.main_url+'UserRegister';
 public get_video_library=this.main_url+'get_video_library';
+
+//designation
+public get_designation=this.main_url+'get_designation';
+public create_designation=this.main_url+'create_designation';
+public delete_designation=this.main_url+'delete_designation';
+public update_designation=this.main_url+'update_designation';
 public returnmsg;
 constructor(private _http: Http,private _router: Router) { }
 webRequest(scope,type,url,body,fun_id,loader){

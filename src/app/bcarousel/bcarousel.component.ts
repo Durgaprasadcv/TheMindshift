@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import 'assets/bcarousel.js'
-declare var bcarouselObject: any;
 import { WebService } from '../webservice/web.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -23,11 +21,6 @@ export class BcarouselComponent implements OnInit {
               image: 'assets/images/Poster 4.1.jpg',
               visible: true
           },
-          // {
-          //     name: 'matthew',
-          //     image: 'http://semantic-ui.com/images/avatar2/large/matthew.png',
-          //     visible: false
-          // },
           {
               name: 'chris',
               image: 'assets/images/Poster 6.jpg',
@@ -52,7 +45,6 @@ constructor(private webservice: WebService,private _router: Router,private http:
     this.uid=(JSON.parse(localStorage.getItem('user')));
     console.log('testt',this.uid);
     this.webservice.checkCredentials();
-    bcarouselObject.init();
     if((JSON.parse(localStorage.getItem('next_play')))>0){
       this._router.navigate(['/video',JSON.parse(localStorage.getItem('next_play'))]);
     }
@@ -69,7 +61,7 @@ constructor(private webservice: WebService,private _router: Router,private http:
  initcarousel(t) :void {
    if(t && !this.initc)
     {
-      bcarouselObject.init();
+      // bcarouselObject.init();
       this.initc = true;
     }
   } 
@@ -108,7 +100,6 @@ constructor(private webservice: WebService,private _router: Router,private http:
    }
   }
 webresponse(fun_id,return_data){
-//  console.log("fid",fun_id,"data",r2.json());
 if(fun_id==2)
 {
       this.returnmsg = return_data.json();
@@ -118,7 +109,6 @@ if(fun_id==3)
   this.return_bar = return_data.json();
   console.log(this.return_bar);
 }
-    //  console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
 }
    // action triggered when user swipes
    swipe(currentIndex: number, action = this.SWIPE_ACTION.RIGHT) {

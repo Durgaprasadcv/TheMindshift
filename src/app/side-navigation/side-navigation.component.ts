@@ -27,5 +27,10 @@ export class SideNavigationComponent implements OnInit {
   Users(){
     this._router.navigate(['/create-user']);
   }
-
+  designation(){
+    this._router.navigate(['/designation']);
+  }
+  logout():void {
+    this.webservice.logout();
+  }
 }
