@@ -1,11 +1,14 @@
 <app-side-navigation></app-side-navigation>
 <div class="padding_top_6vh">
+<div class="page_heading">
 <div class="headding ">
-    <h1>Tests</h1>
+    <h1  class="page_title">Tests</h1>
     </div>
     <div class="add_user">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" (click)="create_test()">Create Test</button>
     </div>
+</div>
+<div class="table_division">
     <table>
       <tr>
         <th>Test Name</th>
@@ -64,7 +67,7 @@
         <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
       </tr>
     </table>
-    
+  </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">

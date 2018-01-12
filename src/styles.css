@@ -34,3 +34,18 @@
           width: 0px;
       }
     }
+    .table_division{
+        padding-top: 15px;
+        padding-left:15px;
+        padding-right:15px;
+        padding-bottom: 15px;
+        }
+        .page_heading{
+            width:100%;
+            height:39px;
+            padding-left:15px;
+            padding-right:15px;
+        }
+        .page_title{
+            font-weight:bold;
+        }

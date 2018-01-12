@@ -76,6 +76,10 @@ import { TestTableComponent } from './test-table/test-table.component';
 import { VideoTableComponent } from './video-table/video-table.component';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { DesignationComponent } from './designation/designation.component';
+import { DepartnmentComponent } from './departnment/departnment.component';
+import { CharacterComponent } from './character/character.component';
+import { VideoLibraryComponent } from './video-library/video-library.component';
+import { ZoneComponent } from './zone/zone.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +101,11 @@ import { DesignationComponent } from './designation/designation.component';
     TestTableComponent,
     VideoTableComponent,
     SideNavigationComponent,
-    DesignationComponent
+    DesignationComponent,
+    DepartnmentComponent,
+    CharacterComponent,
+    VideoLibraryComponent,
+    ZoneComponent
   ],
   imports: [
     BrowserModule,
@@ -132,6 +140,10 @@ import { DesignationComponent } from './designation/designation.component';
       { path: 'video-table', component:VideoTableComponent },
       { path: 'side-navigation', component:SideNavigationComponent },
       { path: 'designation', component:DesignationComponent },
+      { path: 'departnment', component:DepartnmentComponent },
+      { path: 'character', component:CharacterComponent },
+      { path: 'video-library', component:VideoLibraryComponent },
+      { path: 'zone', component:ZoneComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

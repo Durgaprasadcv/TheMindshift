@@ -3,7 +3,6 @@ import {LoginComponent} from "./login/login.component";
 import { OnInit } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 // import { Customer } from './customer.interface';
-import { Customer } from './webservice/web.service';
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -19,8 +18,7 @@ export class AppComponent implements OnInit {
     // we will initialize our form here
     }
 
-    save(model: Customer) {
-        // call API to save customer
-        console.log(model);
+    save() {
+
     }
 }

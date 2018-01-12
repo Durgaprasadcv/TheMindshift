@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WebService,Customer } from '../webservice/web.service';
+import { WebService} from '../webservice/web.service';
 import { FormGroup, FormArray, FormBuilder,Validators,ReactiveFormsModule  } from '@angular/forms';
 import { jsonpFactory } from '@angular/http/src/http_module';
 import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
@@ -230,11 +230,6 @@ removeQuestion(i: number) {
   control.removeAt(i);
 }
 
-save(model: Customer) {
-  // call API to save
-  // ...
-  console.log(model);
-}
 onFileChange(event) {
   let reader = new FileReader();
   if(event.target.files && event.target.files.length > 0) {

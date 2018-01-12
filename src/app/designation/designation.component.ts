@@ -15,7 +15,7 @@ export class DesignationComponent implements OnInit {
   Designation_Level;
   Designation_OrgID;
   Designation_Id;
-  constructor(private webservice: WebService,) { }
+  constructor(private webservice: WebService) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');

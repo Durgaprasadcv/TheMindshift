@@ -30,6 +30,18 @@ export class SideNavigationComponent implements OnInit {
   designation(){
     this._router.navigate(['/designation']);
   }
+  department(){
+    this._router.navigate(['/departnment']);
+  }
+  character(){
+    this._router.navigate(['/character']);
+  }
+  videolibrary(){
+    this._router.navigate(['/video-library']);
+  }
+  zone(){
+    this._router.navigate(['/zone']);
+  }
   logout():void {
     this.webservice.logout();
   }

@@ -4,7 +4,7 @@ import {ViewChild } from '@angular/core';
 import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { WebService, Employee, State } from '../webservice/web.service';
+import { WebService} from '../webservice/web.service';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
