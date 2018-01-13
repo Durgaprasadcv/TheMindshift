@@ -42,6 +42,9 @@ export class SideNavigationComponent implements OnInit {
   zone(){
     this._router.navigate(['/zone']);
   }
+  assigntest(){
+    this._router.navigate(['/assign-test']);
+  }
   logout():void {
     this.webservice.logout();
   }

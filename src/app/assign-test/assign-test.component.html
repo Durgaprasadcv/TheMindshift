@@ -1,0 +1,85 @@
+<app-side-navigation></app-side-navigation>
+<div  class="padding_top_6vh">
+  <hr>
+<div class="user_div">
+  <md-select placeholder="Select User">
+    <md-option *ngFor="let user of users" [value]="user.value">
+      {{ user.viewValue }}
+    </md-option>
+  </md-select>
+</div>
+<div class="test_div">
+  <md-select placeholder="Select Test">
+    <md-option *ngFor="let test of tests" [value]="test.value">
+      {{ test.viewValue }}
+    </md-option>
+  </md-select>
+</div>
+<div class="test_div">
+    <md-form-field>
+        <input mdInput [mdDatepicker]="picker" placeholder="Start Date">
+        <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+        <md-datepicker #picker></md-datepicker>
+      </md-form-field>
+</div>
+<div class="test_div">
+    <md-form-field>
+        <input mdInput [mdDatepicker]="picker1" placeholder="Due Date">
+        <md-datepicker-toggle mdSuffix [for]="picker1"></md-datepicker-toggle>
+        <md-datepicker #picker1></md-datepicker>
+      </md-form-field>
+</div>
+<div class="button_div">
+  <button md-raised-button color="primary">Assign</button>
+</div>
+</div>
+<hr>
+<div>
+<div class="padding_left_15px inline_block width_40pr">
+  <h1>Assigned Tests</h1>
+  <br>
+  <md-select placeholder="Select User">
+      <md-option *ngFor="let user of users" [value]="user.value">
+        {{ user.viewValue }}
+      </md-option>
+    </md-select>
+    <br>
+    <br>
+    <div >
+    <li>Test 1</li>
+    <li>Test 2</li>
+    <li>Test 3</li>
+    <li>Test 4</li>
+    <li>Test 5</li>
+    <li>Test 6</li>
+    <li>Test 7</li>
+    <li>Test 8</li>
+    <li>Test 9</li>
+    <li>Test 10</li>
+  </div>
+</div>
+<div class="inline_block width_40pr">
+    <h1>Assigned Users</h1>
+    <br>
+    <md-select placeholder="Select Test">
+        <md-option *ngFor="let test of tests" [value]="test.value">
+          {{ test.viewValue }}
+        </md-option>
+      </md-select>
+      <br>
+      <br>
+      <div>
+      <li>User 1</li>
+      <li>User 2</li>
+      <li>User 3</li>
+      <li>User 4</li>
+      <li>User 5</li>
+      <li>User 6</li>
+      <li>User 7</li>
+      <li>User 8</li>
+      <li>User 9</li>
+      <li>User 10</li>
+    </div>
+  </div>
+</div>
+<hr>

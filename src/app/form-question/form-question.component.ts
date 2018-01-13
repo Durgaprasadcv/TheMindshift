@@ -36,7 +36,8 @@ export class FormQuestionComponent implements OnInit {
 this.myForm.controls['options'].valueChanges.subscribe(x => {
   console.log(x);
 })
-console.log(this.myForm.controls.options);
+console.log("control",this.myForm.controls.options.parent.value.question);
+console.log("mod id",module.id);
   }
 
   addOption() {
@@ -52,7 +53,7 @@ removeOption(idx: number) {
 
 initOption() {
     return this.fb.group({
-        Option: '',
+        Option: this.myForm.controls.options.parent.value.question,
         skip_time:''
     });
 }

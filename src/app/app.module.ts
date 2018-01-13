@@ -80,6 +80,9 @@ import { DepartnmentComponent } from './departnment/departnment.component';
 import { CharacterComponent } from './character/character.component';
 import { VideoLibraryComponent } from './video-library/video-library.component';
 import { ZoneComponent } from './zone/zone.component';
+import { AssignTestComponent } from './assign-test/assign-test.component';
+import {MatSelectModule} from '@angular/material/select';
+import {NativeDateAdapter} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +108,8 @@ import { ZoneComponent } from './zone/zone.component';
     DepartnmentComponent,
     CharacterComponent,
     VideoLibraryComponent,
-    ZoneComponent
+    ZoneComponent,
+    AssignTestComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +125,7 @@ import { ZoneComponent } from './zone/zone.component';
     VgOverlayPlayModule,
     VgBufferingModule,
     FlexLayoutModule,
+    MdNativeDateModule,
     FusionChartsModule.forRoot(FusionCharts, Charts),
     ReactiveFormsModule,
     RouterModule.forRoot([
@@ -144,6 +149,7 @@ import { ZoneComponent } from './zone/zone.component';
       { path: 'character', component:CharacterComponent },
       { path: 'video-library', component:VideoLibraryComponent },
       { path: 'zone', component:ZoneComponent },
+      { path: 'assign-test', component:AssignTestComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

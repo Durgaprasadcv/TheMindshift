@@ -60,6 +60,7 @@ resl;
 return_video;
 uid;
 public test_data;
+public current_time;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
@@ -214,7 +215,7 @@ initQuestion_edit(i) {
 addQuestion_edit(i) {
   const control = <FormArray>this.myForm.controls['test_question'];
   const addrCtrl = this.initQuestion_edit(i);
-  
+  console.log("hai",this.fileInput);
   control.push(addrCtrl);
 
   // this.addOption();
@@ -260,5 +261,24 @@ Tests(){
 }
 Users(){
   this._router.navigate(['/create-user']);
+}
+onPlayerReady(api:VgAPI) {
+  this.api = api;
+
+  this.api.getDefaultMedia().subscriptions.ended.subscribe(
+      () => {
+          // Set the video to the beginning
+          this.api.getDefaultMedia().currentTime = 0;
+      }
+  );
+  this.api.getDefaultMedia().subscriptions.seeking.subscribe(
+    () => {
+        // Set the video to the beginning
+        this.current_time=Math.trunc(this.api.getDefaultMedia().currentTime);
+        console.log("hai");
+    }
+);
+}
+save(){
 }
 }

@@ -1,0 +1,24 @@
+select{
+    display: block !important;
+}
+.user_div{
+    padding-left: 15px;
+    display: inline-block;
+    width:22%;
+}
+.test_div{
+    display: inline-block;
+    width:22%;
+}
+.button_div{
+    display: inline-block;
+}
+.padding_left_15px{
+    padding-left: 15px;
+}
+.inline_block{
+    display:inline-block;
+}
+.width_40pr{
+    width: 40%;
+}
