@@ -36,7 +36,7 @@
 <hr>
 <div>
 <div class="padding_left_15px inline_block width_40pr">
-  <h1>Assigned Tests</h1>
+  <h1>Tests</h1>
   <br>
   <md-select placeholder="Select User">
       <md-option *ngFor="let user of users" [value]="user.value">
@@ -45,21 +45,33 @@
     </md-select>
     <br>
     <br>
-    <div >
-    <li>Test 1</li>
-    <li>Test 2</li>
-    <li>Test 3</li>
-    <li>Test 4</li>
-    <li>Test 5</li>
-    <li>Test 6</li>
-    <li>Test 7</li>
-    <li>Test 8</li>
-    <li>Test 9</li>
-    <li>Test 10</li>
+    <div>
+    <div class="inline_block width_40pr">
+    <p>Assigned</p>
+    <md-checkbox>Test 1</md-checkbox>
+    <br>
+    <md-checkbox>Test 2</md-checkbox>
+    <br>
+    <md-checkbox>Test 3</md-checkbox>
+    <br>
+    <md-checkbox>Test 4</md-checkbox>
+    <br>
+  </div>
+  <div class="inline_block width_40pr">
+      <p>Un-Assigned</p>
+      <md-checkbox>Test 5</md-checkbox>
+      <br>
+      <md-checkbox>Test 6</md-checkbox>
+      <br>
+      <md-checkbox>Test 7</md-checkbox>
+      <br>
+      <md-checkbox>Test 8</md-checkbox>
+      <br>
+    </div>
   </div>
 </div>
 <div class="inline_block width_40pr">
-    <h1>Assigned Users</h1>
+    <h1>Users</h1>
     <br>
     <md-select placeholder="Select Test">
         <md-option *ngFor="let test of tests" [value]="test.value">
@@ -69,17 +81,52 @@
       <br>
       <br>
       <div>
-      <li>User 1</li>
-      <li>User 2</li>
-      <li>User 3</li>
-      <li>User 4</li>
-      <li>User 5</li>
-      <li>User 6</li>
-      <li>User 7</li>
-      <li>User 8</li>
-      <li>User 9</li>
-      <li>User 10</li>
+      <div class="inline_block width_40pr">
+      <p>Assigned</p>
+      <md-checkbox>User 1</md-checkbox>
+      <br>
+      <md-checkbox>User 2</md-checkbox>
+      <br>
+      <md-checkbox>User 3</md-checkbox>
+      <br>
+      <md-checkbox>User 4</md-checkbox>
+      <br>
     </div>
+    <div class="inline_block width_40pr">
+        <p>Un-Assigned</p>
+        <md-checkbox>User 5</md-checkbox>
+        <br>
+        <md-checkbox>User 6</md-checkbox>
+        <br>
+        <md-checkbox>User 7</md-checkbox>
+        <br>
+        <md-checkbox>User 8</md-checkbox>
+        <br>
+      </div>
   </div>
+  </div>
+  <div class="button_div">
+      <button md-raised-button color="primary">Assign</button>
+    </div>
 </div>
 <hr>
+<div class="modal fade" id="myModal_delete" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete Department</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are You Want to Delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

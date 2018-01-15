@@ -383,3 +383,11 @@ margin:0 !important;
   text-align: center;
   padding-top: 7vh;
 }
+.sidebar.open{
+  width:70vw;
+  min-width:70vw;
+}
+a{
+  font-size: 30px !important;
+  height: 5.5vh !important;
+}

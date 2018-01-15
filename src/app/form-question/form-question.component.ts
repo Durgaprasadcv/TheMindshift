@@ -37,7 +37,6 @@ this.myForm.controls['options'].valueChanges.subscribe(x => {
   console.log(x);
 })
 console.log("control",this.myForm.controls.options.parent.value.question);
-console.log("mod id",module.id);
   }
 
   addOption() {
@@ -54,7 +53,7 @@ removeOption(idx: number) {
 initOption() {
     return this.fb.group({
         Option: this.myForm.controls.options.parent.value.question,
-        skip_time:''
+        skip_time:this.myForm.controls.options.parent.value.question
     });
 }
 }

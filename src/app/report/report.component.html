@@ -67,7 +67,7 @@
               <div class="fill"></div>
             </div>
             <div>
-                <p class="shift_des">Customer<br> Service</p>
+                <p class="shift_des">Customer<br>Service</p>
             </div>
           </div>
           <div *ngIf="report_display && return_bar"  class=" c100 p{{return_bar.learningTest[2].module_percent}} big bg_color_white  font_160px col_percentge">
@@ -153,7 +153,9 @@
     </div>
             <!-- </div> -->
 <!-- <button *ngIf="report_display" md-raised-button (click)="onNoClick()" >close</button>  -->
-<h5 *ngIf="!report_display">Do you want to continue in last paused position ?</h5>
-<button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(0)" ><h5>Yes</h5></button> 
-<button *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(1)" ><h5>No</h5></button> 
+<h5 *ngIf="!report_display" class="last_pos_question">Do you want to continue in last paused position ?</h5>
+<div>
+<button class="last_pos_question yes_button" *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(0)" ><h5>Yes</h5></button> 
+<button class="last_pos_question no_button" *ngIf="!report_display" md-raised-button (click)="onNoClick_pause(1)" ><h5>No</h5></button> 
+</div>
 </div>

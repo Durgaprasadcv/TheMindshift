@@ -40,14 +40,15 @@
       transform: rotate(90deg);
     
       transform-origin: bottom left;
-      width: 85vh;
-      height: 100vw;
-      margin-top: -100vw;
-      margin-left: -25vw;
+      width: 78vh;
+      height: 66vw;
+      margin-top: -59vw;
+      margin-left: -5vw;
       /* object-fit: cover; */
     
       z-index: 4;
       visibility: visible;
+      font-size: 35px !important;
     }
     #main_div{
       margin-left: 30%;
@@ -114,4 +115,9 @@
   }
   .progress-bar{
     height:100%;
+  }
+  .submit_button{
+  width: 20vh !important;
+  height: 10vw !important;
+  font-size: 35px !important;
   }

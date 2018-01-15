@@ -188,3 +188,21 @@ font-size:17vw;
 {
   display: none;
 }
+.last_pos_question{
+  font-size: 30px !important;
+  margin-top: 5vw;
+}
+.last_pop_button{
+  height: 7vw;
+    font-size: 27px;
+    width: 20vh;
+}
+.yes_button{
+  margin-left: 10%;
+  padding: 10px;
+}
+.no_button{
+  margin-right: 33vh;
+  float: right;
+  padding: 10px;
+}

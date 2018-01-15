@@ -218,7 +218,7 @@ addQuestion_edit(i) {
   console.log("hai",this.fileInput);
   control.push(addrCtrl);
 
-  // this.addOption();
+  /// this.addOption();
   /* subscribe to individual address value changes */
   // addrCtrl.valueChanges.subscribe(x => {
   //   console.log(x);
