@@ -14,12 +14,17 @@
      -ms-transform: rotate(90deg);
       transform: rotate(90deg);
     
-      transform-origin: bottom left;
+      /* transform-origin: bottom left;
       width: 85vh;
       height: 100vw;
       margin-top: -100vw;
-      margin-left: -50vw;
+      margin-left: -50vw; */
       /* object-fit: cover; */
+      transform-origin:  center;
+      width: 65vh;
+      height: 55vw;
+      margin-top: 15vh;
+      margin-left: -34vw;
     
       z-index: 4;
       visibility: visible;
@@ -40,10 +45,10 @@
     width:17% !important;
   }
   .img_div_front{
-    width:17% !important;
+    width:32% !important;
   }
   .img_div_center{
-    width:24% !important;
+    width:33% !important;
      
   }
   .heading{
@@ -51,7 +56,7 @@
     margin-bottom: 0px;
     text-align: center;
     font-size: 22px ;
-    width:67% !important; 
+    width:100% !important; 
     font-weight: bold;
   }
   }
@@ -79,7 +84,9 @@
   .col_percentge{
     height:50px;
     margin: 0 !important;
-    width:15%;
+    width: 10vh !important;
+    margin-left: 1.5vh !important;
+    margin-right: 1.5vh !important;
     display: inline-block;
   }
   .shift_banner{
@@ -130,11 +137,10 @@
     width:33%;
   }
   .img_div_front{
-    width:33%;
+    width:32%;
   }
   .img_div_center{
-    width:32%;
-     
+    width:33%;
   }
   .float_left{
     float: left;
@@ -191,6 +197,7 @@ font-size:17vw;
 .last_pos_question{
   font-size: 30px !important;
   margin-top: 5vw;
+  text-align:center;
 }
 .last_pop_button{
   height: 7vw;
@@ -198,11 +205,14 @@ font-size:17vw;
     width: 20vh;
 }
 .yes_button{
-  margin-left: 10%;
-  padding: 10px;
+  width: 12vh !important;
+    padding: 10px;
+    margin-left: 10vh !important;
+    margin-right: 10vh !important;
 }
 .no_button{
-  margin-right: 33vh;
-  float: right;
+  width: 12vh !important;
   padding: 10px;
+  margin-left: 10vh !important;
+  margin-right: 10vh !important;
 }

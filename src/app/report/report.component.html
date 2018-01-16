@@ -12,7 +12,7 @@
     </div>
                <div class="c100 p20 big bg_color_white  font_160px col_percentge">
                           <span>20%</span>
-                          <div class="slice ">
+                          <div class="slice">
                               <div class="bar"></div>
                               <div class="fill"></div>
                           </div>
@@ -130,24 +130,24 @@
         </div> -->
     </div>
     <div class="pop_control" *ngIf="report_display">
-            <div class="inline_block img_div_back display_none">
-                <a (click)="selectvideo()" >
-                    <img class="img_size float_left"  src="assets/images/back.png" >
-                </a>
-            </div>
-            <div class="inline_block img_div_center">
-                    <a (click)="selectvideo(1)" >
-                    <img class="img_size replay_icon"  src="assets/images/replay.png" >
-                </a>
-            </div>
-            <div class="inline_block img_div_center">
-                <a (click)="selectvideo(0)" >
+        <div class="inline_block img_div_back display_none">
+            <a (click)="selectvideo()" >
+                <img class="img_size float_left"  src="assets/images/back.png" >
+            </a>
+        </div>
+        <div class="inline_block img_div_center">
+            <a (click)="selectvideo(1)" >
+                <img class="img_size replay_icon"  src="assets/images/replay.png" >
+            </a>
+        </div>
+        <div class="inline_block img_div_center">
+            <a (click)="selectvideo(0)" >
                 <img class="img_size replay_icon"  src="assets/images/home.png" >
             </a>
         </div>
         <div class="inline_block img_div_front">
-                <a (click)="selectvideo(2)" >
-                <img class="img_size float_right"  src="assets/images/front.png" >
+            <a (click)="selectvideo(2)" >
+                <img class="img_size replay_icon"  src="assets/images/front.png" >
             </a>
         </div>
     </div>

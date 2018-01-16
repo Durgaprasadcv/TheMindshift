@@ -43,7 +43,6 @@ export class ReportComponent implements OnInit {
       this.return_bar = return_data.json();
       console.log(this.return_bar);
     }
-        //  console.log("data",this.returnmsg1.category[0].Test_Mod_Tittle);
     }
   selectvideo(button_value):void{
     // 0=home 1=replay 2=next
