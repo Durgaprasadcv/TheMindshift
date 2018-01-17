@@ -27,6 +27,7 @@
     <td>video 1</td>
     <td>video 1</td>
     <td>www.video 1.com</td>
+
     <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
   </tr>
@@ -85,10 +86,11 @@
           <input mdInput placeholder="Video URL" [(ngModel)]="address_line_2" name="username">
       </md-form-field>
       </div>
+      <input type="file" (change)="onChange($event)">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Edit chracter</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Edit Video</button>
       </div>
     </div>
     
@@ -146,6 +148,7 @@
                 <input mdInput placeholder="Video URL" [(ngModel)]="address_line_2" name="username">
             </md-form-field>
             <br>
+            <input type="file" (change)="onChange($event)">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

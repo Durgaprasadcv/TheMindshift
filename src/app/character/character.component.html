@@ -16,7 +16,7 @@
     <th>Character Description</th>
     <th>Character Display Name</th>
     <th>Character Code</th>
-    <th>Character URL</th>
+    <th>Character</th>
     <th>control</th>
   </tr>
   <!-- <tr *ngFor="let i of returnmsg  let ia = index "> -->
@@ -26,7 +26,7 @@
     <td>King of Village</td>
     <td>King</td>
     <td>001</td>
-    <td>www.character 1.com</td>
+    <td><img src="assets/images/character/1.png" alt="" class="character_img"></td>
     <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
   </tr>
@@ -37,7 +37,7 @@
   <td>character 2</td>
   <td>character 2</td>
   <td>character 2</td>
-  <td>www.character 2.com</td>
+  <td><img src="assets/images/character/2.png" alt="" class="character_img"></td>
   <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
 </tr>
@@ -47,7 +47,7 @@
     <td>character 3</td>
     <td>character 3</td>
     <td>character 3</td>
-    <td>www.character 3.com</td>
+    <td><img src="assets/images/character/3.png" alt="" class="character_img"></td>
     <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
   </tr>
@@ -85,6 +85,7 @@
       <md-form-field>
           <input mdInput placeholder="Character URL" [(ngModel)]="address_line_2" name="username">
       </md-form-field>
+      <input type="file" (change)="onChange($event)">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -147,11 +148,12 @@
                 <input mdInput placeholder="Character URL" [(ngModel)]="address_line_2" name="username">
             </md-form-field>
             <br>
+            <input type="file" (change)="onChange($event)">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button> -->
-          <button type="button" class="btn btn-default" data-dismiss="modal">Add Designation</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Add Character</button>
         </div>
       </div>
       

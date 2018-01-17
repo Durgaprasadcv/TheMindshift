@@ -37,7 +37,6 @@ export class ReportComponent implements OnInit {
    this.webservice.webRequest(this,'post',this.webservice.dashbar,body1,'3','');
   }
   webresponse(fun_id,return_data){
-    //  console.log("fid",fun_id,"data",r2.json());
     if(fun_id==3)
     {
       this.return_bar = return_data.json();

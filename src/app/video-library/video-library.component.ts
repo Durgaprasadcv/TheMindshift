@@ -22,6 +22,7 @@ export class VideoLibraryComponent implements OnInit {
   pincode;
   email;
   contact_no;
+  files;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
@@ -106,6 +107,10 @@ export class VideoLibraryComponent implements OnInit {
       contact_no:this.contact_no
     };
       this.webservice.webRequest(this,'post',this.webservice.update_dept,body3,'4','');
+  }
+  onChange(event) {
+    this.files = event.srcElement.files;
+    console.log(this.files);
   }
 
 }

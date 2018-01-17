@@ -41,7 +41,7 @@
       <!-- Sidebar brand name -->
       <a *ngIf='user_email' data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
           {{user_email}}
-          <b class="caret"></b>
+          <!-- <b class="caret"></b> -->
       </a>
     </div>
 
@@ -116,52 +116,51 @@
           </li>
         </ul>
       </li>-->
+      <li>
+        <a (click)="assigntest()">
+            Assign Test
+            <!-- <span class="sidebar-badge">10</span> -->
+        </a>
+      </li>
       <li >
         <a (click)="Tests()" >
               Test
-              <span class="sidebar-badge ">3</span>
+              <!-- <span class="sidebar-badge ">3</span> -->
           </a>
       </li>
       <li>
         <a (click)="Users()">
               Users
-              <span class="sidebar-badge">10</span>
+              <!-- <span class="sidebar-badge">10</span> -->
           </a>  
       </li>
       <li>
         <a (click)="designation()">
           Designation
-          <span class="sidebar-badge">10</span>
+          <!-- <span class="sidebar-badge">10</span> -->
       </a>
       </li>
       <li>
         <a (click)="department()">
             Department
-            <span class="sidebar-badge">10</span>
         </a>
       </li>
       <li>
           <a (click)="character()">
               Character
-              <span class="sidebar-badge">10</span>
+              <!-- <span class="sidebar-badge">10</span> -->
           </a>
         </li>
         <li>
             <a (click)="videolibrary()">
                 Video
-                <span class="sidebar-badge">10</span>
+                <!-- <span  class="sidebar-badge">10</span> -->
             </a>
           </li>
           <li>
               <a (click)="zone()">
                   Zone
-                  <span class="sidebar-badge">10</span>
-              </a>
-            </li>
-            <li>
-              <a (click)="assigntest()">
-                  Assign Test
-                  <span class="sidebar-badge">10</span>
+                  <!-- <span class="sidebar-badge">10</span> -->
               </a>
             </li>
      <!-- <li>
