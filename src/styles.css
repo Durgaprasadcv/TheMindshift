@@ -52,3 +52,8 @@
         .padding_top_6vh{
             padding-top: 6vh;
         }
+        .no_network_msg{
+            padding-top: 30vh;
+            font-size: 35px;
+            text-align: center;
+        }

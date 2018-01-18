@@ -14,7 +14,14 @@ import 'rxjs/add/operator/map';
 })
 export class SideNavigationComponent implements OnInit {
   user_email;
-  constructor(private webservice: WebService,private _router: Router) { }
+  online$: Observable<boolean>;
+  constructor(private webservice: WebService,private _router: Router) {
+    this.online$ = Observable.merge(
+      Observable.of(navigator.onLine),
+      Observable.fromEvent(window, 'online').mapTo(true),
+      Observable.fromEvent(window, 'offline').mapTo(false)
+    )
+   }
 
   ngOnInit() {
     this.user_email=(JSON.parse(localStorage.getItem('user_email')));
@@ -44,6 +51,9 @@ export class SideNavigationComponent implements OnInit {
   }
   assigntest(){
     this._router.navigate(['/assign-test']);
+  }
+  report(){
+    this._router.navigate(['/report-rough']);
   }
   logout():void {
     this.webservice.logout();

@@ -1,4 +1,5 @@
 <app-side-navigation></app-side-navigation>
+<div *ngIf="online$ | async">
 <div *ngIf="returnmsg&&return_bar"  class="main_content" >
     <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
           <!-- Indicators 
@@ -240,3 +241,5 @@
                 </div>
 <button (click)="resume()" class="button_div_class web_display_none">RESUME</button>
 </div>
+</div>
+<p class="no_network_msg" *ngIf="!(online$ | async)">Your Device is in Offline</p>

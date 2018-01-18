@@ -77,11 +77,11 @@
         <md-option *ngFor="let test of tests" [value]="test.value">
           {{ test.viewValue }}
         </md-option>
-      </md-select>
+    </md-select>
       <br>
       <br>
       <div>
-      <div class="inline_block width_40pr">
+    <div class="inline_block width_40pr">
       <p>Assigned</p>
       <md-checkbox>User 1</md-checkbox>
       <br>
@@ -93,40 +93,50 @@
       <br>
     </div>
     <div class="inline_block width_40pr">
-        <p>Un-Assigned</p>
-        <md-checkbox>User 5</md-checkbox>
-        <br>
-        <md-checkbox>User 6</md-checkbox>
-        <br>
-        <md-checkbox>User 7</md-checkbox>
-        <br>
-        <md-checkbox>User 8</md-checkbox>
-        <br>
-      </div>
+      <p>Un-Assigned</p>
+      <md-checkbox>User 5</md-checkbox>
+      <br>
+      <md-checkbox>User 6</md-checkbox>
+      <br>
+      <md-checkbox>User 7</md-checkbox>
+      <br>
+      <md-checkbox>User 8</md-checkbox>
+      <br>
+    </div>
   </div>
+
   </div>
   <div class="button_div">
-      <button md-raised-button color="primary">Assign</button>
+      <!-- <button md-raised-button color="primary">Assign</button> -->
+      <button md-raised-button  color="primary" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Assign</button>
     </div>
 </div>
 <hr>
-<div class="modal fade" id="myModal_delete" role="dialog">
+<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Delete Department</h4>
+          <h4 class="modal-title">Assign</h4>
         </div>
         <div class="modal-body">
-          <p>Are You Want to Delete?</p>
+          <p>Select Date</p>
+          <md-form-field>
+            <input mdInput [mdDatepicker]="myModal" placeholder="Start Date">
+            <md-datepicker-toggle mdSuffix [for]="myModal"></md-datepicker-toggle>
+            <md-datepicker #myModal ></md-datepicker>
+          </md-form-field>
+          <md-form-field>
+            <input mdInput [mdDatepicker]="picker3" placeholder="Due Date">
+            <md-datepicker-toggle mdSuffix [for]="picker3"></md-datepicker-toggle>
+            <md-datepicker #picker3></md-datepicker>
+          </md-form-field>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Assign</button>
         </div>
-      </div>
-      
+      </div>  
     </div>
-  </div>
+</div>

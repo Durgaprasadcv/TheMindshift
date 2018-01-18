@@ -38,8 +38,14 @@ export class BcarouselComponent implements OnInit {
   public return_bar;
   public initc = false;
   user_email;
+  online$: Observable<boolean>;
 constructor(private webservice: WebService,private _router: Router,private http:Http) {
   this.initc = false;
+  this.online$ = Observable.merge(
+    Observable.of(navigator.onLine),
+    Observable.fromEvent(window, 'online').mapTo(true),
+    Observable.fromEvent(window, 'offline').mapTo(false)
+  )
 }
   ngOnInit(): void {
     this.uid=(JSON.parse(localStorage.getItem('user')));

@@ -383,11 +383,24 @@ margin:0 !important;
   text-align: center;
   padding-top: 7vh;
 }
-.sidebar.open{
-  width:70vw;
-  min-width:70vw;
-}
-a{
-  font-size: 30px !important;
-  height: 5.5vh !important;
-}
+
+@media screen and (min-width: 768px){
+  .sidebar.open{
+    width:20%;
+    min-width:20%;
+  }
+  a{
+    font-size: 18px !important;
+    height: 35px !important;
+  }
+  }
+  @media screen and (max-width: 767px){
+    .sidebar.open{
+      width:70vw;
+      min-width:70vw;
+    }
+    a{
+      font-size: 30px !important;
+      height: 5.5vh !important;
+    }
+    }
