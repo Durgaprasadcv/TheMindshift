@@ -73,3 +73,16 @@ input[type=text] {
 .padding_top_6vh{
     padding-top: 6vh;
     }
+
+
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Roboto';
+      }
+      
+      .container {
+        margin: 150px auto;
+        max-width: 640px;
+      }
+      
+      select { width: 400px; }

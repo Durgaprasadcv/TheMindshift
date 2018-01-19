@@ -2,6 +2,7 @@ import { Component, OnInit, Directive, ElementRef } from '@angular/core';
 import {MdSelectModule,MdDatepickerModule,MdNativeDateModule} from '@angular/material';
 import{FormsModule,ReactiveFormsModule,FormControl} from '@angular/forms';
 import {NativeDateAdapter,DateAdapter} from '@angular/material';
+import * as $ from 'jquery/dist/fm.selectator.jquery.js';
 @Component({
   selector: 'app-assign-test',
   templateUrl: './assign-test.component.html',
@@ -23,5 +24,10 @@ export class AssignTestComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  ngAfterViewInit() {
+    $('#multiple').selectator({
+      showAllOptionsOnFocus: true,
+      searchFields: 'value text subtitle right'
+    });
+  }
 }

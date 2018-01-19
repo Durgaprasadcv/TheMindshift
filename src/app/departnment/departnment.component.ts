@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-departnment',
   templateUrl: './departnment.component.html',
@@ -26,6 +27,9 @@ export class DepartnmentComponent implements OnInit {
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
+  }
+  ngAfterViewInit() {
+  
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)

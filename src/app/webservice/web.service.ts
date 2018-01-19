@@ -15,9 +15,12 @@ public create_test=this.main_url+'create_test';
 public save_result=this.main_url+'save_result';
 public gettest_detail_uid=this.main_url+'gettest_detail_uid';
 public test_completion=this.main_url+'test_completion';
+public get_video_library=this.main_url+'get_video_library';
+
+//user
 public get_users=this.main_url+'get_users';
 public UserRegister=this.main_url+'UserRegister';
-public get_video_library=this.main_url+'get_video_library';
+public edit_user=this.main_url+'edit_user';
 
 //designation
 public get_designation=this.main_url+'get_designation';

@@ -24,7 +24,7 @@
     <td>{{i.UserEmail}}</td>
     <td>{{i.MobileNumber}}</td>
     <td>{{i.city}}</td>
-    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
+    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.User_Uid)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
   </tr>
 </table>
 </div>
@@ -40,29 +40,66 @@
         <h4 class="modal-title">Edit User</h4>
       </div>
       <div class="modal-body">
-          <md-form-field>
-              <input mdInput placeholder="First Name" name="username">
-          </md-form-field>
-          <md-form-field>
-              <input mdInput placeholder="Last Name" name="username">
-          </md-form-field>
-          <br>
-          
-          <md-form-field>
-              <input mdInput placeholder="Mobile" name="username">
-          </md-form-field>
-          <md-form-field>
-              <input mdInput placeholder="Email" name="username">
-          </md-form-field>
-          <br>
-
-          <md-form-field>
-              <input mdInput placeholder="Place" name="username">
-          </md-form-field>       
+        <md-form-field>
+          <input mdInput placeholder="First Name" [(ngModel)]="User_UName" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Middle Name" [(ngModel)]="User_Name" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+          <input mdInput placeholder="Last Name" [(ngModel)]="User_Lastname" name="username">
+      </md-form-field> 
+      <md-form-field>
+          <input mdInput placeholder="Mobile" [(ngModel)]="MobileNumber" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Password" [(ngModel)]="User_Password" name="username">
+      </md-form-field>
+      <md-form-field>
+          <input mdInput placeholder="Email" [(ngModel)]="UserEmail" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Disignation" [(ngModel)]="Did" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Organization" [(ngModel)]="Org_ID" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Department" [(ngModel)]="Dept_Id" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Zone" [(ngModel)]="Zone_Id" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Address 1" [(ngModel)]="address_line_1" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Address2" [(ngModel)]="address_line_2" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="City" [(ngModel)]="city" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="State" [(ngModel)]="state" name="username">
+      </md-form-field>
+      <br>
+      <md-form-field>
+        <input mdInput placeholder="Country" [(ngModel)]="country" name="username">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput placeholder="Pincode" [(ngModel)]="pincode" name="username">
+      </md-form-field>
+      <br>       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Edit User</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit User</button>
       </div>
     </div>
     
@@ -157,7 +194,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_user()">Add User</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add User</button>
         </div>
       </div>
       
