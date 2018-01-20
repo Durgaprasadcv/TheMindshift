@@ -1,37 +1,64 @@
 <app-side-navigation></app-side-navigation>
-<div class="padding_top_6vh">
-<h4>Report</h4>
-<fusioncharts
-width="100%" 
-height="400"
-type="column2d"
-dataFormat="json"
-[dataSource]=data >
-</fusioncharts>
-<fusioncharts
-width="100%" 
-height="400"
-type="pie3d"
-[dataSource]=dataSource >
-</fusioncharts>
-<fusioncharts
-width="100%" 
-height="400"
-type="mscombi2d"
-[dataSource]=dataSource1>
-</fusioncharts>
-<fusioncharts
-width="100%" 
-height="400"
-type="msbar2d"
-dataFormat="json"
-[dataSource]=dataSource2 >
-</fusioncharts>
-<fusioncharts
-width="100%" 
-height="400"
-type="column3d"
-dataFormat="json"
-[dataSource]=dataSource3 >
-</fusioncharts>
-</div>
+<div id="exTab1" class="container width_100per padding_top_6vh">	
+
+    <div class="container width_100per"><h2>User View</h2></div>
+    
+    <div id="exTab2" class="container width_100per">	
+    <ul class="nav nav-tabs">
+          <li class="active">
+            <a  href="#1" data-toggle="tab">About</a>
+          </li>
+          <li><a href="#2" data-toggle="tab">Tests </a>
+          </li>
+          <li><a href="#3" data-toggle="tab">Report</a>
+          </li>
+        </ul>
+    
+          <div class="tab-content ">
+            <div class="tab-pane active" id="1">
+              <h3>profile</h3>
+            </div>
+            <div class="tab-pane" id="2">
+              <h3>Assigning</h3>
+            </div>
+            <div class="tab-pane" id="3">
+                <div class="padding_top_6vh">
+                    <h4>Report</h4>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column2d"
+                    dataFormat="json"
+                    [dataSource]=data >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="pie3d"
+                    [dataSource]=dataSource >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="mscombi2d"
+                    [dataSource]=dataSource1>
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="msbar2d"
+                    dataFormat="json"
+                    [dataSource]=dataSource2 >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column3d"
+                    dataFormat="json"
+                    [dataSource]=dataSource3 >
+                    </fusioncharts>
+                    </div>
+            </div>
+          </div>
+      </div>
+      </div>

@@ -83,6 +83,7 @@ import { ZoneComponent } from './zone/zone.component';
 import { AssignTestComponent } from './assign-test/assign-test.component';
 import {MatSelectModule} from '@angular/material/select';
 import {NativeDateAdapter} from '@angular/material';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +110,8 @@ import {NativeDateAdapter} from '@angular/material';
     CharacterComponent,
     VideoLibraryComponent,
     ZoneComponent,
-    AssignTestComponent
+    AssignTestComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -150,6 +152,7 @@ import {NativeDateAdapter} from '@angular/material';
       { path: 'video-library', component:VideoLibraryComponent },
       { path: 'zone', component:ZoneComponent },
       { path: 'assign-test', component:AssignTestComponent },
+      { path: 'user-profile', component:UserProfileComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

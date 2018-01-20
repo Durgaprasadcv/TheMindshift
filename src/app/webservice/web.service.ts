@@ -21,6 +21,7 @@ public get_video_library=this.main_url+'get_video_library';
 public get_users=this.main_url+'get_users';
 public UserRegister=this.main_url+'UserRegister';
 public edit_user=this.main_url+'edit_user';
+public delete_user=this.main_url+'delete_user';
 
 //designation
 public get_designation=this.main_url+'get_designation';

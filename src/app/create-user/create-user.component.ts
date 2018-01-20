@@ -91,16 +91,20 @@ webresponse(fun_id,return_data){
         this.returnmsg = return_data.json();
         console.log(this.returnmsg);
   }
-  else if(fun_id==2){
+  else if(fun_id==2)
+  {
     window.location.reload(true);
   }
-  else if(fun_id==3){
+  else if(fun_id==3)
+  {
     window.location.reload(true);
   }
-  else if(fun_id==4){
-    // window.location.reload(true);
+  else if(fun_id==4)
+  {
+    window.location.reload(true);
   }
-  else if(fun_id==5){
+  else if(fun_id==5)
+  {
     this.returnmsg1 = return_data.json();
     console.log("hai",this.returnmsg1)
     this.User_UName=this.returnmsg1.users.User_UName;
@@ -166,9 +170,9 @@ store_id(i){
 }
 delete(){
   const body2 = {
-    Dept_Id:this.Dept_Id
+    user_id:this.user_id
   };
-  this.webservice.webRequest(this,'post',this.webservice.delete_dept,body2,'3','');
+  this.webservice.webRequest(this,'post',this.webservice.delete_user,body2,'3','');
   // window.location.reload(true);
 }
 edit(){
@@ -202,5 +206,4 @@ edit(){
   };
     this.webservice.webRequest(this,'post',this.webservice.edit_user,body3,'4','');
 }
-
 }

@@ -127,7 +127,7 @@ this.edit();
   }
   // myFunc(){
   //   const body = {
-  //     // user_id:'32'
+  //   user_id:'32'
   //   QuestionTitle:this.QuestionTitle,
   //   QuestionType:this.QuestionType,
   //   Marks:this.Marks,
