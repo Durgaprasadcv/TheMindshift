@@ -1,9 +1,9 @@
 <app-side-navigation></app-side-navigation>
-<div id="exTab1" class="container width_100per padding_top_6vh">	
+<!-- <div id="exTab1" class="container width_100per padding_top_6vh padding_lr_null">	
 
-    <div class="container width_100per"><h2>User View</h2></div>
+    <div class="container width_100per padding_lr_null"><h2>User View</h2></div>
     
-    <div id="exTab2" class="container width_100per">	
+    <div id="exTab2" class="container width_100per padding_lr_null">	
     <ul class="nav nav-tabs">
           <li class="active">
             <a  href="#1" data-toggle="tab">About</a>
@@ -61,4 +61,76 @@
             </div>
           </div>
       </div>
-      </div>
+      </div> -->
+
+      <!-- <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3"><a href="#swipe-1">Test 1</a></li>
+        <li class="tab col s3"><a class="active" href="#swipe-2">Test 2</a></li>
+        <li class="tab col s3"><a href="#swipe-3">Test 3</a></li>
+      </ul>
+      <div id="swipe-1" class="col s12 blue">First tab content</div>
+      <div id="swipe-2" class="col s12 red">Second tab content</div>
+      <div id="swipe-3" class="col s12 green">Third tab content</div> -->
+
+      <!-- <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" [(tabs)]="tabs" swipeTab>
+        <md-tab>
+          <h1>a</h1>
+        </md-tab>
+        <md-tab>
+           <h1>b</h1>
+        </md-tab>
+        <md-tab>
+          <h1>c</h1>
+        </md-tab>           
+ </md-tab-group> -->
+ <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
+    <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
+            <md-tab>
+                <!-- <template md-tab-label>Profile</template> -->
+              <h1 style="height:200px !important;">User Profile</h1>
+            </md-tab>
+            <md-tab>
+                <!-- <template md-tab-label>Tests</template> -->
+              <h1 style="height:200px !important;">Assign Test</h1>
+            </md-tab>
+            <md-tab>
+                <!-- <template md-tab-label>Report</template> -->
+                <div class="padding_top_6vh">
+                    <h4>Report</h4>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column2d"
+                    dataFormat="json"
+                    [dataSource]=data >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="pie3d"
+                    [dataSource]=dataSource >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="mscombi2d"
+                    [dataSource]=dataSource1>
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="msbar2d"
+                    dataFormat="json"
+                    [dataSource]=dataSource2 >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column3d"
+                    dataFormat="json"
+                    [dataSource]=dataSource3 >
+                    </fusioncharts>
+                    </div>
+              </md-tab>
+    </md-tab-group>
+  </div>

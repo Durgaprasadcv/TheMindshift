@@ -235,9 +235,10 @@
   white-space: nowrap;
 }
 .test_banner_character{
-  height:15vh;
+  height:13vh;
   width:auto;
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
 }
 .col{
@@ -271,7 +272,7 @@
 .button_div_class{
   background-color: #3176ff;
   width:100%;
-  height:4vh;
+  height:6vh;
   border: none;
   color:white;
   padding:0 ;
@@ -379,6 +380,8 @@ margin:0 !important;
   height: 13vh;
   width: auto;
   display: inline-block;
+  padding-left: 30px;
+    padding-right: 30px;
 }
 .no_test{
   text-align: center;

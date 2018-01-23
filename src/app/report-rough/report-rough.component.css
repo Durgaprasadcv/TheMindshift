@@ -32,3 +32,7 @@ body {
     background-color: #428bca;
     padding : 5px 15px;
   }
+
+  .carousel .carousel-item{
+    width:100%;
+  }

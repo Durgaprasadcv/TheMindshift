@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Directive, HostListener, EventEmitter, Input, Output } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import * as $ from 'jquery';
+declare var $: any;
 @Component({
   selector: 'app-report-rough',
   templateUrl: './report-rough.component.html',
@@ -417,5 +421,60 @@ export class ReportRoughComponent implements OnInit {
 
   ngOnInit() {
   }
+  ngAfterViewInit() {
+//   $(document).ready(function(){
+//     $('ul.tabs').tabs({
+//       swipeable : true,
+//       responsiveThreshold : 1920
+//     });
+//   });
+  }
 
+//   @HostListener('swipeleft', ['$event'])
+//   onSwipeleft(event) {
+//     if(this.selectedIndex + 1 <= this.tabs - 1) {
+//       this.selectedIndex += 1;
+//       this.selectedIndexChange.emit(this.selectedIndex);
+//     }
+//   }
+
+//   @HostListener('swiperight', ['$event'])
+//   onSwiperight(event) {
+//     if(this.selectedIndex - 1 >= 0) {
+//       this.selectedIndex -= 1;
+//       this.selectedIndexChange.emit(this.selectedIndex);
+//     }
+//   }
+
+//   @Input() tabs: number=3;
+//   @Input()  selectedIndex: number=0;
+//   @Output() selectedIndexChange = new EventEmitter<number>();
+
+  selectedIndex: number = 2;
+
+  selectChange(): void{
+    console.log("Selected INDEX: " + this.selectedIndex);
+  }
+
+  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+
+  // Action triggered when user swipes
+  swipe(selectedIndex: number, action = this.SWIPE_ACTION.RIGHT) {
+    // Out of range
+    if (this.selectedIndex < 0 || this.selectedIndex > 2 ) return;
+
+    // Swipe left, next tab
+    if (action === this.SWIPE_ACTION.LEFT) {
+      const isLast = this.selectedIndex === 2;
+      this.selectedIndex = isLast ? 0 : this.selectedIndex + 1;
+      console.log("Swipe right - INDEX: " + this.selectedIndex);
+    }
+
+    // Swipe right, previous tab
+    if (action === this.SWIPE_ACTION.RIGHT) {
+      const isFirst = this.selectedIndex === 0;
+      this.selectedIndex = isFirst ? 2 : this.selectedIndex - 1;
+      console.log("Swipe left - INDEX: " + this.selectedIndex);
+    }
+  }
 }

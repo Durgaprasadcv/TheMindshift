@@ -60,3 +60,7 @@
         .width_100per{
             width:100% !important;
         }
+        .padding_lr_null{
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
