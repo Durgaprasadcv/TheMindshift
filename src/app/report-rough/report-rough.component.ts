@@ -467,14 +467,14 @@ export class ReportRoughComponent implements OnInit {
     if (action === this.SWIPE_ACTION.LEFT) {
       const isLast = this.selectedIndex === 2;
       this.selectedIndex = isLast ? 0 : this.selectedIndex + 1;
-      console.log("Swipe right - INDEX: " + this.selectedIndex);
+      console.log("Swipe right - INDEX:" + this.selectedIndex);
     }
 
     // Swipe right, previous tab
     if (action === this.SWIPE_ACTION.RIGHT) {
       const isFirst = this.selectedIndex === 0;
       this.selectedIndex = isFirst ? 2 : this.selectedIndex - 1;
-      console.log("Swipe left - INDEX: " + this.selectedIndex);
+      console.log("Swipe left - INDEX:" + this.selectedIndex);
     }
   }
 }

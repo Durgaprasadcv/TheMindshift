@@ -1,5 +1,57 @@
 <app-side-navigation></app-side-navigation>
-<!-- <div id="exTab1" class="container width_100per padding_top_6vh padding_lr_null">	
+ <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
+    <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
+            <md-tab>
+                <!-- <template md-tab-label>Profile</template> -->
+              <h1 style="height:200px !important;">User Profile</h1>
+            </md-tab>
+            <md-tab>
+                <!-- <template md-tab-label>Tests</template> -->
+              <h1 style="height:200px !important;">Assign Test</h1>
+            </md-tab>
+            <md-tab>
+                <!-- <template md-tab-label>Report</template> -->
+                <div class="padding_top_6vh">
+                    <h4>Report</h4>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column2d"
+                    dataFormat="json"
+                    [dataSource]=data >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="pie3d"
+                    [dataSource]=dataSource >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="mscombi2d"
+                    [dataSource]=dataSource1>
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="msbar2d"
+                    dataFormat="json"
+                    [dataSource]=dataSource2 >
+                    </fusioncharts>
+                    <fusioncharts
+                    width="100%" 
+                    height="400"
+                    type="column3d"
+                    dataFormat="json"
+                    [dataSource]=dataSource3 >
+                    </fusioncharts>
+                    </div>
+              </md-tab>
+    </md-tab-group>
+  </div>
+
+  <!-- <div id="exTab1" class="container width_100per padding_top_6vh padding_lr_null">	
 
     <div class="container width_100per padding_lr_null"><h2>User View</h2></div>
     
@@ -83,54 +135,3 @@
           <h1>c</h1>
         </md-tab>           
  </md-tab-group> -->
- <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
-    <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
-            <md-tab>
-                <!-- <template md-tab-label>Profile</template> -->
-              <h1 style="height:200px !important;">User Profile</h1>
-            </md-tab>
-            <md-tab>
-                <!-- <template md-tab-label>Tests</template> -->
-              <h1 style="height:200px !important;">Assign Test</h1>
-            </md-tab>
-            <md-tab>
-                <!-- <template md-tab-label>Report</template> -->
-                <div class="padding_top_6vh">
-                    <h4>Report</h4>
-                    <fusioncharts
-                    width="100%" 
-                    height="400"
-                    type="column2d"
-                    dataFormat="json"
-                    [dataSource]=data >
-                    </fusioncharts>
-                    <fusioncharts
-                    width="100%" 
-                    height="400"
-                    type="pie3d"
-                    [dataSource]=dataSource >
-                    </fusioncharts>
-                    <fusioncharts
-                    width="100%" 
-                    height="400"
-                    type="mscombi2d"
-                    [dataSource]=dataSource1>
-                    </fusioncharts>
-                    <fusioncharts
-                    width="100%" 
-                    height="400"
-                    type="msbar2d"
-                    dataFormat="json"
-                    [dataSource]=dataSource2 >
-                    </fusioncharts>
-                    <fusioncharts
-                    width="100%" 
-                    height="400"
-                    type="column3d"
-                    dataFormat="json"
-                    [dataSource]=dataSource3 >
-                    </fusioncharts>
-                    </div>
-              </md-tab>
-    </md-tab-group>
-  </div>

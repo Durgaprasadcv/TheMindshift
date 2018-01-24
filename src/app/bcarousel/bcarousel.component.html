@@ -131,25 +131,11 @@
       </div>
     </div> -->
   <div class="hello">
-        <div *ngIf="returnmsg">
-            <div class="bord" >
-            <div class="rel_division">
-            <!-- <a (click)="selectbcarousel(ia)" >  -->
-              <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
-            <!-- </a> -->
-            <!-- <div >
-            <a (click)="selectbcarousel(ia)" > {{returnmsg.category[0].Test_Mod_ImgId}} {{returnmsg.category[0].Test_Mod_dec}}
-              <h6 class="absolute_division_up" *ngIf="i.display==0">(Comming Soon)</h6>
-              <h6 class="absolute_division">{{i.Test_Mod_Tittle}}</h6>
-            </a>
-            </div> -->
-            <div class="vh_10 web_display_none">
-              <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
+    <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
+    <div class="vh_10 web_display_none">
+      <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
+    </div>
+  </div>
         <!-- loop each avatar in our avatar list -->
         <!-- <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
             <div class="padding_lr_5px">
@@ -179,8 +165,12 @@
 <div  class="test_banner_character web_display_none">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
     <div class="col_character" >
+      <div>
       <img class="col_img_character"  src="{{i.Imag_Path}}" >
+    </div>
+      <div>
       <p class="test_name">{{i.Imag_Tittle}}</p>
+      </div>
     </div>
   </a>
 </div>
@@ -238,7 +228,7 @@
                         </div>
                     </div>
     
-                </div>
+</div>
 <button (click)="resume()" class="button_div_class web_display_none">RESUME</button>
 </div>
 </div>
