@@ -1,184 +1,61 @@
+<!-- side navigation menu -->
 <app-side-navigation></app-side-navigation>
-<div *ngIf="online$ | async">
-<div *ngIf="returnmsg&&return_bar"  class="main_content" >
-    <!--<div id="carousel-example-generic" class="carousel slide bord" data-ride="carousel">-->
-          <!-- Indicators 
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>-->
-          
-          <!-- Wrapper for slides --><!-- 
-          <div class="carousel-inner" role="listbox">
-            <div *ngIf="returnmsg1" class="active item">
-                <a (click)="selectbcarousel(0)"> 
-           <img src="{{returnmsg1.category[0].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>  
-          </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(1)"> 
-                <img src="{{returnmsg1.category[1].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>
-              </div>
-            <div *ngIf="returnmsg1" class="item">
-                <a (click)="selectbcarousel(2)">   
-                 <img src="{{returnmsg1.category[2].Test_Mod_ImgId}}" alt="Carousel" class="ab">
-                </a>
-                </div>
-          </div> -->
 
-          <!-- Controls 
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>-->
-  <!--      </div>-->
-  <!-- <div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-      <div class="dashboard_title">
-        <p >Self Help Shift</p>
-      </div>
-      <div class="container dashboard_bar"> 
-        <div  class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-            <span class="sr-only">70% Complete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-        <div class="dashboard_title">
-          <p >Sales Shift</p>
-        </div>
-        <div class="container dashboard_bar"> 
-          <div  class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-              <span class="sr-only">70% Complete</span>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-      <div class="dashboard_title">
-        <p >Cust. Service Shift</p>
-      </div>
-      <div class="container dashboard_bar"> 
-        <div  class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:72%">
-            <span class="sr-only">70% Complete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-      <div class="dashboard_title">
-        <p >Communication Shift</p>
-      </div>
-      <div class="container dashboard_bar"> 
-        <div  class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-            <span class="sr-only">70% Complete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-      <div class="dashboard_title">
-        <p >Team Work Shift</p>
-      </div>
-      <div class="container dashboard_bar"> 
-        <div  class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:69%">
-              <span class="sr-only">70% Complete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 padding_null">
-      <div class="dashboard_title">
-        <p >Product Shift</p>
-      </div>
-      <div class="container dashboard_bar"> 
-        <div  class="progress">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:56%">
-            <span class="sr-only">70% Complete</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="hai">
-    <div *ngIf="return_bar">
-        <div class="bord"  *ngFor="let i of return_bar.learningTest  let ia = index">
-          <div class="col-xs-12 col-sm-12 padding_null"> -->
-            <!-- <div class="dashboard_title">
-              <p >{{i.learning_module_name}}</p>
-            </div> -->
-            <!-- <div class="container dashboard_bar"> 
-              <div  class="progress margin_null">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" [style.width.%]="i.module_percent" [style.background-color]="i.color_code">
-                  <span class="sr-only">70% Complete</span>
-                </div>
-              </div>
-            </div> -->
-          <!-- </div>
-        </div>
-      </div>
-    </div> -->
-  <div class="hello">
-    <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
-    <div class="vh_10 web_display_none">
-      <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
+<!-- main content -->
+<div *ngIf="online$ | async">
+<div *ngIf="returnmsg&&return_report"  class="main_content" >
+
+<!-- main image and description -->
+<div class="hello">
+  <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
+  <div class="vh_10 web_display_none">
+    <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
+  </div>
+</div>
+
+<!-- grey horizontal line -->
+<div class="white_div web_display_none"></div>
+<div class="grey_div web_display_none"></div>
+<div class="white_div web_display_none"></div>
+
+<!-- tests -->
+<div  class="test_banner web_display_none">
+  <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selecttest(i.test_id)">
+    <div class="col rel_division" >
+    <img class="col_img"  src="{{i.test_image}}" >
+    <p class="test_name">{{i.test_name}}</p>
+    <div>
+      <a (click)="selecttest(i.test_id)" > 
+        <img class="absolute_division_up play_img"  src="assets/images/play_button.png" >
+      </a>
     </div>
   </div>
-        <!-- loop each avatar in our avatar list -->
-        <!-- <div *ngFor="let avatar of avatars; let idx=index" (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" [class.visible]="avatar.visible" [class.hidden]="!avatar.visible">
-            <div class="padding_lr_5px">
-                <img class="swipe_img" [src]="avatars[idx].image" [alt]="avatar.name">
-            </div>
-            <div>
-                <a class="header">{{avatar.name}}</a>
-            </div>
-        </div> -->
-        <div class="white_div web_display_none"></div>
-        <div class="grey_div web_display_none"></div>
-        <div class="white_div web_display_none"></div>
-<div  class="test_banner web_display_none">
-  <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selectbcarousel(i.test_id)">
-    <div class="col rel_division" >
-  <img class="col_img"  src="{{i.test_image}}" >
-  <p class="test_name">{{i.test_name}}</p>
-  <div>
-    <a (click)="selectbcarousel(i.test_id)" > 
-      <img class="absolute_division_up play_img"  src="assets/images/play_button.png" >
-    </a>
-    </div>
+  </a>
+  <h1 *ngIf="returnmsg.text_data=='NO Test Assigned'" class="no_test">No Test Assigned</h1>
 </div>
-</a>
-<h1 *ngIf="returnmsg.text_data=='NO Test Assigned'" class="no_test">No Test Assigned</h1>
-</div>
+
+<!-- characters -->
 <div  class="test_banner_character web_display_none">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
     <div class="col_character" >
+      <div class="character_img">
+        <img class="col_img_character"  src="{{i.Imag_Path}}" >
+      </div>
       <div>
-      <img class="col_img_character"  src="{{i.Imag_Path}}" >
-    </div>
-      <div>
-      <p class="test_name">{{i.Imag_Tittle}}</p>
+        <p class="test_name">{{i.Imag_Tittle}}</p>
       </div>
     </div>
   </a>
 </div>
+
+<!-- grey horizontal line -->
 <div class="grey_div web_display_none"></div>
+
+<!-- user report -->
 <h6 class="yourshift_class font_20px web_display_none">YOUR SHIFT</h6>
 <div  class="shift_banner web_display_none">
-  <div  class=" c100 p{{return_bar.learningTest[0].module_percent}} big bg_color_white  font_160px col_percentge">
-    <span>{{return_bar.learningTest[0].module_percent}}%</span>
+  <div  class=" c100 p{{return_report.learningTest[0].module_percent}} big bg_color_white  font_160px col_percentge">
+    <span>{{return_report.learningTest[0].module_percent}}%</span>
     <div class="slice ">
       <div class="bar"></div>
       <div class="fill"></div>
@@ -187,49 +64,50 @@
       <p class="shift_des">Sales</p>
     </div>
   </div>
-              <div class="c100 p{{return_bar.learningTest[1].module_percent}} big bg_color_white  font_160px col_percentge">
-                <span>{{return_bar.learningTest[1].module_percent}}%</span>
-                <div class="slice">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-                </div>
-                <div>
-                  <p class="shift_des">Customer<br> Service</p>
-                </div>
-              </div>
-              <div class="c100 p{{return_bar.learningTest[2].module_percent}} big bg_color_white font_160px col_percentge">
-                <span>{{return_bar.learningTest[2].module_percent}}%</span>
-                <div class="slice ">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-                </div>
-                <div>
-                  <p class="shift_des">Communication</p>
-                </div>
-              </div>
-              <div class="c100 p{{return_bar.learningTest[3].module_percent}} big bg_color_white font_160px col_percentge">
-                <span>{{return_bar.learningTest[3].module_percent}}%</span>
-                <div class="slice ">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-                </div>
-                <div>
-                  <p class="shift_des">Team Work</p>
-                </div>
-              </div>
-              <div class="c100 p{{return_bar.learningTest[4].module_percent}} big bg_color_white font_160px col_percentge">
-                <span>{{return_bar.learningTest[4].module_percent}}%</span>
-                <div class="slice ">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-                        </div>
-                        <div>
-                          <p class="shift_des">Product</p>
-                        </div>
-                    </div>
-    
+  <div class="c100 p{{return_report.learningTest[1].module_percent}} big bg_color_white  font_160px col_percentge">
+    <span>{{return_report.learningTest[1].module_percent}}%</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+    <div>
+      <p class="shift_des">Customer<br> Service</p>
+    </div>
+  </div>
+  <div class="c100 p{{return_report.learningTest[2].module_percent}} big bg_color_white font_160px col_percentge">
+    <span>{{return_report.learningTest[2].module_percent}}%</span>
+    <div class="slice ">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+    <div>
+      <p class="shift_des">Communication</p>
+    </div>
+  </div>
+  <div class="c100 p{{return_report.learningTest[3].module_percent}} big bg_color_white font_160px col_percentge">
+    <span>{{return_report.learningTest[3].module_percent}}%</span>
+    <div class="slice ">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+    <div>
+      <p class="shift_des">Team Work</p>
+    </div>
+  </div>
+  <div class="c100 p{{return_report.learningTest[4].module_percent}} big bg_color_white font_160px col_percentge">
+    <span>{{return_report.learningTest[4].module_percent}}%</span>
+    <div class="slice ">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+    <div>
+      <p class="shift_des">Product</p>
+    </div>
+  </div>   
 </div>
 <button (click)="resume()" class="button_div_class web_display_none">RESUME</button>
 </div>
 </div>
+
+<!-- offline message -->
 <p class="no_network_msg" *ngIf="!(online$ | async)">Your Device is in Offline</p>

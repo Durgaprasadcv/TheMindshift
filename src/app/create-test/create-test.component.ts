@@ -17,6 +17,7 @@ declare var videoObject: any;
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 import {ViewChild} from '@angular/core';
 import 'rxjs/add/operator/map';
+import * as $ from 'jquery/dist/fm.selectator.jquery.js';
 @Component({
   moduleId: module.id,
   selector: 'app-create-test',
@@ -61,6 +62,7 @@ return_video;
 uid;
 public test_data;
 public current_time;
+public preview_url=0;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
@@ -102,11 +104,12 @@ ngOnInit() {
   
 this.myForm = this._fb.group({
   uid:[this.uid],
-  name: ['fftyf'],
+  name: [''],
   description: ['', [Validators.required, Validators.minLength(5)]],
   start_time: ['', [Validators.required, Validators.minLength(5)]],
   end_time: ['', [Validators.required, Validators.minLength(5)]],
   test_duration: ['', [Validators.required, Validators.minLength(5)]],
+  test_url:['',],
   test_question: this._fb.array([]),
 });
 const body = {
@@ -115,7 +118,7 @@ const body = {
 this.webservice.webRequest(this,'post',this.webservice.get_video_library,body,'2','');
 // add address
 this.addQuestion();
-this.edit();
+// this.edit();
 
 /* subscribe to addresses value changes */
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
@@ -145,26 +148,32 @@ this.edit();
   //  this.webservice.webRequest(this,'post',this.webservice.CreateTest,body,'1','');
 
   // }
-  myFunc1(){
+  preview_Func(){
     let dialogRef=this.dialog.open(WebPreviewComponent, {
       // disableClose:true,
     });
     dialogRef.afterClosed().subscribe(result => {
     } );
-    this.api.getDefaultMedia().currentTime=0;
-    this.api.getDefaultMedia().play();
-    let timer = Observable.timer(1000,1000);
-    this.timerinstance = timer.subscribe(t=>{
-
-    });
+    // this.api.getDefaultMedia().currentTime=0;
+    // this.api.getDefaultMedia().play();
+    // let timer = Observable.timer(1000,1000);
+    // this.timerinstance = timer.subscribe(t=>{
+     
+    // console.log(this.myForm.value);
+    // });
+    
 }
   myFunc2(){
     console.log('data',this.myForm.value);
-    const body = {
-      // user_id:'32'
+    console.log('url',this.myForm.value.test_url)
+    this.preview_url=this.myForm.value.test_url;
+    // this.reload();
+    this.api.getDefaultMedia().currentTime=0;
+  //   const body = {
+  //     // user_id:'32'
     
-  };
-   this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
+  // };
+  //  this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
@@ -178,7 +187,7 @@ initQuestion() {
   return this._fb.group({
       pause_time: ['', Validators.required],
       wait_time: [''],
-      question:['ddddd'],
+      question:[''],
       marks:[''],
       options: this._fb.array([]),
   });
@@ -255,13 +264,6 @@ clearFile() {
   this.form.get('avatar').setValue(null);
   this.fileInput.nativeElement.value = '';
 }
-
-Tests(){
-  this._router.navigate(['/test-table']);
-}
-Users(){
-  this._router.navigate(['/create-user']);
-}
 onPlayerReady(api:VgAPI) {
   this.api = api;
 
@@ -280,5 +282,8 @@ onPlayerReady(api:VgAPI) {
 );
 }
 save(){
+}
+reload(){
+$( "#here" ).load(window.location.href + "#here" );
 }
 }

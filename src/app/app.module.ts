@@ -84,6 +84,7 @@ import { AssignTestComponent } from './assign-test/assign-test.component';
 import {MatSelectModule} from '@angular/material/select';
 import {NativeDateAdapter} from '@angular/material';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { VgStreamingModule } from 'videogular2/streaming';
 @NgModule({
   declarations: [
     AppComponent,
@@ -130,6 +131,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MdNativeDateModule,
     FusionChartsModule.forRoot(FusionCharts, Charts),
     ReactiveFormsModule,
+    VgStreamingModule,
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },

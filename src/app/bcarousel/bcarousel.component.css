@@ -327,12 +327,15 @@ font-size:16vw;
 .test_name{
   font-size: 18px;
   text-align: center;
-  margin: 0 !important;
+  margin: auto !important;
   color: black;
   font-family: Lato;
   font-style: normal;
   font-variant: normal;
   height: 3vh !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 165px;
 }
 .test_description{
   font-size: 5px;
@@ -391,4 +394,7 @@ margin:0 !important;
 .web_display_none{
   display: none;
 }
+}
+.character_img{
+text-align: center;
 }

@@ -36,6 +36,9 @@
             <md-form-field>
                 <input mdInput placeholder="Test Duration" formControlName="test_duration">
             </md-form-field>
+            <md-form-field>
+                <input mdInput placeholder="Test URL" formControlName="test_url">
+            </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                     Stop Time is required (minimum 5 characters).
               </small> -->
@@ -79,7 +82,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6 main_block">   
+  <div id="here" *ngIf="preview_url" class="col-md-6 main_block">   
         <vg-player class="video_pos" (onPlayerReady)="onPlayerReady($event)">
             <vg-overlay-play></vg-overlay-play>
             <vg-buffering></vg-buffering>
@@ -106,7 +109,7 @@
                 <vg-fullscreen></vg-fullscreen>
             </vg-controls>
             <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
-                <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                <source src="{{preview_url}}" type="video/mp4">
             </video>  
         </vg-player>
         <div *ngIf="return_video" class="col-xs-12">
@@ -114,7 +117,7 @@
             <h1>Videos</h1>
             <h2 *ngFor="let i of return_video.video_library  let ia = index"  >{{i.vid_name}}</h2>
         </div> 
-        <button  (click)="myFunc1()" class="button">Preview</button>   
+        <button  (click)="preview_Func()" class="button">Preview</button>   
         
         <!-- <button  (click)="myFunc2()" class="button">console</button>      -->
         <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">

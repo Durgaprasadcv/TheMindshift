@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WebService } from '../webservice/web.service';
 import 'assets/video.js'
 declare var videoObject: any;
+import { VgStreamingModule } from 'videogular2/streaming';
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
@@ -26,13 +27,11 @@ export class VideoComponent implements OnInit {
   ticks =0;
   target: any;
   pausetime;
-  animal: string;
   name: string;
   resl;
   z;
   returnmsg;
   returnmsg1;
-  returnmsg2;
   timerinstance;
   video_path_html;
   isValid = false;
@@ -40,34 +39,14 @@ export class VideoComponent implements OnInit {
   q_answer=0;
   marks=0;
   dis=0;
-  reload=0;
   h='220px';
   w='700px';
-  pop_parms;
-  local_pause:any[];
   test_count;
   popup_count=0;
   current_test;
   system_back=0;
-  constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { 
-   // screenOrientation.lock(screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
+  constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { }
 ngOnInit() {
-  // (function()
-  // {
-  //   if( window.localStorage )
-  //   { 
-  //     {
-  //     if( !localStorage.getItem('firstLoad') )
-  //     {
-  //       localStorage['firstLoad'] = true;
-  //      window.location.reload(true);
-  //     }  
-  //     else
-  //       localStorage.removeItem('firstLoad');
-  //   }
-  // }
-  // })();
   let id = this.route.snapshot.paramMap.get('id');
   this.current_test=this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
@@ -75,12 +54,12 @@ ngOnInit() {
   const body = {
     user_id:(JSON.parse(localStorage.getItem('user'))),
     test_id:id};
-  this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'123','');
+  this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'1','');
 }
+
+//called on back button pressed
 @HostListener('window:popstate', ['$event'])
   onPopState(event) {
-    console.log('on back pressed');
-
   if(this.system_back==0){
    localStorage.setItem('replay',JSON.stringify(0));
    localStorage.setItem('next_play',JSON.stringify(0));
@@ -95,29 +74,34 @@ question_update(test_id,test_name,answer_time,question_no,marks_per_question){
     question_no:question_no,
     marks_per_question:marks_per_question,
     user_id:(JSON.parse(localStorage.getItem('user')))};
-  this.webservice.webRequest(this,'post',this.webservice.save_result,body1,'1234','');
+  this.webservice.webRequest(this,'post',this.webservice.save_result,body1,'2','');
 }
 webresponse(fun_id,return_data)
 {
   // test details response
-  if(fun_id==123)
+  if(fun_id==1)
   {
  this.returnmsg = return_data.json();
  this.returnmsg1=this.returnmsg.test[0];
  this.video_questions();
   }
   // result update response
-  if(fun_id==1234){
+  if(fun_id==2){
     console.log('response of question update',return_data.json());
   }
-  if(fun_id==1235){
+  //test completion api response
+  if(fun_id==3){
     console.log('test completed');
   }
 }
-video_questions(){
+video_questions()
+{
   this.isValid = true;
   this.video_path_html=this.returnmsg1.video_path;
+  //addeds current test id to localstorage
   localStorage.setItem('current_test',  JSON.stringify(this.returnmsg1.test_id));
+
+  //keeps track of no of counts of test viewed
   if((JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']')))>0)
   {
     this.test_count=JSON.parse(localStorage.getItem('testcount['+this.returnmsg1.test_id+']'))+1;
@@ -126,9 +110,9 @@ video_questions(){
   else{
     localStorage.setItem('testcount['+this.returnmsg1.test_id+']',  JSON.stringify(1));
   }
+
   let timer = Observable.timer(1000,1000);
   this.j=this.returnmsg1.question.length;   //total no of questions
-  console.log('no of question',this.j);
   this.z=0;       //question count
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
@@ -136,49 +120,48 @@ video_questions(){
     //retrieve the last pause time 
     if((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')))>0)
     {
-      if(Math.trunc(this.api.getDefaultMedia().currentTime)==0){
+      if(Math.trunc(this.api.getDefaultMedia().currentTime)==0)
+      {
         if(this.popup_count==0)
         {
           this.popup_count=1;
           this.api.getDefaultMedia().pause();
-        let dialogRef=this.dialog.open(ReportComponent, {
+          let dialogRef=this.dialog.open(ReportComponent, {
           disableClose:true,
           data: {report:0}
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          if(result){
-            this.api.getDefaultMedia().currentTime=0;
-            localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
-            console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
-            console.log('pop result',result);
-          }
-          else{
-            this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
-            console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
-            console.log('pop result',result);
-          }
-          this.api.getDefaultMedia().play();
-          this.popup_count=0;
-        } );
+          });
+          dialogRef.afterClosed().subscribe(result => {
+            if(result){
+              this.api.getDefaultMedia().currentTime=0;
+              localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+              console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+              console.log('pop result',result);
+            }
+            else
+            {
+              this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
+              console.log('local',(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']'))));
+              console.log('pop result',result);
+            }
+            this.api.getDefaultMedia().play();
+            this.popup_count=0;
+          });
+        }
       }
-        
-        //this.api.getDefaultMedia().play();
-      }
-     // this.api.getDefaultMedia().currentTime=JSON.parse( localStorage.getItem('lastpause'));
-     //this.api.getDefaultMedia().currentTime=10;
     }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
     
     // update the current time to local storage
-    if(this.returnmsg1.stop_time>this.ticks&&this.ticks>0){
+    if(this.returnmsg1.stop_time>this.ticks&&this.ticks>0)
+    {
     localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(this.ticks+1));
     }
 
     // setting pause time to 0 after completion of test in local storage
-    if(this.returnmsg1.stop_time==this.ticks&&this.j!=this.z){
+    if(this.returnmsg1.stop_time==this.ticks&&this.j!=this.z)
+    {
       localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
-     // this._router.navigate(['/bcarousel']);
-     window.history.back();
+      window.history.back();
     }
 
     //checking wheather questions ended
@@ -192,49 +175,47 @@ video_questions(){
             user_id:(JSON.parse(localStorage.getItem('user'))),
             test_id:this.current_test
           };
-          this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'1235','');
-          console.log('end');
-        localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
-        this.api.getDefaultMedia().pause();
-        localStorage.setItem('replay',JSON.stringify(0));
-        localStorage.setItem('next_play',JSON.stringify(0));
-        let dialogRef=this.dialog.open(ReportComponent, {
+          this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'3','');
+          localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+          this.api.getDefaultMedia().pause();
+          localStorage.setItem('replay',JSON.stringify(0));
+          localStorage.setItem('next_play',JSON.stringify(0));
+          let dialogRef=this.dialog.open(ReportComponent, {
           disableClose:true,
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks,report:1}
+          });
+          dialogRef.afterClosed().subscribe(result => {
+          if(result==0){
+            //home
+            this.system_back=1;
+            localStorage.setItem('replay',JSON.stringify(0));
+            localStorage.setItem('next_play',JSON.stringify(0));
+            window.history.back();
+          }
+          else if(result==1){
+            //replay
+            this.system_back=1;
+            localStorage.setItem('next_play',JSON.stringify(0));
+            localStorage.setItem('replay',JSON.stringify(this.returnmsg1.test_id));
+            window.history.back();
+          }
+          else if(result==2){
+            //next
+            this.system_back=1;
+            localStorage.setItem('replay',JSON.stringify(0));
+            localStorage.setItem('next_play',JSON.stringify(this.returnmsg1.next_test_id));
+            window.history.back();
+          }
         });
-        dialogRef.afterClosed().subscribe(result => {
-         // this._router.navigate(['/bcarousel']);
-         if(result==0){
-           //home
-           this.system_back=1;
-           localStorage.setItem('replay',JSON.stringify(0));
-           localStorage.setItem('next_play',JSON.stringify(0));
-          window.history.back();
-         }
-         else if(result==1){
-          //replay
-          this.system_back=1;
-          localStorage.setItem('next_play',JSON.stringify(0));
-          localStorage.setItem('replay',JSON.stringify(this.returnmsg1.test_id));
-          window.history.back();
-         }
-         else if(result==2){
-           //next
-           this.system_back=1;
-           localStorage.setItem('replay',JSON.stringify(0));
-           localStorage.setItem('next_play',JSON.stringify(this.returnmsg1.next_test_id));
-           window.history.back();
-         }
-        });
-      console.log('Total Correct Answer',this.q_answer);
-      console.log('Total Marks',this.marks);
-      this.dis=1;
-      }
+        console.log('Total Correct Answer',this.q_answer);
+        console.log('Total Marks',this.marks);
+        this.dis=1;
+        }
       } 
     }
     // executed for each questions
     else
-    {  //  const body = {test_id:0,c_answer:0,t_marks:,questions};
+    { 
       if((this.returnmsg1.question[this.z].Pause_time)==this.ticks)
         this.api.getDefaultMedia().pause();
       if((this.returnmsg1.question[this.z].Pause_time-1)==this.ticks)
@@ -244,8 +225,8 @@ video_questions(){
     }
   }
   });
-
 }
+
 //pop up the question 
 pop_up()
 {
@@ -272,6 +253,7 @@ pop_up()
   });
   return;
 }
+
 //skip the video depending on result
 skip(result)
 {
