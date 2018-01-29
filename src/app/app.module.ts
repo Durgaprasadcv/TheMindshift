@@ -85,6 +85,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {NativeDateAdapter} from '@angular/material';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VgStreamingModule } from 'videogular2/streaming';
+import { PreviewVideoComponent } from './preview-video/preview-video.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,7 +113,8 @@ import { VgStreamingModule } from 'videogular2/streaming';
     VideoLibraryComponent,
     ZoneComponent,
     AssignTestComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PreviewVideoComponent
   ],
   imports: [
     BrowserModule,
@@ -155,6 +157,7 @@ import { VgStreamingModule } from 'videogular2/streaming';
       { path: 'zone', component:ZoneComponent },
       { path: 'assign-test', component:AssignTestComponent },
       { path: 'user-profile', component:UserProfileComponent },
+      { path: 'preview-video', component:PreviewVideoComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

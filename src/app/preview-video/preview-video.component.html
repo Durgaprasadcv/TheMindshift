@@ -1,0 +1,13 @@
+<vg-player *ngIf="isValid" (onPlayerReady)="onPlayerReady($event)">
+  <vg-buffering></vg-buffering>
+  <vg-controls>
+    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    <vg-mute></vg-mute>
+    <vg-volume></vg-volume>
+  </vg-controls>
+
+  <video *ngIf="isValid" [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
+    <source src="{{video_path_html}}" type="video/mp4">
+  </video>  
+</vg-player>

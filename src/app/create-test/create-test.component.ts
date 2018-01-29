@@ -17,7 +17,7 @@ declare var videoObject: any;
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 import {ViewChild} from '@angular/core';
 import 'rxjs/add/operator/map';
-import * as $ from 'jquery/dist/fm.selectator.jquery.js';
+import * as $  from 'jquery';
 @Component({
   moduleId: module.id,
   selector: 'app-create-test',
@@ -149,11 +149,13 @@ this.addQuestion();
 
   // }
   preview_Func(){
-    let dialogRef=this.dialog.open(WebPreviewComponent, {
-      // disableClose:true,
-    });
-    dialogRef.afterClosed().subscribe(result => {
-    } );
+    localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
+    localStorage.setItem('preview_refresh',JSON.stringify(1));
+    // let dialogRef=this.dialog.open(WebPreviewComponent, {
+    //   // disableClose:true,
+    // });
+    // dialogRef.afterClosed().subscribe(result => {
+    // } );
     // this.api.getDefaultMedia().currentTime=0;
     // this.api.getDefaultMedia().play();
     // let timer = Observable.timer(1000,1000);
@@ -163,12 +165,16 @@ this.addQuestion();
     // });
     
 }
-  myFunc2(){
+  submit_test(){
     console.log('data',this.myForm.value);
+    localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
     console.log('url',this.myForm.value.test_url)
     this.preview_url=this.myForm.value.test_url;
-    // this.reload();
     this.api.getDefaultMedia().currentTime=0;
+    var myVideo = document.getElementsByTagName('video')[0];
+    myVideo.src = this.myForm.value.test_url;
+    myVideo.load();
+    myVideo.play();
   //   const body = {
   //     // user_id:'32'
     
@@ -281,9 +287,23 @@ onPlayerReady(api:VgAPI) {
     }
 );
 }
-save(){
-}
-reload(){
-$( "#here" ).load(window.location.href + "#here" );
+ngAfterViewInit() {
+$(document).ready(function(){
+     
+  $("body").on("click","#btn",function(){
+          
+       $("#myModal").modal("show");
+
+       $(".blue").addClass("after_modal_appended");
+    
+       //appending modal background inside the blue div
+       $('.modal-backdrop').appendTo('.blue');   
+  
+       //remove the padding right and modal-open class from the body tag which bootstrap adds when a modal is shown
+       $('body').removeClass("modal-open")
+       $('body').css("padding-right","");     
+   });
+
+});
 }
 }
