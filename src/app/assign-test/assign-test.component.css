@@ -86,3 +86,15 @@ input[type=text] {
       }
       
       select { width: 400px; }
+      [type="checkbox"]:checked+label:before{
+        transform: rotate(0deg) !important; 
+      }
+      .pure-checkbox input[type="checkbox"]:checked + label:before{
+        transform: rotate(0deg) !important; 
+      }
+      angular2-multiselect .cuppa-dropdown .dropdown-list .list-area .lazyContainer span .pure-checkbox lable:before{
+        transform: rotate(0deg) !important; 
+      } 
+      .pure-checkbox input[type="checkbox"]:checked + label:before{
+        transform: rotate(0deg) !important; 
+      }

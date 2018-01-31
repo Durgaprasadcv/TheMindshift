@@ -116,55 +116,61 @@
           </li>
         </ul>
       </li>-->
-      <li>
-        <a (click)="assigntest()">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/bcarousel']">
+            Home
+            <!-- <span class="sidebar-badge">10</span> -->
+        </a>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/assign-test']">
             Assign Test
             <!-- <span class="sidebar-badge">10</span> -->
         </a>
       </li>
-      <li >
-        <a (click)="Tests()" >
+      <li [routerLinkActive]="['active']">
+        <a  [routerLink]="['/test-table']">
               Test
               <!-- <span class="sidebar-badge ">3</span> -->
           </a>
       </li>
-      <li>
-        <a (click)="Users()">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/create-user']">
               Users
               <!-- <span class="sidebar-badge">10</span> -->
           </a>  
       </li>
-      <li>
-        <a (click)="designation()">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/designation']">
           Designation
           <!-- <span class="sidebar-badge">10</span> -->
       </a>
       </li>
-      <li>
-        <a (click)="department()">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/departnment']">
             Department
         </a>
       </li>
-      <li>
-          <a (click)="character()">
+      <li [routerLinkActive]="['active']">
+          <a  [routerLink]="['/character']">
               Character
               <!-- <span class="sidebar-badge">10</span> -->
           </a>
         </li>
-        <li>
-            <a (click)="videolibrary()">
+        <li [routerLinkActive]="['active']">
+            <a [routerLink]="['/video-library']">
                 Video
                 <!-- <span  class="sidebar-badge">10</span> -->
             </a>
           </li>
-          <li>
-              <a (click)="zone()">
+          <li [routerLinkActive]="['active']">
+              <a [routerLink]="['/zone']">
                   Zone
                   <!-- <span class="sidebar-badge">10</span> -->
               </a>
             </li>
-            <li>
-              <a (click)="report()">
+            <li [routerLinkActive]="['active']">
+              <a  [routerLink]="['/report-rough']">
                   Report
                   <!-- <span class="sidebar-badge">10</span> -->
               </a>

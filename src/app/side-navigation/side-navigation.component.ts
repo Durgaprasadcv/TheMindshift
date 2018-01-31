@@ -28,6 +28,10 @@ export class SideNavigationComponent implements OnInit {
     this.webservice.checkCredentials();
     bcarouselObject.init();
   }
+  Home()
+  {
+    this._router.navigate(['/bcarousel']);
+  }
   Tests(){
     this._router.navigate(['/test-table']);
   }

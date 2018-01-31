@@ -392,6 +392,7 @@ margin:0 !important;
   a{
     font-size: 18px !important;
     height: 35px !important;
+    line-height: 36px !important;
   }
   }
   @media screen and (max-width: 767px){
@@ -402,5 +403,9 @@ margin:0 !important;
     a{
       font-size: 30px !important;
       height: 5.5vh !important;
+      line-height: 55px !important;
     }
+    }
+    .active{
+      background-color: #bbb6b6;
     }

@@ -8,10 +8,11 @@
 </div>
 </div>
 <div class="opt_div">
-<md-radio-group class="example-radio-group" [(ngModel)]="result">
+  &emsp;<md-radio-group class="example-radio-group" [(ngModel)]="result">
     <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">
       <h5>{{opt.name}}</h5>
     </md-radio-button>
+    <br>
 </md-radio-group>
 </div> 
 <div class="submit" [hidden]="submit_show">

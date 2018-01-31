@@ -1,7 +1,7 @@
 <app-side-navigation></app-side-navigation>
 <div  class="padding_top_6vh">
   <hr>
-<div class="user_div">
+<!-- <div class="user_div">
   <md-select placeholder="Select User">
     <md-option *ngFor="let user of users" [value]="user.value">
       {{ user.viewValue }}
@@ -31,10 +31,9 @@
 </div>
 <div class="button_div">
   <button md-raised-button color="primary">Assign</button>
+</div> -->
 </div>
-</div>
-<hr>
-<div>
+<!-- <div>
 <div class="padding_left_15px inline_block width_40pr">
   <h1>Tests</h1>
   <br>
@@ -107,10 +106,9 @@
 
   </div>
   <div class="button_div">
-      <!-- <button md-raised-button color="primary">Assign</button> -->
       <button md-raised-button  color="primary" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Assign</button>
     </div>
-</div>
+</div> -->
 <hr>
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -142,67 +140,12 @@
     </div>
 </div>
 
-<div class="container">
-  <h1>jQuery Selectator Plugin Basic Demos</h1>
-    <h2>Multiple Select</h2>
-    <select id="multiple" name="select2" multiple>
-      <option value="1" data-subtitle="The first option" data-left="images/ingi.png" data-right="1" selected>One</option>
-      <option value="2" data-subtitle="The second option" data-left="images/runa.png" data-right="2">Two</option>
-      <option value="3" data-subtitle="The third option" data-left="images/jogvan.png" data-right="3">Three</option>
-      <option value="4" data-left="images/noimage.png" data-right="4">Four</option>
-      <option value="5" data-left="images/noimage.png" data-right="5">Five</option>
-      <option value="6">Six</option>
-      <option value="7">Seven</option>
-      <option value="8">Eight</option>
-      <option value="9">Nine</option>
-      <option value="10">Ten</option>
-      <option value="11">Eleven</option>
-      <option value="12">Twelve</option>
-      <option value="13">Thirteen</option>
-      <option value="14">Fourteen</option>
-      <option value="15">Fifteen</option>
-      <option value="16">Sixteen</option>
-      <option value="17">Seventeen</option>
-      <option value="18">Eighteen</option>
-      <option value="19">Nineteen</option>
-      <option value="20">Twenty</option>
-      <option value="21">Twenty-one</option>
-      <option value="22">Twenty-two</option>
-      <option value="23">Twenty-three</option>
-      <option value="24">Twenty-four</option>
-      <option value="25">Twenty-five</option>
-      <option value="26">Twenty-six</option>
-      <option value="27">Twenty-seven</option>
-      <option value="28">Twenty-eight</option>
-      <option value="29">Twenty-nine</option>
-      <option value="30">Thirty</option>
-    </select>
-  </div>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
-  <script src="../../assets/fm.selectator.jquery.js"></script> 
-  <script>
-  $('#basic').selectator({
-    labels: {
-      search: 'Search here...'
-    },
-    searchFields: 'value text subtitle right'
-  });
-  $('#multiple').selectator({
-    showAllOptionsOnFocus: true,
-    searchFields: 'value text subtitle right'
-  });
-  </script>
-  <script type="text/javascript">
-  
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
-  
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  
-  </script>
+  <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+    <c-item>
+            <ng-template let-item="item" >
+              <label style="color: #333;min-width: 150px;">{{item.itemName}}</label>
+              <img [src]="item.image" style="width: 30px; border: 1px solid #efefef;margin-right: 20px;" />
+              <label>Designation - {{item.capital}}</label>
+            </ng-template>
+    </c-item>
+  </angular2-multiselect>

@@ -394,6 +394,17 @@ margin:0 !important;
 .web_display_none{
   display: none;
 }
+.listimg{
+  -webkit-filter: brightness(1.0);
+  filter: brightness(1.0);
+    width:60vw;
+    height:auto;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+.hello{
+  height: auto;
+}
 }
 .character_img{
 text-align: center;

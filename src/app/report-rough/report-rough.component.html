@@ -7,7 +7,41 @@
             </md-tab>
             <md-tab>
                 <!-- <template md-tab-label>Tests</template> -->
-              <h1 style="height:200px !important;">Assign Test</h1>
+                <div class="table_division">
+              <md-select placeholder="Select Designation"  [(value)]="designation">
+                <md-option *ngFor="let test of tests" [value]="test.value">
+                  {{ test.viewValue }}
+                </md-option>
+              </md-select>
+            </div>
+              <div class="table_division">
+              <table>
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Test Assigned</th>
+                  <th>Test Completed</th>
+                  <th>Test Due</th>
+                </tr>
+                <tr *ngIf="designation==1||designation==0">
+                  <td>Mannger</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                </tr>
+                <tr *ngIf="designation==2||designation==0">
+                  <td>Officer</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                </tr>
+                <tr *ngIf="designation==3||designation==0">
+                  <td>Clerk</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                </tr>
+              </table>
+            </div>
             </md-tab>
             <md-tab>
                 <!-- <template md-tab-label>Report</template> -->

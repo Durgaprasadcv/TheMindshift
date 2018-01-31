@@ -151,11 +151,11 @@ this.addQuestion();
   preview_Func(){
     localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
     localStorage.setItem('preview_refresh',JSON.stringify(1));
-    // let dialogRef=this.dialog.open(WebPreviewComponent, {
-    //   // disableClose:true,
-    // });
-    // dialogRef.afterClosed().subscribe(result => {
-    // } );
+    let dialogRef=this.dialog.open(WebPreviewComponent, {
+      // disableClose:true,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    } );
     // this.api.getDefaultMedia().currentTime=0;
     // this.api.getDefaultMedia().play();
     // let timer = Observable.timer(1000,1000);

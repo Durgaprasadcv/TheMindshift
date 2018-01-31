@@ -64,3 +64,6 @@
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
+        .inline_block_disp{
+            display:inline-block !important;
+        }

@@ -12,16 +12,18 @@ td, th {
     text-align: left;
     padding: 8px;
 }
-
-tr {
-    background-color: #3cb9ff;;
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
-.btn{
+/* tr {
+    background-color: #3cb9ff;;
+} */
+/* .btn{
     background-color: #2d2cef;
 }
 .btn:active{
     background-color: #2d2cef;
-}
+} */
 #myModal{
 width: 100% !important;
 height: 100% !important;

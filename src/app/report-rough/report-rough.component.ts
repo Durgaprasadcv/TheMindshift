@@ -10,6 +10,13 @@ declare var $: any;
   styleUrls: ['./report-rough.component.css']
 })
 export class ReportRoughComponent implements OnInit {
+designation=0;
+    tests=[
+        {value: '0', viewValue: 'All'},
+        {value: '1', viewValue: 'Manager'},
+        {value: '2', viewValue: 'Officer'},
+        {value: '3', viewValue: 'Clerk'}
+      ]
   data: Object;
   dataSource: Object;
   dataSource1: Object;

@@ -86,6 +86,7 @@ import {NativeDateAdapter} from '@angular/material';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { PreviewVideoComponent } from './preview-video/preview-video.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,6 +135,7 @@ import { PreviewVideoComponent } from './preview-video/preview-video.component';
     FusionChartsModule.forRoot(FusionCharts, Charts),
     ReactiveFormsModule,
     VgStreamingModule,
+    AngularMultiSelectModule,
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
