@@ -39,9 +39,15 @@ export class UserProfileComponent implements OnInit {
   pincode;
 
   show=0;
+
+  showa:any[];
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
+    // this.showa['1']=1;
+    // this.showa['2']=2;
+    // console.log('a',this.showa[0]);
+    // console.log('b',this.showa[1])
     this.itemList = [
       {"id":1,"itemName":"Test 1","capital":"Sales","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
       {"id":2,"itemName":"Test 2", "capital":"Communication","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},

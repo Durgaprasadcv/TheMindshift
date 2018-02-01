@@ -350,7 +350,7 @@ font-size:16vw;
   white-space: nowrap;
 }
 .play_img{
-  height: 12vw;
+  height:12vw;
   width:12vw;
 }
 @media only screen and (orientation:portrait){
@@ -408,4 +408,14 @@ margin:0 !important;
 }
 .character_img{
 text-align: center;
+}
+a{
+  color:white;
+}
+#myModal_delete{
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  background-color: transparent;
+  margin-top: 35%;
 }

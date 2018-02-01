@@ -87,6 +87,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { PreviewVideoComponent } from './preview-video/preview-video.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import { OrganizationComponent } from './organization/organization.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,7 +116,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
     ZoneComponent,
     AssignTestComponent,
     UserProfileComponent,
-    PreviewVideoComponent
+    PreviewVideoComponent,
+    OrganizationComponent
   ],
   imports: [
     BrowserModule,
@@ -160,6 +162,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
       { path: 'assign-test', component:AssignTestComponent },
       { path: 'user-profile', component:UserProfileComponent },
       { path: 'preview-video', component:PreviewVideoComponent },
+      { path: 'organization', component:OrganizationComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

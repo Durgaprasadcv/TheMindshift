@@ -37,6 +37,7 @@
 <!-- characters -->
 <div  class="test_banner_character web_display_none">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
+      <a data-toggle="modal" data-target="#myModal_delete">
     <div class="col_character" >
       <div class="character_img">
         <img class="col_img_character"  src="{{i.Imag_Path}}" >
@@ -45,6 +46,7 @@
         <p class="test_name">{{i.Imag_Tittle}}</p>
       </div>
     </div>
+  </a>
   </a>
 </div>
 
@@ -105,7 +107,33 @@
     </div>
   </div>   
 </div>
-<button (click)="resume()" class="button_div_class web_display_none">RESUME</button>
+<button *ngIf="returnmsg.text_data!='NO Test Assigned'" (click)="resume()" class="button_div_class web_display_none">RESUME</button>
+<button *ngIf="returnmsg.text_data=='NO Test Assigned'" class="button_div_class web_display_none"><a href="http://djitsoft.com/">VISIT US</a></button>
+
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete" >Delete</button> -->
+
+<div class="modal fade" id="myModal_delete" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Author</h4>
+      </div>
+      <div class="modal-body">
+        <p>Name</p>
+        <p>Description</p>
+        <p>Qualification</p>
+        <p>Specialization</p>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button> -->
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 </div>
 

@@ -41,6 +41,12 @@ public create_zone=this.main_url+"create_zone";
 public update_zone=this.main_url+"update_zone";
 public delete_zone=this.main_url+"delete_zone";
 
+//organization
+public get_org=this.main_url+"get_org";
+public create_org=this.main_url+"create_org";
+public delete_org=this.main_url+"delete_org";
+public update_org=this.main_url+"update_org";
+
 public returnmsg;
 constructor(private _http: Http,private _router: Router) { }
 webRequest(scope,type,url,body,fun_id,loader){
