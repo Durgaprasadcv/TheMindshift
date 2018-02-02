@@ -6,7 +6,7 @@
   <div id="exTab2" class="container padding_lr_null width_100per">	
   <ul class="nav nav-tabs">
         <li class="active">
-          <a  href="#1" data-toggle="tab">About</a>
+          <a href="#1" data-toggle="tab">About</a>
         </li>
         <li>
           <a href="#2" data-toggle="tab">Tests </a>
@@ -19,14 +19,106 @@
         <div class="tab-content ">
           <div class="tab-pane active" id="1">
           <div>
-            <h3 *ngIf="show==0" (click)="editable()">User Name :{{User_UName}} </h3>
+            <div>
+              <h3 *ngIf="showa[0]==0" (click)="editable(0)">User Name :{{User_UName}} </h3>
+            </div>
+            <div>
+              <md-form-field *ngIf="showa[0]==1" class="inline_block_disp">
+                <input  class="input_color" mdInput placeholder="User Name" [(ngModel)]="User_UName" name="User_UName">
+              </md-form-field>
+              <h3 *ngIf="showa[0]==1"  (click)="uneditable(0)" class="inline_block_disp">Save</h3>
+            </div>
           </div>
           <div>
-            <md-form-field *ngIf="show==1" class="inline_block_disp">
-                <input  class="input_color" mdInput placeholder="User Name" [(ngModel)]="User_UName" name="User_UName">
-            </md-form-field>
-            <h3 *ngIf="show==1"  (click)="uneditable()" class="inline_block_disp">Save</h3>
+            <div>
+              <h3 *ngIf="showa[1]==0" (click)="editable(1)">User Email :{{UserEmail}} </h3>
+            </div>
+            <div>
+              <md-form-field *ngIf="showa[1]==1" class="inline_block_disp">
+                <input  class="input_color" mdInput placeholder="User Email" [(ngModel)]="UserEmail" name="User_UName">
+              </md-form-field>
+              <h3 *ngIf="showa[1]==1"  (click)="uneditable(1)" class="inline_block_disp">Save</h3>
+            </div>
           </div>
+          <div>
+            <div>
+              <h3 *ngIf="showa[2]==0" (click)="editable(2)">User Mobile No :{{MobileNumber}} </h3>
+            </div>
+            <div>
+              <md-form-field *ngIf="showa[2]==1" class="inline_block_disp">
+                <input  class="input_color" mdInput placeholder="User Mobile No" [(ngModel)]="MobileNumber" name="User_UName">
+              </md-form-field>
+              <h3 *ngIf="showa[2]==1"  (click)="uneditable(2)" class="inline_block_disp">Save</h3>
+            </div>
+          </div>
+          <div>
+            <div>
+              <h3 *ngIf="showa[3]==0" (click)="editable(3)">User Address 1 :{{address_line_1}} </h3>
+            </div>
+            <div>
+              <md-form-field *ngIf="showa[3]==1" class="inline_block_disp">
+                <input  class="input_color" mdInput placeholder="User Address 1" [(ngModel)]="address_line_1" name="User_UName">
+              </md-form-field>
+              <h3 *ngIf="showa[3]==1"  (click)="uneditable(3)" class="inline_block_disp">Save</h3>
+            </div>
+          </div>
+        <div>
+            <div>
+              <h3 *ngIf="showa[4]==0" (click)="editable(4)">User Address 2 :{{address_line_2}} </h3>
+            </div>
+            <div>
+              <md-form-field *ngIf="showa[4]==1" class="inline_block_disp">
+                <input  class="input_color" mdInput placeholder="User Address 2" [(ngModel)]="address_line_2" name="User_UName">
+              </md-form-field>
+              <h3 *ngIf="showa[4]==1"  (click)="uneditable(4)" class="inline_block_disp">Save</h3>
+            </div>
+        </div>
+        <div>
+          <div>
+            <h3 *ngIf="showa[5]==0" (click)="editable(5)">User City :{{city}} </h3>
+          </div>
+          <div>
+            <md-form-field *ngIf="showa[5]==1" class="inline_block_disp">
+              <input  class="input_color" mdInput placeholder="User City" [(ngModel)]="city" name="User_UName">
+            </md-form-field>
+            <h3 *ngIf="showa[5]==1"  (click)="uneditable(5)" class="inline_block_disp">Save</h3>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h3 *ngIf="showa[6]==0" (click)="editable(6)">User State :{{state}} </h3>
+          </div>
+          <div>
+            <md-form-field *ngIf="showa[6]==1" class="inline_block_disp">
+              <input  class="input_color" mdInput placeholder="User State" [(ngModel)]="state" name="User_UName">
+            </md-form-field>
+            <h3 *ngIf="showa[6]==1"  (click)="uneditable(6)" class="inline_block_disp">Save</h3>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h3 *ngIf="showa[7]==0" (click)="editable(7)">User Country :{{country}} </h3>
+          </div>
+          <div>
+            <md-form-field *ngIf="showa[7]==1" class="inline_block_disp">
+              <input  class="input_color" mdInput placeholder="User Country" [(ngModel)]="country" name="User_UName">
+            </md-form-field>
+            <h3 *ngIf="showa[7]==1"  (click)="uneditable(7)" class="inline_block_disp">Save</h3>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h3 *ngIf="showa[8]==0" (click)="editable(8)">Pin Code :{{pincode}} </h3>
+          </div>
+          <div>
+            <md-form-field *ngIf="showa[8]==1" class="inline_block_disp">
+              <input  class="input_color" mdInput placeholder="Pin Code" [(ngModel)]="pincode" name="User_UName">
+            </md-form-field>
+            <h3 *ngIf="showa[8]==1"  (click)="uneditable(8)" class="inline_block_disp">Save</h3>
+          </div>
+        </div>
+          <!-- *ngIf="show[0]==1" -->
+          <h3 *ngIf="showa[0]==2">hai {{showa[0]}}</h3>
           </div>
           <div class="tab-pane" id="2">
             <h3>Assign Tests</h3>
@@ -45,6 +137,61 @@
           </div>
           <div class="tab-pane" id="3">
             <h3>Report</h3>
+
+             <!-- <template md-tab-label>Tests</template> -->
+             <div class="table_division">
+                <!-- <md-select placeholder="Select Designation"  [(value)]="designation">
+                  <md-option *ngFor="let test of tests" [value]="test.value">
+                    {{ test.viewValue }}
+                  </md-option>
+                </md-select> -->
+              </div>
+                <div class="table_division">
+                <table>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Assigned Date</th>
+                    <th>Due Date</th>
+                    <th>Completed</th>
+                    <th>Marks</th>
+                  </tr>
+                  <tr *ngIf="designation==1||designation==0">
+                    <td>Test 1</td>
+                    <td>01-02-2017</td>
+                    <td>15-02-2017</td>
+                    <td>10-02-2017</td>
+                    <th>8/10</th>
+                  </tr>
+                  <tr *ngIf="designation==2||designation==0">
+                    <td>Test 2</td>
+                    <td>19-03-2017</td>
+                    <td>19-04-2017</td>
+                    <td>01-04-2017</td>
+                    <th>6/10</th>
+                  </tr>
+                  <tr *ngIf="designation==3||designation==0">
+                    <td>Test 3</td>
+                    <td>01-01-2018</td>
+                    <td>30-01-2018</td>
+                    <td>19-01-2018</td>
+                    <th>10/10</th>
+                  </tr>
+                  <tr *ngIf="designation==3||designation==0">
+                      <td>Test 4</td>
+                      <td>01-02-2018</td>
+                      <td>20-02-2018</td>
+                      <td>Pending</td>
+                      <th>Pending</th>
+                    </tr>
+                    <tr *ngIf="designation==3||designation==0">
+                        <td>Test 5</td>
+                        <td>01-01-2018</td>
+                        <td>20-01-2018</td>
+                        <td>Over Due</td>
+                        <th>Over Due</th>
+                      </tr>
+                </table>
+              </div>
           </div>
         </div>
     </div>

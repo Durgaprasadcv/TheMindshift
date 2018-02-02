@@ -5,6 +5,8 @@ import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { WebService} from '../webservice/web.service';
+import { locale } from 'core-js/library/web/timers';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -42,7 +44,7 @@ export class CreateUserComponent implements OnInit {
   returnmsg1;
   dataSource: any[];
     states: any[];
-  constructor(private webservice: WebService) {
+  constructor(private webservice: WebService,private _router: Router) {
   }
   ngOnInit() {
     this.uid=(JSON.parse(localStorage.getItem('user')));
@@ -166,7 +168,9 @@ store_id(i){
   user_id:this.user_id,
   current_user:1
  }
+ localStorage.setItem('User_profile',JSON.stringify(this.user_id));
  this.webservice.webRequest(this,'post',this.webservice.get_users,body1,'5','');
+ this.navigate_profile();
 }
 delete(){
   const body2 = {
@@ -176,7 +180,7 @@ delete(){
   // window.location.reload(true);
 }
 edit(){
-  const body3 = {
+    const body3 = {
     User_Uid:this.user_id,
     User_UName:this.User_UName,
     User_Password:this.User_Password,
@@ -205,5 +209,8 @@ edit(){
     pincode:this.pincode
   };
     this.webservice.webRequest(this,'post',this.webservice.edit_user,body3,'4','');
+}
+navigate_profile(){
+  this._router.navigate(['/user-profile']);
 }
 }

@@ -67,3 +67,7 @@
         .inline_block_disp{
             display:inline-block !important;
         }
+
+        .pure-checkbox[_ngcontent-c4] input[type="checkbox"][_ngcontent-c4]:checked + label[_ngcontent-c4]:before{
+            transform: rotate(0deg) !important;
+          }

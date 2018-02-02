@@ -24,7 +24,8 @@
     <td>{{i.UserEmail}}</td>
     <td>{{i.MobileNumber}}</td>
     <td>{{i.city}}</td>
-    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.User_Uid)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete" (click)="store_id(i.User_Uid)">Delete</button></td>
+    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.User_Uid)">View</button>&nbsp;</td>
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete" (click)="store_id(i.User_Uid)">Delete</button> -->
   </tr>
 </table>
 </div>
@@ -174,7 +175,7 @@
               <input mdInput placeholder="Address 1" [(ngModel)]="address_line_1" name="username">
             </md-form-field>
             <md-form-field>
-              <input mdInput placeholder="Address2" [(ngModel)]="address_line_2" name="username">
+              <input mdInput placeholder="Address 2" [(ngModel)]="address_line_2" name="username">
             </md-form-field>
             <br>
             <md-form-field>

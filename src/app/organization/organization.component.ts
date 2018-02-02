@@ -10,19 +10,6 @@ import * as $ from 'jquery';
 export class OrganizationComponent implements OnInit {
   returnmsg;
   returnmsg1
-  Dept_Id;
-  Dept_Name;
-  Dept_Desp;
-  Dept_Code;
-  Dept_Org_ID;
-  // address_line_1;
-  // address_line_2;
-  // city;
-  // state;
-  // country;
-  // pincode;
-  // email;
-  // contact_no;
 
   id;
   name;
@@ -46,10 +33,9 @@ export class OrganizationComponent implements OnInit {
     console.log('index',art.indexOf("h"));
   }
   webresponse(fun_id,return_data){
-    if(fun_id==1)
-    {
-          this.returnmsg = return_data.json();
-          console.log(this.returnmsg);
+    if(fun_id==1){
+      this.returnmsg = return_data.json();
+      console.log(this.returnmsg);
     }
     else if(fun_id==2){
       window.location.reload(true);
@@ -128,6 +114,21 @@ export class OrganizationComponent implements OnInit {
       contact_no:this.contact_no
     };
       this.webservice.webRequest(this,'post',this.webservice.update_org,body3,'4','');
+  }
+  nullify(){
+    this.name='';
+      this.display_name='';
+      this.reg_info='';
+      this.contact_person='';
+      this.logo_path='';
+      this.address_line_1='';
+      this.address_line_2='';
+      this.city='';
+      this.state='';
+      this.country='';
+      this.pincode='';
+      this.email='';
+      this.contact_no='';
   }
 
 }

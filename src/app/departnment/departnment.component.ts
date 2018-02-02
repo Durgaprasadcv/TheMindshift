@@ -111,5 +111,19 @@ export class DepartnmentComponent implements OnInit {
     };
       this.webservice.webRequest(this,'post',this.webservice.update_dept,body3,'4','');
   }
-
+  nullify(){
+    this.Dept_Id='';
+    this.Dept_Name='';
+    this.Dept_Desp='';
+    this.Dept_Code='';
+    this.Dept_Org_ID='';
+    this.address_line_1='';
+    this.address_line_2='';
+    this.city='';
+    this.state='';
+    this.country='';
+    this.pincode='';
+    this.email='';
+    this.contact_no='';
+  }
 }

@@ -11,6 +11,14 @@ import * as $  from 'jquery';
   providers: [WebService]
 })
 export class UserProfileComponent implements OnInit {
+  designation=0;
+  tests=[
+      {value: '0', viewValue: 'All'},
+      {value: '1', viewValue: 'Completed'},
+      {value: '2', viewValue: 'Pending'},
+      {value: '3', viewValue: 'Due'}
+    ]
+
   itemList = [];
   selectedItems = [];
   settings = {};
@@ -40,14 +48,17 @@ export class UserProfileComponent implements OnInit {
 
   show=0;
 
-  showa:any[];
+  showa=[];
+  
+  User_profile;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
-    // this.showa['1']=1;
-    // this.showa['2']=2;
-    // console.log('a',this.showa[0]);
-    // console.log('b',this.showa[1])
+    this.User_profile=JSON.parse(localStorage.getItem('User_profile'));
+    for(var i=0;i<10;i++)
+    {
+      this.showa[i]=0;
+    }
     this.itemList = [
       {"id":1,"itemName":"Test 1","capital":"Sales","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
       {"id":2,"itemName":"Test 2", "capital":"Communication","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},
@@ -71,7 +82,7 @@ this.settings = {
           showCheckbox: true
         };
         const body = {
-          user_id:4,
+          user_id:this.User_profile,
           current_user:1
         };
         this.webservice.webRequest(this,'post',this.webservice.get_users,body,'1','');
@@ -81,7 +92,6 @@ this.settings = {
     if(fun_id==1)
     {
           this.returnuser = return_data.json();
-          console.log(this.returnuser);
           this.User_UName=this.returnuser.users.User_UName;
           this.User_Password=this.returnuser.users.User_Password;
           this.User_Name=this.returnuser.users.User_Name;
@@ -123,12 +133,11 @@ this.settings = {
 
   ngAfterViewInit() {
 }
-editable(){
-  this.show=1;
-  console.log(this.show);
+editable(i){
+  this.showa[i]=1;
+  // console.log(this.show);
 }
-uneditable(){
-  this.show=0;
-  console.log(this.show);
+uneditable(i){
+  this.showa[i]=0;
 }
 }

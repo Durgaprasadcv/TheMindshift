@@ -43,3 +43,26 @@ body {
   .input_color{
     color:black;
   }
+  [type="checkbox"]:checked+label:before{
+    transform: rotate(0deg) !important;
+  }
+  .pure-checkbox[_ngcontent-c4] input[type="checkbox"][_ngcontent-c4]:checked + label[_ngcontent-c4]:before{
+    transform: rotate(0deg) !important;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    color: black;
+  }
+  
+  tr:nth-child(even) {
+    color: black;
+    background-color: #dddddd;
+  }
