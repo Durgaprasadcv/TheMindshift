@@ -2,21 +2,27 @@ import { Component, OnInit, Directive, ElementRef } from '@angular/core';
 import{MdSelectModule,MdDatepickerModule,MdNativeDateModule} from '@angular/material';
 import{FormsModule,ReactiveFormsModule,FormControl} from '@angular/forms';
 import{NativeDateAdapter,DateAdapter} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { WebService} from '../webservice/web.service';
 import * as $  from 'jquery';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css'],
-  providers: [WebService]
+  providers: [WebService,MdNativeDateModule]
 })
 export class UserProfileComponent implements OnInit {
-  designation=0;
+  // designation=0;
+  //   tests=[
+  //       {value: '0', viewValue: 'All'},
+  //       {value: '1', viewValue: 'Manager'},
+  //       {value: '2', viewValue: 'Officer'},
+  //       {value: '3', viewValue: 'Clerk'}
+  //     ]
+  designation='0';
   tests=[
-      {value: '0', viewValue: 'All'},
-      {value: '1', viewValue: 'Completed'},
-      {value: '2', viewValue: 'Pending'},
-      {value: '3', viewValue: 'Due'}
+      {value: '0', viewValue: 'Assigned'},
+      {value: '1', viewValue: 'Unassigned'}
     ]
 
   itemList = [];
@@ -51,6 +57,9 @@ export class UserProfileComponent implements OnInit {
   showa=[];
   
   User_profile;
+  start_date;
+  due_date;
+  
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
@@ -87,7 +96,9 @@ this.settings = {
         };
         this.webservice.webRequest(this,'post',this.webservice.get_users,body,'1','');
   }
-
+  addEvent(){
+    console.log('date',this.start_date,this.due_date);
+  }
   webresponse(fun_id,return_data){
     if(fun_id==1)
     {

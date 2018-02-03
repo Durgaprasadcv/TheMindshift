@@ -66,3 +66,13 @@ body {
     color: black;
     background-color: #dddddd;
   }
+  .color_black{
+    color:black;
+  }
+  .date_div{
+    width: 25%;
+    display: inline-block;
+  }
+  .about_details_height{
+    height:60px;
+  }
