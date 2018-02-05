@@ -2,8 +2,8 @@ import { Component, OnInit, Directive, ElementRef } from '@angular/core';
 import{MdSelectModule,MdDatepickerModule,MdNativeDateModule} from '@angular/material';
 import{FormsModule,ReactiveFormsModule,FormControl} from '@angular/forms';
 import{NativeDateAdapter,DateAdapter} from '@angular/material';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { WebService} from '../webservice/web.service';
+import{MatDatepickerModule} from '@angular/material/datepicker';
+import{ WebService} from '../webservice/web.service';
 import * as $  from 'jquery';
 @Component({
   selector: 'app-user-profile',
@@ -123,13 +123,14 @@ this.settings = {
           this.state=this.returnuser.users.state;
           this.country=this.returnuser.users.country;
           this.pincode=this.returnuser.users.pincode;
-          console.log("username",this.User_UName)
+          console.log("username",this.User_UName);
     }
   }
 
   onItemSelect(item:any){
     console.log(item);
     console.log(this.selectedItems);
+
   }
   OnItemDeSelect(item:any){
     console.log(item);

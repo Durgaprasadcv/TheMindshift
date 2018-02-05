@@ -8,7 +8,7 @@ import { WebService } from '../webservice/web.service';
 })
 export class DesignationComponent implements OnInit {
   returnmsg;
-  returnmsg1
+  returnmsg1;
   Designation_Name;
   Designation_Disp_Name;
   Designation_code;
@@ -23,8 +23,8 @@ export class DesignationComponent implements OnInit {
   webresponse(fun_id,return_data){
     if(fun_id==1)
     {
-          this.returnmsg = return_data.json();
-          console.log(this.returnmsg);
+      this.returnmsg = return_data.json();
+      console.log(this.returnmsg);
     }
     else if(fun_id==2){
       window.location.reload(true);
@@ -77,6 +77,13 @@ export class DesignationComponent implements OnInit {
       Designation_Level:this.Designation_Level,
       Designation_OrgID:this.Designation_OrgID
     };
-      this.webservice.webRequest(this,'post',this.webservice.update_designation,body3,'4','');
+    this.webservice.webRequest(this,'post',this.webservice.update_designation,body3,'4','');
+  }
+  nullify(){
+    this.Designation_Name='';
+    this.Designation_Disp_Name='';
+    this.Designation_code='';
+    this.Designation_Level='';
+    this.Designation_OrgID='';
   }
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -11,14 +11,23 @@ import { UserComponent } from './user/user.component';
 import 'hammerjs';
 import { BcarouselComponent } from './bcarousel/bcarousel.component';
 import { VideoComponent } from './video/video.component';
-import {VgCoreModule} from 'videogular2/core';
-import {VgControlsModule} from 'videogular2/controls';
-import {VgOverlayPlayModule} from 'videogular2/overlay-play';
-import {VgBufferingModule} from 'videogular2/buffering';
+import { VgCoreModule} from 'videogular2/core';
+import { VgControlsModule} from 'videogular2/controls';
+import { VgOverlayPlayModule} from 'videogular2/overlay-play';
+import { VgBufferingModule} from 'videogular2/buffering';
 import { DialogComponent } from './dialog/dialog.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+// Import the library
+
+// Import angular2-fusioncharts
+import { FusionChartsModule } from 'angular2-fusioncharts';
+
+// Import FusionCharts library
+import * as FusionCharts from 'fusioncharts';
+// Import FusionCharts Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
 import {
   MdAutocompleteModule,
   MdButtonModule,
@@ -52,20 +61,12 @@ import {
   MdToolbarModule,
   MdTooltipModule,
 } from '@angular/material';
-import {CdkTableModule} from '@angular/cdk/table';
+import { CdkTableModule} from '@angular/cdk/table';
 import { VideoListsComponent } from './video-lists/video-lists.component';
 import { ReportComponent } from './report/report.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ReportRoughComponent } from './report-rough/report-rough.component';
-// Import the library
 
-// Import angular2-fusioncharts
-import { FusionChartsModule } from 'angular2-fusioncharts';
-
-// Import FusionCharts library
-import * as FusionCharts from 'fusioncharts';
-// Import FusionCharts Charts module
-import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { CreateTestComponent } from './create-test/create-test.component';
 import { TestDetailsComponent } from './test-details/test-details.component';
 import { FormQuestionComponent } from './form-question/form-question.component';
@@ -81,8 +82,8 @@ import { CharacterComponent } from './character/character.component';
 import { VideoLibraryComponent } from './video-library/video-library.component';
 import { ZoneComponent } from './zone/zone.component';
 import { AssignTestComponent } from './assign-test/assign-test.component';
-import {MatSelectModule} from '@angular/material/select';
-import {NativeDateAdapter} from '@angular/material';
+import { MatSelectModule} from '@angular/material/select';
+import { NativeDateAdapter} from '@angular/material';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { PreviewVideoComponent } from './preview-video/preview-video.component';
@@ -139,30 +140,30 @@ import { OrganizationComponent } from './organization/organization.component';
     VgStreamingModule,
     AngularMultiSelectModule,
     RouterModule.forRoot([
-      { path: 'login', component:LoginComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'bcarousel', component: BcarouselComponent },
-      { path: 'video/:id', component:VideoComponent },
-      { path: 'dialog', component:DialogComponent },
-      { path: 'video-lists/:ida', component:VideoListsComponent },
-      { path: 'report', component:ReportComponent },
-      { path: 'report-rough', component:ReportRoughComponent },
-      { path: 'create-test', component:CreateTestComponent },
-      { path: 'test-details', component:TestDetailsComponent },
-      { path: 'web-preview', component:WebPreviewComponent },
-      { path: 'create-user', component:CreateUserComponent },
-      { path: 'test-table', component:TestTableComponent },
-      { path: 'video-table', component:VideoTableComponent },
-      { path: 'side-navigation', component:SideNavigationComponent },
-      { path: 'designation', component:DesignationComponent },
-      { path: 'departnment', component:DepartnmentComponent },
-      { path: 'character', component:CharacterComponent },
-      { path: 'video-library', component:VideoLibraryComponent },
-      { path: 'zone', component:ZoneComponent },
-      { path: 'assign-test', component:AssignTestComponent },
-      { path: 'user-profile', component:UserProfileComponent },
-      { path: 'preview-video', component:PreviewVideoComponent },
-      { path: 'organization', component:OrganizationComponent },
+      { path: 'login',component:LoginComponent },
+      { path: 'home',component: HomeComponent },
+      { path: 'bcarousel',component: BcarouselComponent },
+      { path: 'video/:id',component:VideoComponent },
+      { path: 'dialog',component:DialogComponent },
+      { path: 'video-lists/:ida',component:VideoListsComponent },
+      { path: 'report',component:ReportComponent },
+      { path: 'report-rough',component:ReportRoughComponent },
+      { path: 'create-test',component:CreateTestComponent },
+      { path: 'test-details',component:TestDetailsComponent },
+      { path: 'web-preview',component:WebPreviewComponent },
+      { path: 'create-user',component:CreateUserComponent },
+      { path: 'test-table',component:TestTableComponent },
+      { path: 'video-table',component:VideoTableComponent },
+      { path: 'side-navigation',component:SideNavigationComponent },
+      { path: 'designation',component:DesignationComponent },
+      { path: 'departnment',component:DepartnmentComponent },
+      { path: 'character',component:CharacterComponent },
+      { path: 'video-library',component:VideoLibraryComponent },
+      { path: 'zone',component:ZoneComponent },
+      { path: 'assign-test',component:AssignTestComponent },
+      { path: 'user-profile',component:UserProfileComponent },
+      { path: 'preview-video',component:PreviewVideoComponent },
+      { path: 'organization',component:OrganizationComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])
