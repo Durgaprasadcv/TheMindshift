@@ -47,6 +47,11 @@ public create_org=this.main_url+"create_org";
 public delete_org=this.main_url+"delete_org";
 public update_org=this.main_url+"update_org";
 
+//assignTest
+public assign_test_uid=this.main_url+"assign_test_uid";
+public assigned_tests=this.main_url+"assigned_tests"
+public delete_assigned_tests=this.main_url+"delete_assigned_tests";
+
 public returnmsg;
 constructor(private _http: Http,private _router: Router) { }
 webRequest(scope,type,url,body,fun_id,loader){

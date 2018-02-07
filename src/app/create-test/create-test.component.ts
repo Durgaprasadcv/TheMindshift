@@ -166,20 +166,20 @@ this.addQuestion();
     
 }
   submit_test(){
-    console.log('data',this.myForm.value);
-    localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
-    console.log('url',this.myForm.value.test_url)
-    this.preview_url=this.myForm.value.test_url;
-    this.api.getDefaultMedia().currentTime=0;
-    var myVideo = document.getElementsByTagName('video')[0];
-    myVideo.src = this.myForm.value.test_url;
-    myVideo.load();
-    myVideo.play();
-  //   const body = {
-  //     // user_id:'32'
+    // console.log('data',this.myForm.value);
+    // localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
+    // console.log('url',this.myForm.value.test_url)
+    // this.preview_url=this.myForm.value.test_url;
+    // this.api.getDefaultMedia().currentTime=0;
+    // var myVideo = document.getElementsByTagName('video')[0];
+    // myVideo.src = this.myForm.value.test_url;
+    // myVideo.load();
+    // myVideo.play();
+    const body = {
+      // user_id:'32'
     
-  // };
-  //  this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
+  };
+   this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
@@ -191,6 +191,7 @@ this.addQuestion();
   }
 initQuestion() {
   return this._fb.group({
+      
       pause_time: ['', Validators.required],
       wait_time: [''],
       question:[''],
@@ -287,23 +288,5 @@ onPlayerReady(api:VgAPI) {
     }
 );
 }
-ngAfterViewInit() {
-$(document).ready(function(){
-     
-  $("body").on("click","#btn",function(){
-          
-       $("#myModal").modal("show");
-
-       $(".blue").addClass("after_modal_appended");
-    
-       //appending modal background inside the blue div
-       $('.modal-backdrop').appendTo('.blue');   
-  
-       //remove the padding right and modal-open class from the body tag which bootstrap adds when a modal is shown
-       $('body').removeClass("modal-open")
-       $('body').css("padding-right","");     
-   });
-
-});
-}
+ngAfterViewInit() {}
 }

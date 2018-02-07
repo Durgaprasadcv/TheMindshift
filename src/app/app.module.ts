@@ -89,6 +89,7 @@ import { VgStreamingModule } from 'videogular2/streaming';
 import { PreviewVideoComponent } from './preview-video/preview-video.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { OrganizationComponent } from './organization/organization.component';
+import { ActivityLogComponent } from './activity-log/activity-log.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -118,7 +119,8 @@ import { OrganizationComponent } from './organization/organization.component';
     AssignTestComponent,
     UserProfileComponent,
     PreviewVideoComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    ActivityLogComponent
   ],
   imports: [
     BrowserModule,
@@ -164,6 +166,7 @@ import { OrganizationComponent } from './organization/organization.component';
       { path: 'user-profile',component:UserProfileComponent },
       { path: 'preview-video',component:PreviewVideoComponent },
       { path: 'organization',component:OrganizationComponent },
+      { path: 'activity-log',component:ActivityLogComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

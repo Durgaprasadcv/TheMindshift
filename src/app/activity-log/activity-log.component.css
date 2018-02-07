@@ -1,0 +1,49 @@
+#data-grid-demo {
+    min-height: 530px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+#myModal{
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
+}
+#myModal_delete{
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
+}
+.add_user{
+    float: right;
+}
+.headding{
+    float: left;
+}
+#myModal_add{
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.padding_top_6vh{
+    padding-top: 6vh;
+}

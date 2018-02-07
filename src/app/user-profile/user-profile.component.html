@@ -123,8 +123,8 @@
     <div class="tab-pane" id="2">
             <h3>Assign Tests</h3>
             <div class="table_division">
-              <md-select placeholder="Select Designation"  [(value)]="designation">
-                <md-option *ngFor="let test of tests" [value]="test.value">
+              <md-select (change)="getDetails($event)" placeholder="Select Designation"  [(value)]="designation">
+                <md-option (change)="getDetails($event)" *ngFor="let test of tests" [value]="test.value">
                   {{ test.viewValue }}
                 </md-option>
               </md-select>
@@ -148,27 +148,26 @@
                 </div>
               </div>
             </div>
-            <div  class="assign_tab">
+            <div class="assign_tab">
                 <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
                   <c-item>
                         <ng-template let-item="item" >
                           <label style="color: #333;min-width: 150px;">{{item.itemName}}</label>
-                          <img [src]="item.image" style="width: 30px; border: 1px solid #efefef;margin-right: 20px;" />
-                          <label>Description - {{item.capital}}</label>
+                          <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Start Date :{{item.start_date}}.</label>
+                          <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Due Date :{{item.due_date}}.</label>
                         </ng-template>
                   </c-item>
                 </angular2-multiselect>
-              </div>
-            <button *ngIf="designation==1" md-raised-button color="primary" class="assign_button">Assign</button>
-            <button *ngIf="designation==0" md-raised-button color="primary" class="assign_button">Unssign</button>
-            <button *ngIf="designation==0&&(start_date!=null||due_date!=null)" md-raised-button color="primary" class="assign_button">Reassign</button>
+            </div>
+            <button *ngIf="designation==1" md-raised-button color="primary" class="assign_button" (click)="assign()">Assign</button>
+            <button *ngIf="designation==0" md-raised-button color="primary" class="assign_button" (click)="unassign()">Unassign</button>
+            <button *ngIf="designation==0&&(start_date!=null||due_date!=null)" md-raised-button color="primary" class="assign_button" (click)="assign()">Reassign</button>
             <div class="example-events">
               <div *ngFor="let e of events">{{e}}</div>
             </div>
           </div>
     <div class="tab-pane" id="3">
             <h3>Report</h3>
-
              <!-- <template md-tab-label>Tests</template> -->
              <div class="table_division">
                 <!-- <md-select placeholder="Select Designation"  [(value)]="designation">

@@ -1,32 +1,32 @@
 <app-side-navigation></app-side-navigation>
 <div class="padding_top_6vh">
 <div class="page_heading">
-<div class="headding ">
+  <div class="headding ">
     <h1  class="page_title">Tests</h1>
-    </div>
-    <div class="add_user">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" (click)="create_test()">Create Test</button>
-    </div>
+  </div>
+  <div class="add_user">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" (click)="create_test()">Create Test</button>
+  </div>
 </div>
-<div class="table_division">
-    <table>
-      <tr>
-        <th>Test Name</th>
-        <th>Test Description</th>
-        <th>Test Author</th>
-        <th>Test Time</th>
-        <th>No Of Question</th>
-        <th>Control</th>
-      </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-        <td>Germany</td>
-        <td>Germany</td>
-        <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-      </tr>
-      <tr>
+<div *ngIf="returnmsg" class="table_division">
+  <table>
+    <tr>
+      <th>Test Name</th>
+      <th>Test Description</th>
+      <th>Questions</th>
+      <th>Test Status</th>
+      <th>Test Duration</th>
+      <th>Control</th>
+    </tr>
+    <tr *ngFor="let i of returnmsg.test">
+      <td>{{i.test_name}}</td>
+      <td>{{i.test_description}}</td>
+      <td>{{i.no_of_questions}}</td>
+      <td>{{i.test_status}}</td>
+      <td>{{i.stop_time}}</td>
+      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
+    </tr>
+      <!-- <tr>
         <td>Centro comercial Moctezuma</td>
         <td>Francisco Chang</td>
         <td>Mexico</td>
@@ -65,8 +65,8 @@
         <td>Germany</td>
         <td>Germany</td>
         <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-      </tr>
-    </table>
+      </tr> -->
+  </table>
   </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -80,7 +80,7 @@
           </div>
           <div class="modal-body">
               <md-form-field>
-                  <input mdInput placeholder="Test Name" name="username">
+                 <input mdInput placeholder="Test Name" name="username">
               </md-form-field>
               <md-form-field>
                   <input mdInput placeholder="Test Description" name="username">
@@ -102,7 +102,6 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Edit Test</button>
           </div>
         </div>
-        
       </div>
     </div>
     <div class="modal fade" id="myModal_delete" role="dialog">
