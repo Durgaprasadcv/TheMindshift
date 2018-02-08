@@ -52,19 +52,19 @@ designation=0;
       data: [
       {
       label: 'Sales',
-      value: '1250400'
+      value: '125040'
       },
       {
       label: 'Communication',
-      value: '1463300'
+      value: '146330'
       },
       {
       label: 'Product Training',
-      value: '1050700'
+      value: '105700'
       },
       {
       label: 'Motivated Selling',
-      value: '491000'
+      value: '49100'
       }
       ]
       }

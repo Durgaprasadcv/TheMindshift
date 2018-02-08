@@ -149,15 +149,15 @@
               </div>
             </div>
             <div class="assign_tab">
-                <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
-                  <c-item>
-                        <ng-template let-item="item" >
-                          <label style="color: #333;min-width: 150px;">{{item.itemName}}</label>
-                          <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Start Date :{{item.start_date}}.</label>
-                          <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Due Date :{{item.due_date}}.</label>
-                        </ng-template>
-                  </c-item>
-                </angular2-multiselect>
+              <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+                <c-item>
+                  <ng-template let-item="item" >
+                    <label style="color: #333;min-width: 150px;">{{item.itemName}}</label>
+                    <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Start Date :{{item.start_date}}.</label>
+                    <label *ngIf="designation==0" style="color: #333;min-width: 150px;">Due Date :{{item.due_date}}.</label>
+                  </ng-template>
+                </c-item>
+              </angular2-multiselect>
             </div>
             <button *ngIf="designation==1" md-raised-button color="primary" class="assign_button" (click)="assign()">Assign</button>
             <button *ngIf="designation==0" md-raised-button color="primary" class="assign_button" (click)="unassign()">Unassign</button>

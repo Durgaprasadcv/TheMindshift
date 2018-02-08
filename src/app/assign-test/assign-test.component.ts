@@ -11,14 +11,14 @@ import * as $ from 'jquery/dist/fm.selectator.jquery.js';
 })
 export class AssignTestComponent implements OnInit {
   users = [
-    {value: 'steak-0', viewValue: '001'},
-    {value: 'pizza-1', viewValue: '002'},
-    {value: 'tacos-2', viewValue: '003'}
+    {value: '01', viewValue: 'U001'},
+    {value: '02', viewValue: 'U002'},
+    {value: '03', viewValue: 'U003'}
   ];
   tests=[
-    {value: 'steak-0', viewValue: 'Test 1'},
-    {value: 'pizza-1', viewValue: 'Test 2'},
-    {value: 'tacos-2', viewValue: 'Test 3'}
+    {value: '01', viewValue: 'Test 1'},
+    {value: '02', viewValue: 'Test 2'},
+    {value: '03', viewValue: 'Test 3'}
   ];
   itemList = [];
   selectedItems = [];

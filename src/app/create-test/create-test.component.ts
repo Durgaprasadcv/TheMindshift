@@ -191,7 +191,7 @@ this.addQuestion();
   }
 initQuestion() {
   return this._fb.group({
-      
+     question_id:['2'],
       pause_time: ['', Validators.required],
       wait_time: [''],
       question:[''],
@@ -221,6 +221,7 @@ edit(){
 
 initQuestion_edit(i) {
   return this._fb.group({
+      question_id:['2'],
       pause_time: [this.test_data.test_question[i].question, Validators.required],
       wait_time: [''],
       question:['sss'],

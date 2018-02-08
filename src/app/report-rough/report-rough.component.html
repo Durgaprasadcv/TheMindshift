@@ -47,40 +47,42 @@
                 <!-- <template md-tab-label>Report</template> -->
                 <div class="padding_top_6vh">
                     <h4>Report</h4>
+                    <div class="table_division">
                     <fusioncharts
-                    width="100%" 
+                    width="95%" 
                     height="400"
                     type="column2d"
                     dataFormat="json"
                     [dataSource]=data >
                     </fusioncharts>
                     <fusioncharts
-                    width="100%" 
+                    width="95%" 
                     height="400"
                     type="pie3d"
                     [dataSource]=dataSource >
                     </fusioncharts>
                     <fusioncharts
-                    width="100%" 
+                    width="95%" 
                     height="400"
                     type="mscombi2d"
                     [dataSource]=dataSource1>
                     </fusioncharts>
                     <fusioncharts
-                    width="100%" 
+                    width="95%" 
                     height="400"
                     type="msbar2d"
                     dataFormat="json"
                     [dataSource]=dataSource2 >
                     </fusioncharts>
                     <fusioncharts
-                    width="100%" 
+                    width="95%" 
                     height="400"
                     type="column3d"
                     dataFormat="json"
                     [dataSource]=dataSource3 >
                     </fusioncharts>
                     </div>
+                  </div>
               </md-tab>
     </md-tab-group>
   </div>

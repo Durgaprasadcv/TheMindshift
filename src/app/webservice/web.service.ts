@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 @Injectable()
 export class WebService {
-public main_url='http://lg.djitsoft.xyz/api/';
+// public main_url='http://lg.djitsoft.xyz/api/';
+public main_url='http://10.0.0.7:9000/api/';
 public modules=this.main_url+'gettest';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
@@ -53,7 +54,7 @@ public assigned_tests=this.main_url+"assigned_tests"
 public delete_assigned_tests=this.main_url+"delete_assigned_tests";
 
 public returnmsg;
-constructor(private _http: Http,private _router: Router) { }
+constructor(private _http: Http,private _router: Router) {   }
 webRequest(scope,type,url,body,fun_id,loader){
   switch(type)
   {
@@ -81,7 +82,7 @@ webRequest(scope,type,url,body,fun_id,loader){
        err => console.log('Web service:failed'),
        () => console.log('Web service:Success Return data:',this.returnmsg));
       break;}
-}
+  }
 }
 checkCredentials() {
   if (localStorage.getItem("user") === null){
