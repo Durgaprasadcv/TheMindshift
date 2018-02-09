@@ -7,6 +7,8 @@
 <div class="add_user">
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add">Create Character</button>
 </div>
+<input type="file" [(ngModel)]="char_file" (change)="onChange($event)"/>
+<button (click)="char_upload()"></button>
 </div>
 <div class="table_division">
 <table *ngIf="returnmsg">
@@ -156,7 +158,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Add Character</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

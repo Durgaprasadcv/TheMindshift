@@ -164,7 +164,7 @@ this.addQuestion();
     // console.log(this.myForm.value);
     // });
     
-}
+  }
   submit_test(){
     // console.log('data',this.myForm.value);
     // localStorage.setItem('preview',  JSON.stringify(this.myForm.value));

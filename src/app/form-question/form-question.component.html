@@ -1,16 +1,16 @@
 <div [formGroup]="myForm">
     <div class="form-group col-xs-6">
         <md-form-field>
-                <input mdInput placeholder="Question ?" formControlName="question">
+            <input mdInput placeholder="Question ?" formControlName="question">
         </md-form-field>
     </div>
     <div class="form-group col-xs-6">
         <md-form-field>
-                <input mdInput placeholder="Marks Allocated ?" formControlName="marks">
-            </md-form-field>
+            <input mdInput placeholder="Marks Allocated ?" formControlName="marks">
+        </md-form-field>
     </div>
   <div class="form-group col-xs-6">
-      <md-form-field>
+        <md-form-field>
             <input mdInput placeholder="Pause Time" formControlName="pause_time">
         </md-form-field>
       <!-- <small [hidden]="myForm.controls.pause_time.valid" class="text-danger">
@@ -18,13 +18,13 @@
       </small> -->
   </div>
   <div class="form-group col-xs-6">
-      <md-form-field>
+        <md-form-field>
             <input mdInput placeholder="Wait Time" formControlName="wait_time">
         </md-form-field>
   </div> 
   <br>
       <!--emails-->
-      <div class="col-xs-12" formArrayName="options">
+    <div class="col-xs-12" formArrayName="options">
         <div *ngFor="let email of myForm.controls.options.controls; let i=index" class="panel panel-default">
             <div class="panel-heading">
                 <span>Option {{i + 1}}</span>

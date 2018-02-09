@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
+import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import { Http , Response } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -23,7 +26,9 @@ export class CharacterComponent implements OnInit {
   email;
   contact_no;
   files;
-  constructor(private webservice: WebService) { }
+  char_file;
+
+  constructor(private webservice: WebService,private http: Http) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
@@ -57,6 +62,10 @@ export class CharacterComponent implements OnInit {
       this.pincode=this.returnmsg1.pincode;
       this.email=this.returnmsg1.email;
       this.contact_no=this.returnmsg1.contact_no;
+    }
+    else if(fun_id==6){
+      this.char_file = return_data.json();
+      console.log("file uplaod",this.char_file);
     }
   }
   add(){
@@ -111,5 +120,25 @@ export class CharacterComponent implements OnInit {
   onChange(event) {
     this.files = event.srcElement.files;
     console.log(this.files);
+  }
+  char_upload(){
+    const body6 = {
+      char_image_file:this.files,
+      char_name:'aaa',
+      char_description:'bbb'
+    };
+      this.webservice.webRequest(this,'post',this.webservice.create_character,body6,'6','');
+    console.log(this.files);
+
+  //   let headers: Headers = new Headers();
+  // headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+  // let formData = new FormData();
+  // formData.append('file', this.files);
+  // let options = new RequestOptions({ headers: headers });
+  // // let options: RequestOptionsArgs = { headers: headers };
+
+  // return this.http.post('https://10.0.0.7:9000/api/create_character', formData, options)
+  // .map((res: any) => (res.text() != "" ? res.json() : {}));
   }
 }

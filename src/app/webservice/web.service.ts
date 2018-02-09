@@ -53,6 +53,9 @@ public assign_test_uid=this.main_url+"assign_test_uid";
 public assigned_tests=this.main_url+"assigned_tests"
 public delete_assigned_tests=this.main_url+"delete_assigned_tests";
 
+//create character
+public create_character=this.main_url+"create_character";
+
 public returnmsg;
 constructor(private _http: Http,private _router: Router) {   }
 webRequest(scope,type,url,body,fun_id,loader){
