@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
-import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import { RequestOptions, Request, RequestMethod } from '@angular/http';
 import { Http , Response } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
+import { ElementRef, Input, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -10,6 +11,8 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
+  @Input() multiple: boolean = false;
+  @ViewChild('fileInput') inputEl: ElementRef;
   returnmsg;
   returnmsg1
   Dept_Id;
@@ -138,7 +141,28 @@ export class CharacterComponent implements OnInit {
   // let options = new RequestOptions({ headers: headers });
   // // let options: RequestOptionsArgs = { headers: headers };
 
-  // return this.http.post('https://10.0.0.7:9000/api/create_character', formData, options)
+  // return this.http.post('https://10.0.0.7:9000/api/create_character', formData, { headers: headers })
   // .map((res: any) => (res.text() != "" ? res.json() : {}));
   }
+  upload() {
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    let fileCount: number = inputEl.files.length;
+    let formData = new FormData();
+    // if (fileCount > 0) { // a file was selected
+        // for (let i = 0; i < fileCount; i++) {
+            formData.append('char_image_file', inputEl.files.item(0));
+            formData.append('char_name','s');
+            formData.append('char_description','s');
+        // }
+        this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
+        .subscribe(
+          data =>  { this.returnmsg = data.json();
+          },
+          err => console.log('Web service:failed'),
+          () => console.log('Web service:Success Return data:',this.returnmsg));
+            // do whatever you do...
+            // subscribe to observable to listen for response
+    // }
+// }
+}
 }

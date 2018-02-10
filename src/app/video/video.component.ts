@@ -81,9 +81,9 @@ webresponse(fun_id,return_data)
   // test details response
   if(fun_id==1)
   {
- this.returnmsg = return_data.json();
- this.returnmsg1=this.returnmsg.test[0];
- this.video_questions();
+    this.returnmsg = return_data.json();
+    this.returnmsg1=this.returnmsg.test[0];
+    this.video_questions();
   }
   // result update response
   if(fun_id==2){
