@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 @Injectable()
 export class WebService {
-public main_url='http://lg.djitsoft.xyz/api/';
-// public main_url='http://10.0.0.7:9000/api/';
+// public main_url='http://lg.djitsoft.xyz/api/';
+public main_url='http://10.0.0.7:9000/api/';
 public modules=this.main_url+'gettest';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
@@ -55,6 +55,9 @@ public delete_assigned_tests=this.main_url+"delete_assigned_tests";
 
 //create character
 public create_character=this.main_url+"create_character";
+public edit_character=this.main_url+"edit_character";
+public delete_character=this.main_url+"delete_character";
+public get_character=this.main_url+"get_character";
 
 public returnmsg;
 constructor(private _http: Http,private _router: Router) {   }

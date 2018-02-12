@@ -31,10 +31,19 @@ export class CharacterComponent implements OnInit {
   files;
   char_file;
 
+  char_id;
+  char_name;
+  char_description;
+  char_url;
+
+  demo;
+
+  returnmsg_add;
+
   constructor(private webservice: WebService,private http: Http) { }
 
   ngOnInit() {
-    this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
+    this.webservice.webRequest(this,'post',this.webservice.get_character,'','1','');
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)
@@ -53,18 +62,11 @@ export class CharacterComponent implements OnInit {
     }
     else if(fun_id==5){
       this.returnmsg1 = return_data.json();
-      this.Dept_Name=this.returnmsg1.Dept_Name;
-      this.Dept_Desp=this.returnmsg1.Dept_Desp;
-      this.Dept_Code=this.returnmsg1.Dept_Code;
-      this.Dept_Org_ID=this.returnmsg1.Dept_Org_ID;
-      this.address_line_1=this.returnmsg1.address_line_1;
-      this.address_line_2=this.returnmsg1.address_line_2;
-      this.city=this.returnmsg1.city;
-      this.state=this.returnmsg1.state;
-      this.country=this.returnmsg1.country;
-      this.pincode=this.returnmsg1.pincode;
-      this.email=this.returnmsg1.email;
-      this.contact_no=this.returnmsg1.contact_no;
+      console.log('haii',this.returnmsg1)
+      this.char_id=this.returnmsg1.characters[0].char_id;
+      this.char_name=this.returnmsg1.characters[0].char_name;
+      this.char_description=this.returnmsg1.characters[0].char_description;
+      this.char_url=this.returnmsg1.characters[0].char_url;
     }
     else if(fun_id==6){
       this.char_file = return_data.json();
@@ -72,53 +74,49 @@ export class CharacterComponent implements OnInit {
     }
   }
   add(){
-    const body = {
-      Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
-      Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
-      address_line_1:this.address_line_1,
-      address_line_2:this.address_line_2,
-      city:this.city,
-      state:this.state,
-      country:this.country,
-      pincode:this.pincode,
-      email:this.email,
-      contact_no:this.contact_no
-    };
-      this.webservice.webRequest(this,'post',this.webservice.create_dept,body,'2','');
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    let fileCount: number = inputEl.files.length;
+    let formData = new FormData();
+      formData.append('char_image_file', inputEl.files.item(0));
+      formData.append('char_name',this.char_name);
+      formData.append('char_description',this.char_description);
+      console.log('form data',formData);
+      this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
+      .subscribe(
+        data =>  { this.returnmsg_add = data.json();
+      },
+      err => console.log('Web service:failed'),
+      () => console.log('Web service:Success Return data:',this.returnmsg_add));
   }
   store_id(i){
-   this.Dept_Id=i;
+   this.char_id=i;
    const body1={
-    Dept_Id:this.Dept_Id
+    char_id:this.char_id
    }
-   this.webservice.webRequest(this,'post',this.webservice.get_dept,body1,'5','');
+   this.webservice.webRequest(this,'post',this.webservice.get_character,body1,'5','');
   }
   delete(){
     const body2 = {
-      Dept_Id:this.Dept_Id
+      char_id:this.char_id
     };
-    this.webservice.webRequest(this,'post',this.webservice.delete_dept,body2,'3','');
+    this.webservice.webRequest(this,'post',this.webservice.delete_character,body2,'3','');
     // window.location.reload(true);
   }
   edit(){
-    const body3 = {
-      Dept_Id:this.Dept_Id,
-      Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
-      Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
-      address_line_1:this.address_line_1,
-      address_line_2:this.address_line_2,
-      city:this.city,
-      state:this.state,
-      country:this.country,
-      pincode:this.pincode,
-      email:this.email,
-      contact_no:this.contact_no
-    };
-      this.webservice.webRequest(this,'post',this.webservice.update_dept,body3,'4','');
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    let fileCount: number = inputEl.files.length;
+    let formData = new FormData();
+     formData.append('char_id', this.char_id);
+     formData.append('char_image_file', inputEl.files.item(0));
+      formData.append('char_name',this.char_name);
+      formData.append('char_description',this.char_description);
+      console.log('form data',formData);
+      this.http.post('http://lg.djitsoft.xyz/api/edit_character',formData)
+      .subscribe(
+        data =>  { this.returnmsg_add = data.json();
+      },
+      err => console.log('Web service:failed'),
+      () => console.log('Web service:Success Return data:',this.returnmsg_add));
   }
   onChange(event) {
     this.files = event.srcElement.files;
@@ -132,37 +130,26 @@ export class CharacterComponent implements OnInit {
     };
       this.webservice.webRequest(this,'post',this.webservice.create_character,body6,'6','');
     console.log(this.files);
-
-  //   let headers: Headers = new Headers();
-  // headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-  // let formData = new FormData();
-  // formData.append('file', this.files);
-  // let options = new RequestOptions({ headers: headers });
-  // // let options: RequestOptionsArgs = { headers: headers };
-
-  // return this.http.post('https://10.0.0.7:9000/api/create_character', formData, { headers: headers })
-  // .map((res: any) => (res.text() != "" ? res.json() : {}));
   }
   upload() {
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     let fileCount: number = inputEl.files.length;
     let formData = new FormData();
-    // if (fileCount > 0) { // a file was selected
-        // for (let i = 0; i < fileCount; i++) {
-            formData.append('char_image_file', inputEl.files.item(0));
-            formData.append('char_name','s');
-            formData.append('char_description','s');
-        // }
-        this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
-        .subscribe(
-          data =>  { this.returnmsg = data.json();
-          },
-          err => console.log('Web service:failed'),
-          () => console.log('Web service:Success Return data:',this.returnmsg));
-            // do whatever you do...
-            // subscribe to observable to listen for response
-    // }
-// }
-}
+      formData.append('char_image_file', inputEl.files.item(0));
+      formData.append('char_name','s');
+      formData.append('char_description','s');
+      console.log('form data',formData);
+      this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
+      .subscribe(
+        data =>  { this.returnmsg_add = data.json();
+      },
+      err => console.log('Web service:failed'),
+      () => console.log('Web service:Success Return data:',this.returnmsg_add));
+  }
+  nullify(){
+    this.char_id='';
+    this.char_name='';
+    this.char_description='';
+    this.char_url='';
+  }
 }

@@ -23,8 +23,13 @@ constructor(private webservice: WebService,private _router: Router,private http:
     Observable.fromEvent(window, 'online').mapTo(true),
     Observable.fromEvent(window, 'offline').mapTo(false)
   )
+  // if(!(this.online$)){
+
+  // }
+  console.log('network',this.online$);
 }
   ngOnInit(): void {
+    console.log('network',this.online$);
     // fetch_the_user_id_from_local_storage
     this.uid=(JSON.parse(localStorage.getItem('user')));
     //check wheather logged in

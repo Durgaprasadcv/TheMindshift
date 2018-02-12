@@ -32,32 +32,46 @@ export class SideNavigationComponent implements OnInit {
   {
     this._router.navigate(['/bcarousel']);
   }
-  Tests(){
+  Tests()
+  {
     this._router.navigate(['/test-table']);
   }
-  Users(){
+  Users()
+  {
     this._router.navigate(['/create-user']);
   }
-  designation(){
+  designation()
+  {
     this._router.navigate(['/designation']);
   }
-  department(){
+  department()
+  {
     this._router.navigate(['/departnment']);
   }
-  character(){
+  character()
+  {
     this._router.navigate(['/character']);
   }
-  videolibrary(){
+  videolibrary()
+  {
     this._router.navigate(['/video-library']);
   }
-  zone(){
+  zone()
+  {
     this._router.navigate(['/zone']);
   }
-  assigntest(){
+  assigntest()
+  {
     this._router.navigate(['/assign-test']);
   }
-  report(){
+  report()
+  {
     this._router.navigate(['/report-rough']);
+  }
+  menu(i)
+  {
+    console.log("menu",i);
+    localStorage.setItem("menu", JSON.stringify(i));
   }
   logout():void {
     this.webservice.logout();

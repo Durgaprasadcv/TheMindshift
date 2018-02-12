@@ -90,6 +90,7 @@ import { PreviewVideoComponent } from './preview-video/preview-video.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { OrganizationComponent } from './organization/organization.component';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
+import { OfflineComponent } from './offline/offline.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,7 +121,8 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
     UserProfileComponent,
     PreviewVideoComponent,
     OrganizationComponent,
-    ActivityLogComponent
+    ActivityLogComponent,
+    OfflineComponent
   ],
   imports: [
     BrowserModule,
@@ -167,6 +169,7 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
       { path: 'preview-video',component:PreviewVideoComponent },
       { path: 'organization',component:OrganizationComponent },
       { path: 'activity-log',component:ActivityLogComponent },
+      { path: 'offline',component:OfflineComponent },
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

@@ -5,13 +5,13 @@
 <h1 class="page_title">Chracter</h1>
 </div>
 <div class="add_user">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add">Create Character</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Character</button>
 </div>
 <!-- <input type="file" [(ngModel)]="char_file" (change)="onChange($event)"/> -->
 
-
+<!-- 
 <input type="file" [multiple]="multiple" #fileInput>
-<button (click)="upload()">upload</button>
+<button (click)="upload()">upload</button> -->
 <!-- <file-upload #fu (change)="fu.upload()" [multiple]="true"></file-upload> -->
 </div>
 <div class="table_division">
@@ -20,42 +20,17 @@
     <th>Character ID</th>
     <th>Character Name</th>
     <th>Character Description</th>
-    <th>Character Display Name</th>
-    <th>Character Code</th>
     <th>Character</th>
     <th>control</th>
   </tr>
-  <!-- <tr *ngFor="let i of returnmsg  let ia = index "> -->
-    <tr>
-    <td>1</td>
-    <td>King</td>
-    <td>King of Village</td>
-    <td>King</td>
-    <td>001</td>
-    <td><img src="assets/images/character/1.png" alt="" class="character_img"></td>
+  <tr *ngFor="let i of returnmsg.characters  let ia = index ">
+    <!-- <tr> -->
+    <td>{{i.char_id}}</td>
+    <td>{{i.char_name}}</td>
+    <td>{{i.char_description}}</td>
+    <td><img src="{{i.char_url}}" alt="" class="character_img"></td>
     <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-     <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-  </tr>
-<!-- <tr *ngFor="let i of returnmsg  let ia = index "> -->
-  <tr>
-  <td>character 2</td>
-  <td>character 2</td>
-  <td>character 2</td>
-  <td>character 2</td>
-  <td>character 2</td>
-  <td><img src="assets/images/character/2.png" alt="" class="character_img"></td>
-  <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-</tr>
-<tr>
-    <td>character 3</td>
-    <td>character 3</td>
-    <td>character 3</td>
-    <td>character 3</td>
-    <td>character 3</td>
-    <td><img src="assets/images/character/3.png" alt="" class="character_img"></td>
-    <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-     <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
+     <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.char_id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete" (click)="store_id(i.char_id)">Delete</button></td>
   </tr>
 </table>
 </div>
@@ -71,36 +46,23 @@
         <h4 class="modal-title">Edit character</h4>
       </div>
       <div class="modal-body">
-        <md-form-field>
-          <input mdInput placeholder="Character ID" [(ngModel)]="Dept_Name" name="username">
-      </md-form-field>
       <md-form-field>
-        <input mdInput placeholder="Character Name" [(ngModel)]="Dept_Desp" name="username">
+        <input mdInput placeholder="Character Name" [(ngModel)]="char_name" name="username">
       </md-form-field>
       <br>
       <md-form-field>
-          <input mdInput placeholder="Character Description" [(ngModel)]="Dept_Code" name="username">
+          <input mdInput placeholder="Character Description" [(ngModel)]="char_description" name="username">
       </md-form-field> 
-      <md-form-field>
-          <input mdInput placeholder="Character Display Name" [(ngModel)]="Dept_Org_ID" name="username">
-      </md-form-field>
-      <br>
-      <md-form-field>
-        <input mdInput placeholder="Character Code" [(ngModel)]="address_line_1" name="username">
-      </md-form-field>
-      <md-form-field>
-          <input mdInput placeholder="Character URL" [(ngModel)]="address_line_2" name="username">
-      </md-form-field>
-      <input type="file" (change)="onChange($event)">
-      </div>
+      <input type="file" [multiple]="multiple" #fileInput1>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Edit chracter</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button>
       </div>
     </div>
     
   </div>
+</div>
 </div>
 <div class="modal fade" id="myModal_delete" role="dialog">
   <div class="modal-dialog">
@@ -117,7 +79,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
       </div>
     </div>
     
@@ -134,32 +96,19 @@
         </div>
         <div class="modal-body">
             <md-form-field>
-                <input mdInput placeholder="Character ID" [(ngModel)]="Dept_Name" name="username">
-            </md-form-field>
-            <md-form-field>
-              <input mdInput placeholder="Character Name" [(ngModel)]="Dept_Desp" name="username">
+              <input mdInput placeholder="Character Name" [(ngModel)]="char_name" name="username">
             </md-form-field>
             <br>
             <md-form-field>
-                <input mdInput placeholder="Character Description" [(ngModel)]="Dept_Code" name="username">
+                <input mdInput placeholder="Character Description" [(ngModel)]="char_description" name="username">
             </md-form-field> 
-            <md-form-field>
-                <input mdInput placeholder="Character Display Name" [(ngModel)]="Dept_Org_ID" name="username">
-            </md-form-field>
-            <br>
-            <md-form-field>
-              <input mdInput placeholder="Character Code" [(ngModel)]="address_line_1" name="username">
-            </md-form-field>
-            <md-form-field>
-                <input mdInput placeholder="Character URL" [(ngModel)]="address_line_2" name="username">
-            </md-form-field>
-            <br>
-            <input type="file" (change)="onChange($event)">
+            <input type="file" [multiple]="multiple" #fileInput>
+            <!-- <button (click)="upload()">upload</button> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button> -->
-          <button type="button" class="btn btn-default" data-dismiss="modal">Add Character</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Character</button>
         </div>
       </div>
 

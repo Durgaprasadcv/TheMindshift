@@ -419,3 +419,6 @@ a{
   background-color: transparent;
   margin-top: 35%;
 }
+.login_button{
+  width:30vw !important;
+}

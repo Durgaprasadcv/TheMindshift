@@ -20,3 +20,47 @@ margin-top:35%;
   width:100%;
   margin:auto;
 }
+.login_button{
+  width:30vw !important;
+}
+.width30vw{
+  width:30vw !important;
+}
+@media (max-width: 768px){
+.loginpage
+{
+  left: 0 !important;
+  width: 100vw !important;
+  zoom:1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.login_main{
+  height:100vh;
+  width:100vw;
+  margin:auto;
+  display: block !important;
+}
+.logo_div{
+  height: 40vh !important;
+  width: 100vw !important;
+}
+.form_div{
+  height: 60vh !important;
+  width: 100vw !important;
+}
+img.responsive-img
+{
+width: 170px !important;
+height: 170px !important;
+margin: auto  !important;
+flex:0 !important;
+}
+.main_form{
+  width: 60vw !important;
+  margin-left: 20vw !important;
+}
+.text_field{
+  width: 60vw !important
+}
+}

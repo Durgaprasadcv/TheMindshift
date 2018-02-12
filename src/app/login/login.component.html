@@ -1,24 +1,24 @@
 <div class="container loginpage">
   <div fxLayout="column" fxLayoutAlign="space-around center" class="content login_main">
-    <div>
+    <div class="logo_div">
       <img src="assets/images/logo.png" alt="MindShift" class="responsive-img" fxFlex>
     </div>
-    <div >
-      <form [hidden]="login_page" (submit)="sendmsg()" class="fa"><br>
-        <md-form-field>
+    <div class="form_div">
+      <form [hidden]="login_page" (submit)="sendmsg()" class="fa main_form"><br>
+        <md-form-field class="text_field">
           <input mdInput placeholder="Mobile no" required [(ngModel)]="user.username" name="username">
         </md-form-field> <br>
-        <button md-raised-button color="warn" type="submit" name="action">Generate OTP</button><br><br>
+        <button md-raised-button color="warn" type="submit" name="action" class="text_field">Generate OTP</button><br><br>
         <span id="err"><small>{{errorMsg1}}</small></span>
       </form>
-      <form role="form" [hidden]="!login_page" (submit)="login()" class="fa"><br>
-        <md-input-container>
+      <form role="form" [hidden]="!login_page" (submit)="login()" class="fa main_form"><br>
+        <md-input-container class="text_field">
           <input mdInput placeholder="Moblie No" required [(ngModel)]="user.username" name="username">
         </md-input-container><br><br>
-        <md-input-container>
+        <md-input-container class="text_field">
           <input mdInput placeholder="OTP" required [(ngModel)]="user.password" name="password">
         </md-input-container><br><br>
-        <button md-raised-button color="warn" type="submit" name="action">LOGIN</button><br><br>
+        <button md-raised-button color="warn" type="submit" name="action" class="text_field">LOGIN</button><br><br>
         <span id="err"><small>{{errorMsg2}}</small></span>
       </form>
     </div>
