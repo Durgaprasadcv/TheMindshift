@@ -2,7 +2,7 @@ img.responsive-img
 {
 width: 5em;
 height: 10%;
-margin-top:35%;
+margin-top:0;
 }
 .centeredlogin
 {
@@ -10,10 +10,11 @@ margin-top:35%;
 }
 .loginpage
 {
-  margin-top: 5%;
+  margin-top: 0;
   zoom:2;
   position: absolute;
-  left: 10%;
+  left: 0;
+  width: 100%;
 }
 .login_main{
   height:100%;
@@ -63,4 +64,13 @@ flex:0 !important;
 .text_field{
   width: 60vw !important
 }
+}
+/* .login_button{
+margin-top: -10px;
+} */
+/* .mat-form-field-infix{
+  border-top-width:0px;
+} */
+.second_form{
+height: 200px;
 }
