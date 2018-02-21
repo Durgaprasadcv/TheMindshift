@@ -55,7 +55,7 @@
 
 <!-- user report -->
 <h6 class="yourshift_class font_20px web_display_none">YOUR SHIFT</h6>
-<div  class="shift_banner web_display_none">
+<div *ngIf="return_report.learningTest[0]"  class="shift_banner web_display_none">
   <div  class=" c100 p{{return_report.learningTest[0].module_percent}} big bg_color_white  font_160px col_percentge">
     <span>{{return_report.learningTest[0].module_percent}}%</span>
     <div class="slice ">

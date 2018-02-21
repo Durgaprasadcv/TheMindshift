@@ -5,7 +5,7 @@
 <h1 class="page_title">Video</h1>
 </div>
 <div class="add_user">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add">Create Video</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add"  (click)="nullify()">Create Video</button>
 </div>
 </div>
 <div class="table_division">
@@ -14,43 +14,19 @@
     <th>Video ID</th>
     <th>Video Name</th>
     <th>Video Description</th>
-    <th>Video Display Name</th>
-    <th>Video Code</th>
-    <th>Video URL</th>
+    <th>Video Author</th>
+    <th>Privacy</th>
     <th>control</th>
   </tr>
   <!-- <tr *ngFor="let i of returnmsg  let ia = index "> -->
-    <tr>
-    <td>video 1</td>
-    <td>video 1</td>
-    <td>video 1</td>
-    <td>video 1</td>
-    <td>video 1</td>
-    <td>www.video 1.com</td>
-
-    <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-     <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
+  <tr *ngFor="let i of returnmsg.videos  let ia = index ">
+    <td>{{i.vid_id}}</td>
+    <td>{{i.vid_name}}</td>
+    <td>{{i.vid_description}}</td>
+    <td>{{i.vid_author}}</td>
+    <td>{{i.privacy}}</td>
+    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.vid_id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.vid_id)" >Delete</button></td>
   </tr>
-  <tr>
-      <td>video 2</td>
-      <td>video 2</td>
-      <td>video 2</td>
-      <td>video 2</td>
-      <td>video 2</td>
-      <td>www.video 2.com</td>
-      <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-       <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-    </tr>
-    <tr>
-        <td>video 3</td>
-        <td>video 3</td>
-        <td>video 3</td>
-        <td>video 3</td>
-        <td>video 3</td>
-        <td>www.video 3.com</td>
-        <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
-         <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete">Delete</button></td>
-      </tr>
 </table>
 </div>
 
@@ -65,32 +41,30 @@
         <h4 class="modal-title">Edit Video</h4>
       </div>
       <div class="modal-body">
-        <md-form-field>
-          <input mdInput placeholder="Video ID" [(ngModel)]="Dept_Name" name="username">
+      <md-form-field>
+        <input mdInput placeholder="Video Name" [(ngModel)]="vid_name" name="username">
       </md-form-field>
       <md-form-field>
-        <input mdInput placeholder="Video Name" [(ngModel)]="Dept_Desp" name="username">
-      </md-form-field>
-      <br>
-      <md-form-field>
-          <input mdInput placeholder="Video Description" [(ngModel)]="Dept_Code" name="username">
+        <input mdInput placeholder="Video Description" [(ngModel)]="vid_description" name="username">
       </md-form-field> 
-      <md-form-field>
-          <input mdInput placeholder="Video Display Name" [(ngModel)]="Dept_Org_ID" name="username">
-      </md-form-field>
       <br>
       <md-form-field>
-        <input mdInput placeholder="Video Code" [(ngModel)]="address_line_1" name="username">
+        <input mdInput placeholder="Video Privacy" [(ngModel)]="privacy" name="username">
       </md-form-field>
-      <md-form-field>
-          <input mdInput placeholder="Video URL" [(ngModel)]="address_line_2" name="username">
-      </md-form-field>
+      <md-radio-group class="example-radio-group" [(ngModel)]="privacy">
+        <md-radio-button class="example-radio-button" [value]="0">
+          Private
+        </md-radio-button>
+        <md-radio-button class="example-radio-button" [value]="1">
+          Public
+        </md-radio-button>
+      </md-radio-group>
       </div>
-      <input type="file" (change)="onChange($event)">
+      <input type="file" [multiple]="multiple" #fileInput>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Edit Video</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit Video</button>
       </div>
     </div>
     
@@ -111,7 +85,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button> -->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
       </div>
     </div>
     
@@ -127,33 +101,32 @@
           <h4 class="modal-title">Add Video</h4>
         </div>
         <div class="modal-body">
-            <md-form-field>
-                <input mdInput placeholder="Video ID" [(ngModel)]="Dept_Name" name="username">
-            </md-form-field>
-            <md-form-field>
-              <input mdInput placeholder="Video Name" [(ngModel)]="Dept_Desp" name="username">
-            </md-form-field>
-            <br>
-            <md-form-field>
-                <input mdInput placeholder="Video Description" [(ngModel)]="Dept_Code" name="username">
-            </md-form-field> 
-            <md-form-field>
-                <input mdInput placeholder="Video Display Name" [(ngModel)]="Dept_Org_ID" name="username">
-            </md-form-field>
-            <br>
-            <md-form-field>
-              <input mdInput placeholder="Video Code" [(ngModel)]="address_line_1" name="username">
-            </md-form-field>
-            <md-form-field>
-                <input mdInput placeholder="Video URL" [(ngModel)]="address_line_2" name="username">
-            </md-form-field>
-            <br>
-            <input type="file" (change)="onChange($event)">
+        <md-form-field>
+          <input mdInput placeholder="Video Name" [(ngModel)]="vid_name" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Video Description" [(ngModel)]="vid_description" name="username">
+        </md-form-field> 
+        <br>
+        <!-- <md-form-field>
+          <input mdInput placeholder="Video Privacy" [(ngModel)]="privacy" name="username">
+        </md-form-field>
+        <br> -->
+        <md-radio-group class="example-radio-group" [(ngModel)]="privacy">
+          <md-radio-button class="example-radio-button" [value]="0">
+            Private
+          </md-radio-button>
+          <md-radio-button class="example-radio-button" [value]="1">
+            Public
+          </md-radio-button>
+        </md-radio-group>
+        <br>
+        <input type="file" [multiple]="multiple" #fileInputa>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button> -->
-          <button type="button" class="btn btn-default" data-dismiss="modal">Add Video</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Video</button>
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Add Video</button> -->
         </div>
       </div>
       

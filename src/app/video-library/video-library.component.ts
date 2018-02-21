@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
+import { RequestOptions, Request, RequestMethod } from '@angular/http';
+import { Http , Response } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http';
+import { ElementRef, Input, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-video-library',
   templateUrl: './video-library.component.html',
@@ -7,13 +11,16 @@ import { WebService } from '../webservice/web.service';
   styleUrls: ['./video-library.component.css']
 })
 export class VideoLibraryComponent implements OnInit {
+  @Input() multiple: boolean = false;
+  @ViewChild('fileInput') inputEl: ElementRef;
+  @ViewChild('fileInputa') inputEla: ElementRef;
   returnmsg;
   returnmsg1
-  Dept_Id;
-  Dept_Name;
-  Dept_Desp;
-  Dept_Code;
-  Dept_Org_ID;
+  vid_id;
+  vid_name;
+  vid_description;
+  vid_author;
+  privacy;
   address_line_1;
   address_line_2;
   city;
@@ -23,10 +30,13 @@ export class VideoLibraryComponent implements OnInit {
   email;
   contact_no;
   files;
-  constructor(private webservice: WebService) { }
+  returnmsg_add;
+  uid;
+  constructor(private webservice: WebService,private http: Http) { }
 
   ngOnInit() {
-    this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
+    this.webservice.webRequest(this,'post',this.webservice.get_video,'','1','');
+    this.uid=(JSON.parse(localStorage.getItem('user')));
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)
@@ -45,72 +55,109 @@ export class VideoLibraryComponent implements OnInit {
     }
     else if(fun_id==5){
       this.returnmsg1 = return_data.json();
-      this.Dept_Name=this.returnmsg1.Dept_Name;
-      this.Dept_Desp=this.returnmsg1.Dept_Desp;
-      this.Dept_Code=this.returnmsg1.Dept_Code;
-      this.Dept_Org_ID=this.returnmsg1.Dept_Org_ID;
-      this.address_line_1=this.returnmsg1.address_line_1;
-      this.address_line_2=this.returnmsg1.address_line_2;
-      this.city=this.returnmsg1.city;
-      this.state=this.returnmsg1.state;
-      this.country=this.returnmsg1.country;
-      this.pincode=this.returnmsg1.pincode;
-      this.email=this.returnmsg1.email;
-      this.contact_no=this.returnmsg1.contact_no;
+      this.vid_id=this.returnmsg1.videos[0].vid_id;
+      this.vid_name=this.returnmsg1.videos[0].vid_name;
+      this.vid_description=this.returnmsg1.videos[0].vid_description;
+      this.vid_author=this.returnmsg1.videos[0].vid_author;
+      this.privacy=this.returnmsg1.videos[0].privacy;
     }
   }
-  add(){
-    const body = {
-      Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
-      Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
-      address_line_1:this.address_line_1,
-      address_line_2:this.address_line_2,
-      city:this.city,
-      state:this.state,
-      country:this.country,
-      pincode:this.pincode,
-      email:this.email,
-      contact_no:this.contact_no
-    };
-      this.webservice.webRequest(this,'post',this.webservice.create_dept,body,'2','');
-  }
+  // add(){
+  //   const body = {
+  //     vid_name:this.vid_name,
+  //     vid_description:this.vid_description,
+  //     vid_author:this.vid_author,
+  //     privacy:this.privacy,
+  //     address_line_1:this.address_line_1,
+  //     address_line_2:this.address_line_2,
+  //     city:this.city,
+  //     state:this.state,
+  //     country:this.country,
+  //     pincode:this.pincode,
+  //     email:this.email,
+  //     contact_no:this.contact_no
+  //   };
+  //     this.webservice.webRequest(this,'post',this.webservice.create_video,body,'2','');
+  // }
   store_id(i){
-   this.Dept_Id=i;
+    console.log(i);
+   this.vid_id=i;
    const body1={
-    Dept_Id:this.Dept_Id
+    vid_id:this.vid_id
    }
-   this.webservice.webRequest(this,'post',this.webservice.get_dept,body1,'5','');
+   this.webservice.webRequest(this,'post',this.webservice.get_video,body1,'5','');
   }
   delete(){
     const body2 = {
-      Dept_Id:this.Dept_Id
+      vid_id:this.vid_id
     };
-    this.webservice.webRequest(this,'post',this.webservice.delete_dept,body2,'3','');
+    this.webservice.webRequest(this,'post',this.webservice.delete_video,body2,'3','');
     // window.location.reload(true);
   }
-  edit(){
-    const body3 = {
-      Dept_Id:this.Dept_Id,
-      Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
-      Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
-      address_line_1:this.address_line_1,
-      address_line_2:this.address_line_2,
-      city:this.city,
-      state:this.state,
-      country:this.country,
-      pincode:this.pincode,
-      email:this.email,
-      contact_no:this.contact_no
-    };
-      this.webservice.webRequest(this,'post',this.webservice.update_dept,body3,'4','');
-  }
+  // edit(){
+  //   const body3 = {
+  //     vid_id:this.vid_id,
+  //     vid_name:this.vid_name,
+  //     vid_description:this.vid_description,
+  //     vid_author:this.vid_author,
+  //     privacy:this.privacy,
+  //   };
+  //     this.webservice.webRequest(this,'post',this.webservice.update_video,body3,'4','');
+  // }
   onChange(event) {
     this.files = event.srcElement.files;
     console.log(this.files);
+  }
+  edit(){
+    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+    let fileCount: number = inputEl.files.length;
+    let formData = new FormData();
+     formData.append('vid_id', this.vid_id);
+     formData.append('vid_file', inputEl.files.item(0));
+      formData.append('vid_name',this.vid_name);
+      formData.append('vid_description',this.vid_description);
+      formData.append('vid_author',this.uid);
+      formData.append('privacy',this.privacy);
+      console.log('form data',formData);
+      this.http.post('http://lg.djitsoft.xyz/api/update_video',formData)
+      .subscribe(
+        data =>  { this.returnmsg_add = data.json();
+      },
+      err => console.log('Web service:failed'),
+      () => console.log('Web service:Success Return data:',this.returnmsg_add));
+  }
+  add(){
+    console.log('code');
+    let inputEla: HTMLInputElement = this.inputEla.nativeElement;
+    let fileCount: number = inputEla.files.length;
+    let formData = new FormData();
+      formData.append('vid_file', inputEla.files.item(0));
+      formData.append('vid_name',this.vid_name);
+      formData.append('vid_description',this.vid_description);
+      formData.append('vid_author',this.uid);
+      formData.append('privacy',this.privacy);
+      console.log('form data',formData);
+      this.http.post('http://lg.djitsoft.xyz/api/create_video',formData)
+      .subscribe(
+        data =>  { this.returnmsg_add = data.json();
+      },
+      err => console.log('Web service:failed'),
+      () => console.log('Web service:Success Return data:',this.returnmsg_add));
+  }
+  nullify(){
+    this.vid_id='';
+    this.vid_name='';
+    this.vid_description='';
+    this.vid_author='';
+    this.privacy=0;
+    this.address_line_1='';
+    this.address_line_2='';
+    this.city='';
+    this.state='';
+    this.country='';
+    this.pincode='';
+    this.email='';
+    this.contact_no='';
   }
 
 }

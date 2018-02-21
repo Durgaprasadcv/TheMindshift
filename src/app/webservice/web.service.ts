@@ -59,6 +59,13 @@ public edit_character=this.main_url+"edit_character";
 public delete_character=this.main_url+"delete_character";
 public get_character=this.main_url+"get_character";
 
+//video library
+public get_video=this.main_url+"get_video";
+public delete_video=this.main_url+"delete_video";
+public update_video=this.main_url+"update_video";
+public create_video=this.main_url+"create_video";
+
+
 public returnmsg;
 constructor(private _http: Http,private _router: Router) {   }
 webRequest(scope,type,url,body,fun_id,loader){

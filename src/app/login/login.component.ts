@@ -54,14 +54,14 @@ export class LoginComponent {
  const body = {Mobile:this.user.username,OTP:this.user.password};
  this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body)
  .subscribe(
-   data =>{ this.returnmsg1 = data.json();
-     localStorage.setItem("user", JSON.stringify(this.returnmsg1.uid));
-     localStorage.setItem("user_email", JSON.stringify(this.returnmsg1.u_email));
-          this._router.navigate(['/bcarousel']);},
-       err => {console.log('failed');
-       this.errorMsg2 = 'Failed to login! try again ...';
-      },
+  data =>{ this.returnmsg1 = data.json();
+    localStorage.setItem("user", JSON.stringify(this.returnmsg1.uid));
+    localStorage.setItem("user_email", JSON.stringify(this.returnmsg1.u_email));
+    this._router.navigate(['/bcarousel']);},
+  err => {  console.log('failed');
+    this.errorMsg2 = 'Failed to login! try again ...';
+  },
        () => console.log('Success return data',this.returnmsg1.uid)
    );
 }
-}
+}                                                                                                                                                                                                                                                                                                               

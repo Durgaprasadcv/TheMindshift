@@ -13,6 +13,7 @@ import { ElementRef, Input, ViewChild } from '@angular/core';
 export class CharacterComponent implements OnInit {
   @Input() multiple: boolean = false;
   @ViewChild('fileInput') inputEl: ElementRef;
+  @ViewChild('fileInputa') inputEla: ElementRef;
   returnmsg;
   returnmsg1
   Dept_Id;
@@ -74,10 +75,10 @@ export class CharacterComponent implements OnInit {
     }
   }
   add(){
-    let inputEl: HTMLInputElement = this.inputEl.nativeElement;
-    let fileCount: number = inputEl.files.length;
+    let inputEla: HTMLInputElement = this.inputEla.nativeElement;
+    let fileCount: number = inputEla.files.length;
     let formData = new FormData();
-      formData.append('char_image_file', inputEl.files.item(0));
+      formData.append('char_image_file', inputEla.files.item(0));
       formData.append('char_name',this.char_name);
       formData.append('char_description',this.char_description);
       console.log('form data',formData);
