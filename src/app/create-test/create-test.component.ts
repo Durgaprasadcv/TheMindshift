@@ -149,6 +149,8 @@ this.addQuestion();
 
   // }
   preview_Func(){
+    this.preview_url=this.myForm.value.test_url;
+    console.log('preview',this.preview_url);
     localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
     localStorage.setItem('preview_refresh',JSON.stringify(1));
     let dialogRef=this.dialog.open(WebPreviewComponent, {
@@ -156,6 +158,7 @@ this.addQuestion();
     });
     dialogRef.afterClosed().subscribe(result => {
     } );
+
     // this.api.getDefaultMedia().currentTime=0;
     // this.api.getDefaultMedia().play();
     // let timer = Observable.timer(1000,1000);

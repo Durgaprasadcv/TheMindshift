@@ -234,7 +234,7 @@
   overflow-y: hidden;
 }
 .test_banner_character{
-  height:12vh;
+  height:8vh;
   width:auto;
   overflow-x: auto;
   overflow-y: hidden;
@@ -270,11 +270,12 @@
 }
 .button_div_class{
   font-weight: bold;
-  background-color: #3176ff;
-  width:100%;
+  background-color:#1d1d1d;
+  /* width:100%; */
+  width: 100vw;
   height:6vh;
   border: none;
-  color:white;
+  color:#27861b;
   padding:0 ;
   font-size: 35px;
   font-family: Lato;
@@ -282,8 +283,14 @@
   font-variant: normal;
 }
 .grey_div{
-  height: 0.5vh;
+  height: 0.75vh;
   width: 100%;
+  background-color: lightgrey;
+}
+.grey_divpros{
+  height: 1.7vh;
+  width: 100%;
+  margin:0;
   background-color: lightgrey;
 }
 .white_div{
@@ -292,7 +299,10 @@
   background-color: rgb(255, 255, 255);
 }
 .font_20px{
-  font-size: 20px;
+  font-size: 16.5px;
+}
+.pross{
+  background-color: green !important;
 }
 
 .dark-area {
@@ -421,4 +431,16 @@ a{
 }
 .login_button{
   width:30vw !important;
+}
+.scroll_none{
+overflow: hidden;
+}
+.border_radius{
+  border-radius: 20px;
+}
+.youshift{
+  margin-top: 2vh !important;
+}
+.margin_top_char{
+margin-top: 2vh;
 }

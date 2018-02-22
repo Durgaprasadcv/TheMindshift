@@ -2,88 +2,88 @@
  <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
     <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
             <md-tab>
-                <!-- <template md-tab-label>Profile</template> -->
+              <!-- <template md-tab-label>Profile</template> -->
               <h1 style="height:200px !important;">User Profile</h1>
             </md-tab>
             <md-tab>
                 <!-- <template md-tab-label>Tests</template> -->
-                <div class="table_division">
-              <md-select placeholder="Select Designation"  [(value)]="designation">
-                <md-option *ngFor="let test of tests" [value]="test.value">
-                  {{ test.viewValue }}
-                </md-option>
-              </md-select>
-            </div>
               <div class="table_division">
-              <table>
-                <tr>
-                  <th>Employee Name</th>
-                  <th>Test Assigned</th>
-                  <th>Test Completed</th>
-                  <th>Test Due</th>
-                </tr>
-                <tr *ngIf="designation==1||designation==0">
-                  <td>Mannger</td>
-                  <td>11</td>
-                  <td>12</td>
-                  <td>13</td>
-                </tr>
-                <tr *ngIf="designation==2||designation==0">
-                  <td>Officer</td>
-                  <td>11</td>
-                  <td>12</td>
-                  <td>13</td>
-                </tr>
-                <tr *ngIf="designation==3||designation==0">
-                  <td>Clerk</td>
-                  <td>11</td>
-                  <td>12</td>
-                  <td>13</td>
-                </tr>
-              </table>
-            </div>
+                <md-select placeholder="Select Designation"  [(value)]="designation">
+                  <md-option *ngFor="let test of tests" [value]="test.value">
+                    {{ test.viewValue }}
+                  </md-option>
+                </md-select>
+              </div>
+              <div class="table_division">
+                <table>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Test Assigned</th>
+                    <th>Test Completed</th>
+                    <th>Test Due</th>
+                  </tr>
+                  <tr *ngIf="designation==1||designation==0">
+                    <td>Manager1</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                  </tr>
+                  <tr *ngIf="designation==2||designation==0">
+                    <td>Officer1</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                  </tr>
+                  <tr *ngIf="designation==3||designation==0">
+                    <td>Clerk1</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                  </tr>
+                </table>
+              </div>
             </md-tab>
             <md-tab>
-                <!-- <template md-tab-label>Report</template> -->
-                <div class="padding_top_6vh">
-                    <h4>Report</h4>
-                    <div class="table_division">
-                    <fusioncharts
+              <!-- <template md-tab-label>Report</template> -->
+              <div class="padding_top_6vh">
+                <h4>Report</h4>
+                <div class="table_division">
+                  <fusioncharts
                     width="95%" 
                     height="400"
                     type="column2d"
                     dataFormat="json"
                     [dataSource]=data >
-                    </fusioncharts>
-                    <fusioncharts
+                  </fusioncharts>
+                  <fusioncharts
                     width="95%" 
                     height="400"
                     type="pie3d"
                     [dataSource]=dataSource >
-                    </fusioncharts>
-                    <fusioncharts
+                  </fusioncharts>
+                  <fusioncharts
                     width="95%" 
                     height="400"
                     type="mscombi2d"
                     [dataSource]=dataSource1>
-                    </fusioncharts>
-                    <fusioncharts
+                  </fusioncharts>
+                  <fusioncharts
                     width="95%" 
                     height="400"
                     type="msbar2d"
                     dataFormat="json"
                     [dataSource]=dataSource2 >
-                    </fusioncharts>
-                    <fusioncharts
+                  </fusioncharts>
+                  <fusioncharts
                     width="95%" 
                     height="400"
                     type="column3d"
                     dataFormat="json"
                     [dataSource]=dataSource3 >
-                    </fusioncharts>
-                    </div>
-                  </div>
-              </md-tab>
+                  </fusioncharts>
+                </div>
+              </div>
+            </md-tab>
     </md-tab-group>
   </div>
 

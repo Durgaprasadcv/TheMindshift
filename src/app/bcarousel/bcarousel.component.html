@@ -8,7 +8,7 @@
 <!-- main image and description -->
 <div class="hello">
   <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
-  <div class="vh_10 web_display_none">
+  <div class="vh_10 web_display_none scroll_none">
     <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
   </div>
 </div>
@@ -22,39 +22,42 @@
 <div  class="test_banner web_display_none">
   <a *ngFor="let i of returnmsg.test  let ia = index " (click)="selecttest(i.test_id)">
     <div class="col rel_division" >
-    <img class="col_img"  src="{{i.test_image}}" >
+    <img class="col_img border_radius"  src="{{i.test_image}}" >
     <p class="test_name">{{i.test_name}}</p>
     <div>
       <a (click)="selecttest(i.test_id)" > 
-        <img class="absolute_division_up play_img"  src="assets/images/play_button.png" >
+        <img class="absolute_division_up play_img "  src="assets/images/play_button.png" >
       </a>
     </div>
   </div>
   </a>
   <h1 *ngIf="returnmsg.text_data=='NO Test Assigned'" class="no_test">No Test Assigned</h1>
 </div>
-
+<!-- <div class="grey_div web_display_none"></div> -->
 <!-- characters -->
-<div  class="test_banner_character web_display_none">
+<div  class="test_banner_character web_display_none margin_top_char">
   <a *ngFor="let i of returnmsg.characters  let ia = index">
       <a data-toggle="modal" data-target="#myModal_delete">
     <div class="col_character" >
       <div class="character_img">
         <img class="col_img_character"  src="{{i.Imag_Path}}" >
       </div>
-      <div>
+      <!-- <div>
         <p class="test_name">{{i.Imag_Tittle}}</p>
-      </div>
+      </div> -->
     </div>
   </a>
   </a>
 </div>
 
 <!-- grey horizontal line -->
-<div class="grey_div web_display_none"></div>
-
+<div class="progress grey_divpros">
+    <div class="progress-bar progress-bar-striped active pross" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+      30%
+    </div>
+  </div>
 <!-- user report -->
-<h6 class="yourshift_class font_20px web_display_none">YOUR SHIFT</h6>
+<h6 class="yourshift_class font_20px web_display_none youshift">YOUR SHIFTS</h6>
 <div *ngIf="return_report.learningTest[0]"  class="shift_banner web_display_none">
   <div  class=" c100 p{{return_report.learningTest[0].module_percent}} big bg_color_white  font_160px col_percentge">
     <span>{{return_report.learningTest[0].module_percent}}%</span>

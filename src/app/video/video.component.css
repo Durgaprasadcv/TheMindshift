@@ -13,7 +13,7 @@
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
-   -ms-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
   
     transform-origin: bottom left;
@@ -26,7 +26,23 @@
     visibility: visible;
   }
   vg-controls {
-    display: none;
+    display: block;
+
+    /* position: absolute;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  
+    transform-origin: bottom left; */
+    /* width: 100vh;
+    height: 100vw;
+    margin-top: -100vw; */
+    /* object-fit: cover; */
+  
+    /* z-index: 4;
+    visibility: visible; */
   }
   html,body{height:100vh !important;width:100vw;margin: 0px;}
   vg-player{
