@@ -32,28 +32,28 @@ export class DialogComponent implements OnInit {
             //console.log(this.prog_bar);
             // if(this.prog_bar==101)
             // {
-              if(this.data.ans.type_options[this.result].id==this.data.ans.answers){
-                document.getElementById("pb").style.display = "none";
-                console.log('fro dialog, correct');
-                this.c_answer=1;
-                this.w_answer=0;
-                this.tic=0;
-              }
-              else{
-                document.getElementById("pb").style.display = "none";
-                console.log('fro dialog, wrong');
-                this.w_answer=1;
-                this.c_answer=0;
-                this.tic=0;
-              }
+              // if(this.data.ans.type_options[this.result].id==this.data.ans.answers){
+              //   document.getElementById("pb").style.display = "none";
+              //   console.log('fro dialog, correct');
+              //   this.c_answer=1;
+              //   this.w_answer=0;
+              //   this.tic=0;
+              // }
+              // else{
+              //   document.getElementById("pb").style.display = "none";
+              //   console.log('fro dialog, wrong');
+              //   this.w_answer=1;
+              //   this.c_answer=0;
+              //   this.tic=0;
+              // }
             // }
           // });
-            let timer = Observable.timer(1000,1000);
-            timer.subscribe(t=>{this.tic=this.tic+1;
-            if(this.tic==2)
-            {
+            // let timer = Observable.timer(1000,1000);
+            // timer.subscribe(t=>{this.tic=this.tic+1;
+            // if(this.tic==2)
+            // {
               this.dialogRef.close(this.result);
-            }});
+            // }});
           }
     }
    ngOnInit() {

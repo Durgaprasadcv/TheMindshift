@@ -269,7 +269,7 @@ skip(result)
   {
     if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
     {
-      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned);
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].type_options[this.resl].id);
       console.log('Correct Answer');
       this.q_answer++;
       this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
@@ -282,7 +282,7 @@ skip(result)
     else
     {
       console.log('Wrong Answer');
-      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0);
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].type_options[this.resl].id);
       if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
       {
         this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
@@ -299,5 +299,16 @@ fullscreen()
  onPlayerReady(api:VgAPI) { 
   this.api = api;
   videoObject.init();
+  this.api.getDefaultMedia().subscriptions.seeked.subscribe(
+    () => {
+        // Set the video to the beginning
+        // this.api.getDefaultMedia().currentTime = 0;
+        console.log('hai',Math.trunc(this.api.getDefaultMedia().currentTime));
+    if((this.api.getDefaultMedia().currentTime)>(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')))){
+      this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')));
+    }
+    }
+
+);
 }
 }

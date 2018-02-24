@@ -16,7 +16,11 @@
   .timer_div{
     float: right;
     text-align:center;
-    width:10%;
+    /* width:10%; */
+    background-color: red;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 100px;
   }
   .alert_head{
     float: left;
@@ -120,4 +124,7 @@
   width: 20vh !important;
   height: 10vw !important;
   font-size: 35px !important;
+  }
+  .margin_top_timer{
+    margin-top: 1.75vh;
   }
