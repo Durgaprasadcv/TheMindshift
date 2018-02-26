@@ -8,6 +8,13 @@ import 'rxjs/add/operator/do';
 export class WebService {
 public main_url='http://lg.djitsoft.xyz/api/';
 // public main_url='http://10.0.0.7:9000/api/';
+// public main_url='http://localhost:8000/api/';
+
+//authetication
+public RequestOTP=this.main_url+'RequestOTP';
+public VerifyOTP=this.main_url+'VerifyOTP';
+
+//test
 public modules=this.main_url+'gettest';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
@@ -64,6 +71,9 @@ public get_video=this.main_url+"get_video";
 public delete_video=this.main_url+"delete_video";
 public update_video=this.main_url+"update_video";
 public create_video=this.main_url+"create_video";
+
+//home bar
+public overall_chapter_completion=this.main_url+"overall_chapter_completion";
 
 
 public returnmsg;

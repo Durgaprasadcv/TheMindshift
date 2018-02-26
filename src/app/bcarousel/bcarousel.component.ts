@@ -14,7 +14,9 @@ export class BcarouselComponent implements OnInit {
   uid;
   public returnmsg;
   public return_report;
+  public return_bar;
   user_email;
+  public progress_bar=10;
   online$: Observable<boolean>;
 constructor(private webservice: WebService,private _router: Router,private http:Http) {
   //check for connectivity
@@ -34,6 +36,9 @@ constructor(private webservice: WebService,private _router: Router,private http:
     this.uid=(JSON.parse(localStorage.getItem('user')));
     //check wheather logged in
     this.webservice.checkCredentials();
+
+    const body3 = {user_id:this.uid};
+    this.webservice.webRequest(this,'post',this.webservice.overall_chapter_completion,body3,'3','');
 
     if((JSON.parse(localStorage.getItem('next_play')))>0){
       this._router.navigate(['/video',JSON.parse(localStorage.getItem('next_play'))]);
@@ -88,6 +93,12 @@ webresponse(fun_id,return_data){
   {
     this.return_report = return_data.json();
     console.log('api',this.return_report);
+  }
+  if(fun_id==3)
+  {
+    this.return_bar = return_data.json();
+    console.log('progress_bar',this.return_bar.overall_chapter_completion);
+    this.progress_bar=this.return_bar.overall_chapter_completion;
   }
 }
 }

@@ -4,11 +4,13 @@ import {UserComponent} from "../user/user.component";
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import {MdInputModule} from '@angular/material';
+import { WebService } from '../webservice/web.service';
+import { Response } from '@angular/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-providers : [AuthenticateService]
+providers : [AuthenticateService,WebService]
 })
 export class LoginComponent {
   public returnmsg1;
@@ -16,7 +18,7 @@ export class LoginComponent {
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
-  constructor(private _service:AuthenticateService,private _router: Router,private http: Http) { 
+  constructor(private _service:AuthenticateService,private _router: Router,private http: Http,private webservice: WebService) { 
     if(localStorage.getItem("user"))
     {
       this._router.navigate(['/bcarousel']);
@@ -33,7 +35,7 @@ export class LoginComponent {
      }
   */
     const body = {Mobile:this.user.username};
-    this.http.post('http://lg.djitsoft.xyz/api/RequestOTP',body)
+    this.http.post(this.webservice.RequestOTP,body)
     .subscribe(
           data =>{  this.returnmsg1 = data.json();
                     this.login_page = true;},
@@ -52,7 +54,7 @@ export class LoginComponent {
   //      this._router.navigate(['/lanselection']);
  //     }
  const body = {Mobile:this.user.username,OTP:this.user.password};
- this.http.post('http://lg.djitsoft.xyz/api/VerifyOTP',body)
+ this.http.post(this.webservice.VerifyOTP,body)
  .subscribe(
   data =>{ this.returnmsg1 = data.json();
     localStorage.setItem("user", JSON.stringify(this.returnmsg1.uid));
