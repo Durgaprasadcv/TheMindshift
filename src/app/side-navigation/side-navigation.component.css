@@ -408,6 +408,9 @@ margin:0 !important;
       height: 5.5vh !important;
       line-height: 55px !important;
     }
+    .mob_display_none{
+      display: none;
+    }
     }
     .active{
       background-color: #bbb6b6;
