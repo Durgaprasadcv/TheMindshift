@@ -10,8 +10,8 @@ import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { WebService } from '../webservice/web.service';
-import 'assets/video.js'
-declare var videoObject: any;
+// import 'assets/video.js'
+// declare var videoObject: any;
 import { VgStreamingModule } from 'videogular2/streaming';
 @Component({
   selector: 'app-video',
@@ -298,7 +298,7 @@ fullscreen()
 }
  onPlayerReady(api:VgAPI) { 
   this.api = api;
-  videoObject.init();
+  // videoObject.init();
   this.api.getDefaultMedia().subscriptions.seeked.subscribe(
     () => {
         // Set the video to the beginning

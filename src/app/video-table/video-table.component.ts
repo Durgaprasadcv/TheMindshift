@@ -12,12 +12,12 @@ import { Http , Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
-import 'assets/video.js'
-declare var videoObject: any;
+// import 'assets/video.js'
+// declare var videoObject: any;
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 import {ViewChild} from '@angular/core';
-import 'assets/bcarousel.js'
-declare var bcarouselObject: any;
+// import 'assets/bcarousel.js'
+// declare var bcarouselObject: any;
 import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-video-table',

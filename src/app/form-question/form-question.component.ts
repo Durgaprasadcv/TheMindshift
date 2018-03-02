@@ -14,8 +14,8 @@ import { ElementRef,HostListener,OnDestroy,ViewEncapsulation } from '@angular/co
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { CreateTestComponent } from "../create-test/create-test.component";
-import 'assets/video.js'
-declare var videoObject: any;
+// import 'assets/video.js'
+// declare var videoObject: any;
 @Component({
   moduleId: module.id,
   selector: 'app-form-question',

@@ -10,8 +10,8 @@ import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { WebService } from '../webservice/web.service';
-import 'assets/video.js'
-declare var videoObject: any;
+// import 'assets/video.js'
+// declare var videoObject: any;
 import { VgStreamingModule } from 'videogular2/streaming';
 import {WebPreviewComponent} from "../web-preview/web-preview.component";
 @Component({
@@ -175,6 +175,6 @@ fullscreen()
 }
  onPlayerReady(api:VgAPI) { 
   this.api = api;
-  videoObject.init();
+  // videoObject.init();
 }
 }
