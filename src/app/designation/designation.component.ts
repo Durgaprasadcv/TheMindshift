@@ -15,6 +15,7 @@ export class DesignationComponent implements OnInit {
   Designation_Level;
   Designation_OrgID;
   Designation_Id;
+  refresh=1;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
@@ -24,16 +25,20 @@ export class DesignationComponent implements OnInit {
     if(fun_id==1)
     {
       this.returnmsg = return_data.json();
+      this.refresh=1;
       console.log(this.returnmsg);
     }
     else if(fun_id==2){
-      window.location.reload(true);
+      //window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     }
     else if(fun_id==3){
-      window.location.reload(true);
+      //window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     }
     else if(fun_id==4){
       window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     }
     else if(fun_id==5){
       this.returnmsg1 = return_data.json();

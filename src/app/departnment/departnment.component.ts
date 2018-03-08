@@ -38,13 +38,16 @@ export class DepartnmentComponent implements OnInit {
           console.log(this.returnmsg);
     }
     else if(fun_id==2){
-      window.location.reload(true);
+      // window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
     else if(fun_id==3){
-      window.location.reload(true);
+      // window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
     else if(fun_id==4){
-      window.location.reload(true);
+      // window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
     else if(fun_id==5){
       this.returnmsg1 = return_data.json();
