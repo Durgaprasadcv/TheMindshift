@@ -82,7 +82,7 @@ export class CharacterComponent implements OnInit {
       formData.append('char_name',this.char_name);
       formData.append('char_description',this.char_description);
       console.log('form data',formData);
-      this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
+      this.http.post('http://www.lg.djitsoft.xyz/api/create_character',formData)
       .subscribe(
         data =>  { this.returnmsg_add = data.json();
       },
@@ -112,7 +112,7 @@ export class CharacterComponent implements OnInit {
       formData.append('char_name',this.char_name);
       formData.append('char_description',this.char_description);
       console.log('form data',formData);
-      this.http.post('http://lg.djitsoft.xyz/api/edit_character',formData)
+      this.http.post('http://www.lg.djitsoft.xyz/api/edit_character',formData)
       .subscribe(
         data =>  { this.returnmsg_add = data.json();
       },
@@ -140,7 +140,7 @@ export class CharacterComponent implements OnInit {
       formData.append('char_name','s');
       formData.append('char_description','s');
       console.log('form data',formData);
-      this.http.post('http://lg.djitsoft.xyz/api/create_character',formData)
+      this.http.post('http://www.lg.djitsoft.xyz/api/create_character',formData)
       .subscribe(
         data =>  { this.returnmsg_add = data.json();
       },

@@ -119,7 +119,7 @@ export class VideoLibraryComponent implements OnInit {
       formData.append('vid_author',this.uid);
       formData.append('privacy',this.privacy);
       console.log('form data',formData);
-      this.http.post('http://lg.djitsoft.xyz/api/update_video',formData)
+      this.http.post('http://www.lg.djitsoft.xyz/api/update_video',formData)
       .subscribe(
         data =>  { this.returnmsg_add = data.json();
       },
@@ -137,7 +137,7 @@ export class VideoLibraryComponent implements OnInit {
       formData.append('vid_author',this.uid);
       formData.append('privacy',this.privacy);
       console.log('form data',formData);
-      this.http.post('http://lg.djitsoft.xyz/api/create_video',formData)
+      this.http.post('http://www.lg.djitsoft.xyz/api/create_video',formData)
       .subscribe(
         data =>  { this.returnmsg_add = data.json();
       },

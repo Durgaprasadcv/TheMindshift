@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 @Injectable()
 export class WebService {
-public main_url='http://lg.djitsoft.xyz/api/';
+ public main_url='http://www.lg.djitsoft.xyz/api/';
 // public main_url='http://10.0.0.7:9000/api/';
 // public main_url='http://localhost:9000/api/';
 
