@@ -91,6 +91,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { OrganizationComponent } from './organization/organization.component';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
 import { OfflineComponent } from './offline/offline.component';
+import {RatingModule} from "ngx-rating";
+import { SettingsComponent } from './settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,7 +124,8 @@ import { OfflineComponent } from './offline/offline.component';
     PreviewVideoComponent,
     OrganizationComponent,
     ActivityLogComponent,
-    OfflineComponent
+    OfflineComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -143,6 +146,7 @@ import { OfflineComponent } from './offline/offline.component';
     ReactiveFormsModule,
     VgStreamingModule,
     AngularMultiSelectModule,
+    RatingModule,
     RouterModule.forRoot([
       { path: 'login',component:LoginComponent },
       { path: 'home',component: HomeComponent },
@@ -170,6 +174,8 @@ import { OfflineComponent } from './offline/offline.component';
       { path: 'organization',component:OrganizationComponent },
       { path: 'activity-log',component:ActivityLogComponent },
       { path: 'offline',component:OfflineComponent },
+      { path: 'settings',component:SettingsComponent },
+      
       { path: '', component: LoginComponent },
  //     { path: '**', component: LoginComponent },
     ])

@@ -171,12 +171,11 @@ video_questions()
       {
         if(this.returnmsg1.stop_time==this.ticks)
         {
-          const body2 = {
-            user_id:(JSON.parse(localStorage.getItem('user'))),
-            test_id:this.current_test
-          };
-          this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'3','');
-          localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+          // const body2 = {
+          //   user_id:(JSON.parse(localStorage.getItem('user'))),
+          //   test_id:this.current_test
+          // };
+          // this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'3','');
           this.api.getDefaultMedia().pause();
           localStorage.setItem('replay',JSON.stringify(0));
           localStorage.setItem('next_play',JSON.stringify(0));
@@ -185,27 +184,37 @@ video_questions()
           data: {t_question:this.returnmsg1.no_of_questions,c_answer:this.q_answer,t_marks:this.marks,report:1}
           });
           dialogRef.afterClosed().subscribe(result => {
-          if(result==0){
+          if(result.contrl==0){
             //home
             this.system_back=1;
             localStorage.setItem('replay',JSON.stringify(0));
             localStorage.setItem('next_play',JSON.stringify(0));
             window.history.back();
           }
-          else if(result==1){
+          else if(result.contrl==1){
             //replay
             this.system_back=1;
             localStorage.setItem('next_play',JSON.stringify(0));
             localStorage.setItem('replay',JSON.stringify(this.returnmsg1.test_id));
             window.history.back();
           }
-          else if(result==2){
+          else if(result.contrl==2){
             //next
             this.system_back=1;
             localStorage.setItem('replay',JSON.stringify(0));
             localStorage.setItem('next_play',JSON.stringify(this.returnmsg1.next_test_id));
             window.history.back();
           }
+          if(result.feedback>=1){
+            const body2 = {
+              user_id:(JSON.parse(localStorage.getItem('user'))),
+              test_id:this.current_test,
+              feed_back:result.feedback
+            };
+            this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'3','');
+            localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
+          }
+          
         });
         console.log('Total Correct Answer',this.q_answer);
         console.log('Total Marks',this.marks);

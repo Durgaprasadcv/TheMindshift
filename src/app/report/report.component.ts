@@ -4,6 +4,7 @@ import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { WebService } from '../webservice/web.service';
+import {RatingModule} from "ngx-rating";
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -11,9 +12,12 @@ import { WebService } from '../webservice/web.service';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
+starsCount: number;
  report_display=this.data.report;
  return_bar;
  uid;
+ return_result={contrl:0, feedback:0 };
+
   constructor(private route: ActivatedRoute,public dialogRef: MdDialogRef<ReportComponent>,
     @Inject(MD_DIALOG_DATA) public data: any,private _router: Router,private webservice: WebService) { }
   
@@ -45,7 +49,10 @@ export class ReportComponent implements OnInit {
     }
   selectvideo(button_value):void{
     // 0=home 1=replay 2=next
-    this.dialogRef.close(button_value);
+    this.return_result.contrl=button_value;
+    this.return_result.feedback=this.starsCount;
+    this.dialogRef.close(this.return_result);
+    console.log(this.starsCount);
   }
 
 }

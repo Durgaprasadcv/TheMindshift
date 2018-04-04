@@ -126,6 +126,11 @@
             </div>
         </div> -->
     </div>
+    <div class="star_rating" *ngIf="report_display">
+            <!-- regular rating -->
+            <rating [(ngModel)]="starsCount"></rating>
+            <br/><br/>
+    </div>
     <div class="pop_control" *ngIf="report_display">
         <div class="inline_block img_div_back display_none">
             <a (click)="selectvideo()" >

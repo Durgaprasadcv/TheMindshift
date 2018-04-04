@@ -3,13 +3,38 @@
   <div class="sidebar-overlay"></div>
   <div class="tool_bar">
     <div class="button_div">
-    <button md-icon-button class="sidebar-toggle ">
+    <button md-icon-button class="sidebar-toggle mob_display_none">
       <md-icon>menu</md-icon>
     </button>
     </div>
     ￼<div class="title_app headding_div">
       <p class="mindshift_head">MINDSHIFT</p>
     </div>
+    <div class="Vert_menu" [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+    </div>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item (click)="Home()">
+        <md-icon>home</md-icon>
+        <span>Home</span>
+      </button>
+      <button md-menu-item (click)="user()">
+        <md-icon>report</md-icon>
+        <span>Report</span>
+      </button>
+      <button md-menu-item (click)="settings()">
+        <md-icon>settings</md-icon>
+        <span>Settings</span>
+      </button>
+      <button md-menu-item>
+          <md-icon>hearing </md-icon>
+          <span>Disable alerts</span>
+      </button>
+      <button md-menu-item (click)="logout()">
+          <md-icon>cancel</md-icon>
+          <span>LogOut</span>
+      </button>
+    </md-menu>
     <!-- <div class="button_styl"> -->
         <!-- <a href="#demo" data-toggle="collapse" class=" dashboard_button"><i class="material-icons">tune</i></a> -->
       <!-- <button md-icon-button md-position-mode="target-right target" [mdMenuTriggerFor]="menu">

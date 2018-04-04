@@ -68,6 +68,10 @@ export class SideNavigationComponent implements OnInit {
   {
     this._router.navigate(['/report-rough']);
   }
+  settings()
+  {
+    this._router.navigate(['/settings']);
+  }
   menu(i)
   {
     console.log("menu",i);

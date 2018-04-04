@@ -188,7 +188,7 @@ font-size:17vw;
   margin:0 !important;
   }
   .pop_control{
-    margin-top: 30vw;
+    margin-top: 0vw;
   }
   .display_none
 {
@@ -215,4 +215,16 @@ font-size:17vw;
   padding: 10px;
   margin-left: 10vh !important;
   margin-right: 10vh !important;
+}
+.star_rating{
+  margin-top: 25vw;
+  padding-left: 49vw;
+}
+.rating_button{
+  padding-left: 10vw;
+  width: 22vw;
+  color: #000000 !important;
+}
+.mat-radio-label-content{
+  color: #000000 !important;
 }

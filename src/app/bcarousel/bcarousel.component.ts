@@ -4,6 +4,7 @@ import { WebService } from '../webservice/web.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {RatingModule} from "ngx-rating";
 @Component({
   selector: 'app-bcarousel',
   templateUrl: './bcarousel.component.html',
@@ -11,6 +12,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./bcarousel.component.less','./bcarousel.component.css']
 })
 export class BcarouselComponent implements OnInit {
+  starsCount: number;
   uid;
   public returnmsg;
   public return_report;
