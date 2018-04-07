@@ -15,6 +15,9 @@ import 'rxjs/add/operator/map';
 export class SideNavigationComponent implements OnInit {
   user_email;
   online$: Observable<boolean>;
+  public returnmsg;
+  User_Id;
+  side_menu;
   constructor(private webservice: WebService,private _router: Router) {
     this.online$ = Observable.merge(
       Observable.of(navigator.onLine),
@@ -24,9 +27,19 @@ export class SideNavigationComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.User_Id=(JSON.parse(localStorage.getItem('user')));
     this.user_email=(JSON.parse(localStorage.getItem('user_email')));
     this.webservice.checkCredentials();
     bcarouselObject.init();
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+  }
+  webresponse(fun_id,return_data){
+    if(fun_id==1)
+    {
+          this.returnmsg = return_data.json();
+          console.log(this.returnmsg);
+    }
   }
   Home()
   {
@@ -72,10 +85,14 @@ export class SideNavigationComponent implements OnInit {
   {
     this._router.navigate(['/settings']);
   }
-  menu(i)
+  user(){
+    this._router.navigate(['/user-report']);
+  }
+  menu()
   {
-    console.log("menu",i);
-    localStorage.setItem("menu", JSON.stringify(i));
+    console.log("menu");
+    localStorage.setItem("menu", JSON.stringify('s'));
+    this._router.navigate(['/i']);
   }
   logout():void {
     this.webservice.logout();

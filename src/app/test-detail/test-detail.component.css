@@ -1,0 +1,100 @@
+.padding_top_6vh{
+    padding-top: 6vh;
+    }
+
+    body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(31, 175, 91);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0px;
+  height: 120px;
+  z-index: 200;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+img {
+    border-radius: 50%;
+    margin-left: 60px;
+    margin-top: 70px;
+}
+.trainner-detail{
+    margin-left: 170px;
+    margin-top: -79px;
+    font-size: 25px;
+    color: white;
+    /* margin-top: 20px; */
+}
+.chat{
+    margin-left: 490px;
+    margin-top: -60px;
+}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbarr {
+    overflow: hidden;
+    background-color:white;
+    position: fixed;
+    /* bottom: 0; */
+    width: 100%;
+    margin-bottom: 0px;
+    height: 120px;
+    color:black;
+    z-index: 200;
+  }
+ .list_group{
+     margin-top: 140px;
+ }
+ .panel{
+     margin-left: 40px;
+     margin-right: 40px;
+     z-index: -0;
+ }
+ .icons{
+    float: right;
+ }
+ .glyphicon-ok{
+    /* overflow: hidden; */
+    z-index: 1;
+     color:#0a5f0a;
+     font-size: 26px;
+ }
+ .glyphicon-remove{
+     color:red;
+     z-index: 1;
+     font-size: 26px;
+ }
+ .glyphicon-option-horizontal{
+     color:sandybrown;
+     z-index: 1;
+     font-size: 26px;
+ }

@@ -141,7 +141,7 @@
   }
   .img_div_center{
     width:33%;
-  }
+  } 
   .float_left{
     float: left;
   }
@@ -181,16 +181,18 @@ font-size:17vw;
   width: 0.84em;
   height: 0.84em;
 }
-.shift_des{
+.shift_des
+{
   font-size: 16px;
   padding-top: 10vh;
   text-align: center;
   margin:0 !important;
-  }
-  .pop_control{
+}
+.pop_control
+{
     margin-top: 0vw;
-  }
-  .display_none
+}
+.display_none
 {
   display: none;
 }

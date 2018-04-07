@@ -1,0 +1,119 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
+
+<!-- <button type="button" class="btn btn-primary btn-block">List of chapter</button> -->
+
+<div >
+<div class="panel-group" [hidden]="report_page" id="accordion" *ngFor="let a of ELEMENT_DATA">
+  <div class="panel panel-default" >
+    <div class="panel-heading" >
+      <h4 class="panel-title">
+        <p  data-toggle="collapse" data-parent="#accordion" href="#collapse1">List of Chapter {{a.position}}</p>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <li><b>Name : &nbsp;</b>{{a.name}}</li><br>
+        <li>{{a.symbol}}</li><br>
+        </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="add_user">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add">Filter</button>
+</div>
+<div class="container" >
+    <h2>User Report</h2>
+    <div class="serch">
+          <div class="example-header">
+        <md-form-field class="from">
+
+        <input  mdInput placeholder="Search.." onfocus="this.value=''"  [(ngModel)]="searchText" >
+    </md-form-field>
+    </div>
+    </div>
+    <div *ngIf="returnmsg">
+    <div *ngFor="let a of returnmsg.test">
+    <ul class="list-group" *ngIf="filter==1 ||filter==3" >
+      <li *ngIf="a.Assigned_test_Completed_on == '0000-00-00 00:00:00'" class="list-group-item" [routerLink]="['/test-detail']" (click)="test_detail()">
+
+        <div><b>{{a.test_name}}</b></div>
+
+
+      {{a.test_description}}
+      <p class="date rd" id="rd">{{a.Assigned_test_Due_date}}</p>
+        <!-- <p class="date rd" id="rd" *ngIf="red==1&&green==0&&blue==0&&a1==1">{{a.Assigned_test_Completed_on}}</p>
+        <p class="date gren" id="gren" *ngIf="red==0&&green==1&&blue==0&&b1==1">{{a.Assigned_test_Completed_on}}</p>
+        <p class="date ble" id="ble" *ngIf="red==0&&green==0&&blue==1">{{a.Assigned_test_Completed_on }}</p> -->
+        <!-- <b class="date ble"   *ngIf="Duedate <=1">{{Dat1}}</b>
+        <b class="date gren"  *ngIf="Duedate == 0">{{Dat1}}</b> -->
+      </li>
+      <!-- <li class="list-group-item">Second item</li>
+      <li class="list-group-item">Third item</li> *ngIf="Duedate >= 0"-->
+      <!-- (keyup)="applyFilter($event.target.value)" -->
+      <!-- <b class="date" style="color:blue"></b> -->
+      <!--  -->
+    </ul>
+    <ul class="list-group" *ngIf="filter==2||filter==3" >
+        <li *ngIf="a.Assigned_test_Completed_on !='0000-00-00 00:00:00'" class="list-group-item" [routerLink]="['/test-detail']" (click)="test_detail()">
+
+          <div><b>{{a.test_name}}</b></div>
+         {{a.test_description}}
+         <p class="date gren" id="gren" >{{a.Assigned_test_Due_date}}</p>
+        </li>
+        <!-- a.Assigned_test_Completed_on!='0000-00-00 00:00:00'" -->
+      </ul>
+  </div>
+</div>
+<div [hidden]="!from"class="container">
+    <div class="jumbotron">
+      <h1>User Report </h1>
+      <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal_add" role="dialog">
+    <div class="modal-dialog">
+        <form  name="myfrom" #loginForm="ngForm">
+            <!-- role="form" novalidate -->
+      <!-- Modal content-->
+      <div class="modal-content modal-Cont">
+        <div class="modal-header">
+          <button type="button" class="close flot_Rihtt" data-dismiss="modal">&times;</button>
+          <!-- <h4 class="modal-title">Sorting Header</h4> -->
+        </div>
+        <div class="modal-body">
+            <ul class="list-group" >
+                   <li class="incomplte" data-dismiss="modal" (click)="incomplte()">
+                      <span [hidden]="!coml"><span class="glyphicon glyphicon-ok"  style="font-size:16px;color:rgb(20, 136, 136)" ></span></span>&nbsp;&nbsp;
+                     <b>Incomplted Task</b>
+
+                    </li>
+                <hr>
+                <li class="incomplte" data-dismiss="modal" (click)="Complte()">
+                    <span [hidden]="!comlp"><span class="glyphicon glyphicon-ok"  style="font-size:16px;color:rgb(20, 136, 136)"></span></span>&nbsp;&nbsp;<b>Completed Task</b></li>
+               <hr>
+               <li class="incomplte" data-dismiss="modal" (click)="AllTask()">
+                  <span [hidden]="!comll"> <span class="glyphicon glyphicon-ok"  style="font-size:16px;color:rgb(20, 136, 136)"></span></span>&nbsp;&nbsp;<b>All Task</b></li>
+
+
+
+              </ul>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-default" [disabled]="loginForm.invalid" data-dismiss="modal" (click)="add()"></button> -->
+        </div>
+      </div>
+      <!-- [disabled]="loginForm.invalid " -->
+      <!-- invalid -->
+      <!-- [disabled]="!formdata.valid" -->
+        </form>
+    </div>
+  </div>

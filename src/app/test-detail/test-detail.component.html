@@ -1,0 +1,119 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
+
+</div>
+<div class="navbar">
+  <!-- <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a> -->
+ <!-- <div class="img">
+   <i class="material-icons">perm_identity</i>
+  </div> -->
+  <img src="../../assets/images/logo.png" alt="Avatar" style="width:70px">
+  <div class="trainner-detail">
+    <p>Menthuza B.V Trainer<br>
+      <small>MCA,MED,BEEAQ</small></p>
+
+  </div>
+  <div class="chat">
+  <i class="material-icons" style="font-size:48px;color:white">chat</i>
+</div>
+</div>
+<!-- <div class="topnav">
+
+</div> -->
+
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top hightt">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <p><strong>PPpp</strong></p>
+    </ul>
+    <h4 >sdfsdfgdf</h4>
+  </div>
+</nav> -->
+<div class="navbarr">
+   <h2 style="text-align:center">Maths </h2>
+   <!-- <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+    </button> -->
+
+</div>
+<div class="list_group">
+<div *ngFor="let a of testresult">
+  <div>
+    <div class="panel panel-success"  *ngIf="a.val==1">
+        <div class="panel-heading">
+           <!-- <button md-icon-button > <md-icon>more_vert</md-icon></button> -->
+           {{a.quetion}}
+            <div class="icons">
+              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+              <!-- <span class="glyphicon glyphicon-remove-sign"></span> -->
+              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+            </div>
+          </div>
+          <div class="panel-body">{{a.answer}}
+
+
+            </div>
+       </div>
+    <div class="panel  panel-danger" *ngIf="a.val==0">
+        <div class="panel-heading">{{a.quetion}}
+            <div class="icons">
+              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+              <!-- <span class="glyphicon glyphicon-remove-sign"></span> -->
+              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+            </div>
+          </div>
+          <div class="panel-body">{{a.answer}}
+
+
+            </div>
+    </div>
+    <div class="panel  panel-warning" *ngIf="a.val==2">
+        <div class="panel-heading">{{a.quetion}}
+            <div class="icons">
+              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+              <!-- <span class="glyphicon glyphicon-remove-sign"></span> -->
+              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+            </div>
+          </div>
+          <div class="panel-body">{{a.answer}}
+
+
+            </div>
+    </div>
+    <!-- <div class="panel  panel-success"></div> -->
+    <!-- <span  ></span> -->
+      <!-- <div class="panel  panel-success" > -->
+
+
+
+  </div>
+</div>
+  <!-- <div class="panel  panel-success">
+    <div class="panel-heading">
+      anee
+      <div class="icons">
+      <span *ngIf="icons == 1 " class="glyphicon glyphicon-ok"></span>
+      <span *ngIf="icons == 1" class="glyphicon glyphicon-option-horizontal"></span>
+      <!-- <span class="glyphicon glyphicon-remove-sign"></span> -->
+      <!-- <span *ngIf="icons == 1" class="glyphicon glyphicon-remove"></span>
+    </div>
+    </div>
+    <div class="panel-body">
+      </div>
+      </div> -->
+
+
+
+
+
+
+   </div>
+

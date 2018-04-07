@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http , Response } from '@angular/http';
+import { Http , Response,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
@@ -75,46 +75,83 @@ public create_video=this.main_url+"create_video";
 //home bar
 public overall_chapter_completion=this.main_url+"overall_chapter_completion";
 
+//aneesh api
+public test=this.main_url+"getusertest";
+
+//menu permission
+public menu=this.main_url+"menu";
+public menu_items;
 
 public returnmsg;
+public request_header_token;
+public return_header;
 constructor(private _http: Http,private _router: Router) {   }
+
+createAuthorizationHeader(headers: Headers) {
+  this.request_header_token=null;
+  this.request_header_token=(JSON.parse(localStorage.getItem('token')));
+  headers.append('authorization', this.request_header_token); 
+  headers.append('Content-Type', 'application/json'); 
+}
+
 webRequest(scope,type,url,body,fun_id,loader){
   switch(type)
   {
     case 'get' :
     { 
-      console.log('Web Service: GET Method')
-      this._http.get(url)
+      console.log('Web Service: GET Method');
+      let headers = new Headers();
+      this.createAuthorizationHeader(headers);
+      this._http.get(url,{headers: headers})
       .subscribe(
        data =>  {
        this.returnmsg = data.json();
+       this.return_header = data.headers.get('Authorization');
+       if(this.return_header){
+        localStorage.setItem("token", JSON.stringify(this.return_header));
+       }
        scope.webresponse(fun_id,data);
        },
-       err => console.log('Web service:failed'),
-       () => console.log('Web service:Success Return data:',this.returnmsg));
+       err =>{ console.log('Web service:failed');
+                scope.webresponse(fun_id,0);
+        },
+       () =>{ console.log('Web service:Success Return data:',this.returnmsg);
+              console.log('Web service:Success Return Header:',this.return_header);
+      });
       break;
      }
     case 'post' :{
       console.log("Web service:POST Method");
-      this._http.post(url,body)
+      let headers = new Headers();
+      this.createAuthorizationHeader(headers);
+      this._http.post(url,body,{headers: headers})
       .subscribe(
        data =>  {
        this.returnmsg = data.json();
+       this.return_header = data.headers.get('Authorization');
+       if(this.return_header){
+        localStorage.setItem("token", JSON.stringify(this.return_header));
+       }
        scope.webresponse(fun_id,data);
        },
-       err => console.log('Web service:failed'),
-       () => console.log('Web service:Success Return data:',this.returnmsg));
+       err =>{ console.log('Web service:failed');
+                scope.webresponse(fun_id,0);
+        },
+       () => {
+         console.log('Web service:Success Return data:',this.returnmsg);
+         console.log('Web service:Success Return Header:',this.return_header);
+      });
       break;}
   }
 }
 checkCredentials() {
   if (localStorage.getItem("user") === null){
-    this._router.navigate(['/login']);
+    this._router.navigate(['/loogin']);
   }
 }
 logout() {
   localStorage.removeItem("user");
-  this._router.navigate(['/login']);
+  this._router.navigate(['/loogin']);
   localStorage.clear();
   // window.location.reload();
 }

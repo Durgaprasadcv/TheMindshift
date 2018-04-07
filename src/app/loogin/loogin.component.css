@@ -1,0 +1,94 @@
+@media (max-width: 768px){
+.main_div{
+    width: 100vw;
+    height: 100vh;
+}
+.login_button{
+    color: #27861b;
+    width: 100vw;
+    height: 6vh;
+    background-color: #1d1d1d;
+    zoom: 1;
+    font-weight: bold;
+    font-size: 3vh;
+    font-family: Lato;
+    font-style: normal;
+    font-variant: normal;
+}
+.img_logo{
+    height: calc(339px);
+    width: calc(291px);
+    margin-left: calc((100% - 291px)/2);
+    margin-top: calc((50vh - 339px)/2);
+}
+.mob_input{
+    height: 10vh;
+    width: 99vw;
+}
+.otp_input{
+    height: 10vh;
+    width: 99vw;
+}
+.logo_div{
+    height: 50vh;
+    width: 100vw;
+}
+.error_msg{
+    height: 24vh;
+    width: 100vw;
+}
+input[type=number]:focus {
+    border-bottom: 0.5vh solid #1d1d1d;
+    border-top:0.5vh solid #1d1d1d;
+    border-left: 0.5vw solid #1d1d1d;
+    border-right: 0.5vw solid #1d1d1d;
+    border-radius: 2px;
+}
+input[type=number] {
+    border-bottom: 0.5vh solid #1d1d1d;
+    border-top:0.5vh solid #1d1d1d;
+    border-left: 0.5vw solid #1d1d1d;
+    border-right: 0.5vw solid #1d1d1d;
+    border-radius: 2px;
+}
+.error_text{
+    color: #ff0000;
+    text-align: center;
+    font-size: 35px;
+}
+}
+@media (min-width: 769px){
+    .img_logo{
+        height: 339px;
+        width:291px;
+        margin-left: 500px;
+        /* margin-left: calc((100% - 388px)/2);
+        margin-top: calc((50vh - 452px)/2); */
+    }
+    .mob_input{
+        margin-left: 550px;
+        width: 200px;
+    }
+    .otp_input{
+        margin-left: 550px;
+        width: 200px;
+    }
+    .login_button{
+        margin-left: 550px;
+        color: #27861b;
+        width: 200px;
+        background-color: #1d1d1d;
+        zoom: 1;
+        font-weight: bold;
+        font-size: 3vh;
+        font-family: Lato;
+        font-style: normal;
+        font-variant: normal;
+    }
+    .error_text{
+        color: #ff0000;
+        text-align: center;
+        font-size: 20px;
+    }
+    
+}

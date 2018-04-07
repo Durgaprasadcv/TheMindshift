@@ -93,6 +93,9 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
 import { OfflineComponent } from './offline/offline.component';
 import {RatingModule} from "ngx-rating";
 import { SettingsComponent } from './settings/settings.component';
+import { LooginComponent } from './loogin/loogin.component';
+import { UserReportComponent } from './user-report/user-report.component';
+import { TestDetailComponent } from './test-detail/test-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,7 +128,10 @@ import { SettingsComponent } from './settings/settings.component';
     OrganizationComponent,
     ActivityLogComponent,
     OfflineComponent,
-    SettingsComponent
+    SettingsComponent,
+    LooginComponent,
+    UserReportComponent,
+    TestDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -175,8 +181,10 @@ import { SettingsComponent } from './settings/settings.component';
       { path: 'activity-log',component:ActivityLogComponent },
       { path: 'offline',component:OfflineComponent },
       { path: 'settings',component:SettingsComponent },
-      
-      { path: '', component: LoginComponent },
+      { path: 'loogin',component:LooginComponent },
+      { path: 'user-report',component:UserReportComponent },
+      { path: 'test-detail',component:TestDetailComponent },
+      { path: '', component: LooginComponent },
  //     { path: '**', component: LoginComponent },
     ])
   ],
