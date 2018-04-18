@@ -32,7 +32,6 @@ export class UserReportComponent implements OnInit {
   Due;
   Dud;
   comlp;
-  // sll;
   sll1;
   sll2;
   retr;
@@ -65,16 +64,11 @@ export class UserReportComponent implements OnInit {
     ngOnInit() {
       this.ganesh == 3;
       this.returnmsg = this.retr;
-  // alert(this.searchText);
   const body = {user_id:this.uid};
       this.webservice.webRequest(this,'post',this.webservice.test,body,'1','');
       var dd =this.json.length;
-    // console.log('Json Dataz',dd);
    for(var n=0;n<dd;n++){
     this.Ass_Dte = this.json[n].Assigned_date;
-  
-  
-    //  console.log('Assined Dte',this.due_dte);Invalid Date
   }
    for(var t=0;t<dd;t++){
     this.duee_dte = this.json[t].Due_dat;
@@ -90,13 +84,8 @@ export class UserReportComponent implements OnInit {
       if(fun_id==1)
       {
         this.returnmsg = return_data.json();
-  
-        // this.returnmsg = false;
-        // this.incomplte();
         console.log('api12',this.returnmsg);
-  
         this.array = this.returnmsg.test.length;
-        // console.log('arry',this.array);
         for(var x=0;x<this.array;x++){
           this.assigne=this.returnmsg.test[x].Assigned_test_Due_date;
           this.assgn_compl=this.returnmsg.test[x].Assigned_test_Completed_on;
@@ -107,56 +96,9 @@ export class UserReportComponent implements OnInit {
           if(this.assigne >  this.assgn_compl){
             console.log('true');
             return this.a1;
-            // console.log('true');
           } else if(this.assigne < this.assgn_compl){
-            console.log('false');
             return this.b1;
-            // console.log('false');
           }
-          // this.assLen = this.assigne.slice(0,4);
-          // console.log('asslen',this.assLen);
-          // this.assLen1=this.assigne.slice(5,7);
-          // console.log('assLen1',this.assLen1);
-          // this.assLen2=this.assigne.slice(8,10);
-          // console.log('assLen2',this.assLen2);
-          // this.assign_lt = assLen2 /assLen2/assLen;
-          // +'/'+assLen1+'/'+assLen;
-          // console.log('Assig Due Dte',this.assign_lt);
-          // Assigned_test_Completed_on
-  
-  
-  
-          // for(var  r=0;r<this.array;r++){
-          //   this.assgn_compl=this.returnmsg.test[r].Assigned_test_Completed_on;
-          //   this.Name=this.returnmsg.test[r].test_name;
-            // console.log('name',this.Name);
-            // this.Descript=this.returnmsg.test[r].test_description;
-            // console.log('Description',this.Descript);
-  
-            // console.log('Assined Complted',this.assgn_compl);
-            // this.assgn_compl=new Date(this.assgn_compl);
-            // console.log('assgn_compl',this.assgn_compl);
-            // this.asssgn_coml = this.assgn_compl.slice(0,4);
-            // console.log('assgn_log',this.asssgn_coml);
-            // this.asign_complt1=this.assgn_compl.slice(5,7);
-            // console.log('asign_compl1',this.asign_complt1);
-            // this.asign_complte2 = this.assgn_compl.slice(8,10);
-            // console.log('asign_complte2',this.asign_complte2);
-  
-          // if(this.assLen > this.assgn_compl && this.assLen1 > this.asign_complt1 && this.assLen2 > this.asign_complte2){
-            // if(this.assLen > this.assgn_compl && this.assLen1>this.asign_complt1 && this.assLen2 > this.asign_complte2){
-            // if(1){
-            // this.Pending[this.bold].Assigned_test_Completed_on= this.assgn_compl;
-            // this.Pending[this.bold].test_description =this.returnmsg.test[r].test_description;
-            // this.Pending[this.bold].test_name= this.returnmsg.test[r].test_name;
-            // this.bold++;
-            // }
-            // if(this.assLen < this.assgn_compl && this.assLen1 < this.asign_complt1 && this.assLen2 < this.asign_complte2){
-            //   this.DUE_Date[this.bol].Assigned_test_Completed_on=this.assgn_compl;
-            //   this.DUE_Date[this.bol].test_description = this.returnmsg.test[r].test_description;
-            //   this.DUE_Date[this.bol].test_name = this.returnmsg.test[r].test_name;
-            //   this.bol++;
-  
          }
   
       }
@@ -189,11 +131,8 @@ export class UserReportComponent implements OnInit {
       this.green=1;
       this.blue=0;
       this.slla=0;
-      // this.sllb=this.DUE_Date;
-      // this.returnmsg.test=this.returnmsg;
       this.sllc=0;
       this.ganesh=1;
-      // console.log('return',this.returnmsg);
       this.filter= 2;
       }
      AllTask(){

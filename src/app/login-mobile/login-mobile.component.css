@@ -1,0 +1,56 @@
+.main_div{
+    height:100vh;
+    width:100vw;
+}
+.logo_div{
+    height:60vh;
+    width:100vw;
+    background-color: gray;
+}
+.input_country{
+    height: 10vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 90vw;
+    font-size: 9vw;
+}
+.input_country::-webkit-input-placeholder {
+    color: #000000 !important;
+}    
+.input_country:-moz-placeholder {
+    color: #000000 !important;  
+}    
+.input_country::-moz-placeholder { 
+    color: #000000 !important;  
+}
+.input_country:-ms-input-placeholder {  
+    color: #000000 !important;  
+}
+.input_mobile_no{
+    height: 10vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 90vw;
+    font-size: 9vw;
+}
+.button_send{
+    margin-left: 44vw;
+    background-color: white;
+    border-color: transparent;
+    margin-top: 5vh;
+}
+.img_logo{
+    height: calc(339px);
+    width: calc(291px);
+    margin-left: calc((100% - 291px)/2);
+    margin-top: calc((50vh - 339px)/2);
+}
+.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 7vh;
+    width: 12vw;
+    font-size: 12vw;
+    color: #ff6000;
+}

@@ -1,7 +1,89 @@
 .main_content{
-    padding-top:6vh !important;
+    padding-top:8vh !important;
     z-index:-1;
-  }
-  .language_button{
+}
+.language_button{
       width:100% !important;
+}
+.float_right{
+    float: right;
+}
+.container{
+    margin-left: 0;
+}
+.text_right{
+    text-align: right;
+}
+.input_elem{
+    width: 225px;
+    height: 20px;
+}
+.update{
+    margin-left: 22%;
+    margin-top: 5%;
+}
+.company_img{
+    height: 250px;
+    width:  250px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 100px;
+}
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    height: 34px;
   }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px !important;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+html{
+    overflow-x: hidden !important;
+}

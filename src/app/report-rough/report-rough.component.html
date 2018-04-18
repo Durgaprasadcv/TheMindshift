@@ -1,11 +1,11 @@
 <app-side-navigation></app-side-navigation>
  <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
     <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
-            <md-tab>
+            <md-tab label="Tab 1">
               <!-- <template md-tab-label>Profile</template> -->
               <h1 style="height:200px !important;">User Profile</h1>
             </md-tab>
-            <md-tab>
+            <md-tab label="Tab 2">
                 <!-- <template md-tab-label>Tests</template> -->
               <div class="table_division">
                 <md-select placeholder="Select Designation"  [(value)]="designation">
@@ -43,7 +43,7 @@
                 </table>
               </div>
             </md-tab>
-            <md-tab>
+            <md-tab label="Tab 3">
               <!-- <template md-tab-label>Report</template> -->
               <div class="padding_top_6vh">
                 <h4>Report</h4>

@@ -3,9 +3,177 @@
 <p>
   Settings
 </p>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" class="language_button">Language</button>
+<!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" class="language_button">Language</button>
 <div id="demo" class="collapse">
 <button class="language_button">English</button>
 <button class="language_button">Hindi</button>
 </div>
+</div> -->
+<div class="container">
+  <div class="dropdown">
+    <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">ADD
+    <span class="caret"></span></button> -->
+    <ul class="dropdown-menu">
+      <li><a (click)="super_user()">Add Super User</a></li>
+      <li><a (click)="partner()">Add Partner</a></li>
+      <li><a (click)="company()">Add Company</a></li>
+      <li><a (click)="admin()">Add Admin</a></li>
+    </ul>
+  </div>
 </div>
+<div *ngIf="super_user_id">
+  <label>Super Admin Name:</label>
+  <input input="text"/> 
+  <label>Super Admin Place:</label>
+  <input input="text"/> 
+</div>
+<div *ngIf="company_id">
+  <div class="col-md-12">
+    <label class="col-md-4 text_right">Company Logo:</label>
+    <input class="col-md-4" type="file"/> 
+  </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Company Name:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Company Title:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Address:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Contact:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Email:</label>
+    <input class="col-md-4 input_elem" type="text"/>
+    </div>
+    <br> 
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Support Email:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Description:</label>
+    <input class="col-md-4 input_elem" type="text"/> 
+    </div>
+    <br>
+    <div class="col-md-12">
+    <label class="col-md-4 text_right">Poster Image:</label>
+    <input class="col-md-4 input_elem" type="file"/> 
+    </div>
+    <br>
+    <br>
+    <br>
+    <button>Create Company</button>
+  </div>
+  <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
+    <md-tab label="Company Profile">
+      <br>
+      <br>
+      <br>
+        <div class="col-md-12">
+            <label class="col-md-2 text_right">Company Logo:</label>
+            <input class="col-md-4" type="file"/> 
+          </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Company Name:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Company Title:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Address:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Contact:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Email:</label>
+            <input class="col-md-4 input_elem" type="text"/>
+            </div>
+            <br> 
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Support Email:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Description:</label>
+            <input class="col-md-4 input_elem" type="text"/> 
+            </div>
+            <br>
+            <div class="col-md-12">
+            <label class="col-md-2 text_right">Poster Image:</label>
+            <input class="col-md-4 input_elem" type="file"/> 
+            </div>
+            <br>
+            <br>
+            <br>
+            <button class="update">Update</button>
+    </md-tab>
+    <md-tab label="Error Message">
+      <br>
+      <br>
+      <br>
+      <div class="col-md-12">
+        <label class="col-md-2 text_right">Unregistered No:</label>
+        <input class="col-md-4 input_elem" type="text"/> 
+      </div>
+      <br>
+      <div class="col-md-12">
+          <label class="col-md-2 text_right">Invalid OTP:</label>
+          <input class="col-md-4 input_elem" type="text"/> 
+      </div>
+      <br>
+            <br>
+            <br>
+            <button class="update">Update</button>
+    </md-tab>
+    <md-tab label="Images">
+      <h5>Company Image</h5>
+        <img src="assets/images/logo.png" class="company_img" alt="Mindshift">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        <br>
+        <h5>Client Image</h5>
+        <img src="assets/images/logo.png" class="company_img" alt="Mindshift">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <br>
+        <h5>Banner Image</h5>
+        <img src="assets/images/logo.png" class="company_img" alt="Mindshift">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        <h5>Add Image</h5>
+        <input class="col-md-4 input_elem" type="file"/> 
+    </md-tab>
+</md-tab-group>
+
+  
+

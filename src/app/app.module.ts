@@ -96,6 +96,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { LooginComponent } from './loogin/loogin.component';
 import { UserReportComponent } from './user-report/user-report.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
+import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
+import { LoginMobileComponent } from './login-mobile/login-mobile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +133,9 @@ import { TestDetailComponent } from './test-detail/test-detail.component';
     SettingsComponent,
     LooginComponent,
     UserReportComponent,
-    TestDetailComponent
+    TestDetailComponent,
+    VirtualKeyboardComponent,
+    LoginMobileComponent
   ],
   imports: [
     BrowserModule,
@@ -184,8 +188,10 @@ import { TestDetailComponent } from './test-detail/test-detail.component';
       { path: 'loogin',component:LooginComponent },
       { path: 'user-report',component:UserReportComponent },
       { path: 'test-detail',component:TestDetailComponent },
+      { path: 'virtual-keyboard',component:VirtualKeyboardComponent },
+      { path: 'login-mobile',component:LoginMobileComponent },
       { path: '', component: LooginComponent },
- //     { path: '**', component: LoginComponent },
+      { path: '**', component: LoginComponent },
     ])
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
