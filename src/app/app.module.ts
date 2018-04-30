@@ -98,6 +98,7 @@ import { UserReportComponent } from './user-report/user-report.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
 import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
 import { LoginMobileComponent } from './login-mobile/login-mobile.component';
+import { OverallReportComponent } from './overall-report/overall-report.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -135,7 +136,8 @@ import { LoginMobileComponent } from './login-mobile/login-mobile.component';
     UserReportComponent,
     TestDetailComponent,
     VirtualKeyboardComponent,
-    LoginMobileComponent
+    LoginMobileComponent,
+    OverallReportComponent
   ],
   imports: [
     BrowserModule,
@@ -189,6 +191,7 @@ import { LoginMobileComponent } from './login-mobile/login-mobile.component';
       { path: 'user-report',component:UserReportComponent },
       { path: 'test-detail',component:TestDetailComponent },
       { path: 'virtual-keyboard',component:VirtualKeyboardComponent },
+      { path: 'overall-report',component:OverallReportComponent },
       { path: 'login-mobile',component:LoginMobileComponent },
       { path: '', component: LooginComponent },
       { path: '**', component: LoginComponent },

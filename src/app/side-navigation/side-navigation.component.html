@@ -10,7 +10,7 @@
     ￼<div class="title_app headding_div">
       <p class="mindshift_head">MINDSHIFT</p>
     </div>
-    <div class="Vert_menu" [mdMenuTriggerFor]="menu">
+    <div class="Vert_menu lap_disp_none" [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>
     </div>
     <md-menu #menu="mdMenu">
@@ -27,8 +27,8 @@
         <span>Settings</span>
       </button>
       <button md-menu-item>
-          <md-icon>hearing </md-icon>
-          <span>Disable alerts</span>
+        <md-icon>hearing </md-icon>
+        <span>Disable alerts</span>
       </button>
       <button md-menu-item (click)="logout()">
           <md-icon>cancel</md-icon>

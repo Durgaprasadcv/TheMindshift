@@ -1,20 +1,20 @@
 <app-side-navigation></app-side-navigation>
- <div class="md-content padding_top_6vh" flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
-    <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
-            <md-tab label="Tab 1">
+ <div class="md-content padding_top_6vh"  flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
+    <!-- <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()"> -->
+            <!-- <md-tab label="Tab 1"> -->
               <!-- <template md-tab-label>Profile</template> -->
-              <h1 style="height:200px !important;">User Profile</h1>
-            </md-tab>
-            <md-tab label="Tab 2">
+              <!-- <h1 style="height:200px !important;">User Profile</h1> -->
+            <!-- </md-tab> -->
+            <!-- <md-tab label="Tab 2"> -->
                 <!-- <template md-tab-label>Tests</template> -->
-              <div class="table_division">
-                <md-select placeholder="Select Designation"  [(value)]="designation">
-                  <md-option *ngFor="let test of tests" [value]="test.value">
-                    {{ test.viewValue }}
-                  </md-option>
-                </md-select>
-              </div>
-              <div class="table_division">
+              <!-- <div class="table_division"> -->
+                <!-- <md-select placeholder="Select Designation"  [(value)]="designation"> -->
+                  <!-- <md-option *ngFor="let test of tests" [value]="test.value"> -->
+                    <!-- {{ test.viewValue }} -->
+                  <!-- </md-option> -->
+                <!-- </md-select> -->
+              <!-- </div> -->
+              <!-- <div class="table_division">
                 <table>
                   <tr>
                     <th>Employee Name</th>
@@ -41,12 +41,12 @@
                     <td>13</td>
                   </tr>
                 </table>
-              </div>
-            </md-tab>
-            <md-tab label="Tab 3">
+              </div> -->
+            <!-- </md-tab> -->
+            <!-- <md-tab label="Tab 3"> -->
               <!-- <template md-tab-label>Report</template> -->
-              <div class="padding_top_6vh">
-                <h4>Report</h4>
+              <!-- <div class="padding_top_6vh"> -->
+                <!-- <h4>Report</h4> -->
                 <div class="table_division">
                   <fusioncharts
                     width="95%" 
@@ -61,7 +61,7 @@
                     type="pie3d"
                     [dataSource]=dataSource >
                   </fusioncharts>
-                  <fusioncharts
+                  <!-- <fusioncharts
                     width="95%" 
                     height="400"
                     type="mscombi2d"
@@ -80,11 +80,11 @@
                     type="column3d"
                     dataFormat="json"
                     [dataSource]=dataSource3 >
-                  </fusioncharts>
+                  </fusioncharts> -->
                 </div>
-              </div>
-            </md-tab>
-    </md-tab-group>
+              <!-- </div> -->
+            <!-- </md-tab> -->
+    <!-- </md-tab-group> -->
   </div>
 
   <!-- <div id="exTab1" class="container width_100per padding_top_6vh padding_lr_null">	

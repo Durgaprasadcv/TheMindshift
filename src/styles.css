@@ -75,3 +75,8 @@
           .padding_15px{
               padding:15px;
           }
+          @media (min-width: 769px){
+            .lap_disp_none{
+                display: none;
+            }
+          }

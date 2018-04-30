@@ -130,7 +130,6 @@
               </md-select>
             </div>
             <div class="color_black table_division">  
-              <div>
                <div class="date_div">
                   <p>Select Date</p>
                   <md-form-field>
@@ -146,7 +145,6 @@
                     <md-datepicker #picker3></md-datepicker>
                   </md-form-field>
                 </div>
-              </div>
             </div>
             <div class="assign_tab">
               <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"  (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
