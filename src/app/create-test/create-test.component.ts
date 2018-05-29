@@ -66,7 +66,7 @@ public preview_url=0;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
- }
+}
  createForm() {
   this.form = this._fb.group({
     name: ['', Validators.required],
@@ -80,36 +80,35 @@ ngOnInit() {
     "name": "151",
     "test_question":[
     {
-            "marks":"q1",
-            "options":[
-                            {"Option": "vvv", "skip_time": "11"},
-                            {"Option": "vvv", "skip_time": "33"}
-                    ],
-            "pause_time":"11",
-            "question":"q1",
-            "wait_time":"11"
+      "marks":"q1",
+      "options":[
+        {"Option": "vvv", "skip_time": "11"},
+        {"Option": "vvv", "skip_time": "33"}
+      ],
+      "pause_time":"11",
+      "question":"q1",
+      "wait_time":"11"
     },
-  
-  {
-  "marks":"q1",
-  "options":[
-  {"Option": "vvv", "skip_time": "11"},
-  {"Option": "vvv", "skip_time": "11"}],
-  "pause_time":"11",
-  "question":"q2",
-  "wait_time":"11"
-  }]
+    {
+      "marks":"q1",
+      "options":[
+        {"Option": "vvv", "skip_time": "11"},
+        {"Option": "vvv", "skip_time": "11"}],
+      "pause_time":"11",
+      "question":"q2",
+      "wait_time":"11"
+    }]
   };
   this.uid=(JSON.parse(localStorage.getItem('user')));
   
 this.myForm = this._fb.group({
-  uid:[this.uid],
+  uid: [this.uid],
   name: [''],
   description: ['', [Validators.required, Validators.minLength(5)]],
   start_time: ['', [Validators.required, Validators.minLength(5)]],
   end_time: ['', [Validators.required, Validators.minLength(5)]],
   test_duration: ['', [Validators.required, Validators.minLength(5)]],
-  test_url:['',],
+  test_url: ['',],
   test_question: this._fb.array([]),
 });
 const body = {
@@ -180,8 +179,7 @@ this.addQuestion();
     // myVideo.play();
     const body = {
       // user_id:'32'
-    
-  };
+    };
    this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
   }
   webresponse(fun_id,return_data){
@@ -227,8 +225,8 @@ initQuestion_edit(i) {
       question_id:['2'],
       pause_time: [this.test_data.test_question[i].question, Validators.required],
       wait_time: [''],
-      question:['sss'],
-      marks:[''],
+      question: ['sss'],
+      marks: [''],
       options: this._fb.array([]),
   });
 }

@@ -99,6 +99,10 @@ import { TestDetailComponent } from './test-detail/test-detail.component';
 import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
 import { LoginMobileComponent } from './login-mobile/login-mobile.component';
 import { OverallReportComponent } from './overall-report/overall-report.component';
+import { PreviewVideoNewComponent } from './preview-video-new/preview-video-new.component';
+import { ModuleCreationComponent } from './module-creation/module-creation.component';
+import { AccessLevelsComponent } from './access-levels/access-levels.component';
+import { PermissionComponent } from './permission/permission.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -137,7 +141,11 @@ import { OverallReportComponent } from './overall-report/overall-report.componen
     TestDetailComponent,
     VirtualKeyboardComponent,
     LoginMobileComponent,
-    OverallReportComponent
+    OverallReportComponent,
+    PreviewVideoNewComponent,
+    ModuleCreationComponent,
+    AccessLevelsComponent,
+    PermissionComponent
   ],
   imports: [
     BrowserModule,
@@ -170,6 +178,7 @@ import { OverallReportComponent } from './overall-report/overall-report.componen
       { path: 'report-rough',component:ReportRoughComponent },
       { path: 'create-test',component:CreateTestComponent },
       { path: 'test-details',component:TestDetailsComponent },
+      { path: 'preview-video-new',component:PreviewVideoNewComponent },
       { path: 'web-preview',component:WebPreviewComponent },
       { path: 'create-user',component:CreateUserComponent },
       { path: 'test-table',component:TestTableComponent },
@@ -192,6 +201,9 @@ import { OverallReportComponent } from './overall-report/overall-report.componen
       { path: 'test-detail',component:TestDetailComponent },
       { path: 'virtual-keyboard',component:VirtualKeyboardComponent },
       { path: 'overall-report',component:OverallReportComponent },
+      { path: 'module-creation',component:ModuleCreationComponent },
+      { path: 'access-levels',component:AccessLevelsComponent },
+      { path: 'permission',component:PermissionComponent },
       { path: 'login-mobile',component:LoginMobileComponent },
       { path: '', component: LooginComponent },
       { path: '**', component: LoginComponent },

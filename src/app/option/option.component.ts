@@ -10,8 +10,6 @@ import { FormGroup } from '@angular/forms';
 export class OptionComponent implements OnInit {
   @Input('group') myForm: FormGroup;
   constructor() { }
-
   ngOnInit() {
   }
-
 }

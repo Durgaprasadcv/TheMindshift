@@ -1,0 +1,8 @@
+.chek_box{
+    position: initial;
+    left: -9999px;
+    visibility: visible;
+}
+th{
+    text-align: center;
+}

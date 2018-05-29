@@ -66,13 +66,14 @@ ngOnInit() {
   }  
 }
 //to update result
-question_update(test_id,test_name,answer_time,question_no,marks_per_question){
+question_update(test_id,test_name,answer_time,question_no,marks_per_question,option_id){
   const body1 = {
     test_id:test_id,
-    test_name:test_name,
+    // test_name:test_name,
     answer_time:answer_time,
     question_no:question_no,
     marks_per_question:marks_per_question,
+    option_id:option_id,
     user_id:(JSON.parse(localStorage.getItem('user')))};
   this.webservice.webRequest(this,'post',this.webservice.save_result,body1,'2','');
 }
@@ -271,14 +272,14 @@ skip(result)
   if(this.resl==999)
   {
     console.log('Not Answered');
-    this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0);
+    this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0,0);
   }
   // if question is answred correctly
   else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
   {
     if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
     {
-      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].type_options[this.resl].id);
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
       console.log('Correct Answer');
       this.q_answer++;
       this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
@@ -291,7 +292,7 @@ skip(result)
     else
     {
       console.log('Wrong Answer');
-      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].type_options[this.resl].id);
+      this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
       if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
       {
         this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;

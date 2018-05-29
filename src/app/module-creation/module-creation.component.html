@@ -1,0 +1,62 @@
+<h3>
+    Add Modules
+</h3>
+<div class="module_div" *ngIf="returnmsg2">
+    <br>
+    <label>Module Name:</label>
+    <input type="text" [(ngModel)]="Menu_Module_Name">
+    <label>Module link:</label>
+    <input type="text" [(ngModel)]="Menu_Module_Href">
+    <label>Active:</label>
+    <label class="switch" >
+        <input type="checkbox" [(ngModel)]="Menu_Module_Active">
+        <span class="slider round"></span>
+    </label>
+    <button (click)="create_module()">Add Module</button>
+    <br>
+</div>
+<div class="module_div" *ngFor="let i of returnmsg2.menu  let ia = index">
+    <br>
+    <label>Module Name:</label>
+    <h6 class="mod_name">{{i.menu_details.Menu_Module_Name}}</h6>
+    <label>Module link:</label>
+    <h6 class="mod_name">{{i.menu_details.Menu_Module_Href}}</h6>
+    <label class="switch">
+        <input type="checkbox" [(ngModel)]="i.menu_details.Menu_Module_Active">
+        <span class="slider round"></span>
+    </label>
+    <button class="create_button" (click)="create_modules()">Edit</button>
+    <button class="create_button" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
+    <button (click)="sub_modules()">Add Sub Module</button>
+    <br>
+    <br>
+    <span *ngFor="let j of i.submenu let ja = index">
+      <label>Submodule Name:</label>
+      <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Name}}</h6>
+      <label>Submodule link:</label>
+      <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Href}}</h6>
+      <label>Active:</label>
+      <label class="switch">
+          <input type="checkbox" [(ngModel)]="j.submenu_details.Menu_Modules_Link_Active">
+          <span class="slider round"></span>
+      </label>
+      <button class="create_button" (click)="create_modules()">Edit</button>
+      <button class="create_button" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+      <br>
+    </span>
+    <!-- <div class="sub_module_div" *ngFor="let i of submodules  let ia = index">  
+        <span *ngIf="i>0">
+            <label>Submodule Name:</label>
+            <input type="text">
+            <label>Submodule Link:</label>
+            <input type="text">
+            <label>Active:</label>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        <button class="create_button" (click)="create_modules()">Submit</button>
+        </span>
+    </div> -->
+    <br>
+</div>

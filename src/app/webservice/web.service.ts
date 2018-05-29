@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 @Injectable()
 export class WebService {
- public main_url='http://www.lg.djitsoft.xyz/api/';
-// public main_url='http://10.0.0.7:9000/api/';
+//  public main_url='http://www.lg.djitsoft.xyz/api/';
+public main_url='http://10.0.0.7:8000/api/';
 // public main_url='http://localhost:9000/api/';
 
 //authetication
@@ -85,6 +85,16 @@ public menu_items;
 public returnmsg;
 public request_header_token;
 public return_header;
+
+//modules creation
+public add_module=this.main_url+"add_module";
+public add_submodule=this.main_url+"add_submodule";
+public delete_module=this.main_url+"delete_module";
+public delete_submodule=this.main_url+"delete_submodule";
+public get_modules=this.main_url+"get_modules";
+public edit_module=this.main_url+"edit_module";
+public edit_submodule=this.main_url+"edit_submodule";
+
 constructor(private _http: Http,private _router: Router) {   }
 
 createAuthorizationHeader(headers: Headers) {

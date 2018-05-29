@@ -20,44 +20,38 @@
 <div *ngFor="let a of testresult">
   <div>
     <div class="panel panel-success"  *ngIf="a.val==1">
-        <div class="panel-heading">
-           {{a.quetion}}
-            <div class="icons">
-              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
-              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
-              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
-            </div>
-          </div>
-          <div class="panel-body">{{a.answer}}
-
-
-            </div>
-       </div>
+      <div class="panel-heading">
+        {{a.quetion}}
+        <div class="icons">
+          <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+          <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+          <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+        </div>
+      </div>
+      <div class="panel-body">{{a.answer}}
+      </div>
+    </div>
     <div class="panel  panel-danger" *ngIf="a.val==0">
-        <div class="panel-heading">{{a.quetion}}
-            <div class="icons">
-              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
-              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
-              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
-            </div>
-          </div>
-          <div class="panel-body">{{a.answer}}
-
-
-            </div>
+      <div class="panel-heading">{{a.quetion}}
+        <div class="icons">
+          <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+          <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+          <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+        </div>
+      </div>
+      <div class="panel-body">{{a.answer}}
+      </div>
     </div>
     <div class="panel  panel-warning" *ngIf="a.val==2">
-        <div class="panel-heading">{{a.quetion}}
-            <div class="icons">
-              <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
-              <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
-              <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
-            </div>
-          </div>
-          <div class="panel-body">{{a.answer}}
-
-
-            </div>
+      <div class="panel-heading">{{a.quetion}}
+        <div class="icons">
+          <span *ngIf="a.val==1" class="glyphicon glyphicon-ok"></span>
+          <span *ngIf="a.val==2" class="glyphicon glyphicon-option-horizontal"></span>
+          <span *ngIf="a.val==0" class="glyphicon glyphicon-remove"></span>
+        </div>
+      </div>
+      <div class="panel-body">{{a.answer}}
+      </div>
     </div>
   </div>
 </div>

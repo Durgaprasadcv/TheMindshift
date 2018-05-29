@@ -9,32 +9,32 @@
         <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
           <div class="form-group">
             <md-form-field>
-                <input mdInput placeholder="Test Name" formControlName="name">
+              <input mdInput placeholder="Test Name" formControlName="name">
             </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                 Test Name is required (minimum 5 characters).
               </small> -->
-              <br>
-              <md-form-field>
-                  <input mdInput placeholder="Test Description" formControlName="description">
-              </md-form-field>
+            <br>
+            <md-form-field>
+              <input mdInput placeholder="Test Description" formControlName="description">
+            </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                 Test Description is required (minimum 5 characters).
               </small> -->
-              <br>
-              <md-form-field>
-                  <input mdInput placeholder="Start Time" formControlName="start_time">
-              </md-form-field>
+            <br>
+            <md-form-field>
+              <input mdInput placeholder="Start Time" formControlName="start_time">
+            </md-form-field>
             <!-- <small *ngIf="!myForm.controls.name.valid" class="text-danger">
                     Start Time is required (minimum 5 characters).
               </small> -->
             <br>
             <md-form-field>
-                <input mdInput placeholder="Stop Time" formControlName="end_time">
+              <input mdInput placeholder="Stop Time" formControlName="end_time">
             </md-form-field>
             <br>
             <md-form-field>
-                <input mdInput placeholder="Test Duration" formControlName="test_duration">
+              <input mdInput placeholder="Test Duration" formControlName="test_duration">
             </md-form-field>
             <!-- <md-form-field>
                 <input mdInput placeholder="Test URL" formControlName="test_url">
@@ -83,58 +83,11 @@
     </div>
   </div>
   <!-- <div id="here" *ngIf="preview_url" class="col-md-6 main_block">    -->
-      <div id="here"class="col-md-6 main_block">  
-        <vg-player class="video_pos" (onPlayerReady)="onPlayerReady($event)">
-            <vg-overlay-play></vg-overlay-play>
-            <vg-buffering></vg-buffering>
-
-            <vg-scrub-bar>
-                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-            </vg-scrub-bar>
-
-            <vg-controls>
-                <vg-play-pause></vg-play-pause>
-                <vg-playback-button></vg-playback-button>
-
-                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-
-                <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
-
-                <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-
-                <vg-track-selector></vg-track-selector>
-                <vg-mute></vg-mute>
-                <vg-volume></vg-volume>
-                <vg-fullscreen></vg-fullscreen>
-            </vg-controls>
-            <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay>
-                <!-- <source src="{{preview_url}}" type="video/mp4"> -->
-                <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
-            </video>  
-        </vg-player>
-        <div *ngIf="return_video" class="col-xs-12">
-          <br>
-            <h1><b>Videos</b></h1>
-            <br>
-            <!-- <h2 *ngFor="let i of return_video.video_library  let ia = index"  >{{i.vid_name}}</h2> -->
-            <h2>Video1</h2>
-            <br>
-            <h2>Video2</h2>
-            <br>
-            <h2>Video3</h2>
-            <br>
-            <h2>Video4</h2>
-            <br>
-            <h2>Video5</h2>
-            <br>
-        </div> 
-        <button  (click)="preview_Func()" class="button">Preview</button>   
-        
-        <!-- <button  (click)="myFunc2()" class="button">console</button>      -->
-        <hr>
-        <h2>Seek Time: {{current_time}}</h2>
+      <div id="here"class="col-md-6 main_block">     
+          <!-- http://localhost:4200/#/preview-video-new  -->
+        <iframe src="http://localhost:4200/#/video/1" width="100%" height="500">
+          <p>Your browser does not support iframes.</p> 
+        </iframe>
     </div>
+    
 </div>
-

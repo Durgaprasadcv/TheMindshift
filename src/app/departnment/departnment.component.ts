@@ -32,10 +32,9 @@ export class DepartnmentComponent implements OnInit {
   
   }
   webresponse(fun_id,return_data){
-    if(fun_id==1)
-    {
-          this.returnmsg = return_data.json();
-          console.log(this.returnmsg);
+    if(fun_id==1){
+      this.returnmsg = return_data.json();
+      console.log(this.returnmsg);
     }
     else if(fun_id==2){
       // window.location.reload(true);

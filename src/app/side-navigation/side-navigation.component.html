@@ -141,7 +141,7 @@
           </li>
         </ul>
       </li>-->
-      <!-- <li [routerLinkActive]="['active']">
+      <li [routerLinkActive]="['active']">
         <a [routerLink]="['/bcarousel']" (click)="menu('bcarousel')">
             Home
         </a>
@@ -195,12 +195,12 @@
               <a  [routerLink]="['/report-rough']" (click)="menu('report-rough')">
                   Report
               </a>
-            </li> -->
-            <li *ngFor="let i of side_menu  let ia = index" [routerLinkActive]="['active']" class="mob_display_none">
-              <a *ngIf="i.view" [routerLink]="[i.Modules_href]">
-                  {{i.Modules_Name}}
-              </a>
             </li>
+            <!-- <li *ngFor="let i of side_menu  let ia = index" [routerLinkActive]="['active']" class="mob_display_none">
+              <a *ngIf="i.view" [routerLink]="[i.Menu_Modules_href]">
+                  {{i.Menu_Modules_Name}}
+              </a>
+            </li> -->
 
      <!-- <li>
         <a href="#">

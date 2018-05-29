@@ -6,27 +6,25 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
-
 tr:nth-child(even) {
     background-color: #dddddd;
 }
 #myModal{
-width: 100% !important;
-height: 100% !important;
-max-height: 100% !important;
-background-color: transparent;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
 }
 #myModal_delete{
-width: 100% !important;
-height: 100% !important;
-max-height: 100% !important;
-background-color: transparent;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
 }
 .add_user{
     float: right;
@@ -36,9 +34,9 @@ background-color: transparent;
 }
 #myModal_add{
     width: 100% !important;
-height: 100% !important;
-max-height: 100% !important;
-background-color: transparent;
+    height: 100% !important;
+    max-height: 100% !important;
+    background-color: transparent;
 }
 input[type=text] {
     width: 100%;
