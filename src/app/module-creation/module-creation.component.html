@@ -1,47 +1,66 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
 <h3>
     Add Modules
 </h3>
 <div class="module_div" *ngIf="returnmsg2">
     <br>
+    <div class="module_detail">
     <label>Module Name:</label>
-    <input type="text" [(ngModel)]="Menu_Module_Name">
+    <input type="text" [(ngModel)]="Menu_Module_Name_add">
     <label>Module link:</label>
-    <input type="text" [(ngModel)]="Menu_Module_Href">
-    <label>Active:</label>
-    <label class="switch" >
+    <input type="text" [(ngModel)]="Menu_Module_Href_add">
+    </div>
+    <!-- <label class="switch" >
         <input type="checkbox" [(ngModel)]="Menu_Module_Active">
         <span class="slider round"></span>
-    </label>
-    <button (click)="create_module()">Add Module</button>
+    </label> -->
+    <div class="module_control">
+    <button class="btn btn-info btn-lg" (click)="create_module()">Add Module</button>
+    </div>
     <br>
 </div>
+<div *ngIf="returnmsg2">
 <div class="module_div" *ngFor="let i of returnmsg2.menu  let ia = index">
     <br>
+    <div class="module_detail">
     <label>Module Name:</label>
     <h6 class="mod_name">{{i.menu_details.Menu_Module_Name}}</h6>
     <label>Module link:</label>
     <h6 class="mod_name">{{i.menu_details.Menu_Module_Href}}</h6>
-    <label class="switch">
+    </div>
+    <!-- <label class="switch">
         <input type="checkbox" [(ngModel)]="i.menu_details.Menu_Module_Active">
         <span class="slider round"></span>
-    </label>
-    <button class="create_button" (click)="create_modules()">Edit</button>
-    <button class="create_button" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
-    <button (click)="sub_modules()">Add Sub Module</button>
+    </label> -->
+    <div class="module_control">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_module_id(i.menu_details.Menu_Module_Id)">Edit</button>&nbsp;
+    <button class="btn btn-info btn-lg" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
+    <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add Sub Module</button>
+    </div>
     <br>
     <br>
+
+
     <span *ngFor="let j of i.submenu let ja = index">
+        <div>
+    <div class="module_detail">
       <label>Submodule Name:</label>
       <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Name}}</h6>
       <label>Submodule link:</label>
       <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Href}}</h6>
-      <label>Active:</label>
-      <label class="switch">
+    </div>
+      <!-- <label>Active:</label> -->
+      <!-- <label class="switch">
           <input type="checkbox" [(ngModel)]="j.submenu_details.Menu_Modules_Link_Active">
           <span class="slider round"></span>
-      </label>
-      <button class="create_button" (click)="create_modules()">Edit</button>
-      <button class="create_button" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+      </label> -->
+      <!-- <button class="create_button" (click)="create_modules()">Edit</button> -->
+      <div class="module_control">
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(j.submenu_details.Menu_Module_Id,j.submenu_details.Menu_Modules_Link_Id)">Edit</button>&nbsp;
+      <button class="btn btn-info btn-lg" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+        </div>
+        </div>        
       <br>
     </span>
     <!-- <div class="sub_module_div" *ngFor="let i of submodules  let ia = index">  
@@ -60,3 +79,88 @@
     </div> -->
     <br>
 </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Modules</h4>
+        </div>
+        <div class="modal-body">
+        <md-form-field>
+            <input mdInput placeholder="Module Name" [(ngModel)]="Menu_Module_Name" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
+        </md-form-field>
+        <br>   
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_module()">Edit Module</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Modal -->
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Sub Modules</h4>
+        </div>
+        <div class="modal-body">
+        <md-form-field>
+            <input mdInput placeholder="Module Name" [(ngModel)]="Menu_Module_Name" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
+        </md-form-field>
+        <br>   
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_sub_module()">Edit Sub Module</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Sub Modules</h4>
+        </div>
+        <div class="modal-body">
+        <md-form-field>
+            <input mdInput placeholder="Module Name" [(ngModel)]="Menu_Module_Name" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
+        </md-form-field>
+        <br>   
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_sub_modules()">Add Sub Module</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

@@ -1,22 +1,21 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
+</div>
 <h5>
   Permission
 </h5>
-<div>
-  <select class="designation">
-    <option value="manager">Manager</option>
-    <option value="team_lead">Team Lead</option>
-    <option value="Md">Managing Director</option>
+<div *ngIf=(returnmsg&&return_access_control&&return_modules)>
+   <label>Designation</label>
+  <select class="designation" [(ngModel)]="designation">
+    <option *ngFor="let i of returnmsg  let ia = index " value="{{i.Designation_Id}}">{{i.Designation_Name}}</option>
   </select>
-  <select class="designation">
-    <option value="manager">Module 1</option>
-    <option value="team_lead">Module 2</option>
-    <option value="Md">Module 3</option>
+  <label>Module</label>
+  <select class="designation" [(ngModel)]="modules">
+      <option *ngFor="let k of return_modules.menu  let ka = index " value="{{k.menu_details.Menu_Module_Id}}">{{k.menu_details.Menu_Module_Name}}</option>
   </select>
-  <select class="designation">
-    <option value="manager">Full Access</option>
-    <option value="team_lead">Manage</option>
-    <option value="Md">View</option>
-    <option value="Mds">No Access</option>
+  <label>Access Level</label>
+  <select class="designation" [(ngModel)]="access_level">
+    <option *ngFor="let j of return_access_control.access_level_details  let ja = index " value="{{j.Access_Level_Id}}">{{j.Access_Level_Name}}</option>
   </select>
-  <button>Submit</button>
+  <button class="btn btn-info btn-lg" (click)="permission_submit()">Submit</button>
 </div>

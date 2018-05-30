@@ -94,6 +94,17 @@ public delete_submodule=this.main_url+"delete_submodule";
 public get_modules=this.main_url+"get_modules";
 public edit_module=this.main_url+"edit_module";
 public edit_submodule=this.main_url+"edit_submodule";
+public get_main_modules=this.main_url+"get_main_modules";
+public get_sub_modules=this.main_url+"get_sub_modules";
+
+//access level
+public add_access_level=this.main_url+"add_access_level";
+public delete_access_level=this.main_url+"delete_access_level";
+public get_access_level=this.main_url+"get_access_level";
+public edit_access_level=this.main_url+"edit_access_level";
+
+//permission
+public add_permission=this.main_url+"add_permission";
 
 constructor(private _http: Http,private _router: Router) {   }
 

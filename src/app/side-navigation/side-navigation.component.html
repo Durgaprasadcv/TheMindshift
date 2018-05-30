@@ -152,6 +152,21 @@
           </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
+        <a  [routerLink]="['/access-levels']" (click)="menu('access-levels')">
+              Access Level
+          </a>
+      </li>
+      <li [routerLinkActive]="['active']" class="mob_display_none">
+        <a  [routerLink]="['/permission']" (click)="menu('permission')">
+              Permission
+        </a>
+      </li>
+      <li [routerLinkActive]="['active']" class="mob_display_none">
+          <a  [routerLink]="['/module-creation']" (click)="menu('module-creation')">
+                Modules Creation
+          </a>
+        </li>
+      <li [routerLinkActive]="['active']" class="mob_display_none">
         <a [routerLink]="['/create-user']" (click)="menu('create-user')">
               Users
           </a>  
