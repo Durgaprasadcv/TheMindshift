@@ -44,11 +44,11 @@ export class FormQuestionComponent implements OnInit {
   console.log("control",this.myForm.controls.options.parent.value.question);
   }
 
-  addOption() {
-    const emailArray = <FormArray>this.myForm.controls['options'];
-    const newEmail = this.initOption();
-    emailArray.push(newEmail);
-  }
+addOption() {
+  const emailArray = <FormArray>this.myForm.controls['options'];
+  const newEmail = this.initOption();
+  emailArray.push(newEmail);
+}
 
 removeOption(idx: number) {
     const emailArray = <FormArray>this.myForm.controls['options'];

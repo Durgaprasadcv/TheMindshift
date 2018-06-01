@@ -5,9 +5,9 @@ import { jsonpFactory } from '@angular/http/src/http_module';
 import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
 import {Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
-import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
-import {DialogComponent} from "../dialog/dialog.component";
-import {ReportComponent} from "../report/report.component";
+import { MdDialog, MD_DIALOG_DATA} from '@angular/material';
+import { DialogComponent} from "../dialog/dialog.component";
+import { ReportComponent} from "../report/report.component";
 import { Http , Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
@@ -93,7 +93,8 @@ ngOnInit() {
       "marks":"q1",
       "options":[
         {"Option": "vvv", "skip_time": "11"},
-        {"Option": "vvv", "skip_time": "11"}],
+        {"Option": "vvv", "skip_time": "11"}
+      ],
       "pause_time":"11",
       "question":"q2",
       "wait_time":"11"
@@ -184,10 +185,11 @@ this.addQuestion();
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
-    this.returnmsg = return_data.json();
-    }else if(fun_id==2){
-    this.return_video=return_data.json();
-    console.log(this.return_video);
+      this.returnmsg = return_data.json();
+    }
+    else if(fun_id==2){
+      this.return_video=return_data.json();
+      console.log(this.return_video);
     }
   }
 initQuestion() {
