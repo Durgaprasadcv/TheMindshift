@@ -1,8 +1,21 @@
 <div [formGroup]="myForm">
   <div class="col-md-6" class="form-group">
-      <md-form-field>
-            <input mdInput placeholder="Option" formControlName="Option">
+        <md-form-field *ngIf="english">
+            <input mdInput placeholder="English Option ?" formControlName="Option">
         </md-form-field>
+        <md-form-field *ngIf="kannada">
+            <input mdInput placeholder="Kannada Option ?" formControlName="Option">
+        </md-form-field>
+        <md-form-field *ngIf="malayalam">
+            <input mdInput placeholder="Malayalam Option ?" formControlName="Option">
+        </md-form-field>
+        <md-form-field *ngIf="telugu">
+            <input mdInput placeholder="Telugu Option ?" formControlName="Option">
+        </md-form-field>
+        <md-form-field *ngIf="tamil">
+            <input mdInput placeholder="Tamil Option ?" formControlName="Option">
+        </md-form-field>
+
   </div>
   <div class="col-md-6" class="form-group">
     <md-form-field>

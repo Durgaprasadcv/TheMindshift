@@ -26,13 +26,26 @@ import { CreateTestComponent } from "../create-test/create-test.component";
 export class FormQuestionComponent implements OnInit {
   uid;  
   returnmsg;
+  english=0;
+  kannada=0;
+  malayalam=0;
+  telugu=0;
+  tamil=0;
+  timerinstance;
   @Input('group')
   // contractGroup: FormGroup;
   public myForm: FormGroup;
   constructor(private fb: FormBuilder,private CreateTest:CreateTestComponent,private webservice: WebService) { }
   
   ngOnInit() {
+  
+    
     this.uid=(JSON.parse(localStorage.getItem('user')));
+    this.english=(JSON.parse(localStorage.getItem('english')));
+    this.kannada=(JSON.parse(localStorage.getItem('kannada')));
+    this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
+    this.telugu=(JSON.parse(localStorage.getItem('telugu')));
+    this.tamil=(JSON.parse(localStorage.getItem('tamil')));
     const body = {user_id:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.modules,body,'1','');
     this.addOption();
@@ -42,6 +55,7 @@ export class FormQuestionComponent implements OnInit {
     console.log(x);
   })
   console.log("control",this.myForm.controls.options.parent.value.question);
+  this.getlocalstrg()
   }
 
 addOption() {
@@ -90,4 +104,16 @@ webresponse(fun_id,return_data){
     console.log('api',this.returnmsg);
   }
 }
+getlocalstrg(){
+  let timer = Observable.timer(1000,1000);
+  this.timerinstance = timer.subscribe(t=>{
+  this.english=(JSON.parse(localStorage.getItem('english')));
+  this.kannada=(JSON.parse(localStorage.getItem('kannada')));
+  this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
+  this.telugu=(JSON.parse(localStorage.getItem('telugu')));
+  this.tamil=(JSON.parse(localStorage.getItem('tamil')));
+  console.log('change');
+  });
+}
+
 }

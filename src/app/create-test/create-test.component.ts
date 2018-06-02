@@ -60,6 +60,11 @@ h;
 resl;
 return_video;
 uid;
+english='true';
+kannada=0;
+malayalam=0;
+telugu=0;
+tamil=0;
 public test_data;
 public current_time;
 public preview_url=0;
@@ -124,6 +129,7 @@ this.addQuestion();
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
 //   console.log(x);
 // })
+  this.getlocalstrg();
   }
   logout():void {
     this.webservice.logout();
@@ -215,6 +221,7 @@ addQuestion() {
   //   console.log(x);
   // })
 }
+
 edit(){
   for(let i=0;i<this.test_data.test_question.length;i++){
     this.initQuestion_edit(i);
@@ -232,6 +239,7 @@ initQuestion_edit(i) {
       options: this._fb.array([]),
   });
 }
+
 addQuestion_edit(i) {
   const control = <FormArray>this.myForm.controls['test_question'];
   const addrCtrl = this.initQuestion_edit(i);
@@ -275,22 +283,48 @@ clearFile() {
   this.form.get('avatar').setValue(null);
   this.fileInput.nativeElement.value = '';
 }
+
 onPlayerReady(api:VgAPI) {
   this.api = api;
-
   this.api.getDefaultMedia().subscriptions.ended.subscribe(
-      () => {
-          // Set the video to the beginning
-          this.api.getDefaultMedia().currentTime = 0;
-      }
+    () => {
+      // Set the video to the beginning
+      this.api.getDefaultMedia().currentTime = 0;
+    }
   );
   this.api.getDefaultMedia().subscriptions.seeking.subscribe(
     () => {
-        // Set the video to the beginning
-        this.current_time=Math.trunc(this.api.getDefaultMedia().currentTime);
-        console.log("hai");
+      // Set the video to the beginning
+      this.current_time=Math.trunc(this.api.getDefaultMedia().currentTime);
+      console.log("hai");
     }
-);
+  );
 }
+
 ngAfterViewInit() {}
+
+doSomething(){
+  console.log("english",this.english);
+  console.log("kannada",this.kannada);
+  console.log("malayalam",this.malayalam);
+  console.log("telugu",this.telugu);
+  console.log("tamil",this.tamil);
+  localStorage.setItem('english',JSON.stringify(this.english));
+  localStorage.setItem('kannada',JSON.stringify(this.kannada));
+  localStorage.setItem('malayalam',JSON.stringify(this.malayalam));
+  localStorage.setItem('telugu',JSON.stringify(this.telugu));
+  localStorage.setItem('tamil',JSON.stringify(this.tamil));
+}
+
+getlocalstrg(){
+  let timer = Observable.timer(1000,1000);
+  this.timerinstance = timer.subscribe(t=>{
+  this.english=(JSON.parse(localStorage.getItem('english')));
+  this.kannada=(JSON.parse(localStorage.getItem('kannada')));
+  this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
+  this.telugu=(JSON.parse(localStorage.getItem('telugu')));
+  this.tamil=(JSON.parse(localStorage.getItem('tamil')));
+  console.log('change');
+  });
+}
 }
