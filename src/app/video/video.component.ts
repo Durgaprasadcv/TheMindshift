@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
-import {Observable} from 'rxjs/Rx';
+import { VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
+import { Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
-import {MdDialog, MD_DIALOG_DATA} from '@angular/material';
-import {DialogComponent} from "../dialog/dialog.component";
-import {ReportComponent} from "../report/report.component";
+import { MdDialog, MD_DIALOG_DATA} from '@angular/material';
+import { DialogComponent} from "../dialog/dialog.component";
+import { ReportComponent} from "../report/report.component";
 import { Http , Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';

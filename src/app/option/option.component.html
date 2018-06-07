@@ -1,9 +1,11 @@
 <div [formGroup]="myForm">
   <div class="col-md-6" class="form-group">
-        <md-form-field *ngIf="english">
-            <input mdInput placeholder="English Option ?" formControlName="Option">
+        <span *ngFor="let i of lang_test_question  let ia = index">
+        <md-form-field *ngIf="i.language_select==true">
+            <input mdInput placeholder="{{i.Lang_Tittle}} Option ?" formControlName="Option">
         </md-form-field>
-        <md-form-field *ngIf="kannada">
+        </span>
+        <!-- <md-form-field *ngIf="kannada">
             <input mdInput placeholder="Kannada Option ?" formControlName="Option">
         </md-form-field>
         <md-form-field *ngIf="malayalam">
@@ -14,12 +16,12 @@
         </md-form-field>
         <md-form-field *ngIf="tamil">
             <input mdInput placeholder="Tamil Option ?" formControlName="Option">
-        </md-form-field>
+        </md-form-field> -->
 
   </div>
   <div class="col-md-6" class="form-group">
     <md-form-field>
             <input mdInput placeholder="Skip Time" formControlName="skip_time">
-        </md-form-field>
+    </md-form-field>
 </div>
 </div>

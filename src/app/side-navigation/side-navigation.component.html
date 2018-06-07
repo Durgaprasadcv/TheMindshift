@@ -192,23 +192,33 @@
             </a>
           </li>
           <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a [routerLink]="['/organization']" (click)="menu('organization')">
-                  Organization
-              </a>
-            </li>
+            <a [routerLink]="['/organization']" (click)="menu('organization')">
+              Organization
+            </a>
+          </li>
           <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a [routerLink]="['/zone']" (click)="menu('zone')">
-                  Zone
-              </a>
-            </li>
-            <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a [routerLink]="['/activity-log']" (click)="menu('activity-log')">
-                  Activity Log
-              </a>
-            </li>
+            <a [routerLink]="['/zone']" (click)="menu('zone')">
+              Zone
+            </a>
+          </li>
+          <li [routerLinkActive]="['active']" class="mob_display_none">
+            <a [routerLink]="['/activity-log']" (click)="menu('activity-log')">
+              Activity Log
+            </a>
+          </li>
             <li [routerLinkActive]="['active']" class="mob_display_none">
               <a  [routerLink]="['/report-rough']" (click)="menu('report-rough')">
-                  Report
+                  Graphical Report
+              </a>
+            </li>
+            <li [routerLinkActive]="['active']" class="mob_display_none">
+              <a [routerLink]="['/overall-report']" (click)="menu('overall-report')">
+                  Statistical Report
+              </a>
+            </li>
+            <li [routerLinkActive]="['active']" class="mob_display_none">
+              <a [routerLink]="['/user-report']" (click)="menu('user-report')">
+                  User Report
               </a>
             </li>
             <!-- <li *ngFor="let i of side_menu  let ia = index" [routerLinkActive]="['active']" class="mob_display_none">

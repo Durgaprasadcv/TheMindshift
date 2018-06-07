@@ -7,13 +7,8 @@
           <h4>Add Test</h4>
           <!-- <md-checkbox [(ngModel)]="english" (ngModelChange)="doSomething($event)">English</md-checkbox> -->
           <br>
-          <md-checkbox [(ngModel)]="kannada" (ngModelChange)="doSomething($event)">Kannada</md-checkbox>
+          <md-checkbox *ngFor="let i of lang_test_question  let ia = index" [(ngModel)]="i.language_select" (ngModelChange)="doSomething($event)">{{i.Lang_Tittle}}&nbsp;&nbsp;</md-checkbox>
           <br>
-          <md-checkbox [(ngModel)]="tamil" (ngModelChange)="doSomething($event)">Tamil</md-checkbox>
-          <br>
-          <md-checkbox [(ngModel)]="telugu" (ngModelChange)="doSomething($event)">Telugu</md-checkbox>
-          <br>
-          <md-checkbox [(ngModel)]="malayalam" (ngModelChange)="doSomething($event)">Malayalam</md-checkbox>
         </div>
         <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
           <div class="form-group">

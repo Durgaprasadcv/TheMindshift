@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { WebService} from '../webservice/web.service';
-import { FormGroup, FormArray, FormBuilder,Validators,ReactiveFormsModule  } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { WebService } from '../webservice/web.service';
+import { FormGroup,FormArray,FormBuilder,Validators,ReactiveFormsModule } from '@angular/forms';
 import { jsonpFactory } from '@angular/http/src/http_module';
-import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
-import {Observable} from 'rxjs/Rx';
+import { VgAPI,VgFullscreenAPI,VgPlayer,VgMedia } from 'videogular2/core';
+import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
-import { MdDialog, MD_DIALOG_DATA} from '@angular/material';
-import { DialogComponent} from "../dialog/dialog.component";
-import { ReportComponent} from "../report/report.component";
-import { Http , Response } from '@angular/http';
+import { MdDialog,MD_DIALOG_DATA } from '@angular/material';
+import { DialogComponent } from "../dialog/dialog.component";
+import { ReportComponent } from "../report/report.component";
+import { Http,Response } from '@angular/http';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 // import 'assets/video.js'
 // declare var videoObject: any;
-import {WebPreviewComponent} from "../web-preview/web-preview.component";
-import {ViewChild} from '@angular/core';
+import { WebPreviewComponent } from "../web-preview/web-preview.component";
+import { ViewChild } from '@angular/core';
 import 'rxjs/add/operator/map';
 import * as $  from 'jquery';
 @Component({
@@ -33,9 +33,9 @@ form: FormGroup;
 QuestionTitle;
 QuestionType;
 Marks;
-options
-PauseTime
-WaitTime
+options;
+PauseTime;
+WaitTime;
 TestName;
 TestDescription;
 TestVideo;
@@ -60,26 +60,25 @@ h;
 resl;
 return_video;
 uid;
-english='true';
-kannada=0;
-malayalam=0;
-telugu=0;
-tamil=0;
 public test_data;
 public current_time;
 public preview_url=0;
+lang_test_question;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
 }
- createForm() {
+createForm() {
   this.form = this._fb.group({
     name: ['', Validators.required],
     avatar: null
   });
 }
 
-ngOnInit() { 
+ngOnInit() {
+  const body3={};
+  this.webservice.webRequest(this,'get',this.webservice.Language_Available,body3,'3','');
+  localStorage.setItem('english',JSON.stringify(true));
   this.test_data={
     "description": "55",
     "name": "151",
@@ -108,14 +107,14 @@ ngOnInit() {
   this.uid=(JSON.parse(localStorage.getItem('user')));
   
 this.myForm = this._fb.group({
-  uid: [this.uid],
-  name: [''],
-  description: ['', [Validators.required, Validators.minLength(5)]],
-  start_time: ['', [Validators.required, Validators.minLength(5)]],
-  end_time: ['', [Validators.required, Validators.minLength(5)]],
-  test_duration: ['', [Validators.required, Validators.minLength(5)]],
-  test_url: ['',],
-  test_question: this._fb.array([]),
+  uid:[this.uid],
+  name:[''],
+  description:['',[Validators.required, Validators.minLength(5)]],
+  start_time:['',[Validators.required, Validators.minLength(5)]],
+  end_time:['',[Validators.required, Validators.minLength(5)]],
+  test_duration:['',[Validators.required, Validators.minLength(5)]],
+  test_url:['',],
+  test_question:this._fb.array([]),
 });
 const body = {
   // user_id:'32'
@@ -129,11 +128,11 @@ this.addQuestion();
 // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
 //   console.log(x);
 // })
-  this.getlocalstrg();
-  }
-  logout():void {
-    this.webservice.logout();
-  }
+  //this.getlocalstrg();
+}
+logout():void {
+  this.webservice.logout();
+}
   // myFunc(){
   //   const body = {
   //   user_id:'32'
@@ -154,7 +153,7 @@ this.addQuestion();
   //  this.webservice.webRequest(this,'post',this.webservice.CreateTest,body,'1','');
 
   // }
-  preview_Func(){
+preview_Func(){
     this.preview_url=this.myForm.value.test_url;
     console.log('preview',this.preview_url);
     localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
@@ -163,7 +162,7 @@ this.addQuestion();
       // disableClose:true,
     });
     dialogRef.afterClosed().subscribe(result => {
-    } );
+    });
 
     // this.api.getDefaultMedia().currentTime=0;
     // this.api.getDefaultMedia().play();
@@ -171,10 +170,9 @@ this.addQuestion();
     // this.timerinstance = timer.subscribe(t=>{
      
     // console.log(this.myForm.value);
-    // });
-    
-  }
-  submit_test(){
+    // });    
+}
+submit_test(){
     // console.log('data',this.myForm.value);
     // localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
     // console.log('url',this.myForm.value.test_url)
@@ -187,28 +185,46 @@ this.addQuestion();
     const body = {
       // user_id:'32'
     };
-   this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
+  this.webservice.webRequest(this,'post',this.webservice.create_test,this.myForm.value,'1','');
+}
+webresponse(fun_id,return_data){
+  if(fun_id==1){
+    this.returnmsg = return_data.json();
   }
-  webresponse(fun_id,return_data){
-    if(fun_id==1){
-      this.returnmsg = return_data.json();
-    }
-    else if(fun_id==2){
-      this.return_video=return_data.json();
-      console.log(this.return_video);
-    }
+  else if(fun_id==2){
+    this.return_video=return_data.json();
+    console.log(this.return_video);
   }
+  else if(fun_id==3){
+    this.lang_test_question=return_data.json();
+    var i;
+    for(i=0;i<this.lang_test_question.length;i++)
+    {
+      this.lang_test_question[i].language_select=false;
+    }
+    //this.lang_test_question[0].langage_select=1;
+    localStorage.setItem('lang_test_question',JSON.stringify(this.lang_test_question));
+    console.log('lang_test_question-',this.lang_test_question);
+  }
+}
+
 initQuestion() {
   return this._fb.group({
      question_id:['2'],
       pause_time: ['', Validators.required],
       wait_time: [''],
       question:[''],
+      question1:this._fb.array([]),
       marks:[''],
       options: this._fb.array([]),
   });
 }
-
+initlang(){
+  return this._fb.group({
+     quest:['fff'],
+     wer:['fff'],
+ });
+}
 addQuestion() {
   const control = <FormArray>this.myForm.controls['test_question'];
   const addrCtrl = this.initQuestion();
@@ -232,11 +248,11 @@ edit(){
 initQuestion_edit(i) {
   return this._fb.group({
       question_id:['2'],
-      pause_time: [this.test_data.test_question[i].question, Validators.required],
-      wait_time: [''],
-      question: ['sss'],
-      marks: [''],
-      options: this._fb.array([]),
+      pause_time:[this.test_data.test_question[i].question, Validators.required],
+      wait_time:[''],
+      question:['sss'],
+      marks:[''],
+      options:this._fb.array([]),
   });
 }
 
@@ -245,13 +261,11 @@ addQuestion_edit(i) {
   const addrCtrl = this.initQuestion_edit(i);
   console.log("hai",this.fileInput);
   control.push(addrCtrl);
-
   /// this.addOption();
   /* subscribe to individual address value changes */
   // addrCtrl.valueChanges.subscribe(x => {
   //   console.log(x);
   // })
-
 }
 
 removeQuestion(i: number) {
@@ -304,27 +318,12 @@ onPlayerReady(api:VgAPI) {
 ngAfterViewInit() {}
 
 doSomething(){
-  console.log("english",this.english);
-  console.log("kannada",this.kannada);
-  console.log("malayalam",this.malayalam);
-  console.log("telugu",this.telugu);
-  console.log("tamil",this.tamil);
-  localStorage.setItem('english',JSON.stringify(this.english));
-  localStorage.setItem('kannada',JSON.stringify(this.kannada));
-  localStorage.setItem('malayalam',JSON.stringify(this.malayalam));
-  localStorage.setItem('telugu',JSON.stringify(this.telugu));
-  localStorage.setItem('tamil',JSON.stringify(this.tamil));
+  localStorage.setItem('lang_test_question',JSON.stringify(this.lang_test_question));
 }
 
 getlocalstrg(){
   let timer = Observable.timer(1000,1000);
   this.timerinstance = timer.subscribe(t=>{
-  this.english=(JSON.parse(localStorage.getItem('english')));
-  this.kannada=(JSON.parse(localStorage.getItem('kannada')));
-  this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
-  this.telugu=(JSON.parse(localStorage.getItem('telugu')));
-  this.tamil=(JSON.parse(localStorage.getItem('tamil')));
-  console.log('change');
   });
 }
 }

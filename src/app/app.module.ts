@@ -103,6 +103,8 @@ import { PreviewVideoNewComponent } from './preview-video-new/preview-video-new.
 import { ModuleCreationComponent } from './module-creation/module-creation.component';
 import { AccessLevelsComponent } from './access-levels/access-levels.component';
 import { PermissionComponent } from './permission/permission.component';
+import { CreateTest1Component } from './create-test1/create-test1.component';
+import { TestQuestionsComponent } from './test-questions/test-questions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -145,7 +147,9 @@ import { PermissionComponent } from './permission/permission.component';
     PreviewVideoNewComponent,
     ModuleCreationComponent,
     AccessLevelsComponent,
-    PermissionComponent
+    PermissionComponent,
+    CreateTest1Component,
+    TestQuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -177,6 +181,8 @@ import { PermissionComponent } from './permission/permission.component';
       { path: 'report',component:ReportComponent },
       { path: 'report-rough',component:ReportRoughComponent },
       { path: 'create-test',component:CreateTestComponent },
+      { path: 'create-test1',component:CreateTest1Component },
+      { path: 'test-questions',component:TestQuestionsComponent },
       { path: 'test-details',component:TestDetailsComponent },
       { path: 'preview-video-new',component:PreviewVideoNewComponent },
       { path: 'web-preview',component:WebPreviewComponent },

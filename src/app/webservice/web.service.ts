@@ -106,6 +106,9 @@ public edit_access_level=this.main_url+"edit_access_level";
 //permission
 public add_permission=this.main_url+"add_permission";
 
+//language
+public Language_Available=this.main_url+"Language_Available";
+
 constructor(private _http: Http,private _router: Router) {   }
 
 createAuthorizationHeader(headers: Headers) {

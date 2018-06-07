@@ -1,0 +1,45 @@
+.main_block{
+    width: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.margin_top
+{
+    margin-top: 8vh;
+}
+.chapter_name{
+    display: inline-block;
+    width: 200px;
+    height: 25px;
+    margin-bottom: 0;
+}
+.chapter_title{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.tab_width{
+    width:50% !important;
+}
+.md-tab-label{
+    width:50% !important;
+}
+.mat-tab-label{
+    width:50% !important;
+}
+.img_size{
+    height: 60px;
+}
+.video_div{
+    height: 60px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.create_test_button{
+    margin-left: 40%;
+}
+.container{
+    /* border: 1px solid red; */
+    width: 336px;
+    height: 300px;
+ }

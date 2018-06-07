@@ -1,0 +1,86 @@
+<app-side-navigation></app-side-navigation>
+<div class="padding_top_6vh">
+    <div class="col-md-12 margin_top">
+        <div class="col-md-6 container main_block">
+          Available languages: <span *ngFor="let i of language let ia = index ">{{i.Lang_Tittle}}&nbsp;</span>
+          <br>
+          <p>Chapter Name: </p>
+          <div *ngIf="language">
+            <span *ngFor="let i of language let ia = index " >
+              <div>
+                <p class="chapter_title">{{i.Lang_Tittle}}&nbsp;:</p><input type="text" [(ngModel)]="chapter[ia].chapter_name" class="chapter_name"/>
+                <p class="chapter_title">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id"></div>
+                <!-- [(ngModel)]="chapter[ia].video_id" -->
+              </div>
+            </span>
+          </div>
+          <p>Chapter Description: </p>
+          <div *ngIf="language">
+            <span *ngFor="let i of language let ia = index " >
+              <div>
+                <p class="chapter_title">{{i.Lang_Tittle}}&nbsp;:</p><input type="text" [(ngModel)]="chapter[ia].chapter_description" class="chapter_name"/>
+              </div>
+            </span>
+          </div>
+          <div>
+            <p class="chapter_title">Start Time&nbsp;:</p><input type="text" [(ngModel)]="start_time" class="chapter_name"/>
+            <p class="chapter_title">Stop Time&nbsp;:</p><input type="text" [(ngModel)]="stop_time" class="chapter_name"/>
+          </div>
+          <button class="create_test_button" (click)="creat_test()">Create Test</button>
+
+          <!-- <div id="div1" class="container" (drop)="drop($event)" (dragover)="allowDrop($event)">
+              <p id="drag1" draggable="true"
+                (dragstart)="drag($event,0)" >
+                a</p>
+          </div>
+              
+          <div id="div2" class="container" (drop)="drop($event)" (dragover)="allowDrop($event)"></div> -->
+        </div>
+        <div id="here"class="col-md-6 main_block">     
+            <!-- http://localhost:4200/#/preview-video-new  -->
+            <!-- http://localhost:4200/#/video/1 -->
+          <!-- <video src="video_paath" width="100%" height="300">
+          </video> -->
+          <vg-player *ngIf="video_paath" (onPlayerReady)="onPlayerReady($event)">
+            <vg-buffering></vg-buffering>
+            <vg-controls>
+              <vg-play-pause ></vg-play-pause>
+              <vg-playback-button ></vg-playback-button>
+              <vg-time-display  vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+              <vg-scrub-bar >
+                <vg-scrub-bar-current-time [vgSlider]="false"></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+              </vg-scrub-bar>
+              <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+              <vg-mute></vg-mute>
+              <vg-volume></vg-volume>
+            </vg-controls>
+            <video  [vgMedia]="media" [src]=video_paath #media id="singleVideo" preload="auto" width="100%" height="300" crossorigin autoplay>
+            </video>  
+          </vg-player>
+          <md-tab-group>
+            <md-tab class="tab_width mat-tab-label" label="Character">
+              <!-- Character -->
+              <div *ngIf="character">
+                <div *ngFor="let i of character.characters let ia = index ">
+                  <div>
+                    <md-checkbox [(ngModel)]="character_selected[ia].character_selected"> <img src="{{i.char_url}}" alt="No Image" class="img_size">&nbsp;&nbsp;{{i.char_name}}</md-checkbox>
+                  </div>
+                </div>
+              </div>
+            </md-tab>
+            <md-tab class="tab_width mat-tab-label" label="Video">
+              <!-- Video -->
+              <div *ngIf="video_lib" id="div1" class="container" (dragover)="allowDrop($event)">
+                <div *ngFor="let i of video_lib.videos let ia = index ">
+                  <div class="video_div" id="drag1" draggable="true"
+                  (dragstart)="drag($event,i.vid_id)" (click)="preview(i.vid_path)">
+                    <p>{{i.vid_id}}-{{i.vid_name}}</p>
+                  </div>
+                </div>
+              </div>
+            </md-tab>
+          </md-tab-group>
+      </div>
+    </div>
+</div>

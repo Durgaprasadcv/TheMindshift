@@ -1,9 +1,11 @@
 <div [formGroup]="myForm">
     <div class="form-group col-xs-6">
-        <md-form-field *ngIf="english">
-            <input mdInput placeholder="English Question ?" formControlName="question">
+        <span *ngFor="let i of lang_test_question  let ia = index">
+        <md-form-field *ngIf="i.language_select==true" > 
+            <input mdInput placeholder="{{i.Lang_Tittle}} Question ?" formControlName="question">
         </md-form-field>
-        <md-form-field *ngIf="kannada">
+        </span>
+        <!-- <md-form-field *ngIf="kannada">
             <input mdInput placeholder="Kannada Question ?" formControlName="question">
         </md-form-field>
         <md-form-field *ngIf="malayalam">
@@ -14,7 +16,7 @@
         </md-form-field>
         <md-form-field *ngIf="tamil">
             <input mdInput placeholder="Tamil Question ?" formControlName="question">
-        </md-form-field>
+        </md-form-field> -->
     </div>
     <div class="form-group col-xs-6">
         <md-form-field>

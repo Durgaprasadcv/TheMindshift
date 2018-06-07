@@ -26,37 +26,35 @@ import { CreateTestComponent } from "../create-test/create-test.component";
 export class FormQuestionComponent implements OnInit {
   uid;  
   returnmsg;
-  english=0;
-  kannada=0;
-  malayalam=0;
-  telugu=0;
-  tamil=0;
   timerinstance;
   @Input('group')
   // contractGroup: FormGroup;
   public myForm: FormGroup;
+  lang_test_question;
   constructor(private fb: FormBuilder,private CreateTest:CreateTestComponent,private webservice: WebService) { }
   
-  ngOnInit() {
-  
-    
-    this.uid=(JSON.parse(localStorage.getItem('user')));
-    this.english=(JSON.parse(localStorage.getItem('english')));
-    this.kannada=(JSON.parse(localStorage.getItem('kannada')));
-    this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
-    this.telugu=(JSON.parse(localStorage.getItem('telugu')));
-    this.tamil=(JSON.parse(localStorage.getItem('tamil')));
-    const body = {user_id:this.uid};
-    this.webservice.webRequest(this,'post',this.webservice.modules,body,'1','');
-    this.addOption();
-    this.addOption();
+ngOnInit() {  
+  this.uid=(JSON.parse(localStorage.getItem('user')));
+  this.lang_test_question=(JSON.parse(localStorage.getItem('lang_test_question')));
+
+  const body = {user_id:this.uid};
+  this.webservice.webRequest(this,'post',this.webservice.modules,body,'1','');
+  this.addOption();
+  this.addOption();
       /* subscribe to addresses value changes */
-    this.myForm.controls['options'].valueChanges.subscribe(x => {
-    console.log(x);
-  })
-  console.log("control",this.myForm.controls.options.parent.value.question);
-  this.getlocalstrg()
-  }
+  this.myForm.controls['options'].valueChanges.subscribe(x => {
+  console.log(x);
+})
+console.log("control",this.myForm.controls.options.parent.value.question);
+this.getlocalstrg();
+var i;
+for(i=0;i<this.lang_test_question.length;i++)
+{
+    const test_lang = <FormArray>this.myForm.controls['question1'];
+    const test_lang_creat = this.test_lang_creat(this.lang_test_question[i].Lang_Id);
+    test_lang.push(test_lang_creat);
+}
+}
 
 addOption() {
   const emailArray = <FormArray>this.myForm.controls['options'];
@@ -74,6 +72,12 @@ initOption() {
         Option: '',
         skip_time:''
     });
+}
+test_lang_creat(i){
+  return this.fb.group({
+    lang_id:i,
+    question: ''
+});
 }
 
 // initOption() {
@@ -107,12 +111,8 @@ webresponse(fun_id,return_data){
 getlocalstrg(){
   let timer = Observable.timer(1000,1000);
   this.timerinstance = timer.subscribe(t=>{
-  this.english=(JSON.parse(localStorage.getItem('english')));
-  this.kannada=(JSON.parse(localStorage.getItem('kannada')));
-  this.malayalam=(JSON.parse(localStorage.getItem('malayalam')));
-  this.telugu=(JSON.parse(localStorage.getItem('telugu')));
-  this.tamil=(JSON.parse(localStorage.getItem('tamil')));
-  console.log('change');
+  this.lang_test_question=(JSON.parse(localStorage.getItem('lang_test_question')));  
+  //console.log('change');
   });
 }
 
