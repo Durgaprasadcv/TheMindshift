@@ -7,12 +7,6 @@
 <div class="add_user">
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Character</button>
 </div>
-<!-- <input type="file" [(ngModel)]="char_file" (change)="onChange($event)"/> -->
-
-<!-- 
-<input type="file" [multiple]="multiple" #fileInput>
-<button (click)="upload()">upload</button> -->
-<!-- <file-upload #fu (change)="fu.upload()" [multiple]="true"></file-upload> -->
 </div>
 <div class="table_division">
 <table *ngIf="returnmsg">
@@ -24,12 +18,10 @@
     <th>control</th>
   </tr>
   <tr *ngFor="let i of returnmsg.characters  let ia = index ">
-    <!-- <tr> -->
     <td>{{i.char_id}}</td>
     <td>{{i.char_name}}</td>
     <td>{{i.char_description}}</td>
     <td><img src="{{i.char_url}}" alt="" class="character_img"></td>
-    <!-- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td> -->
      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.char_id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete" (click)="store_id(i.char_id)">Delete</button></td>
   </tr>
 </table>
@@ -56,7 +48,6 @@
       <input type="file" [multiple]="multiple" #fileInput>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button> -->
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit chracter</button>
       </div>
     </div>
@@ -78,7 +69,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button> -->
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
       </div>
     </div>
@@ -103,15 +93,12 @@
                 <input mdInput placeholder="Character Description" [(ngModel)]="char_description" name="username">
             </md-form-field> 
             <input type="file" [multiple]="multiple" #fileInputa>
-            <!-- <button (click)="upload()">upload</button> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button> -->
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Character</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

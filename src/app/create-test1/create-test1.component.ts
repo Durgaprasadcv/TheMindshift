@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
-import {VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
-import {Observable} from 'rxjs/Rx';
+import { VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
+import { Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { VgStreamingModule } from 'videogular2/streaming';
@@ -22,9 +22,11 @@ export class CreateTest1Component implements OnInit {
   character_selected=[];
   video_paath;
   api:VgAPI;
+  create_return;
   constructor(private webservice:WebService,public API: VgAPI) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     const body1={};
     this.webservice.webRequest(this,'get',this.webservice.Language_Available,body1,'1','');
 
@@ -34,8 +36,8 @@ export class CreateTest1Component implements OnInit {
 
   webresponse(fun_id,return_data)
   {
-   if(fun_id==1)
-   {
+    if(fun_id==1)
+    {
       this.language=return_data.json();
       for(var i=0;i<this.language.length;i++)
       {
@@ -62,6 +64,11 @@ export class CreateTest1Component implements OnInit {
       this.video_lib = return_data.json();
       console.log(this.video_lib);    
     }
+    else if(fun_id==4)
+    {
+      this.create_return = return_data.json();
+      console.log(this.create_return);    
+    }
   }
 
   creat_test()
@@ -70,6 +77,17 @@ export class CreateTest1Component implements OnInit {
     console.log('character',this.character_selected);  
     console.log('start time',this.start_time);
     console.log('stop time',this.stop_time);
+    const body4 = {
+      chapter:this.chapter,
+      character:this.character_selected,  
+      start_time:this.start_time,
+      stop_time:this.stop_time,
+      Org_id:1,
+      Test_Created_By:100,
+      version_no:1,
+      parant:0
+    };
+      this.webservice.webRequest(this,'post',this.webservice.create_test_new,body4,'4','');
   }
 
   allowDrop(ev) {
@@ -102,7 +120,6 @@ export class CreateTest1Component implements OnInit {
     console.log('drop',data1);
     console.log('drop_id',ev.target.id);
     this.chapter[ev.target.id].video_id=data1;
-
   }
   preview(i){
     console.log('preview_test');
@@ -112,9 +129,9 @@ export class CreateTest1Component implements OnInit {
     console.log('preview_test-',this.video_paath);
     if(temp)
     {
-    console.log(this.api.getDefaultMedia().currentTime);
-    this.api.getDefaultMedia().currentTime=0;
-    console.log(this.api.getDefaultMedia().currentTime);
+      console.log(this.api.getDefaultMedia().currentTime);
+      this.api.getDefaultMedia().currentTime=0;
+      console.log(this.api.getDefaultMedia().currentTime);
     }
   }
 

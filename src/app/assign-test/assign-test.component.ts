@@ -50,10 +50,6 @@ this.settings = {
         };
   }
   ngAfterViewInit() {
-    // $('#multiple').selectator({
-    //   showAllOptionsOnFocus: true,
-    //   searchFields: 'value text subtitle right'
-    // });
   }
   onItemSelect(item:any){
     console.log(item);

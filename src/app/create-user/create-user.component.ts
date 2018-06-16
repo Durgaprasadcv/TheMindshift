@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
   providers: [WebService]
 })
 export class CreateUserComponent implements OnInit {
-  //user register component
   user_id;
   User_UName;
   User_Password;
@@ -63,11 +62,6 @@ add_user(){
     User_Name:this.User_Name,
     User_Lastname:this.User_Lastname,
     UserEmail:this.UserEmail,
-    // Did:this.Did,
-    // Org_ID:this.Org_ID,
-    // Pid:this.Pid,
-    // Dept_Id:this.Dept_Id,
-    // Zone_Id:this.Zone_Id,
     Did:"1",
     Org_ID:"1",
     Pid:"1",
@@ -139,11 +133,6 @@ add(){
     User_Name:this.User_Name,
     User_Lastname:this.User_Lastname,
     UserEmail:this.UserEmail,
-    // Did:this.Did,
-    // Org_ID:this.Org_ID,
-    // Pid:this.Pid,
-    // Dept_Id:this.Dept_Id,
-    // Zone_Id:this.Zone_Id,
     Did:"1",
     Org_ID:"1",
     Pid:"1",

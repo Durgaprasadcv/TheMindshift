@@ -71,7 +71,6 @@ export class DesignationComponent implements OnInit {
       Designation_Id:this.Designation_Id
     };
     this.webservice.webRequest(this,'post',this.webservice.delete_designation,body2,'3','');
-    // window.location.reload(true);
   }
   edit(){
     const body3 = {

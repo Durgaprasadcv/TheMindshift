@@ -37,7 +37,6 @@ export class DepartnmentComponent implements OnInit {
       console.log(this.returnmsg);
     }
     else if(fun_id==2){
-      // window.location.reload(true);
       this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
     else if(fun_id==3){
@@ -93,7 +92,6 @@ export class DepartnmentComponent implements OnInit {
       Dept_Id:this.Dept_Id
     };
     this.webservice.webRequest(this,'post',this.webservice.delete_dept,body2,'3','');
-    // window.location.reload(true);
   }
   edit(){
     const body3 = {

@@ -33,9 +33,6 @@ constructor(private webservice: WebService,private _router: Router,private http:
   console.log('network',this.online$);
 }
   ngOnInit(): void {
-    //document.cookie = "username=John Doe";
-    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC;";
-    // document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
     console.log('network',this.online$);
     // fetch_the_user_id_from_local_storage
     this.uid=(JSON.parse(localStorage.getItem('user')));

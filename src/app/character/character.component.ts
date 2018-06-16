@@ -101,7 +101,6 @@ export class CharacterComponent implements OnInit {
       char_id:this.char_id
     };
     this.webservice.webRequest(this,'post',this.webservice.delete_character,body2,'3','');
-    // window.location.reload(true);
   }
   edit(){
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;

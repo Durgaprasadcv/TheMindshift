@@ -202,7 +202,6 @@ webresponse(fun_id,return_data){
     {
       this.lang_test_question[i].language_select=false;
     }
-    //this.lang_test_question[0].langage_select=1;
     localStorage.setItem('lang_test_question',JSON.stringify(this.lang_test_question));
     console.log('lang_test_question-',this.lang_test_question);
   }

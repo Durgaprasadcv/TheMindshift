@@ -109,6 +109,9 @@ public add_permission=this.main_url+"add_permission";
 //language
 public Language_Available=this.main_url+"Language_Available";
 
+//chapter 
+public create_test_new=this.main_url+"create_test_new";
+
 constructor(private _http: Http,private _router: Router) {   }
 
 createAuthorizationHeader(headers: Headers) {
