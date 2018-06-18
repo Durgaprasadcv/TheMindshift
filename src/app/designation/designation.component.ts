@@ -21,32 +21,38 @@ export class DesignationComponent implements OnInit {
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
   }
-  webresponse(fun_id,return_data){
+  webresponse(fun_id,return_data)
+  {
     if(fun_id==1)
     {
       this.returnmsg = return_data.json();
       this.refresh=1;
       console.log(this.returnmsg);
     }
-    else if(fun_id==2){
-      //window.location.reload(true);
-      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
-    }
-    else if(fun_id==3){
-      //window.location.reload(true);
-      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
-    }
-    else if(fun_id==4){
-      window.location.reload(true);
-      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
-    }
-    else if(fun_id==5){
+    else if(fun_id==5)
+    {
       this.returnmsg1 = return_data.json();
       this.Designation_Name=this.returnmsg1.Designation_Name;
       this.Designation_Disp_Name=this.returnmsg1.Designation_Disp_Name;
       this.Designation_code=this.returnmsg1.Designation_code;
       this.Designation_Level=this.returnmsg1.Designation_Level;
       this.Designation_OrgID=this.returnmsg1.Designation_OrgID;
+    }
+    else if(fun_id==2)
+    {
+      //window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
+    }
+    else if(fun_id==3)
+    {
+      //window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
+    }
+    else if(fun_id==4)
+    {
+      // window.location.reload(true);
+      window.location.reload(true);
+      this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     }
   }
   add_designation(){

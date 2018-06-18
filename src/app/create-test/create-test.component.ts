@@ -64,6 +64,7 @@ public test_data;
 public current_time;
 public preview_url=0;
 lang_test_question;
+preview_url_1;
 constructor(private _router: Router,private webservice:WebService,private _fb: FormBuilder,public API: VgAPI,public dialog: MdDialog) 
 {
   this.createForm();
@@ -73,6 +74,7 @@ createForm() {
     name: ['', Validators.required],
     avatar: null
   });
+   this.preview_url_1=this.myForm.value.test_url;
 }
 
 ngOnInit() {
@@ -120,6 +122,8 @@ const body = {
   // user_id:'32'
 };
 this.webservice.webRequest(this,'post',this.webservice.get_video_library,body,'2','');
+
+
 // add address
 this.addQuestion();
 // this.edit();
@@ -133,26 +137,6 @@ this.addQuestion();
 logout():void {
   this.webservice.logout();
 }
-  // myFunc(){
-  //   const body = {
-  //   user_id:'32'
-  //   QuestionTitle:this.QuestionTitle,
-  //   QuestionType:this.QuestionType,
-  //   Marks:this.Marks,
-  //   options:4,
-  //   PauseTime:this.PauseTime,
-  //   WaitTime:this.WaitTime,
-  //   TestName:this.TestName,
-  //   TestDescription:this.TestDescription,
-  //   TestVideo:this.TestVideo,
-  //   Question:1,
-  //   Loopid:2,
-  //   Questionoption:this.Questionoption,
-  //   optionloop:1
-  // };
-  //  this.webservice.webRequest(this,'post',this.webservice.CreateTest,body,'1','');
-
-  // }
 preview_Func(){
     this.preview_url=this.myForm.value.test_url;
     console.log('preview',this.preview_url);
@@ -163,14 +147,16 @@ preview_Func(){
     });
     dialogRef.afterClosed().subscribe(result => {
     });
-
+ // console.log('data',this.myForm.value);
+    // localStorage.setItem('preview',  JSON.stringify(this.myForm.value));
+    // console.log('url',this.myForm.value.test_url)
+    // this.preview_url=this.myForm.value.test_url;
     // this.api.getDefaultMedia().currentTime=0;
-    // this.api.getDefaultMedia().play();
-    // let timer = Observable.timer(1000,1000);
-    // this.timerinstance = timer.subscribe(t=>{
-     
-    // console.log(this.myForm.value);
-    // });    
+    // var myVideo = document.getElementsByTagName('video')[0];
+    // myVideo.src = this.myForm.value.test_url;
+    // myVideo.load();
+    // myVideo.play();
+
 }
 submit_test(){
     // console.log('data',this.myForm.value);

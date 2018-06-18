@@ -10,7 +10,6 @@
               <div>
                 <p class="chapter_title">{{i.Lang_Tittle}}&nbsp;:</p><input type="text" [(ngModel)]="chapter[ia].chapter_name" class="chapter_name"/>
                 <p class="chapter_title">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id"></div>
-                <!-- [(ngModel)]="chapter[ia].video_id" -->
               </div>
             </span>
           </div>
@@ -37,10 +36,6 @@
           <div id="div2" class="container" (drop)="drop($event)" (dragover)="allowDrop($event)"></div> -->
         </div>
         <div id="here"class="col-md-6 main_block">     
-            <!-- http://localhost:4200/#/preview-video-new  -->
-            <!-- http://localhost:4200/#/video/1 -->
-          <!-- <video src="video_paath" width="100%" height="300">
-          </video> -->
           <vg-player *ngIf="video_paath" (onPlayerReady)="onPlayerReady($event)">
             <vg-buffering></vg-buffering>
             <vg-controls>
