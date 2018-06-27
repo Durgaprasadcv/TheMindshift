@@ -10,7 +10,7 @@
         </div>
       </div>
     </div> -->
-  <div class="module_div" *ngIf="returnmsg2">
+  <div class="module_div" *ngIf="return_msg1">
       <br>
       <div class="module_detail">
       <label></label>
@@ -34,15 +34,15 @@
   <div class="module_div" *ngFor="let i of return_msg1.question  let ia = index">
       <br>
       <div class="module_detail">
-      <label>Question Title:</label>
+        <label>Question Title:</label>
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
-      <label>Question Pause Time:</label>
+        <label>Question Pause Time:</label>
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
       </div>
       <div class="module_control">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_test_id(i.Question_Id)">Edit</button>&nbsp;
-      <button class="btn btn-info btn-lg" (click)="delete_modules(i.Question_Id)">Delete</button>
-      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add OPTION</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_question_id(i.Question_Id)">Edit</button>&nbsp;
+      <button class="btn btn-info btn-lg" (click)="delete_question(i.Question_Id)">Delete</button>
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">Add OPTION</button>
       </div>
       <br>
       <br>
@@ -58,8 +58,8 @@
       </div>
       
         <div class="module_control">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(j.submenu_details.Menu_Module_Id,j.submenu_details.Menu_Modules_Link_Id)">Edit</button>&nbsp;
-        <button class="btn btn-info btn-lg" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_option_id(i.Question_Id,j.Option_Id)">Edit</button>&nbsp;
+        <button class="btn btn-info btn-lg" (click)="delete_option(j.Option_Id)">Delete</button>
           </div>
           </div>        
         <br>
@@ -124,7 +124,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_sub_module()">Edit Option</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_option()">Edit Option</button>
       </div>
     </div>
     
@@ -151,7 +151,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_sub_modules()">Add Option</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_option()">Add Option</button>
       </div>
     </div>
     
