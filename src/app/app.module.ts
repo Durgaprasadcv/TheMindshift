@@ -105,6 +105,7 @@ import { AccessLevelsComponent } from './access-levels/access-levels.component';
 import { PermissionComponent } from './permission/permission.component';
 import { CreateTest1Component } from './create-test1/create-test1.component';
 import { TestQuestionsComponent } from './test-questions/test-questions.component';
+import { QuestionOptionPreviewComponent } from './question-option-preview/question-option-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -149,12 +150,13 @@ import { TestQuestionsComponent } from './test-questions/test-questions.componen
     AccessLevelsComponent,
     PermissionComponent,
     CreateTest1Component,
-    TestQuestionsComponent
+    TestQuestionsComponent,
+    QuestionOptionPreviewComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdButtonModule, 
+    MdButtonModule,
     MdCheckboxModule,
     FormsModule,
     HttpModule,
@@ -182,6 +184,7 @@ import { TestQuestionsComponent } from './test-questions/test-questions.componen
       { path: 'report-rough',component:ReportRoughComponent },
       { path: 'create-test',component:CreateTestComponent },
       { path: 'create-test1',component:CreateTest1Component },
+      { path: 'question-option-preview',component:QuestionOptionPreviewComponent },
       { path: 'test-questions',component:TestQuestionsComponent },
       { path: 'test-details',component:TestDetailsComponent },
       { path: 'preview-video-new',component:PreviewVideoNewComponent },
