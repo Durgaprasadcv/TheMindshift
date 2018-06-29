@@ -41,6 +41,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Option_Marks;
   Option_QuestionId;
   Option_skip;
+  Option_title_arr=Array();
 
   constructor(private webservice:WebService) { }
 
@@ -55,6 +56,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   }
 
   add_question(){
+    
     const body1 = {
       Question_Test_Id:52,
       Question_Type:'radio',
@@ -100,11 +102,25 @@ export class QuestionOptionPreviewComponent implements OnInit {
   }
   store_question_id(i){
     this.question_id=i;
-    const body4={
-      // test_id:52,
-      question_id:this.question_id
+    console.log('question_id',i);
+    if(i>0)
+    {
+      const body4={
+        // test_id:52,
+        question_id:this.question_id
+      }
+      this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
     }
-    this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
+    else{
+      this.Question_MarksAllocated='';
+      this.Question_PauseTime='';
+      this.Question_WaitTime='';
+      var j;
+      for(j=0;j<this.question_title_arr.length;j++)
+      {
+        this.question_title_arr[j].question_title='';
+      }
+    }
   }
 
   store_option_id(i,j){
@@ -118,6 +134,15 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
   add_option_store(i){
     this.question_id=i;
+    this.Option_Active = this.returnmsg6.opton[0].Option_Active;
+      this.Option_Marks ='';
+      this.Option_QuestionId = '';
+      this.Option_skip = '';
+      var j;
+        for(j=0;j<this.Option_title_arr.length;j++)
+        {
+            this.Option_title_arr[j].option_title='';
+        }
   }
 
   add_option(){
@@ -125,7 +150,9 @@ export class QuestionOptionPreviewComponent implements OnInit {
       Option_skip:11,
       Option_Marks:10,
       Option_Active:1,
-      question_id:this.question_id
+      Option_QuestionId:this.question_id,
+      Option_Test_Id:52,
+      Option_Value:this.Option_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_option,body7,'7','');
   }
@@ -136,6 +163,9 @@ export class QuestionOptionPreviewComponent implements OnInit {
       Option_skip:11,
       Option_Marks:10,
       Option_Active:1,
+      Option_QuestionId:this.question_id,
+      Option_Test_Id:52,
+      Option_Value:this.Option_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_option,body9,'9','');
   }
@@ -192,7 +222,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
       for(i=0;i<this.return_msg1.question.length;i++)
       {
-        console.log(this.return_msg1.question[0].option.length);
         for(j=0;j<this.return_msg1.question[i].option.length;j++)
         {
           for(k=0;k<this.return_msg1.question[i].option[j].Option_Value.length;k++)
@@ -203,7 +232,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
           }
           if(temp_opt.length>=0)
           {
-            console.log('teest',temp_opt);
             for(k=0;k<temp_opt.length;k++)
             { 
               this.return_msg1.question[i].option[j].Option_Value[k]={};
@@ -221,8 +249,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
           }
         }
       }
-      console.log('ques_option_recreated',temp)
-      console.log('ques_option2',this.return_msg1);
+      console.log('ques_option_recreated',this.return_msg1)
     }
     if(fun_id==1)
     {
@@ -249,10 +276,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
       for(i=0;i<this.returnmsg4.question[0].Question_Title.length;i++)
       {
-        // this.question_title_arr[i]={};
-        this.question_title_arr[i].language_id=this.returnmsg4.question[0].Question_Title[i].que_lang_link_language_id;
-        // this.question_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
-        this.question_title_arr[i].question_title=this.returnmsg4.question[0].Question_Title[i].que_lang_link_question_title;
+        for(j=0;j<this.question_title_arr.length;j++)
+        {
+          if(this.question_title_arr[j].language_id==this.returnmsg4.question[0].Question_Title[i].que_lang_link_language_id)
+          {
+            this.question_title_arr[j].question_title=this.returnmsg4.question[0].Question_Title[i].que_lang_link_question_title;
+          }
+        }
         console.log('indexxyy',i);
       }
     }
@@ -264,10 +294,21 @@ export class QuestionOptionPreviewComponent implements OnInit {
     if(fun_id==6)
     {
       this.returnmsg6 = return_data.json();
-      this.Option_Active = return_data.json();
-      this.Option_Marks = return_data.json();
-      this.Option_QuestionId = return_data.json();
-      this.Option_skip = return_data.json();
+      this.Option_Active = this.returnmsg6.opton[0].Option_Active;
+      this.Option_Marks = this.returnmsg6.opton[0].Option_Marks;
+      this.Option_QuestionId = this.returnmsg6.opton[0].Option_QuestionId;
+      this.Option_skip = this.returnmsg6.opton[0].Option_skip;
+      for(i=0;i<this.returnmsg6.opton[0].Option_Value.length;i++)
+      {
+        for(j=0;j<this.Option_title_arr.length;j++)
+        {
+          if(this.Option_title_arr[j].language_id==this.returnmsg6.opton[0].Option_Value[i].opt_lang_link_language_id)
+          {
+            this.Option_title_arr[j].option_title=this.returnmsg6.opton[0].Option_Value[i].opt_lang_link_option_value;
+          }
+        }
+      }
+      console.log('option_edit_test',this.Option_title_arr);
     }
     if(fun_id==7)
     {
@@ -302,10 +343,14 @@ export class QuestionOptionPreviewComponent implements OnInit {
         this.question_title_arr[i].language_id=this.returnmsg10[i].Lang_Id;
         this.question_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
         this.question_title_arr[i].question_title='';
-        console.log('indexx',i);
+        this.Option_title_arr[i]={};
+        this.Option_title_arr[i].language_id=this.returnmsg10[i].Lang_Id;
+        this.Option_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
+        this.Option_title_arr[i].option_title='';
+        // console.log('indexx',i);
       }
-      console.log('sss',this.returnmsg10[0].Lang_Id);
-      console.log('sssxxx',this.question_title_arr);
+      // console.log('sss',this.returnmsg10[0].Lang_Id);
+      // console.log('sssxxx',this.question_title_arr);
     }
   }
 }

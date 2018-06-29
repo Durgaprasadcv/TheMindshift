@@ -26,7 +26,7 @@
           <span class="slider round"></span>
       </label> -->
       <div class="module_control">
-      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" >Add Question</button>
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" (click)="store_question_id(0)">Add Question</button>
       </div>
       <br>
   </div>
@@ -113,11 +113,15 @@
         <h4 class="modal-title">Edit Option</h4>
       </div>
       <div class="modal-body">
+      <md-form-field *ngFor="let i of Option_title_arr let ia = index">
+        <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.option_title" name="username">  
+      </md-form-field>
+      <br>
       <md-form-field>
-          <input mdInput placeholder="Module Name" [(ngModel)]="Menu_Module_Name" name="username">
+          <input mdInput placeholder="Option Skip" [(ngModel)]="Option_skip" name="username">
       </md-form-field>
       <md-form-field>
-        <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
+        <input mdInput placeholder="Option Marks" [(ngModel)]="Option_Marks" name="username">
       </md-form-field>
       <br>   
 
@@ -140,14 +144,16 @@
         <h4 class="modal-title">Add Option</h4>
       </div>
       <div class="modal-body">
-      <md-form-field>
-          <input mdInput placeholder="Option Skip" [(ngModel)]="Menu_Module_Name" name="username">
-      </md-form-field>
-      <md-form-field>
-        <input mdInput placeholder="Option Marks" [(ngModel)]="Menu_Module_Href" name="username">
-      </md-form-field>
-      <br>   
-
+        <md-form-field *ngFor="let i of Option_title_arr let ia = index">
+          <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.option_title" name="username">  
+        </md-form-field>
+        <br>
+        <md-form-field>
+          <input mdInput placeholder="Option Skip" [(ngModel)]="Option_skip" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Option Marks" [(ngModel)]="Option_Marks" name="username">
+        </md-form-field>   
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
