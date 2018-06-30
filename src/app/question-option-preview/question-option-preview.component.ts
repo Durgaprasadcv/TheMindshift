@@ -141,7 +141,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       var j;
         for(j=0;j<this.Option_title_arr.length;j++)
         {
-            this.Option_title_arr[j].option_title='';
+            this.Option_title_arr[j].option_value='';
         }
   }
 
@@ -264,7 +264,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
     if(fun_id==3)
     {
       this.returnmsg3 = return_data.json();
-      // this.refresh();
       console.log('returnmsg3',this.returnmsg3);
     }
     if(fun_id==4)
