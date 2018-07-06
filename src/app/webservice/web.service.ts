@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 export class WebService {
 //  public main_url='http://www.lg.djitsoft.xyz/api/';
 public main_url='http://10.0.0.7:8000/api/';
-// public main_url='http://localhost:9000/api/';
+// public main_url='http://localhost:8000/api/';
 
 //authetication
 public RequestOTP=this.main_url+'RequestOTP';
@@ -109,23 +109,29 @@ public add_permission=this.main_url+"add_permission";
 //language
 public Language_Available=this.main_url+"Language_Available";
 
-//chapter 
+//chapter
 public create_test_new=this.main_url+"create_test_new";
+
+//question_option_preview
+public get_question_option=this.main_url+"get_question_option";
+public save_question=this.main_url+"save_question";
+public get_language=this.main_url+"get_language";
+public get_question=this.main_url+"get_question";
 
 constructor(private _http: Http,private _router: Router) {   }
 
 createAuthorizationHeader(headers: Headers) {
   this.request_header_token=null;
   this.request_header_token=(JSON.parse(localStorage.getItem('token')));
-  headers.append('authorization', this.request_header_token); 
-  headers.append('Content-Type', 'application/json'); 
+  headers.append('authorization', this.request_header_token);
+  headers.append('Content-Type', 'application/json');
 }
 
 webRequest(scope,type,url,body,fun_id,loader){
   switch(type)
   {
     case 'get' :
-    { 
+    {
       console.log('Web Service: GET Method');
       let headers = new Headers();
       this.createAuthorizationHeader(headers);

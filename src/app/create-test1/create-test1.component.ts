@@ -28,7 +28,7 @@ export class CreateTest1Component implements OnInit {
   ngOnInit() 
   {
     const body1={};
-    this.webservice.webRequest(this,'get',this.webservice.Language_Available,body1,'1','');
+    this.webservice.webRequest(this,'post',this.webservice.get_language,body1,'1','');
 
     this.webservice.webRequest(this,'post',this.webservice.get_character,'','2','');
     this.webservice.webRequest(this,'post',this.webservice.get_video,'','3','');
