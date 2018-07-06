@@ -117,11 +117,8 @@ public get_question_option=this.main_url+"get_question_option";
 public save_question=this.main_url+"save_question";
 public get_language=this.main_url+"get_language";
 public get_question=this.main_url+"get_question";
-<<<<<<< HEAD
-=======
 public get_option=this.main_url+"get_option";
 public save_option=this.main_url+"save_option";
->>>>>>> 50dd0cf5a330d5ea0bc9b413e7533eaa627c3687
 
 constructor(private _http: Http,private _router: Router) {   }
 

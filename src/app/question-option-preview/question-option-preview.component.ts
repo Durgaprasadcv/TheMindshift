@@ -256,6 +256,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg1 = return_data.json();
       console.log('returnmsg1',this.returnmsg1);
+      const body1 = {
+        test_id:52
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
     }
     if(fun_id==2)
     {
@@ -266,6 +273,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg3 = return_data.json();
       console.log('returnmsg3',this.returnmsg3);
+      const body1 = {
+        test_id:52
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
     }
     if(fun_id==4)
     {
@@ -290,6 +304,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg5 = return_data.json();
       console.log('returnmsg5',this.returnmsg5);
+      const body1 = {
+        test_id:52
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
     }
     if(fun_id==6)
     {
@@ -314,6 +335,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg7 = return_data.json();
       console.log('returnmsg7',this.returnmsg7);
+      const body1 = {
+        test_id:52
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
     }
     if(fun_id==8)
     {
@@ -332,6 +360,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg9 = return_data.json();
       console.log('returnmsg9',this.returnmsg9);
+      const body1 = {
+        test_id:52
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
     }
     if(fun_id==10)
     {
