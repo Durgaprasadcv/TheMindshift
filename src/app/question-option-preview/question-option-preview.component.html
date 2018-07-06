@@ -10,7 +10,7 @@
         </div>
       </div>
     </div> -->
-  <div class="module_div" *ngIf="returnmsg2">
+  <div class="module_div" *ngIf="return_msg1">
       <br>
       <div class="module_detail">
       <label></label>
@@ -26,7 +26,7 @@
           <span class="slider round"></span>
       </label> -->
       <div class="module_control">
-      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" >Add Question</button>
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" (click)="store_question_id(0)">Add Question</button>
       </div>
       <br>
   </div>
@@ -34,20 +34,20 @@
   <div class="module_div" *ngFor="let i of return_msg1.question  let ia = index">
       <br>
       <div class="module_detail">
-      <label>Question Title:</label>
+        <label>Question Title:</label>
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
-      <label>Question Pause Time:</label>
+        <label>Question Pause Time:</label>
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
       </div>
       <div class="module_control">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_test_id(i.Question_Id)">Edit</button>&nbsp;
-      <button class="btn btn-info btn-lg" (click)="delete_modules(i.Question_Id)">Delete</button>
-      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add OPTION</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_question_id(i.Question_Id)">Edit</button>&nbsp;
+      <button class="btn btn-info btn-lg" (click)="delete_question(i.Question_Id)">Delete</button>
+      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">Add OPTION</button>
       </div>
       <br>
       <br>
-  
-  
+
+
       <span *ngFor="let j of i.option let ja = index">
           <div>
       <div class="module_detail">
@@ -56,12 +56,12 @@
         <label>Option Id:</label>
         <h6 class="mod_name">{{j.Option_Id}}</h6>
       </div>
-      
+
         <div class="module_control">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(j.submenu_details.Menu_Module_Id,j.submenu_details.Menu_Modules_Link_Id)">Edit</button>&nbsp;
-        <button class="btn btn-info btn-lg" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_option_id(i.Question_Id,j.Option_Id)">Edit</button>&nbsp;
+        <button class="btn btn-info btn-lg" (click)="delete_option(j.Option_Id)">Delete</button>
           </div>
-          </div>        
+          </div>
         <br>
       </span>
       <br>
@@ -72,7 +72,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal1" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -81,7 +81,7 @@
       </div>
       <div class="modal-body">
         <md-form-field *ngFor="let i of question_title_arr let ia = index">
-          <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.question_title" name="username">  
+          <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.question_title" name="username">
         </md-form-field>
         <md-form-field>
           <input mdInput placeholder="Marks Allocated" [(ngModel)]="Question_MarksAllocated" name="username">
@@ -99,13 +99,13 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_question()">Edit Module</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal2" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -113,26 +113,30 @@
         <h4 class="modal-title">Edit Option</h4>
       </div>
       <div class="modal-body">
+      <md-form-field *ngFor="let i of Option_title_arr let ia = index">
+        <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.option_title" name="username">
+      </md-form-field>
+      <br>
       <md-form-field>
-          <input mdInput placeholder="Module Name" [(ngModel)]="Menu_Module_Name" name="username">
+          <input mdInput placeholder="Option Skip" [(ngModel)]="Option_skip" name="username">
       </md-form-field>
       <md-form-field>
-        <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
+        <input mdInput placeholder="Option Marks" [(ngModel)]="Option_Marks" name="username">
       </md-form-field>
-      <br>   
+      <br>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_sub_module()">Edit Option</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_option()">Edit Option</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal3" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -140,26 +144,28 @@
         <h4 class="modal-title">Add Option</h4>
       </div>
       <div class="modal-body">
-      <md-form-field>
-          <input mdInput placeholder="Option Skip" [(ngModel)]="Menu_Module_Name" name="username">
-      </md-form-field>
-      <md-form-field>
-        <input mdInput placeholder="Option Marks" [(ngModel)]="Menu_Module_Href" name="username">
-      </md-form-field>
-      <br>   
-
+        <md-form-field *ngFor="let i of Option_title_arr let ia = index">
+          <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.option_title" name="username">
+        </md-form-field>
+        <br>
+        <md-form-field>
+          <input mdInput placeholder="Option Skip" [(ngModel)]="Option_skip" name="username">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput placeholder="Option Marks" [(ngModel)]="Option_Marks" name="username">
+        </md-form-field>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_sub_modules()">Add Option</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_option()">Add Option</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal4" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -168,7 +174,7 @@
       </div>
       <div class="modal-body">
       <md-form-field *ngFor="let i of question_title_arr let ia = index">
-        <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.question_title" name="username">  
+        <input mdInput placeholder="{{i.language_title}} Title" [(ngModel)]="i.question_title" name="username">
       </md-form-field>
       <md-form-field>
         <input mdInput placeholder="Marks Allocated" [(ngModel)]="Question_MarksAllocated" name="username">
@@ -180,7 +186,7 @@
       <md-form-field>
         <input mdInput placeholder="Wait Time" [(ngModel)]="Question_WaitTime" name="username">
       </md-form-field>
-      <br>   
+      <br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

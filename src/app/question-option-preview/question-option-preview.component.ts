@@ -11,8 +11,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
   lang_id=1;
   question_title_arr=Array();
 
-  submodules=Array();
-  submodules_count;
   Menu_Modules_Link_Id;
   Menu_Module_Id;
   Menu_Module_Name;
@@ -36,32 +34,30 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Question_PauseTime;
   Question_WaitTime;
   Question_Test_Id_field;
+  question_id;
+
+  option_id;
+
+  Option_Active;
+  Option_Marks;
+  Option_QuestionId;
+  Option_skip;
+  Option_title_arr=Array();
 
   constructor(private webservice:WebService) { }
 
   ngOnInit() {
-    this.submodules[0]=0;
-    this.submodules_count=0;
-    const body2 = {
-    };
-    this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
-
-    const body1={
+    const body1 = {
       test_id:52
     };
     this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
-
     const body10={
     };
     this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
   }
 
-  sub_modules(){
-    this.submodules_count++;
-    this.submodules[this.submodules_count]=this.submodules_count;
-  }
-
   add_question(){
+
     const body1 = {
       Question_Test_Id:52,
       Question_Type:'radio',
@@ -72,90 +68,117 @@ export class QuestionOptionPreviewComponent implements OnInit {
       Question_Answer:0,
       Platform:0,
       order_no:0,
+      Question_Active:1,
       question_title_arr:this.question_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_question,body1,'1','');
   }
 
-  delete_sub_modules(i){
-    console.log('delete_sub_modules',i);
-    const body3 = {
-      Menu_Modules_Link_Id:i
-    };
-    this.webservice.webRequest(this,'post',this.webservice.delete_submodule,body3,'3','');
+  edit_question(){
+    const body8={
+    Question_Test_Id:52,
+    Question_Id:this.question_id,
+    Question_Type:'radio',
+    Question_MarksAllocated:this.Question_MarksAllocated,
+    Question_PauseTime:this.Question_PauseTime,
+    Question_WaitTime:this.Question_WaitTime,
+    Question_NumOfOption:10,
+    Question_Answer:0,
+    Platform:0,
+    order_no:0,
+    Question_Active:1,
+    question_title_arr:this.question_title_arr
+    }
+    this.webservice.webRequest(this,'post',this.webservice.save_question,body8,'8','');
   }
 
-  delete_modules(j){
-    console.log("delete_modules",j);
-     const body5 = {
+  delete_question(j){
+    console.log("delete_question",j);
+    const body5 = {
+      Question_Test_Id:52,
+      Question_Id:j,
+      Question_Active:0
     };
     this.webservice.webRequest(this,'post',this.webservice.save_question,body5,'5','');
   }
-
-  store_test_id(i){
-    this.Question_Test_Id_field=i;
-    const body4={
-      test_id:52,
-      question_id:this.Question_Test_Id_field
-    }
-    this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
-   }
-
-   store_sub_module_id(i,j){
-    this.Menu_Module_Id=i;
-    this.Menu_Modules_Link_Id=j;
-    const body6={
-      Menu_Modules_Link_Id:this.Menu_Modules_Link_Id
-    }
-    this.webservice.webRequest(this,'post',this.webservice.get_sub_modules,body6,'6','');
-   }
-
-   edit_question(){
-      const body8={
-      Question_Test_Id:52,
-      Question_Id:this.Question_Test_Id_field,
-      Question_Type:'radio',
-      Question_MarksAllocated:this.Question_MarksAllocated,
-      Question_PauseTime:this.Question_PauseTime,
-      Question_WaitTime:this.Question_WaitTime,
-      Question_NumOfOption:10,
-      Question_Answer:0,
-      Platform:0,
-      order_no:0,
-      question_title_arr:this.question_title_arr,
-      Question_Active:0
+  store_question_id(i){
+    this.question_id=i;
+    console.log('question_id',i);
+    if(i>0)
+    {
+      const body4={
+        // test_id:52,
+        question_id:this.question_id
       }
-      this.webservice.webRequest(this,'post',this.webservice.save_question,body8,'8','');
-   }
-
-   edit_sub_module(){
-    const body9={
-      Menu_Modules_Link_Id:this.Menu_Modules_Link_Id,
-      Menu_Module_Org_Id:1,
-      Menu_Modules_Name:this.Menu_Module_Name,
-      Menu_Modules_Href:this.Menu_Module_Href,
-      Menu_Modules_Active:1
+      this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
     }
-    this.webservice.webRequest(this,'post',this.webservice.edit_submodule,body9,'9','');
-   }
+    else{
+      this.Question_MarksAllocated='';
+      this.Question_PauseTime='';
+      this.Question_WaitTime='';
+      var j;
+      for(j=0;j<this.question_title_arr.length;j++)
+      {
+        this.question_title_arr[j].question_title='';
+      }
+    }
+  }
 
-   add_sub_modules_store(i){
-    this.Menu_Module_Id=i;
-    this.Menu_Module_Name='';
-    this.Menu_Module_Href='';
-   }
-   add_sub_modules(i){
+  store_option_id(i,j){
+    this.question_id=i;
+    this.option_id=j;
+    const body6={
+      option_id:j
+    }
+    this.webservice.webRequest(this,'post',this.webservice.get_option,body6,'6','');
+  }
+
+  add_option_store(i){
+    this.question_id=i;
+    this.Option_Active = this.returnmsg6.opton[0].Option_Active;
+      this.Option_Marks ='';
+      this.Option_QuestionId = '';
+      this.Option_skip = '';
+      var j;
+        for(j=0;j<this.Option_title_arr.length;j++)
+        {
+            this.Option_title_arr[j].option_value='';
+        }
+  }
+
+  add_option(){
     const body7={
-      Menu_Module_Id:this.Menu_Module_Id,
-      Menu_Modules_Name:this.Menu_Module_Name,
-      Menu_Modules_Href:this.Menu_Module_Href,
-      Menu_Modules_Link_Active:1,
-      Menu_Modules_Platform:1
-    }
-    this.webservice.webRequest(this,'post',this.webservice.add_submodule,body7,'7','');
-   }
+      Option_skip:11,
+      Option_Marks:10,
+      Option_Active:1,
+      Option_QuestionId:this.question_id,
+      Option_Test_Id:52,
+      Option_Value:this.Option_title_arr
+    };
+    this.webservice.webRequest(this,'post',this.webservice.save_option,body7,'7','');
+  }
 
+  edit_option(){
+    const body9={
+      Option_Id:this.option_id,
+      Option_skip:11,
+      Option_Marks:10,
+      Option_Active:1,
+      Option_QuestionId:this.question_id,
+      Option_Test_Id:52,
+      Option_Value:this.Option_title_arr
+    };
+    this.webservice.webRequest(this,'post',this.webservice.save_option,body9,'9','');
+  }
 
+  delete_option(i){
+    console.log('delete_option',i);
+    const body3 = {
+      Option_Id:i,
+      Option_Active:0
+    };
+    this.webservice.webRequest(this,'post',this.webservice.save_option,body3,'3','');
+  }
 
   webresponse(fun_id,return_data)
   {
@@ -171,37 +194,35 @@ export class QuestionOptionPreviewComponent implements OnInit {
       var temp2;
       for(i=0;i<this.return_msg1.question.length;i++)
       {
-          for(j=0;j<this.return_msg1.question[i].Question_Title.length;j++)
-          { 
-            temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id]={};
-            temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id].que_lang_link_language_id=this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id;
-            temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id].que_lang_link_question_title=this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title;
-           // this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id;
-           // this.return_msg1.question[i].Question_Title[j]=
-
-          }
-          if(temp.length>=0)
+        for(j=0;j<this.return_msg1.question[i].Question_Title.length;j++)
+        {
+          temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id]={};
+          temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id].que_lang_link_language_id=this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id;
+          temp[this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id].que_lang_link_question_title=this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title;
+          // this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id;
+          // this.return_msg1.question[i].Question_Title[j]=
+        }
+        if(temp.length>=0)
+        {
+          for(j=0;j<temp.length;j++)
           {
-            for(j=0;j<temp.length;j++)
-            { 
-              this.return_msg1.question[i].Question_Title[j]={};
-              if(temp[j])
-              {
-                this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id=temp[j].que_lang_link_language_id;
-                this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title=temp[j].que_lang_link_question_title;
-              }
-              else
-              {
-                this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id=0;
-                this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title='empty';
-              }
+            this.return_msg1.question[i].Question_Title[j]={};
+            if(temp[j])
+            {
+              this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id=temp[j].que_lang_link_language_id;
+              this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title=temp[j].que_lang_link_question_title;
+            }
+            else
+            {
+              this.return_msg1.question[i].Question_Title[j].que_lang_link_language_id=0;
+              this.return_msg1.question[i].Question_Title[j].que_lang_link_question_title='empty';
             }
           }
+        }
       }
 
       for(i=0;i<this.return_msg1.question.length;i++)
       {
-        console.log(this.return_msg1.question[0].option.length);
         for(j=0;j<this.return_msg1.question[i].option.length;j++)
         {
           for(k=0;k<this.return_msg1.question[i].option[j].Option_Value.length;k++)
@@ -212,9 +233,8 @@ export class QuestionOptionPreviewComponent implements OnInit {
           }
           if(temp_opt.length>=0)
           {
-            console.log('teest',temp_opt);
             for(k=0;k<temp_opt.length;k++)
-            { 
+            {
               this.return_msg1.question[i].option[j].Option_Value[k]={};
               if(temp_opt[k])
               {
@@ -228,20 +248,13 @@ export class QuestionOptionPreviewComponent implements OnInit {
               }
             }
           }
-         }
+        }
       }
-      console.log('ques_option_recreated',temp)
-      console.log('ques_option2',this.return_msg1);
+      console.log('ques_option_recreated',this.return_msg1)
     }
-
     if(fun_id==1)
     {
       this.returnmsg1 = return_data.json();
-      this.Menu_Module_Name_add='';
-      this.Menu_Module_Href_add='';
-      const body2 = {
-      };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
       console.log('returnmsg1',this.returnmsg1);
     }
     if(fun_id==2)
@@ -252,10 +265,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
     if(fun_id==3)
     {
       this.returnmsg3 = return_data.json();
-      // this.refresh();
-      const body2 = {
-      };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
       console.log('returnmsg3',this.returnmsg3);
     }
     if(fun_id==4)
@@ -267,51 +276,61 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
       for(i=0;i<this.returnmsg4.question[0].Question_Title.length;i++)
       {
-        // this.question_title_arr[i]={};
-        this.question_title_arr[i].language_id=this.returnmsg4.question[0].Question_Title[i].que_lang_link_language_id;
-        // this.question_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
-        this.question_title_arr[i].question_title=this.returnmsg4.question[0].Question_Title[i].que_lang_link_question_title;
+        for(j=0;j<this.question_title_arr.length;j++)
+        {
+          if(this.question_title_arr[j].language_id==this.returnmsg4.question[0].Question_Title[i].que_lang_link_language_id)
+          {
+            this.question_title_arr[j].question_title=this.returnmsg4.question[0].Question_Title[i].que_lang_link_question_title;
+          }
+        }
         console.log('indexxyy',i);
       }
-
     }
     if(fun_id==5)
     {
       this.returnmsg5 = return_data.json();
-      const body2 = {
-      };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
       console.log('returnmsg5',this.returnmsg5);
     }
     if(fun_id==6)
     {
       this.returnmsg6 = return_data.json();
-      this.Menu_Modules_Link_Id=this.returnmsg6.Menu_Modules_Link_Id;
-      this.Menu_Module_Name=this.returnmsg6.Menu_Modules_Name;
-      this.Menu_Module_Href=this.returnmsg6.Menu_Modules_Href;
+      this.Option_Active = this.returnmsg6.opton[0].Option_Active;
+      this.Option_Marks = this.returnmsg6.opton[0].Option_Marks;
+      this.Option_QuestionId = this.returnmsg6.opton[0].Option_QuestionId;
+      this.Option_skip = this.returnmsg6.opton[0].Option_skip;
+      for(i=0;i<this.returnmsg6.opton[0].Option_Value.length;i++)
+      {
+        for(j=0;j<this.Option_title_arr.length;j++)
+        {
+          if(this.Option_title_arr[j].language_id==this.returnmsg6.opton[0].Option_Value[i].opt_lang_link_language_id)
+          {
+            this.Option_title_arr[j].option_title=this.returnmsg6.opton[0].Option_Value[i].opt_lang_link_option_value;
+          }
+        }
+      }
+      console.log('option_edit_test',this.Option_title_arr);
     }
     if(fun_id==7)
     {
       this.returnmsg7 = return_data.json();
-      const body2 = {
-      };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
       console.log('returnmsg7',this.returnmsg7);
     }
     if(fun_id==8)
     {
       this.returnmsg8 = return_data.json();
-      const body2 = {
+      const body21={
+        test_id:52
       };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
+      this.webservice.webRequest(this,'post',this.webservice.get_question_option,body21,'21','');
+
+      const body10={
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
       console.log('returnmsg8',this.returnmsg8);
     }
     if(fun_id==9)
     {
       this.returnmsg9 = return_data.json();
-      const body2 = {
-      };
-      this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
       console.log('returnmsg9',this.returnmsg9);
     }
     if(fun_id==10)
@@ -324,10 +343,14 @@ export class QuestionOptionPreviewComponent implements OnInit {
         this.question_title_arr[i].language_id=this.returnmsg10[i].Lang_Id;
         this.question_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
         this.question_title_arr[i].question_title='';
-        console.log('indexx',i);
+        this.Option_title_arr[i]={};
+        this.Option_title_arr[i].language_id=this.returnmsg10[i].Lang_Id;
+        this.Option_title_arr[i].language_title=this.returnmsg10[i].Lang_Tittle;
+        this.Option_title_arr[i].option_title='';
+        // console.log('indexx',i);
       }
-      console.log('sss',this.returnmsg10[0].Lang_Id);
-      console.log('sssxxx',this.question_title_arr);
+      // console.log('sss',this.returnmsg10[0].Lang_Id);
+      // console.log('sssxxx',this.question_title_arr);
     }
   }
 }

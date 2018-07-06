@@ -25,6 +25,7 @@ export class DesignationComponent implements OnInit {
   {
     if(fun_id==1)
     {
+      // window.location.reload(true);
       this.returnmsg = return_data.json();
       this.refresh=1;
       console.log(this.returnmsg);
@@ -63,14 +64,14 @@ export class DesignationComponent implements OnInit {
       Designation_Level:this.Designation_Level,
       Designation_OrgID:this.Designation_OrgID
     };
-      this.webservice.webRequest(this,'post',this.webservice.create_designation,body,'2','');
+    this.webservice.webRequest(this,'post',this.webservice.create_designation,body,'2','');
   }
   store_designation_id(i){
-   this.Designation_Id=i;
-   const body1={
-    Designation_Id:this.Designation_Id
-   }
-   this.webservice.webRequest(this,'post',this.webservice.get_designation,body1,'5','');
+    this.Designation_Id=i;
+    const body1={
+      Designation_Id:this.Designation_Id
+    }
+    this.webservice.webRequest(this,'post',this.webservice.get_designation,body1,'5','');
   }
   delete(){
     const body2 = {
