@@ -96,6 +96,7 @@ public edit_module=this.main_url+"edit_module";
 public edit_submodule=this.main_url+"edit_submodule";
 public get_main_modules=this.main_url+"get_main_modules";
 public get_sub_modules=this.main_url+"get_sub_modules";
+public save_module=this.main_url+"save_module";
 
 //access level
 public add_access_level=this.main_url+"add_access_level";

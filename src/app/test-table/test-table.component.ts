@@ -24,7 +24,7 @@ export class TestTableComponent implements OnInit {
     alert("delete");
   }
   create_test(){
-    this._router.navigate(['/create-test']);
+    this._router.navigate(['/create-test1']);
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)

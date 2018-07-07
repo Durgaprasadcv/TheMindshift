@@ -16,6 +16,7 @@ export class ModuleCreationComponent implements OnInit {
   Menu_Module_Name_add;
   Menu_Module_Href_add;
   Menu_Module_Active=false;
+  Menu_Module_Parent_Id;
   returnmsg1;
   returnmsg2;
   returnmsg3;
@@ -42,27 +43,31 @@ export class ModuleCreationComponent implements OnInit {
     this.Menu_Module_Name=this.Menu_Module_Name_add;
     this.Menu_Module_Href=this.Menu_Module_Href_add;
     const body1 = {
+      Menu_Module_Parent_Id:0,
       Menu_Module_Name:this.Menu_Module_Name,
       Menu_Module_Href:this.Menu_Module_Href,
-      Menu_Module_Active:1
+      Menu_Module_Active:1,
+      Menu_Module_Platform:1
     };
-    this.webservice.webRequest(this,'post',this.webservice.add_module,body1,'1','');
+    this.webservice.webRequest(this,'post',this.webservice.save_module,body1,'1','');
   }
 
   delete_sub_modules(i){
     console.log('delete_sub_modules',i);
     const body3 = {
-      Menu_Modules_Link_Id:i
+      Menu_Module_Id:i,
+      Menu_Module_Active:0
     };
-    this.webservice.webRequest(this,'post',this.webservice.delete_submodule,body3,'3','');
+    this.webservice.webRequest(this,'post',this.webservice.save_module,body3,'3','');
   }
 
   delete_modules(j){
     console.log("delete_modules",j);
      const body5 = {
-      Menu_Module_Id :j
+      Menu_Module_Id :j,
+      Menu_Module_Active:0
     };
-    this.webservice.webRequest(this,'post',this.webservice.delete_module,body5,'5','');
+    this.webservice.webRequest(this,'post',this.webservice.save_module,body5,'5','');
   }
 
   store_module_id(i){
@@ -74,34 +79,39 @@ export class ModuleCreationComponent implements OnInit {
    }
 
    store_sub_module_id(i,j){
-    this.Menu_Module_Id=i;
-    this.Menu_Modules_Link_Id=j;
+    this.Menu_Module_Id=j;
+    this.Menu_Module_Parent_Id=i;
     const body6={
-      Menu_Modules_Link_Id:this.Menu_Modules_Link_Id
+      Menu_Module_Id:this.Menu_Module_Id,
+      Menu_Module_Parent_Id:this.Menu_Module_Parent_Id
     }
     this.webservice.webRequest(this,'post',this.webservice.get_sub_modules,body6,'6','');
    }
 
    edit_module(){
       const body8={
+        Menu_Module_Parent_Id:0,
+        Menu_Module_Platform:1,
         Menu_Module_Id:this.Menu_Module_Id,
         Menu_Module_Org_Id:1,
         Menu_Module_Name:this.Menu_Module_Name,
         Menu_Module_Href:this.Menu_Module_Href,
         Menu_Module_Active:1
       }
-      this.webservice.webRequest(this,'post',this.webservice.edit_module,body8,'8','');
+      this.webservice.webRequest(this,'post',this.webservice.save_module,body8,'8','');
    }
 
    edit_sub_module(){
     const body9={
-      Menu_Modules_Link_Id:this.Menu_Modules_Link_Id,
+      Menu_Module_Parent_Id:this.Menu_Module_Parent_Id,
+      Menu_Module_Id:this.Menu_Module_Id,
       Menu_Module_Org_Id:1,
-      Menu_Modules_Name:this.Menu_Module_Name,
-      Menu_Modules_Href:this.Menu_Module_Href,
-      Menu_Modules_Active:1
+      Menu_Module_Name:this.Menu_Module_Name,
+      Menu_Module_Href:this.Menu_Module_Href,
+      Menu_Modules_Active:1,
+      Menu_Module_Platform:1
     }
-    this.webservice.webRequest(this,'post',this.webservice.edit_submodule,body9,'9','');
+    this.webservice.webRequest(this,'post',this.webservice.save_module,body9,'9','');
    }
 
    add_sub_modules_store(i){
@@ -111,13 +121,14 @@ export class ModuleCreationComponent implements OnInit {
    }
    add_sub_modules(i){
     const body7={
-      Menu_Module_Id:this.Menu_Module_Id,
-      Menu_Modules_Name:this.Menu_Module_Name,
-      Menu_Modules_Href:this.Menu_Module_Href,
-      Menu_Modules_Link_Active:1,
-      Menu_Modules_Platform:1
+      Menu_Module_Parent_Id:this.Menu_Module_Id,
+      // Menu_Module_Id:this.Menu_Module_Id,
+      Menu_Module_Name:this.Menu_Module_Name,
+      Menu_Module_Href:this.Menu_Module_Href,
+      Menu_Module_Active:1,
+      Menu_Module_Platform:1
     }
-    this.webservice.webRequest(this,'post',this.webservice.add_submodule,body7,'7','');
+    this.webservice.webRequest(this,'post',this.webservice.save_module,body7,'7','');
    }
 
   webresponse(fun_id,return_data){
@@ -163,9 +174,10 @@ export class ModuleCreationComponent implements OnInit {
     if(fun_id==6)
     {
       this.returnmsg6 = return_data.json();
-      this.Menu_Modules_Link_Id=this.returnmsg6.Menu_Modules_Link_Id;
-      this.Menu_Module_Name=this.returnmsg6.Menu_Modules_Name;
-      this.Menu_Module_Href=this.returnmsg6.Menu_Modules_Href;
+      this.Menu_Module_Id=this.returnmsg6.Menu_Module_Id;
+      this.Menu_Module_Parent_Id=this.returnmsg6.Menu_Module_Parent_Id;
+      this.Menu_Module_Name=this.returnmsg6.Menu_Module_Name;
+      this.Menu_Module_Href=this.returnmsg6.Menu_Module_Href;
     }
     if(fun_id==7)
     {

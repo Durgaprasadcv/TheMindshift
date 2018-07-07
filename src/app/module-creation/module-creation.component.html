@@ -46,9 +46,10 @@
         <div>
     <div class="module_detail">
       <label>Submodule Name:</label>
-      <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Name}}</h6>
+      <!-- <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Name}}</h6> -->
+      <h6 class="mod_name">{{j.submenu_details.Menu_Module_Name}}</h6>
       <label>Submodule link:</label>
-      <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Href}}</h6>
+      <h6 class="mod_name">{{returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Href}}</h6>
     </div>
       <!-- <label>Active:</label> -->
       <!-- <label class="switch">
@@ -57,13 +58,13 @@
       </label> -->
       <!-- <button class="create_button" (click)="create_modules()">Edit</button> -->
       <div class="module_control">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(j.submenu_details.Menu_Module_Id,j.submenu_details.Menu_Modules_Link_Id)">Edit</button>&nbsp;
-      <button class="btn btn-info btn-lg" (click)="delete_sub_modules(j.submenu_details.Menu_Modules_Link_Id)">Delete</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Parent_Id,returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Edit</button>&nbsp;
+      <button class="btn btn-info btn-lg" (click)="delete_sub_modules(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Delete</button>
         </div>
-        </div>        
+        </div>
       <br>
     </span>
-    <!-- <div class="sub_module_div" *ngFor="let i of submodules  let ia = index">  
+    <!-- <div class="sub_module_div" *ngFor="let i of submodules  let ia = index">
         <span *ngIf="i>0">
             <label>Submodule Name:</label>
             <input type="text">
@@ -84,7 +85,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal1" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -98,7 +99,7 @@
         <md-form-field>
           <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
         </md-form-field>
-        <br>   
+        <br>
 
         </div>
         <div class="modal-footer">
@@ -106,13 +107,13 @@
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_module()">Edit Module</button>
         </div>
       </div>
-      
+
     </div>
   </div>
   <!-- Modal -->
 <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -126,7 +127,7 @@
         <md-form-field>
           <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
         </md-form-field>
-        <br>   
+        <br>
 
         </div>
         <div class="modal-footer">
@@ -134,12 +135,12 @@
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit_sub_module()">Edit Sub Module</button>
         </div>
       </div>
-      
+
     </div>
   </div>
   <div class="modal fade" id="myModal3" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -153,7 +154,7 @@
         <md-form-field>
           <input mdInput placeholder="Module Link" [(ngModel)]="Menu_Module_Href" name="username">
         </md-form-field>
-        <br>   
+        <br>
 
         </div>
         <div class="modal-footer">
@@ -161,6 +162,6 @@
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add_sub_modules()">Add Sub Module</button>
         </div>
       </div>
-      
+
     </div>
   </div>
