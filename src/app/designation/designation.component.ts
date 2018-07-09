@@ -16,10 +16,24 @@ export class DesignationComponent implements OnInit {
   Designation_OrgID;
   Designation_Id;
   refresh=1;
+  side_menu;
+  Access_Code;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
+
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/designation")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   webresponse(fun_id,return_data)
   {
@@ -52,7 +66,7 @@ export class DesignationComponent implements OnInit {
     else if(fun_id==4)
     {
       // window.location.reload(true);
-      window.location.reload(true);
+      // window.location.reload(true);
       this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     }
   }
@@ -62,7 +76,7 @@ export class DesignationComponent implements OnInit {
       Designation_Disp_Name:this.Designation_Disp_Name,
       Designation_code:this.Designation_code,
       Designation_Level:this.Designation_Level,
-      Designation_OrgID:this.Designation_OrgID
+      Designation_OrgID:1
     };
     this.webservice.webRequest(this,'post',this.webservice.create_designation,body,'2','');
   }
@@ -70,7 +84,7 @@ export class DesignationComponent implements OnInit {
     this.Designation_Id=i;
     const body1={
       Designation_Id:this.Designation_Id
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.get_designation,body1,'5','');
   }
   delete(){
@@ -86,7 +100,7 @@ export class DesignationComponent implements OnInit {
       Designation_Disp_Name:this.Designation_Disp_Name,
       Designation_code:this.Designation_code,
       Designation_Level:this.Designation_Level,
-      Designation_OrgID:this.Designation_OrgID
+      Designation_OrgID:1
     };
     this.webservice.webRequest(this,'post',this.webservice.update_designation,body3,'4','');
   }

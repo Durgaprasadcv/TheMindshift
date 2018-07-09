@@ -15,7 +15,7 @@ export class DialogComponent implements OnInit {
   tic1=10;
   submit_show=0;
   prog_bar=0;
-  constructor( 
+  constructor(
     public dialogRef: MdDialogRef<DialogComponent>,
     @Inject(MD_DIALOG_DATA) public data: any) { }
     onNoClick(result): void {

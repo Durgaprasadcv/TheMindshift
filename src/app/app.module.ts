@@ -106,6 +106,8 @@ import { PermissionComponent } from './permission/permission.component';
 import { CreateTest1Component } from './create-test1/create-test1.component';
 import { TestQuestionsComponent } from './test-questions/test-questions.component';
 import { QuestionOptionPreviewComponent } from './question-option-preview/question-option-preview.component';
+import { VideoPreviewComponent } from './video-preview/video-preview.component';
+import { DialogPreviewComponent } from './dialog-preview/dialog-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -151,7 +153,9 @@ import { QuestionOptionPreviewComponent } from './question-option-preview/questi
     PermissionComponent,
     CreateTest1Component,
     TestQuestionsComponent,
-    QuestionOptionPreviewComponent
+    QuestionOptionPreviewComponent,
+    VideoPreviewComponent,
+    DialogPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -178,7 +182,9 @@ import { QuestionOptionPreviewComponent } from './question-option-preview/questi
       { path: 'home',component: HomeComponent },
       { path: 'bcarousel',component: BcarouselComponent },
       { path: 'video/:id',component:VideoComponent },
+      { path: 'video-preview/:id',component:VideoPreviewComponent },
       { path: 'dialog',component:DialogComponent },
+      { path: 'dialog-preview',component:DialogPreviewComponent },
       { path: 'video-lists/:ida',component:VideoListsComponent },
       { path: 'report',component:ReportComponent },
       { path: 'report-rough',component:ReportRoughComponent },

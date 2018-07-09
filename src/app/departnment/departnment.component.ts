@@ -9,10 +9,10 @@ import * as $ from 'jquery';
 })
 export class DepartnmentComponent implements OnInit {
   returnmsg;
-  returnmsg1
+  returnmsg1;
   Dept_Id;
   Dept_Name;
-  Dept_Desp;
+  Dept_Desc;
   Dept_Code;
   Dept_Org_ID;
   address_line_1;
@@ -23,13 +23,26 @@ export class DepartnmentComponent implements OnInit {
   pincode;
   email;
   contact_no;
+  side_menu;
+  Access_Code=1;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/departnment")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   ngAfterViewInit() {
-  
+
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
@@ -43,14 +56,14 @@ export class DepartnmentComponent implements OnInit {
     else if(fun_id==3){
       this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
-    else if(fun_id==4){
 
+    else if(fun_id==4){
       this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
     }
     else if(fun_id==5){
       this.returnmsg1 = return_data.json();
       this.Dept_Name=this.returnmsg1.Dept_Name;
-      this.Dept_Desp=this.returnmsg1.Dept_Desp;
+      this.Dept_Desc=this.returnmsg1.Dept_Desc;
       this.Dept_Code=this.returnmsg1.Dept_Code;
       this.Dept_Org_ID=this.returnmsg1.Dept_Org_ID;
       this.address_line_1=this.returnmsg1.address_line_1;
@@ -66,9 +79,9 @@ export class DepartnmentComponent implements OnInit {
   add(){
     const body = {
       Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
+      Dept_Desc:this.Dept_Desc,
       Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
+      Dept_Org_ID:1,
       address_line_1:this.address_line_1,
       address_line_2:this.address_line_2,
       city:this.city,
@@ -84,7 +97,7 @@ export class DepartnmentComponent implements OnInit {
    this.Dept_Id=i;
    const body1={
     Dept_Id:this.Dept_Id
-   }
+   };
    this.webservice.webRequest(this,'post',this.webservice.get_dept,body1,'5','');
   }
   delete(){
@@ -97,9 +110,9 @@ export class DepartnmentComponent implements OnInit {
     const body3 = {
       Dept_Id:this.Dept_Id,
       Dept_Name:this.Dept_Name,
-      Dept_Desp:this.Dept_Desp,
+      Dept_Desc:this.Dept_Desc,
       Dept_Code:this.Dept_Code,
-      Dept_Org_ID:this.Dept_Org_ID,
+      Dept_Org_ID:1,
       address_line_1:this.address_line_1,
       address_line_2:this.address_line_2,
       city:this.city,
@@ -114,7 +127,7 @@ export class DepartnmentComponent implements OnInit {
   nullify(){
     this.Dept_Id='';
     this.Dept_Name='';
-    this.Dept_Desp='';
+    this.Dept_Desc='';
     this.Dept_Code='';
     this.Dept_Org_ID='';
     this.address_line_1='';

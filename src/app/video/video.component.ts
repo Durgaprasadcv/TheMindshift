@@ -45,6 +45,7 @@ export class VideoComponent implements OnInit {
   popup_count=0;
   current_test;
   system_back=0;
+  test_ing;
   constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { }
 ngOnInit() {
   let id = this.route.snapshot.paramMap.get('id');
@@ -63,7 +64,7 @@ ngOnInit() {
   if(this.system_back==0){
    localStorage.setItem('replay',JSON.stringify(0));
    localStorage.setItem('next_play',JSON.stringify(0));
-  }  
+  }
 }
 //to update result
 question_update(test_id,test_name,answer_time,question_no,marks_per_question,option_id){
@@ -82,7 +83,13 @@ webresponse(fun_id,return_data)
   // test details response
   if(fun_id==1)
   {
-    this.returnmsg = return_data.json();
+    // this.returnmsg = return_data.json();
+
+    // local json begin
+    this.test_ing='{"test":[{"test_id":52,"test_name":"Epsisode1","test_description":"The meeting and flashback ","video_path":"http:\/\/www.djitsoft.xyz\/video_files\/test_6.mp4","no_of_questions":1,"test_image":"http:\/\/www.mindshift.djitsoft.xyz\/assets\/images\/Poster 5.jpg","feedback_questions":0,"test_status":1,"test_count":0,"stop_time":410,"question":[{"question_id":55,"question_title":"On a Scale of 1 to 10, how proud are you being a sales person?","question_type":"radio","marks_assigned":1,"Pause_time":"27","wait_time":"30","num_of_box":2,"type_options":[{"id":149,"name":"1-2","Option_skip":"12"},{"id":150,"name":"3-5","Option_skip":"12"},{"id":153,"name":"6-8","Option_skip":"12"},{"id":154,"name":"9-10","Option_skip":"12"}],"answers":["149"]}],"next_test_id":1}],"num":"1"}';
+    console.log('aaa',JSON.parse(this.test_ing));
+    this.returnmsg=JSON.parse(this.test_ing);
+    // local json end
     this.returnmsg1=this.returnmsg.test[0];
     this.video_questions();
   }
@@ -118,7 +125,7 @@ video_questions()
   this.timerinstance = timer.subscribe(t=>{
   if(this.api.getDefaultMedia())
   {
-    //retrieve the last pause time 
+    //retrieve the last pause time
     if((JSON.parse( localStorage.getItem('lastpause['+this.returnmsg1.test_id+']')))>0)
     {
       if(Math.trunc(this.api.getDefaultMedia().currentTime)==0)
@@ -151,7 +158,7 @@ video_questions()
       }
     }
     this.ticks= Math.trunc(this.api.getDefaultMedia().currentTime);
-    
+
     // update the current time to local storage
     if(this.returnmsg1.stop_time>this.ticks&&this.ticks>0)
     {
@@ -215,21 +222,21 @@ video_questions()
             this.webservice.webRequest(this,'post',this.webservice.test_completion,body2,'3','');
             localStorage.setItem('lastpause['+this.returnmsg1.test_id+']',  JSON.stringify(0));
           }
-          
+
         });
         console.log('Total Correct Answer',this.q_answer);
         console.log('Total Marks',this.marks);
         this.dis=1;
         }
-      } 
+      }
     }
     // executed for each questions
     else
-    { 
+    {
       if((this.returnmsg1.question[this.z].Pause_time)==this.ticks)
         this.api.getDefaultMedia().pause();
       if((this.returnmsg1.question[this.z].Pause_time-1)==this.ticks)
-      { 
+      {
         this.pop_up();
       }
     }
@@ -237,7 +244,7 @@ video_questions()
   });
 }
 
-//pop up the question 
+//pop up the question
 pop_up()
 {
   if(window.innerHeight > window.innerWidth)
@@ -287,7 +294,7 @@ skip(result)
       {
         this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
       }
-    } 
+    }
     //if question is answered wrong
     else
     {
@@ -306,7 +313,7 @@ fullscreen()
 {
   this.api.fsAPI.toggleFullscreen();
 }
- onPlayerReady(api:VgAPI) { 
+ onPlayerReady(api:VgAPI) {
   this.api = api;
   // videoObject.init();
   this.api.getDefaultMedia().subscriptions.seeked.subscribe(

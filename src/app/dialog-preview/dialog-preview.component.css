@@ -1,0 +1,134 @@
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+  }
+
+  .example-radio-button {
+    margin: 0px;
+  }
+
+  .example-selected-value {
+    margin: 15px 0;
+  }
+  .question{
+    clear: both;
+  }
+  .timer_div{
+    float: right;
+    text-align:center;
+    /* width:10%; */
+    background-color: red;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 100px;
+  }
+  .alert_head{
+    float: left;
+    width:90%;
+    word-wrap: break-word;
+  }
+  @media only screen and (orientation:portrait){
+    #pop_up {
+      /* -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      margin-left: 30%; */
+
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+
+      transform-origin: bottom left;
+      width: 78vh;
+      height: 66vw;
+      margin-top: -59vw;
+      margin-left: -5vw;
+      /* object-fit: cover; */
+
+      z-index: 4;
+      visibility: visible;
+      font-size: 35px !important;
+      overflow: hidden;
+    }
+    #main_div{
+      margin-left: 30%;
+      /* margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }
+  @media only screen and (orientation:landscape){
+    #pop_up {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+     -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+      overflow: hidden;
+    }
+    #main_div{
+      /* margin-left: 10%;
+      margin-top: 10%;
+      margin-right: 10%;
+      margin-bottom: 10%;  */
+    }
+  }
+  .opt_div{
+    /* margin-top: 5%; */
+    text-align:left;
+    float: left;
+    width:100%;
+    /* overflow: scroll; */
+    height: auto;
+  }
+  .solid {
+
+    border-style: solid;
+    height:100%;
+    width:100%;
+  }
+  .submit{
+    /* margin-top: 5%; */
+    text-align:center;
+    float: left;
+    width:100%;
+  }
+  .r_answer{
+    float: left;
+    text-align:center;
+    margin-top: 5%;
+    margin-left: 25%;
+    width:50%;
+    background-color: rgb(12, 180, 88);
+  }
+  .w_answer{
+    text-align:center;
+    float: left;
+    margin-top: 5%;
+    margin-left: 25%;
+    width:50%;
+    background-color: red;
+  }
+  .progress{
+    margin-top: 5%;
+    margin-left: 25%;
+    width:50%;
+    height:5%;
+    float: left;
+  }
+  .progress-bar{
+    height:100%;
+  }
+  .submit_button{
+  /* width: 20vh !important;
+  height: 10vw !important;
+  font-size: 35px !important; */
+  }
+  .margin_top_timer{
+    margin-top: 1.75vh;
+  }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import 'assets/bcarousel.js'
+import 'assets/bcarousel.js';
 declare var bcarouselObject: any;
 import { WebService } from '../webservice/web.service';
 import { Http , Response } from '@angular/http';
@@ -23,7 +23,7 @@ export class SideNavigationComponent implements OnInit {
       Observable.of(navigator.onLine),
       Observable.fromEvent(window, 'online').mapTo(true),
       Observable.fromEvent(window, 'offline').mapTo(false)
-    )
+    );
    }
 
   ngOnInit() {
@@ -33,6 +33,11 @@ export class SideNavigationComponent implements OnInit {
     bcarouselObject.init();
     this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
     console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        this.side_menu.menu[i].drop_down=0;
+    }
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)
@@ -93,6 +98,17 @@ export class SideNavigationComponent implements OnInit {
     console.log("menu");
     localStorage.setItem("menu", JSON.stringify('s'));
     this._router.navigate(['/i']);
+  }
+  drop(i){
+    if(this.side_menu.menu[i].drop_down==1)
+    {
+      this.side_menu.menu[i].drop_down=0;
+    }
+    else{
+      this.side_menu.menu[i].drop_down=1;
+    }
+    console.log('menu',this.side_menu);
+    console.log('drrop',this.side_menu.menu[i].drop_down);
   }
   logout():void {
     this.webservice.logout();

@@ -47,7 +47,7 @@
         <button md-menu-item><span>Option 4</span></button>
       </md-menu> -->
     <!-- </div> -->
-  </div> 
+  </div>
     <!---->
   <!-- Material sidebar -->
   <aside id="sidebar" class="sidebar sidebar-fixed-left  sidebar-default" role="navigation">
@@ -55,7 +55,7 @@
     <div class="sidebar-header header-cover back_image">
       <!-- Top bar -->
       <div class="top-bar"></div>
-      <!-- Sidebar toggle button 
+      <!-- Sidebar toggle button
       <button type="button" class="sidebar-toggle">
           <i class="material-icons">keyboard_backspace</i>
       </button>-->
@@ -141,91 +141,103 @@
           </li>
         </ul>
       </li>-->
-      <li [routerLinkActive]="['active']">
-        <a [routerLink]="['/bcarousel']" (click)="menu('bcarousel')">
+      <!-- <li [routerLinkActive]="['active']">
+        <a [routerLink]="['/bcarousel']" >
             Home
         </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a  [routerLink]="['/test-table']" (click)="menu('test-table')">
+        <a  [routerLink]="['/test-table']" >
               Test
           </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a  [routerLink]="['/access-levels']" (click)="menu('access-levels')">
+        <a  [routerLink]="['/access-levels']">
               Access Level
           </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a  [routerLink]="['/permission']" (click)="menu('permission')">
+        <a  [routerLink]="['/permission']">
               Permission
         </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-          <a  [routerLink]="['/module-creation']" (click)="menu('module-creation')">
+          <a  [routerLink]="['/module-creation']" >
                 Modules Creation
           </a>
         </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a [routerLink]="['/create-user']" (click)="menu('create-user')">
+        <a [routerLink]="['/create-user']">
               Users
-          </a>  
+          </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a [routerLink]="['/designation']" (click)="menu('designation')">
+        <a [routerLink]="['/designation']">
           Designation
         </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a [routerLink]="['/departnment']" (click)="menu('departnment')">
+        <a [routerLink]="['/departnment']">
             Department
         </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-        <a [routerLink]="['/character']" (click)="menu('character')">
+        <a [routerLink]="['/character']">
           Character
         </a>
       </li>
       <li [routerLinkActive]="['active']" class="mob_display_none">
-            <a [routerLink]="['/video-library']" (click)="menu('video-library')">
+            <a [routerLink]="['/video-library']">
                 Video
             </a>
           </li>
           <li [routerLinkActive]="['active']" class="mob_display_none">
-            <a [routerLink]="['/organization']" (click)="menu('organization')">
+            <a [routerLink]="['/organization']">
               Organization
             </a>
           </li>
           <li [routerLinkActive]="['active']" class="mob_display_none">
-            <a [routerLink]="['/zone']" (click)="menu('zone')">
+            <a [routerLink]="['/zone']">
               Zone
             </a>
           </li>
           <li [routerLinkActive]="['active']" class="mob_display_none">
-            <a [routerLink]="['/activity-log']" (click)="menu('activity-log')">
+            <a [routerLink]="['/activity-log']">
               Activity Log
             </a>
           </li>
             <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a  [routerLink]="['/report-rough']" (click)="menu('report-rough')">
+              <a  [routerLink]="['/report-rough']">
                   Graphical Report
               </a>
             </li>
             <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a [routerLink]="['/overall-report']" (click)="menu('overall-report')">
+              <a [routerLink]="['/overall-report']">
                   Statistical Report
               </a>
             </li>
             <li [routerLinkActive]="['active']" class="mob_display_none">
-              <a [routerLink]="['/user-report']" (click)="menu('user-report')">
+              <a [routerLink]="['/user-report']">
                   User Report
               </a>
-            </li>
-            <!-- <li *ngFor="let i of side_menu  let ia = index" [routerLinkActive]="['active']" class="mob_display_none">
-              <a *ngIf="i.view" [routerLink]="[i.Menu_Modules_href]">
-                  {{i.Menu_Modules_Name}}
-              </a>
             </li> -->
+            <span *ngFor="let i of side_menu.menu  let ia = index">
+            <li [routerLinkActive]="['active']" class="mob_display_none">
+              <a *ngIf="i.Access_Code != '4' && !i.submenu" [routerLink]="[i.Menu_Module_Href]">
+                  {{i.Menu_Module_Name}}
+              </a>
+              <a *ngIf="i.Access_Code != '4' && i.submenu" (click)="drop(ia)">
+                +{{i.Menu_Module_Name}}
+              </a>
+            </li>
+            <span *ngIf="i.submenu && i.drop_down=='1'">
+              <li *ngFor="let j of i.submenu let ja = index" [routerLinkActive]="['active']" class="mob_display_none">
+                <a *ngIf="j.Access_Code" [routerLink]="[j.Menu_Module_Href]">
+                    {{j.Menu_Module_Name}}
+                </a>
+              </li>
+            </span>
+            </span>
 
      <!-- <li>
         <a href="#">
@@ -241,12 +253,12 @@
       </li>-->
        <li>
       <a (click)="logout()">Logout <span class="sidebar-badge logout-badge"><md-icon>exit_to_app</md-icon></span></a>
-    </li> 
+    </li>
       <button type="button" class="sidebar-toggle">
           <i class="material-icons">keyboard_backspace</i>
       </button>
     </ul>
-   
+
     <!-- Sidebar divider -->
     <!-- <div class="sidebar-divider"></div> -->
 

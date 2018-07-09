@@ -5,7 +5,7 @@
 <h1 class="page_title">Department</h1>
 </div>
 <div class="add_user">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Department</button>
+    <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Department</button>
 </div>
 </div>
 <div class="table_division">
@@ -15,18 +15,18 @@
     <th>Department Name</th>
     <th>Department Display Name</th>
     <th>Department Code</th>
-    <th>Department Organization ID</th>
+    <!-- <th>Department Organization ID</th> -->
     <th>Contact Number</th>
     <th>control</th>
   </tr>
   <tr *ngFor="let i of returnmsg  let ia = index ">
     <td>{{i.Dept_Id}}</td>
     <td>{{i.Dept_Name}}</td>
-    <td>{{i.Dept_Desp}}</td>
+    <td>{{i.Dept_Desc}}</td>
     <td>{{i.Dept_Code}}</td>
-    <td>{{i.Dept_Org_ID}}</td>
+    <!-- <td>{{i.Dept_Org_ID}}</td> -->
     <td>{{i.contact_no}}</td>
-    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td>
+    <td><button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" *ngIf='Access_Code==1' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td>
   </tr>
 </table>
 </div>
@@ -35,7 +35,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -47,15 +47,15 @@
           <input mdInput placeholder="Department Name" [(ngModel)]="Dept_Name" name="username">
       </md-form-field>
       <md-form-field>
-        <input mdInput placeholder="Department Display Name" [(ngModel)]="Dept_Desp" name="username">
+        <input mdInput placeholder="Department Display Name" [(ngModel)]="Dept_Desc" name="username">
       </md-form-field>
       <br>
       <md-form-field>
           <input mdInput placeholder="Department Code" [(ngModel)]="Dept_Code" name="username">
-      </md-form-field> 
-      <md-form-field>
-          <input mdInput placeholder="Department Organization ID" [(ngModel)]="Dept_Org_ID" name="username">
       </md-form-field>
+      <!-- <md-form-field>
+          <input mdInput placeholder="Department Organization ID" [(ngModel)]="Dept_Org_ID" name="username">
+      </md-form-field> -->
       <br>
       <md-form-field>
         <input mdInput placeholder="Department Address 1" [(ngModel)]="address_line_1" name="username">
@@ -87,12 +87,12 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit Department</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal_delete" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -107,12 +107,12 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal_add" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -124,15 +124,15 @@
                 <input mdInput placeholder="Department Name" [(ngModel)]="Dept_Name" name="username">
             </md-form-field>
             <md-form-field>
-              <input mdInput placeholder="Department Display Name" [(ngModel)]="Dept_Desp" name="username">
+              <input mdInput placeholder="Department Display Name" [(ngModel)]="Dept_Desc" name="username">
             </md-form-field>
             <br>
             <md-form-field>
                 <input mdInput placeholder="Department Code" [(ngModel)]="Dept_Code" name="username">
-            </md-form-field> 
-            <md-form-field>
-                <input mdInput placeholder="Department Organization ID" [(ngModel)]="Dept_Org_ID" name="username">
             </md-form-field>
+            <!-- <md-form-field>
+                <input mdInput placeholder="Department Organization ID" [(ngModel)]="Dept_Org_ID" name="username">
+            </md-form-field> -->
             <br>
             <md-form-field>
               <input mdInput placeholder="Department Address 1" [(ngModel)]="address_line_1" name="username">
@@ -165,7 +165,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

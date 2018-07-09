@@ -62,15 +62,15 @@ add_user(){
     User_Name:this.User_Name,
     User_Lastname:this.User_Lastname,
     UserEmail:this.UserEmail,
-    Did:"1",
-    Org_ID:"1",
-    Pid:"1",
-    Dept_Id:"1",
-    Zone_Id:this.Zone_Id,
+    Did:1,
+    Org_ID:1,
+    Pid:1,
+    Zone_Id:1,
+    Dept_Id:1,
     MobileNumber:this.MobileNumber,
-    Latitud:"0",
-    Longitud:"0",
-    Lang_id:"0",
+    Latitud:0,
+    Longitud:0,
+    Lang_id:1,
     address_line_1:this.address_line_1,
     address_line_2:this.address_line_2,
     city:this.city,
@@ -89,7 +89,12 @@ webresponse(fun_id,return_data){
   }
   else if(fun_id==2)
   {
-    window.location.reload(true);
+    // window.location.reload(true);3
+    const body1 = {
+      user_id:this.uid,
+      current_user:0
+    };
+      this.webservice.webRequest(this,'post',this.webservice.get_users,body1,'1','');
   }
   else if(fun_id==3)
   {

@@ -6,7 +6,7 @@
         </div>
         <div class="add_user">
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()" >Create Zone</button>
-        </div> 
+        </div>
         </div>
         <div class="table_division">
         <table *ngIf="returnmsg">
@@ -14,24 +14,24 @@
             <th>Zone ID</th>
             <th>Zone Name</th>
             <th>Zone Code</th>
-            <th>Organization ID</th>
+            <!-- <th>Organization ID</th> -->
             <th>control</th>
           </tr>
           <tr *ngFor="let i of returnmsg  let ia = index ">
             <td>{{i.Zone_Id}}</td>
             <td>{{i.Zone_Name}}</td>
             <td>{{i.Zone_code}}</td>
-            <td>{{i.Org_Id}}</td>
+            <!-- <td>{{i.Org_Id}}</td> -->
             <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Zone_Id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Zone_Id)" >Delete</button></td>
           </tr>
         </table>
         </div>
-        
-        
+
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
-          
+
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -46,21 +46,21 @@
                 <input mdInput placeholder="Zone Code" [(ngModel)]="Zone_code" name="username">
               </md-form-field>
               <br>
-              <md-form-field>
+              <!-- <md-form-field>
                   <input mdInput placeholder="Organization ID" [(ngModel)]="Org_Id" name="username">
-              </md-form-field> 
+              </md-form-field> -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit Zone</button>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="modal fade" id="myModal_delete" role="dialog">
           <div class="modal-dialog">
-          
+
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -75,12 +75,12 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="modal fade" id="myModal_add" role="dialog">
             <div class="modal-dialog">
-            
+
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
@@ -95,9 +95,9 @@
                   <input mdInput placeholder="Zone Code" [(ngModel)]="Zone_code" name="username">
                 </md-form-field>
                 <br>
-                <md-form-field>
+                <!-- <md-form-field>
                     <input mdInput placeholder="Organization ID" [(ngModel)]="Org_Id" name="username">
-                </md-form-field> 
+                </md-form-field> -->
                     <br>
                 </div>
                 <div class="modal-footer">
@@ -105,7 +105,7 @@
                   <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Zone</button>
                 </div>
               </div>
-              
+
             </div>
           </div>
 </div>
