@@ -17,7 +17,7 @@ export class DesignationComponent implements OnInit {
   Designation_Id;
   refresh=1;
   side_menu;
-  Access_Code;
+  Access_Code=4;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
@@ -28,11 +28,11 @@ export class DesignationComponent implements OnInit {
     let i;
     for(i=0;i<this.side_menu.menu.length;i++)
     {
-        if(this.side_menu.menu[i].Menu_Module_Href=="/designation")
-        {
-            this.Access_Code=this.side_menu.menu[i].Access_Code;
-            console.log("Access_Code-",this.Access_Code);
-        }
+      if(this.side_menu.menu[i].Menu_Module_Href=="/designation")
+      {
+        this.Access_Code=this.side_menu.menu[i].Access_Code;
+        console.log("Access_Code-",this.Access_Code);
+      }
     }
   }
   webresponse(fun_id,return_data)

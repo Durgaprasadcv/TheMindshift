@@ -26,6 +26,8 @@ export class ModuleCreationComponent implements OnInit {
   returnmsg7;
   returnmsg8;
   returnmsg9;
+  side_menu;
+  Access_Code=4;
   constructor(private webservice: WebService) {}
   ngOnInit(){
     this.submodules[0]=0;
@@ -33,6 +35,18 @@ export class ModuleCreationComponent implements OnInit {
     const body2 = {
     };
     this.webservice.webRequest(this,'post',this.webservice.get_modules,body2,'2','');
+
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/module-creation")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   sub_modules(){
     this.submodules_count++;
@@ -74,7 +88,7 @@ export class ModuleCreationComponent implements OnInit {
     this.Menu_Module_Id=i;
     const body4={
       Menu_Module_Id:this.Menu_Module_Id
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.get_main_modules,body4,'4','');
    }
 
@@ -84,7 +98,7 @@ export class ModuleCreationComponent implements OnInit {
     const body6={
       Menu_Module_Id:this.Menu_Module_Id,
       Menu_Module_Parent_Id:this.Menu_Module_Parent_Id
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.get_sub_modules,body6,'6','');
    }
 
@@ -97,7 +111,7 @@ export class ModuleCreationComponent implements OnInit {
         Menu_Module_Name:this.Menu_Module_Name,
         Menu_Module_Href:this.Menu_Module_Href,
         Menu_Module_Active:1
-      }
+      };
       this.webservice.webRequest(this,'post',this.webservice.save_module,body8,'8','');
    }
 
@@ -110,7 +124,7 @@ export class ModuleCreationComponent implements OnInit {
       Menu_Module_Href:this.Menu_Module_Href,
       Menu_Modules_Active:1,
       Menu_Module_Platform:1
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.save_module,body9,'9','');
    }
 
@@ -127,7 +141,7 @@ export class ModuleCreationComponent implements OnInit {
       Menu_Module_Href:this.Menu_Module_Href,
       Menu_Module_Active:1,
       Menu_Module_Platform:1
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.save_module,body7,'7','');
    }
 

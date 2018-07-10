@@ -9,15 +9,29 @@ import * as $ from 'jquery';
 })
 export class AccessLevelsComponent implements OnInit {
   returnmsg;
-  returnmsg1
+  returnmsg1;
   Access_Level_Id;
   Access_Level_Name;
   Access_Level_Code;
   Access_Level_Active;
+  side_menu;
+  Access_Code=4;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_access_level,'','1','');
+
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/access-levels")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
@@ -57,7 +71,7 @@ export class AccessLevelsComponent implements OnInit {
    this.Access_Level_Id=i;
    const body1={
     Access_Level_Id:this.Access_Level_Id
-   }
+   };
    this.webservice.webRequest(this,'post',this.webservice.get_access_level,body1,'5','');
   }
   delete(){
@@ -73,7 +87,7 @@ export class AccessLevelsComponent implements OnInit {
       Access_Level_Name:this.Access_Level_Name,
       Access_Level_Code:this.Access_Level_Code,
       Access_Level_Active:this.Access_Level_Active
-    }
+    };
       this.webservice.webRequest(this,'post',this.webservice.edit_access_level,body3,'4','');
   }
   nullify(){

@@ -35,6 +35,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Question_WaitTime;
   Question_Test_Id_field;
   question_id;
+  Question_Type='radio';
 
   option_id;
 
@@ -60,7 +61,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
     const body1 = {
       Question_Test_Id:52,
-      Question_Type:'radio',
+      Question_Type:this.Question_Type,
       Question_MarksAllocated:this.Question_MarksAllocated,
       Question_PauseTime:this.Question_PauseTime,
       Question_WaitTime:this.Question_WaitTime,
@@ -78,7 +79,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     const body8={
     Question_Test_Id:52,
     Question_Id:this.question_id,
-    Question_Type:'radio',
+    Question_Type:this.Question_Type,
     Question_MarksAllocated:this.Question_MarksAllocated,
     Question_PauseTime:this.Question_PauseTime,
     Question_WaitTime:this.Question_WaitTime,
@@ -88,7 +89,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     order_no:0,
     Question_Active:1,
     question_title_arr:this.question_title_arr
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.save_question,body8,'8','');
   }
 
@@ -109,14 +110,14 @@ export class QuestionOptionPreviewComponent implements OnInit {
       const body4={
         // test_id:52,
         question_id:this.question_id
-      }
+      };
       this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
     }
     else{
       this.Question_MarksAllocated='';
       this.Question_PauseTime='';
       this.Question_WaitTime='';
-      var j;
+      let j;
       for(j=0;j<this.question_title_arr.length;j++)
       {
         this.question_title_arr[j].question_title='';
@@ -129,7 +130,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     this.option_id=j;
     const body6={
       option_id:j
-    }
+    };
     this.webservice.webRequest(this,'post',this.webservice.get_option,body6,'6','');
   }
 
@@ -139,7 +140,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.Option_Marks ='';
       this.Option_QuestionId = '';
       this.Option_skip = '';
-      var j;
+      let j;
         for(j=0;j<this.Option_title_arr.length;j++)
         {
             this.Option_title_arr[j].option_value='';
@@ -186,12 +187,12 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.return_msg1=return_data.json();
       console.log('ques_option',this.return_msg1);
-      var i;
-      var j;
-      var k;
-      var temp=Array();
-      var temp_opt=Array();
-      var temp2;
+      let i;
+      let j;
+      let k;
+      let temp=Array();
+      let temp_opt=Array();
+      let temp2;
       for(i=0;i<this.return_msg1.question.length;i++)
       {
         for(j=0;j<this.return_msg1.question[i].Question_Title.length;j++)
@@ -250,7 +251,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
           }
         }
       }
-      console.log('ques_option_recreated',this.return_msg1)
+      console.log('ques_option_recreated',this.return_msg1);
     }
     if(fun_id==1)
     {
@@ -287,7 +288,9 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.Question_MarksAllocated=this.returnmsg4.question[0].Question_MarksAllocated;
       this.Question_PauseTime=this.returnmsg4.question[0].Question_PauseTime;
       this.Question_WaitTime=this.returnmsg4.question[0].Question_WaitTime;
-
+      this.Question_Type=this.returnmsg4.question[0].Question_Type;
+      let i;
+      let j;
       for(i=0;i<this.returnmsg4.question[0].Question_Title.length;i++)
       {
         for(j=0;j<this.question_title_arr.length;j++)
@@ -319,6 +322,8 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.Option_Marks = this.returnmsg6.opton[0].Option_Marks;
       this.Option_QuestionId = this.returnmsg6.opton[0].Option_QuestionId;
       this.Option_skip = this.returnmsg6.opton[0].Option_skip;
+      let i;
+      let j;
       for(i=0;i<this.returnmsg6.opton[0].Option_Value.length;i++)
       {
         for(j=0;j<this.Option_title_arr.length;j++)
@@ -371,7 +376,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     if(fun_id==10)
     {
       this.returnmsg10=return_data.json();
-      var i;
+      let i;
       for(i=0;i<this.returnmsg10.length;i++)
       {
         this.question_title_arr[i]={};

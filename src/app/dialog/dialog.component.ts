@@ -68,10 +68,10 @@ export class DialogComponent implements OnInit {
   }
 
 }
-@Component({
-  selector: 'dialog-data-example-dialog',
-  template: '<h1>hai</h1>'
-})
-export class DialogDataExampleDialog {
-  constructor() {}
-}
+// @Component({
+//   selector: 'dialog-data-example-dialog',
+//   template: '<h1>hai</h1>'
+// })
+// export class DialogDataExampleDialog {
+//   constructor() {}
+// }

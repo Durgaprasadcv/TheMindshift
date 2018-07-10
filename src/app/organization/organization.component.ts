@@ -9,8 +9,7 @@ import * as $ from 'jquery';
 })
 export class OrganizationComponent implements OnInit {
   returnmsg;
-  returnmsg1
-
+  returnmsg1;
   id;
   name;
   display_name;
@@ -25,12 +24,25 @@ export class OrganizationComponent implements OnInit {
   pincode;
   email;
   contact_no;
+  side_menu;
+  Access_Code=4;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_org,'','1','');
-    var art="arthikrao";
+    let art="arthikrao";
     console.log('index',art.indexOf("h"));
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/organization")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   webresponse(fun_id,return_data){
     if(fun_id==1){
@@ -52,7 +64,7 @@ export class OrganizationComponent implements OnInit {
       this.display_name=this.returnmsg1.display_name;
       this.reg_info=this.returnmsg1.reg_info;
       this.contact_person=this.returnmsg1.contact_person;
-      this.logo_path=this.returnmsg1.logo_path
+      this.logo_path=this.returnmsg1.logo_path;
       this.address_line_1=this.returnmsg1.address_line_1;
       this.address_line_2=this.returnmsg1.address_line_2;
       this.city=this.returnmsg1.city;
@@ -86,7 +98,7 @@ export class OrganizationComponent implements OnInit {
    this.id=i;
    const body1={
     id:this.id
-   }
+   };
    this.webservice.webRequest(this,'post',this.webservice.get_org,body1,'5','');
   }
   delete(){

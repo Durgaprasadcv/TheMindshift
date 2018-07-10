@@ -24,7 +24,7 @@ export class DepartnmentComponent implements OnInit {
   email;
   contact_no;
   side_menu;
-  Access_Code=1;
+  Access_Code=4;
   constructor(private webservice: WebService) { }
 
   ngOnInit() {

@@ -16,7 +16,7 @@
         <span class="slider round"></span>
     </label> -->
     <div class="module_control">
-    <button class="btn btn-info btn-lg" (click)="create_module()">Add Module</button>
+    <button *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" (click)="create_module()">Add Module</button>
     </div>
     <br>
 </div>
@@ -34,9 +34,9 @@
         <span class="slider round"></span>
     </label> -->
     <div class="module_control">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_module_id(i.menu_details.Menu_Module_Id)">Edit</button>&nbsp;
-    <button class="btn btn-info btn-lg" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
-    <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add Sub Module</button>
+    <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_module_id(i.menu_details.Menu_Module_Id)">Edit</button>&nbsp;
+    <button *ngIf='Access_Code==1' class="btn btn-info btn-lg" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
+    <button *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add Sub Module</button>
     </div>
     <br>
     <br>
@@ -58,8 +58,8 @@
       </label> -->
       <!-- <button class="create_button" (click)="create_modules()">Edit</button> -->
       <div class="module_control">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Parent_Id,returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Edit</button>&nbsp;
-      <button class="btn btn-info btn-lg" (click)="delete_sub_modules(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Delete</button>
+      <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Parent_Id,returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Edit</button>&nbsp;
+      <button *ngIf='Access_Code==1' class="btn btn-info btn-lg" (click)="delete_sub_modules(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Delete</button>
         </div>
         </div>
       <br>

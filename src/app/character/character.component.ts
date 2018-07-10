@@ -15,7 +15,7 @@ export class CharacterComponent implements OnInit {
   @ViewChild('fileInput') inputEl: ElementRef;
   @ViewChild('fileInputa') inputEla: ElementRef;
   returnmsg;
-  returnmsg1
+  returnmsg1;
   Dept_Id;
   Dept_Name;
   Dept_Desp;
@@ -40,36 +40,54 @@ export class CharacterComponent implements OnInit {
   demo;
 
   returnmsg_add;
+  side_menu;
+  Access_Code=4;
 
   constructor(private webservice: WebService,private http: Http) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_character,'','1','');
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+      if(this.side_menu.menu[i].Menu_Module_Href=="/character")
+      {
+        this.Access_Code=this.side_menu.menu[i].Access_Code;
+        console.log("Access_Code-",this.Access_Code);
+      }
+    }
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)
     {
-          this.returnmsg = return_data.json();
-          console.log(this.returnmsg);
+      this.returnmsg = return_data.json();
+      console.log(this.returnmsg);
     }
-    else if(fun_id==2){
+    else if(fun_id==2)
+    {
       window.location.reload(true);
     }
-    else if(fun_id==3){
+    else if(fun_id==3)
+    {
       window.location.reload(true);
     }
-    else if(fun_id==4){
+    else if(fun_id==4)
+    {
       window.location.reload(true);
     }
-    else if(fun_id==5){
+    else if(fun_id==5)
+    {
       this.returnmsg1 = return_data.json();
-      console.log('haii',this.returnmsg1)
+      console.log('haii',this.returnmsg1);
       this.char_id=this.returnmsg1.characters[0].char_id;
       this.char_name=this.returnmsg1.characters[0].char_name;
       this.char_description=this.returnmsg1.characters[0].char_description;
       this.char_url=this.returnmsg1.characters[0].char_url;
     }
-    else if(fun_id==6){
+    else if(fun_id==6)
+    {
       this.char_file = return_data.json();
       console.log("file uplaod",this.char_file);
     }
@@ -93,7 +111,7 @@ export class CharacterComponent implements OnInit {
    this.char_id=i;
    const body1={
     char_id:this.char_id
-   }
+   };
    this.webservice.webRequest(this,'post',this.webservice.get_character,body1,'5','');
   }
   delete(){

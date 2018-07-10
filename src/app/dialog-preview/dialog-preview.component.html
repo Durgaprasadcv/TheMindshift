@@ -8,12 +8,26 @@
     </div>
   </div>
   <div class="opt_div">
+    <span *ngIf="this.data.type=='radio'">
     &emsp;<md-radio-group class="example-radio-group" [(ngModel)]="result">
     <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">
       <h5>{{opt.name}}</h5>
     </md-radio-button>
     <br>
     </md-radio-group>
+  </span>
+    <span *ngIf="this.data.type=='check-box'">
+    <span *ngFor="let opt of this.data.option">
+      <md-checkbox>{{opt.name}}</md-checkbox>
+      <br>
+    </span>
+  </span>
+  <span *ngIf="this.data.type=='text-box'">
+    <md-form-field>
+      <input mdInput placeholder="Answer" name="username">
+    </md-form-field>
+    <br>
+  </span>
   </div>
   <div class="submit" [hidden]="submit_show">
     <button class="submit_button" md-raised-button (click)="onNoClick(result)">Submit</button>

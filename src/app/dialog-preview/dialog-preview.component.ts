@@ -51,9 +51,10 @@ export class DialogPreviewComponent implements OnInit {
         // timer.subscribe(t=>{this.tic=this.tic+1;
         // if(this.tic==2)
         // {
-          this.dialogRef.close(this.result);
+          // this.dialogRef.close(this.result);
         // }});
       }
+      this.dialogRef.close(this.result);
 }
 
   ngOnInit() {
@@ -68,10 +69,10 @@ export class DialogPreviewComponent implements OnInit {
   }
 
 }
-@Component({
-  selector: 'dialog-data-example-dialog',
-  template: '<h1>hai</h1>'
-})
-export class DialogDataExampleDialog {
-  constructor() {}
-}
+// @Component({
+//   selector: 'dialog-data-example-dialog',
+//   template: '<h1>hai</h1>'
+// })
+// export class DialogDataExampleDialog {
+//   constructor() {}
+// }

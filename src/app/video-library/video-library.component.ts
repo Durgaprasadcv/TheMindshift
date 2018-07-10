@@ -15,7 +15,7 @@ export class VideoLibraryComponent implements OnInit {
   @ViewChild('fileInput') inputEl: ElementRef;
   @ViewChild('fileInputa') inputEla: ElementRef;
   returnmsg;
-  returnmsg1
+  returnmsg1;
   vid_id;
   vid_name;
   vid_description;
@@ -32,11 +32,25 @@ export class VideoLibraryComponent implements OnInit {
   files;
   returnmsg_add;
   uid;
+  side_menu;
+  Access_Code;
   constructor(private webservice: WebService,private http: Http) { }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_video,'','1','');
     this.uid=(JSON.parse(localStorage.getItem('user')));
+
+    this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
+    console.log('meenu',this.side_menu);
+    let i;
+    for(i=0;i<this.side_menu.menu.length;i++)
+    {
+        if(this.side_menu.menu[i].Menu_Module_Href=="/video-library")
+        {
+            this.Access_Code=this.side_menu.menu[i].Access_Code;
+            console.log("Access_Code-",this.Access_Code);
+        }
+    }
   }
   webresponse(fun_id,return_data){
     if(fun_id==1)
@@ -84,7 +98,7 @@ export class VideoLibraryComponent implements OnInit {
    this.vid_id=i;
    const body1={
     vid_id:this.vid_id
-   }
+   };
    this.webservice.webRequest(this,'post',this.webservice.get_video,body1,'5','');
   }
   delete(){

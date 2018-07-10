@@ -78,7 +78,7 @@ if(fun_id==1)
   // this.returnmsg = return_data.json();
 
   // local json begin
-  this.test_ing='{"test":[{"test_id":52,"test_name":"Epsisode1","test_description":"The meeting and flashback ","video_path":"http:\/\/www.djitsoft.xyz\/video_files\/test_6.mp4","no_of_questions":1,"test_image":"http:\/\/www.mindshift.djitsoft.xyz\/assets\/images\/Poster 5.jpg","feedback_questions":0,"test_status":1,"test_count":0,"stop_time":410,"question":[{"question_id":55,"question_title":"On a Scale of 1 to 10, how proud are you being a sales person?","question_type":"radio","marks_assigned":1,"Pause_time":"10","wait_time":"60","num_of_box":2,"type_options":[{"id":149,"name":"1-2","Option_skip":"12"},{"id":150,"name":"3-5","Option_skip":"12"},{"id":153,"name":"6-8","Option_skip":"12"},{"id":154,"name":"9-10","Option_skip":"12"}],"answers":["149"]}],"next_test_id":1}],"num":"1"}';
+  this.test_ing='{"test":[{"test_id":52,"test_name":"Epsisode1","test_description":"The meeting and flashback ","video_path":"http:\/\/www.djitsoft.xyz\/video_files\/test_6.mp4","no_of_questions":1,"test_image":"http:\/\/www.mindshift.djitsoft.xyz\/assets\/images\/Poster 5.jpg","feedback_questions":0,"test_status":1,"test_count":0,"stop_time":410,"question":[{"question_id":55,"question_title":"On a Scale of 1 to 10, how proud are you being a sales person?","question_type":"text-box","marks_assigned":1,"Pause_time":"10","wait_time":"60","num_of_box":2,"type_options":[{"id":149,"name":"1-2","Option_skip":"12"},{"id":150,"name":"3-5","Option_skip":"12"},{"id":153,"name":"6-8","Option_skip":"12"},{"id":154,"name":"9-10","Option_skip":"12"}],"answers":["149"]}],"next_test_id":1}],"num":"1"}';
   console.log('aaa',JSON.parse(this.test_ing));
   this.returnmsg=JSON.parse(this.test_ing);
   // local json end
@@ -250,7 +250,7 @@ else{
 //dialog box for question
 let dialogRef=this.dialog.open(DialogPreviewComponent, {
   disableClose:true,
-  data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z]}
+  data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z],type:this.returnmsg1.question[this.z].question_type}
 });
 // handling result after dialog box is closed
 dialogRef.afterClosed().subscribe(result => {
@@ -270,14 +270,14 @@ this.resl= result;
 if(this.resl==999)
 {
   console.log('Not Answered');
-  this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0,0);
+  // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0,0);
 }
 // if question is answred correctly
 else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
 {
   if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
   {
-    this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
+    // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
     console.log('Correct Answer');
     this.q_answer++;
     this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
@@ -290,7 +290,7 @@ else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != u
   else
   {
     console.log('Wrong Answer');
-    this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
+    // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
     if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
     {
       this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;

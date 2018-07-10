@@ -5,7 +5,7 @@
 <h1 class="page_title">Video</h1>
 </div>
 <div class="add_user">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add"  (click)="nullify()">Create Video</button>
+    <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add"  (click)="nullify()">Create Video</button>
 </div>
 </div>
 <div class="table_division">
@@ -25,7 +25,7 @@
     <td>{{i.vid_description}}</td>
     <td>{{i.vid_author}}</td>
     <td>{{i.privacy}}</td>
-    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.vid_id)">Edit</button>&nbsp;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.vid_id)" >Delete</button></td>
+    <td><button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.vid_id)">Edit</button>&nbsp;<button type="button" *ngIf='Access_Code==1' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.vid_id)" >Delete</button></td>
   </tr>
 </table>
 </div>
@@ -33,7 +33,7 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -46,7 +46,7 @@
       </md-form-field>
       <md-form-field>
         <input mdInput placeholder="Video Description" [(ngModel)]="vid_description" name="username">
-      </md-form-field> 
+      </md-form-field>
       <br>
       <md-form-field>
         <input mdInput placeholder="Video Privacy" [(ngModel)]="privacy" name="username">
@@ -67,12 +67,12 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="edit()">Edit Video</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal_delete" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -88,12 +88,12 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="delete()">Delete</button>
       </div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal fade" id="myModal_add" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -106,7 +106,7 @@
         </md-form-field>
         <md-form-field>
           <input mdInput placeholder="Video Description" [(ngModel)]="vid_description" name="username">
-        </md-form-field> 
+        </md-form-field>
         <br>
         <!-- <md-form-field>
           <input mdInput placeholder="Video Privacy" [(ngModel)]="privacy" name="username">
@@ -129,7 +129,7 @@
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Add Video</button> -->
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

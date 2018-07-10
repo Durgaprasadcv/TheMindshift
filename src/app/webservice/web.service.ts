@@ -57,7 +57,7 @@ public update_org=this.main_url+"update_org";
 
 //assignTest
 public assign_test_uid=this.main_url+"assign_test_uid";
-public assigned_tests=this.main_url+"assigned_tests"
+public assigned_tests=this.main_url+"assigned_tests";
 public delete_assigned_tests=this.main_url+"delete_assigned_tests";
 
 //create character
