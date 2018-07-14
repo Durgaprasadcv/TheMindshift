@@ -26,7 +26,7 @@ constructor(private webservice: WebService,private _router: Router,private http:
     Observable.of(navigator.onLine),
     Observable.fromEvent(window, 'online').mapTo(true),
     Observable.fromEvent(window, 'offline').mapTo(false)
-  )
+  );
   // if(!(this.online$)){
 
   // }
@@ -59,7 +59,7 @@ constructor(private webservice: WebService,private _router: Router,private http:
     //api call for user report
     const body1 = {uid:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.dashbar,body1,'2','');
- } 
+ }
 
   // logout service
   logout():void {

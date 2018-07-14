@@ -9,7 +9,7 @@
             <span *ngFor="let i of language let ia = index " >
               <div>
                 <p class="chapter_title">{{i.Lang_Tittle}}&nbsp;:</p><input type="text" [(ngModel)]="chapter[ia].chapter_name" class="chapter_name"/>
-                <p class="chapter_title">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id"></div>
+                <p class="chapter_title" mdTooltip="Drag and Drop from Video library to select the video">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id"></div>
               </div>
             </span>
           </div>
@@ -32,10 +32,10 @@
                 (dragstart)="drag($event,0)" >
                 a</p>
           </div>
-              
+
           <div id="div2" class="container" (drop)="drop($event)" (dragover)="allowDrop($event)"></div> -->
         </div>
-        <div id="here"class="col-md-6 main_block">     
+        <div id="here"class="col-md-6 main_block">
           <vg-player *ngIf="video_paath" (onPlayerReady)="onPlayerReady($event)">
             <vg-buffering></vg-buffering>
             <vg-controls>
@@ -51,7 +51,7 @@
               <vg-volume></vg-volume>
             </vg-controls>
             <video  [vgMedia]="media" [src]=video_paath #media id="singleVideo" preload="auto" width="100%" height="300" crossorigin autoplay>
-            </video>  
+            </video>
           </vg-player>
           <md-tab-group>
             <md-tab class="tab_width mat-tab-label" label="Character">
@@ -69,8 +69,8 @@
               <div *ngIf="video_lib" id="div1" class="container" (dragover)="allowDrop($event)">
                 <div *ngFor="let i of video_lib.videos let ia = index ">
                   <div class="video_div" id="drag1" draggable="true"
-                  (dragstart)="drag($event,i.vid_id)" (click)="preview(i.vid_path)">
-                    <p>{{i.vid_id}}-{{i.vid_name}}</p>
+                  (dragstart)="drag($event,i.vid_id)" (click)="preview(i.vid_path)" >
+                    <p mdTooltip="Drag and Drop to Video Field to select the video">Video ID:{{i.vid_id}}, Video Name:{{i.vid_name}}, Video Description:{{i.vid_description}}</p>
                   </div>
                 </div>
               </div>

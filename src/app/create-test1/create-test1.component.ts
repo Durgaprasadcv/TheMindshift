@@ -25,7 +25,7 @@ export class CreateTest1Component implements OnInit {
   create_return;
   constructor(private webservice:WebService,public API: VgAPI) { }
 
-  ngOnInit() 
+  ngOnInit()
   {
     const body1={};
     this.webservice.webRequest(this,'post',this.webservice.get_language,body1,'1','');
@@ -39,7 +39,7 @@ export class CreateTest1Component implements OnInit {
     if(fun_id==1)
     {
       this.language=return_data.json();
-      for(var i=0;i<this.language.length;i++)
+      for(let i=0;i<this.language.length;i++)
       {
         this.chapter[i]={};
         this.chapter[i].language_id=this.language[i].Lang_Id;
@@ -52,7 +52,7 @@ export class CreateTest1Component implements OnInit {
     {
       this.character = return_data.json();
       console.log(this.character);
-      for(var i=0;i<this.character.characters.length;i++)
+      for(let i=0;i<this.character.characters.length;i++)
       {
         this.character_selected[i]={};
         this.character_selected[i].character_id=this.character.characters[i].char_id;
@@ -62,24 +62,24 @@ export class CreateTest1Component implements OnInit {
     else if(fun_id==3)
     {
       this.video_lib = return_data.json();
-      console.log(this.video_lib);    
+      console.log(this.video_lib);
     }
     else if(fun_id==4)
     {
       this.create_return = return_data.json();
-      console.log(this.create_return);    
+      console.log(this.create_return);
     }
   }
 
   creat_test()
   {
     console.log('chapter',this.chapter);
-    console.log('character',this.character_selected);  
+    console.log('character',this.character_selected);
     console.log('start time',this.start_time);
     console.log('stop time',this.stop_time);
     const body4 = {
       chapter:this.chapter,
-      character:this.character_selected,  
+      character:this.character_selected,
       start_time:this.start_time,
       stop_time:this.stop_time,
       Org_id:1,
@@ -103,8 +103,8 @@ export class CreateTest1Component implements OnInit {
 
   drop(ev) {
     ev.preventDefault();
-    var data=ev.dataTransfer.getData("text");
-    var data1=ev.dataTransfer.getData("text1");
+    let data=ev.dataTransfer.getData("text");
+    let data1=ev.dataTransfer.getData("text1");
     document.getElementById(ev.target.id).innerHTML=data1;
     console.log('drop',data1);
     console.log('drop_id',ev.target.id);
@@ -112,7 +112,7 @@ export class CreateTest1Component implements OnInit {
   }
   preview(i){
     console.log('preview_test');
-    var temp;
+    let temp;
     temp=this.video_paath;
     this.video_paath=i;
     console.log('preview_test-',this.video_paath);
@@ -124,7 +124,7 @@ export class CreateTest1Component implements OnInit {
     }
   }
 
-  onPlayerReady(api:VgAPI) { 
+  onPlayerReady(api:VgAPI) {
     this.api = api;
     this.api.play();
     this.api.getDefaultMedia().currentTime=0;

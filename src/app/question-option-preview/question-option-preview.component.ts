@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-question-option-preview',
   templateUrl: './question-option-preview.component.html',
@@ -30,6 +32,8 @@ export class QuestionOptionPreviewComponent implements OnInit {
   returnmsg10;
   selected_language=1;
 
+  test_id;
+
   Question_MarksAllocated;
   Question_PauseTime;
   Question_WaitTime;
@@ -45,11 +49,12 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Option_skip;
   Option_title_arr=Array();
 
-  constructor(private webservice:WebService) { }
+  constructor(private webservice:WebService,private route: ActivatedRoute,private _router: Router) { }
 
   ngOnInit() {
+    this.test_id=this.route.snapshot.paramMap.get('idb');
     const body1 = {
-      test_id:52
+      test_id:this.test_id
     };
     this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
     const body10={
@@ -60,7 +65,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   add_question(){
 
     const body1 = {
-      Question_Test_Id:52,
+      Question_Test_Id:this.test_id,
       Question_Type:this.Question_Type,
       Question_MarksAllocated:this.Question_MarksAllocated,
       Question_PauseTime:this.Question_PauseTime,
@@ -77,7 +82,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
   edit_question(){
     const body8={
-    Question_Test_Id:52,
+    Question_Test_Id:this.test_id,
     Question_Id:this.question_id,
     Question_Type:this.Question_Type,
     Question_MarksAllocated:this.Question_MarksAllocated,
@@ -96,7 +101,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   delete_question(j){
     console.log("delete_question",j);
     const body5 = {
-      Question_Test_Id:52,
+      Question_Test_Id:this.test_id,
       Question_Id:j,
       Question_Active:0
     };
@@ -108,7 +113,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     if(i>0)
     {
       const body4={
-        // test_id:52,
+        // test_id:this.test_id,
         question_id:this.question_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question,body4,'4','');
@@ -153,7 +158,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       Option_Marks:10,
       Option_Active:1,
       Option_QuestionId:this.question_id,
-      Option_Test_Id:52,
+      Option_Test_Id:this.test_id,
       Option_Value:this.Option_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_option,body7,'7','');
@@ -166,7 +171,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       Option_Marks:10,
       Option_Active:1,
       Option_QuestionId:this.question_id,
-      Option_Test_Id:52,
+      Option_Test_Id:this.test_id,
       Option_Value:this.Option_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_option,body9,'9','');
@@ -258,7 +263,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.returnmsg1 = return_data.json();
       console.log('returnmsg1',this.returnmsg1);
       const body1 = {
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
       const body10={
@@ -275,7 +280,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.returnmsg3 = return_data.json();
       console.log('returnmsg3',this.returnmsg3);
       const body1 = {
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
       const body10={
@@ -308,7 +313,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.returnmsg5 = return_data.json();
       console.log('returnmsg5',this.returnmsg5);
       const body1 = {
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
       const body10={
@@ -341,7 +346,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.returnmsg7 = return_data.json();
       console.log('returnmsg7',this.returnmsg7);
       const body1 = {
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
       const body10={
@@ -352,7 +357,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.returnmsg8 = return_data.json();
       const body21={
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body21,'21','');
 
@@ -366,7 +371,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
       this.returnmsg9 = return_data.json();
       console.log('returnmsg9',this.returnmsg9);
       const body1 = {
-        test_id:52
+        test_id:this.test_id
       };
       this.webservice.webRequest(this,'post',this.webservice.get_question_option,body1,'21','');
       const body10={

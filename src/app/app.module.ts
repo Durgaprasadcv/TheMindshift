@@ -190,7 +190,7 @@ import { DialogPreviewComponent } from './dialog-preview/dialog-preview.componen
       { path: 'report-rough',component:ReportRoughComponent },
       { path: 'create-test',component:CreateTestComponent },
       { path: 'create-test1',component:CreateTest1Component },
-      { path: 'question-option-preview',component:QuestionOptionPreviewComponent },
+      { path: 'question-option-preview/:idb',component:QuestionOptionPreviewComponent },
       { path: 'test-questions',component:TestQuestionsComponent },
       { path: 'test-details',component:TestDetailsComponent },
       { path: 'preview-video-new',component:PreviewVideoNewComponent },

@@ -16,6 +16,7 @@ public VerifyOTP=this.main_url+'VerifyOTP';
 
 //test
 public modules=this.main_url+'gettest';
+public gettest_admin=this.main_url+'gettest_admin';
 public video_list=this.main_url+'gettest';
 public video=this.main_url+'gettest';
 public dashbar=this.main_url+'getLearningTest';

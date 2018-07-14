@@ -5,7 +5,10 @@
 <h1 class="page_title">Department</h1>
 </div>
 <div class="add_user">
-    <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Department</button>
+  <!-- <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_add" (click)="nullify()">Create Department</button> -->
+  <button *ngIf='Access_Code==1||Access_Code==2' md-fab data-toggle="modal" data-target="#myModal_add" class="create_icon_button" (click)="nullify()">
+    <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+  </button>
 </div>
 </div>
 <div class="table_division">
@@ -26,7 +29,19 @@
     <td>{{i.Dept_Code}}</td>
     <!-- <td>{{i.Dept_Org_ID}}</td> -->
     <td>{{i.contact_no}}</td>
-    <td><button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>&nbsp;<button type="button" *ngIf='Access_Code==1' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button></td>
+    <td>
+      <!-- <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">Edit</button>
+      &nbsp;
+      <button type="button" *ngIf='Access_Code==1' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal_delete"(click)="store_id(i.Dept_Id)" >Delete</button> -->
+
+      <button *ngIf='Access_Code==1||Access_Code==2' md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal" (click)="store_id(i.Dept_Id)">
+          <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+      </button>
+      &nbsp;
+      <button *ngIf='Access_Code==1' md-fab class="delete_icon_button" data-toggle="modal" data-target="#myModal_delete" (click)="store_id(i.Dept_Id)">
+          <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
+      </button>
+    </td>
   </tr>
 </table>
 </div>
