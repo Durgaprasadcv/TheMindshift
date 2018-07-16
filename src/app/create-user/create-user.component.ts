@@ -107,7 +107,7 @@ webresponse(fun_id,return_data){
   else if(fun_id==5)
   {
     this.returnmsg1 = return_data.json();
-    console.log("hai",this.returnmsg1)
+    console.log("hai",this.returnmsg1);
     this.User_UName=this.returnmsg1.users.User_UName;
     this.User_Password=this.returnmsg1.users.User_Password;
     this.User_Name=this.returnmsg1.users.User_Name;
@@ -128,7 +128,7 @@ webresponse(fun_id,return_data){
     this.state=this.returnmsg1.users.state;
     this.country=this.returnmsg1.users.country;
     this.pincode=this.returnmsg1.users.pincode;
-    console.log("username",this.User_UName)
+    console.log("username",this.User_UName);
   }
 }
 add(){
@@ -161,7 +161,7 @@ store_id(i){
  const body1={
   user_id:this.user_id,
   current_user:1
- }
+ };
  localStorage.setItem('User_profile',JSON.stringify(this.user_id));
  this.webservice.webRequest(this,'post',this.webservice.get_users,body1,'5','');
  this.navigate_profile();

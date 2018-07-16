@@ -3,10 +3,14 @@
   <img src="assets/images/logo.png" class="img_logo" alt="Mindshift">
 </div>
 <div class="mob_input">
+  <input type="radio" [(ngModel)]="login_type" (click)="user_radio()" value="user"  class="radio_button"> User&nbsp;&emsp;
+  <input type="radio" [(ngModel)]="login_type" (click)="admin_radio()" value="admin" class="radio_button"> Admin<br>
+</div>
+<div class="mob_input">
 <input type="number" [(ngModel)]="Mobile"  placeholder="Mobile No"/>
 </div>
 <div class="otp_input">
-  <input *ngIf="login_page" type="number" [(ngModel)]="OTP" placeholder="OTP"/>
+  <input *ngIf="login_page" type="number" [(ngModel)]="OTP" placeholder={{otp_password}}/>
 </div>
 <div class="error_msg">
   <p *ngIf="error_flag" class="error_text">{{error_msg}}</p>

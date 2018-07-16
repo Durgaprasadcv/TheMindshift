@@ -14,12 +14,15 @@ import { Response } from '@angular/http';
 export class LooginComponent implements OnInit {
   public login_page = false;
   public login_button_text="GENERATE OTP";
+  public otp_password="OTP";
   public Mobile;
   public OTP;
   public returnmsg;
   public error_msg='';
   public error_flag=0;
-  constructor(private _router: Router,private http: Http,private webservice: WebService) { 
+  public login_type;
+  public admin;
+  constructor(private _router: Router,private http: Http,private webservice: WebService) {
     if(localStorage.getItem("user"))
     {
       this._router.navigate(['/bcarousel']);
@@ -27,19 +30,25 @@ export class LooginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.admin=0;
+    this.login_type='user';
+    // this._router.navigate(['/login-mobile']);
   }
   login(){
-    if(!this.login_page){     
+    if(!this.login_page){
       const body = {
-        Mobile:this.Mobile
-      }
+        Mobile:this.Mobile,
+        admin:this.admin
+      };
       this.webservice.webRequest(this,'post',this.webservice.RequestOTP,body,'1','');
     }
     else{
       const body1 = {
         Mobile:this.Mobile,
-        OTP:this.OTP
-      }
+        OTP:this.OTP,
+        password:this.OTP,
+        admin:this.admin
+      };
       this.webservice.webRequest(this,'post',this.webservice.VerifyOTP,body1,'2','');
     }
   }
@@ -70,7 +79,7 @@ export class LooginComponent implements OnInit {
         this.webservice.webRequest(this,'post',this.webservice.menu,body,'3','');
       }
       else{
-        this.error_msg="Plese Enter Correct OTP";
+        this.error_msg="Plese Enter Correct Credential";
         this.error_flag=1;
       }
     }
@@ -78,8 +87,31 @@ export class LooginComponent implements OnInit {
     {
       this.returnmsg=return_data.json();
       localStorage.setItem("side_menu", JSON.stringify(this.returnmsg));
-      this._router.navigate(['/bcarousel']);
+      if(this.admin==0){
+        this._router.navigate(['/bcarousel']);
+      }
+      else{
+        this._router.navigate(['/admin-home']);
+      }
     }
+  }
+  user_radio(){
+    this.error_msg='';
+    this.login_button_text="GENERATE OTP";
+    this.otp_password="OTP";
+    this.login_page=false;
+    this.login_type='user';
+    this.admin=0;
+    console.log("login_type-",this.login_type);
+  }
+  admin_radio(){
+    this.error_msg='';
+    this.login_button_text="LOGIN";
+    this.otp_password="Password";
+    this.login_page=true;
+    this.login_type='admin';
+    this.admin=1;
+    console.log("login_type-",this.login_type);
   }
 
 }

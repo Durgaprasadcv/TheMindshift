@@ -9,6 +9,9 @@ export class WebService {
 //  public main_url='http://www.lg.djitsoft.xyz/api/';
 public main_url='http://10.0.0.7:8000/api/';
 // public main_url='http://localhost:8000/api/';
+public platform=0; //0-common 1-web 2-mobile
+public orgaization_id=1;
+public hosting_url="http://localhost:4200";
 
 //authetication
 public RequestOTP=this.main_url+'RequestOTP';

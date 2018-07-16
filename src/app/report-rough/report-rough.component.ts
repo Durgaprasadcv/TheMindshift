@@ -16,14 +16,14 @@ designation=0;
         {value: '1', viewValue: 'Manager'},
         {value: '2', viewValue: 'Officer'},
         {value: '3', viewValue: 'Clerk'}
-      ]
+      ];
   data: Object;
   dataSource: Object;
   dataSource1: Object;
   dataSource2: Object;
   dataSource3: Object;
   demoId: Object;
-  constructor() { 
+  constructor() {
     this.data = {
       chart: {
         subcaption: 'MindShift',
@@ -67,7 +67,7 @@ designation=0;
       value: '49100'
       }
       ]
-      }
+      };
 
       this.dataSource1 = {
       'categories': [
@@ -261,69 +261,69 @@ designation=0;
               "valueFontColor": "#ffffff",
               "showXAxisLine": "1",
               "xAxisLineColor": "#999999",
-              "divlineColor": "#999999",               
+              "divlineColor": "#999999",
               "divLineIsDashed": "1",
               "showAlternateVGridColor": "0",
               "subcaptionFontBold": "0",
               "subcaptionFontSize": "14"
-          },            
+          },
           "categories": [
               {
                   "category": [
                       {
                           "label": "Sales"
-                      }, 
+                      },
                       {
                           "label": "Communication"
-                      }, 
+                      },
                       {
                           "label": "Motivation"
-                      }, 
+                      },
                       {
                           "label": "Skill"
-                      }, 
+                      },
                       {
                           "label": "Training"
                       }
                   ]
               }
-          ],            
+          ],
           "dataset": [
               {
                   "seriesname": "Internal",
                   "data": [
                       {
                           "value": "17000"
-                      }, 
+                      },
                       {
                           "value": "19500"
-                      }, 
+                      },
                       {
                           "value": "12500"
-                      }, 
+                      },
                       {
                           "value": "14500"
-                      }, 
+                      },
                       {
                           "value": "17500"
                       }
                   ]
-              }, 
+              },
               {
                   "seriesname": "External",
                   "data": [
                       {
                           "value": "25400"
-                      }, 
+                      },
                       {
                           "value": "29800"
-                      }, 
+                      },
                       {
                           "value": "21800"
-                      }, 
+                      },
                       {
                           "value": "19500"
-                      }, 
+                      },
                       {
                           "value": "11500"
                       }
@@ -377,47 +377,47 @@ designation=0;
           {
               "label": "a",
               "value": "420"
-          }, 
+          },
           {
               "label": "b",
               "value": "310"
-          }, 
+          },
           {
               "label": "c",
               "value": "220"
-          }, 
+          },
           {
               "label": "d",
               "value": "150"
-          }, 
+          },
           {
               "label": "e",
               "value": "210"
-          }, 
+          },
           {
               "label": "f",
               "value": "310"
-          }, 
+          },
           {
               "label": "g",
               "value": "280"
-          }, 
+          },
           {
               "label": "h",
               "value": "120"
-          }, 
+          },
           {
               "label": "i",
               "value": "410"
-          }, 
+          },
           {
               "label": "j",
               "value": "390"
-          }, 
+          },
           {
               "label": "k",
               "value": "400"
-          }, 
+          },
           {
               "label": "l",
               "value": "330"
