@@ -214,7 +214,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
       { path: 'activity-log',component:ActivityLogComponent },
       { path: 'offline',component:OfflineComponent },
       { path: 'settings',component:SettingsComponent },
-      { path: 'loogin',component:LooginComponent },
+      { path: 'login-web',component:LooginComponent },
       { path: 'user-report',component:UserReportComponent },
       { path: 'test-detail',component:TestDetailComponent },
       { path: 'virtual-keyboard',component:VirtualKeyboardComponent },

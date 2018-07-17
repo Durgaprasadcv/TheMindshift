@@ -1,4 +1,4 @@
-.background_color{
+/* .background_color{
     background-color: gray;
     height: 100vh;
     width: 100vw;
@@ -60,6 +60,76 @@
     font-size: 5vh;
     margin: 0;
     padding-left: 1.5vw;
-    /* padding-bottom: 0.0vh; */
     padding-top: 0.5vh;
+} */
+
+
+.background_color{
+  background-color: gray;
+  height: 100vh;
+  width: 100vw;
+}
+.text_field{
+  height: 50vh;
+  width: 100vw;
+}
+.button_field{
+  height: 50vh;
+  width: 100vw;
+}
+.button_clas{
+  background-color: gray;
+  color: white;
+  width: 32vw;
+  height: 10vh;
+  border: 0;
+  font-size: 5vh;
+  outline: none;
+}
+.button_clas:hover{
+  background-color: #3e3939;
+}
+.head_text{
+  margin: 0;
+  text-align: center;
+  color:white;
+}
+.otp{
+  height:10vh;
+  padding-top: 20vh;
+}
+.input_box_a{
+  display: inline-block;
+  background-color: white;
+  height: 6vh;
+  width:5vh;
+  margin-left: 28vw;
+}
+.input_box_b{
+  display: inline-block;
+  background-color: white;
+  height: 6vh;
+  width:5vh;
+  margin-left: 2vw;
+}
+.input_box_c{
+  display: inline-block;
+  background-color: white;
+  height: 6vh;
+  width:5vh;
+  margin-left: 2vw;
+}
+.input_box_d{
+  display: inline-block;
+  background-color: white;
+  height: 6vh;
+  width:5vh;
+  margin-left: 2vw;
+}
+.otp_field{
+  font-size: 5vh;
+  margin: 0;
+  padding-left: 1.5vw;
+  /* padding-bottom: 0.0vh; */
+  padding-top: 0.5vh;
 }

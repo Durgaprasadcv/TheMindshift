@@ -27,6 +27,10 @@ export class LooginComponent implements OnInit {
     {
       this._router.navigate(['/bcarousel']);
     }
+    if(this.webservice.platform==2)
+    {
+      this._router.navigate(['/login-mobile']);
+    }
   }
 
   ngOnInit() {

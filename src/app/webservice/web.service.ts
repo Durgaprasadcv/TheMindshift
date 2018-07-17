@@ -9,7 +9,7 @@ export class WebService {
 //  public main_url='http://www.lg.djitsoft.xyz/api/';
 public main_url='http://10.0.0.7:8000/api/';
 // public main_url='http://localhost:8000/api/';
-public platform=0; //0-common 1-web 2-mobile
+public platform=2; //0-common 1-web 2-mobile
 public orgaization_id=1;
 public hosting_url="http://localhost:4200";
 
@@ -186,12 +186,19 @@ webRequest(scope,type,url,body,fun_id,loader){
 }
 checkCredentials() {
   if (localStorage.getItem("user") === null){
-    this._router.navigate(['/loogin']);
+    this._router.navigate(['/login-web']);
   }
 }
 logout() {
   localStorage.removeItem("user");
-  this._router.navigate(['/loogin']);
+  if(this.platform==1)
+  {
+    this._router.navigate(['/login-web']);
+  }
+  else if(this.platform==2)
+  {
+    this._router.navigate(['/login-mobile']);
+  }
   localStorage.clear();
   // window.location.reload();
 }

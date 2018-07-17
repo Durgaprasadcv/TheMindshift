@@ -1,4 +1,4 @@
-.main_div{
+/* .main_div{
     height:100vh;
     width:100vw;
 }
@@ -16,15 +16,15 @@
 }
 .input_country::-webkit-input-placeholder {
     color: #000000 !important;
-}    
-.input_country:-moz-placeholder {
-    color: #000000 !important;  
-}    
-.input_country::-moz-placeholder { 
-    color: #000000 !important;  
 }
-.input_country:-ms-input-placeholder {  
-    color: #000000 !important;  
+.input_country:-moz-placeholder {
+    color: #000000 !important;
+}
+.input_country::-moz-placeholder {
+    color: #000000 !important;
+}
+.input_country:-ms-input-placeholder {
+    color: #000000 !important;
 }
 .input_mobile_no{
     height: 10vh;
@@ -53,4 +53,105 @@
     width: 12vw;
     font-size: 12vw;
     color: #ff6000;
+} */
+
+.main_div{
+  height:100vh;
+  width:100vw;
 }
+.logo_div{
+  height:50vh;
+  width:100vw;
+  background-color: #ffffff;
+}
+.input_country{
+  height: 5vh;
+  font-size: 7vw;
+}
+.input_country::-webkit-input-placeholder {
+  color: #000000 !important;
+}
+.input_country:-moz-placeholder {
+  color: #000000 !important;
+}
+.input_country::-moz-placeholder {
+  color: #000000 !important;
+}
+.input_country:-ms-input-placeholder {
+  color: #000000 !important;
+}
+.input_mobile_no{
+  height: 5vh;
+  font-size: 5vw;
+}
+.button_send{
+  margin-left: 44vw;
+  background-color: white;
+  border-color: transparent;
+  margin-top: 3vh;
+  outline: none;
+}
+.img_logo{
+  height: calc(339px);
+  width: calc(291px);
+  margin-left: calc((100% - 291px)/2);
+  margin-top: calc((50vh - 339px)/2);
+}
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 7vh;
+  width: 12vw;
+  font-size: 12vw;
+  color: #ff6000;
+}
+.error_text{
+  color: #ff0000;
+  text-align: center;
+  font-size: 35px;
+}
+
+.example-form {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.example-full-width {
+  width: 100%;
+  font-size:4.5vw;
+}
+
+::-webkit-input-placeholder {
+  font-size: 6vw;
+  color: #d0cdfa;
+  text-transform: uppercase;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+ }
+ :-moz-placeholder { /* older Firefox*/
+  font-size:6vw;
+  color: #d0cdfa;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+ }
+ ::-moz-placeholder { /* Firefox 19+ */
+  font-size: 6vw;
+  color: #d0cdfa;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+ }
+ :-ms-input-placeholder {
+  font-size: 6vw;
+  color: #d0cdfa;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+ }
+ .example-full-width > div > div > div{
+  border: 0 !important;
+ }

@@ -1,4 +1,4 @@
-<div class="main_div">
+<!-- <div class="main_div">
   <div class="logo_div">
     <div class="logo_div">
       <img src="assets/images/logo.png" class="img_logo" alt="Mindshift">
@@ -7,6 +7,28 @@
   <div class="text_div">
     <input type="text" class="input_country" placeholder="India(+91)" readonly="readonly"/>
     <input type="number" class="input_mobile_no" placeholder="Your Phone Number" required pattern="[1-9]{1}[0-9]{9}"/>
+    <button class="button_send" (click)="otp_redirect()"><md-icon>send</md-icon></button>
+  </div>
+</div> -->
+
+<div class="main_div">
+  <div class="logo_div">
+    <div class="logo_div">
+      <img src="assets/images/logo.png" class="img_logo" alt="Mindshift">
+    </div>
+  </div>
+  <div class="text_div">
+    <!-- <input type="text" class="input_country" placeholder="India(+91)" readonly="readonly"/> -->
+    <!-- <input type="number" class="input_mobile_no" placeholder="Your Phone Number" [(ngModel)]="Mobile" required pattern="[1-9]{1}[0-9]{9}"/> -->
+    <form class="example-form">
+      <!-- <mat-form-field class="example-full-width">
+            <input class="input_country" matInput value="India(+91)" disabled>
+      </mat-form-field> -->
+      <md-form-field class="example-full-width">
+          <input type="tel" class="input_mobile_no" mdInput placeholder="Your Phone Number" [(ngModel)]="Mobile" name="Mobile" required>
+      </md-form-field>
+    </form>
+    <div><p *ngIf="error_flag" class="error_text">{{error_msg}}</p></div>
     <button class="button_send" (click)="otp_redirect()"><md-icon>send</md-icon></button>
   </div>
 </div>
