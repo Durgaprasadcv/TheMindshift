@@ -53,6 +53,10 @@
         .padding_top_6vh{
             padding-top: 6vh;
         }
+        .padding_left_main{
+          padding-top: 6vh;
+          padding-left:270px !important;
+        }
         .no_network_msg{
             padding-top: 30vh;
             font-size: 35px;

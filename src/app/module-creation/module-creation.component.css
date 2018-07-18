@@ -25,9 +25,9 @@ input{
     height: 16px;
     margin-left: 15px;
 }
-  
+
   .switch input {display:none;}
-  
+
   .slider {
     position: absolute;
     cursor: pointer;
@@ -40,7 +40,7 @@ input{
     transition: .4s;
     height: 34px;
   }
-  
+
   .slider:before {
     position: absolute;
     content: "";
@@ -52,26 +52,26 @@ input{
     -webkit-transition: .4s;
     transition: .4s;
   }
-  
+
   input:checked + .slider {
     background-color: #2196F3;
   }
-  
+
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
   }
-  
+
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
-  
+
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
   }
@@ -125,4 +125,10 @@ background-color: transparent;
 .module_control{
     width: 50%;
     float: right;
+}
+.submodule_div{
+  padding-top:45px;
+}
+.add_new_module{
+  height: 90px;
 }

@@ -18,19 +18,21 @@ export class SideNavigationComponent implements OnInit {
   public returnmsg;
   User_Id;
   side_menu;
+  side_menu_visibility;
   constructor(private webservice: WebService,private _router: Router) {
     this.online$ = Observable.merge(
       Observable.of(navigator.onLine),
       Observable.fromEvent(window, 'online').mapTo(true),
       Observable.fromEvent(window, 'offline').mapTo(false)
     );
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
    }
 
   ngOnInit() {
     this.User_Id=(JSON.parse(localStorage.getItem('user')));
     this.user_email=(JSON.parse(localStorage.getItem('user_email')));
     this.webservice.checkCredentials();
-    bcarouselObject.init();
+    bcarouselObject.init(this.side_menu_visibility);
     this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
     console.log('meenu',this.side_menu);
     let i;

@@ -17,5 +17,7 @@
   <select class="designation" [(ngModel)]="access_level">
     <option *ngFor="let j of return_access_control.access_level_details  let ja = index " value="{{j.Access_Level_Id}}">{{j.Access_Level_Name}}</option>
   </select>
-  <button class="btn btn-info btn-lg" (click)="permission_submit()">Submit</button>
+  <button md-fab class="edit_icon_button" (click)="permission_submit()">
+    <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+  </button>
 </div>

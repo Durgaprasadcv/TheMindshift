@@ -18,7 +18,10 @@ export class ZoneComponent implements OnInit {
   test_ing;
   side_menu;
   Access_Code=4;
-  constructor(private webservice: WebService) { }
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+   }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_zone,'','1','');

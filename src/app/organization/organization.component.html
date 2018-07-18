@@ -1,5 +1,5 @@
 <app-side-navigation></app-side-navigation>
-<div class="padding_top_6vh">
+<div class="{{side_menu_visibility == '2' ? 'padding_top_6vh' : 'padding_left_main'}}">
     <div class="page_heading">
         <div class="headding">
         <h1 class="page_title">Organization</h1>
@@ -88,9 +88,15 @@
               <md-form-field>
                   <input mdInput placeholder="Organization State" [(ngModel)]="state" name="username">
               </md-form-field>
-              <md-form-field>
+              <!-- <md-form-field>
                   <input mdInput placeholder="Organization Country" [(ngModel)]="country" name="username">
-              </md-form-field>
+              </md-form-field> -->
+              <select class="contry_drop"   [(ngModel)]="country">
+                <option value="" selected="selected" >Select Country</option>
+                <option *ngFor="let i of country_1  let ia = index " value={{i.name}}>
+                    {{i.name}}-{{i.code}}
+                </option>
+              </select>
               <md-form-field>
                   <input mdInput placeholder="Organization Pincode" [(ngModel)]="pincode" name="username">
               </md-form-field>
@@ -168,9 +174,15 @@
                             <md-form-field>
                                 <input mdInput placeholder="Organization State" [(ngModel)]="state" name="username">
                             </md-form-field>
-                            <md-form-field>
+                            <!-- <md-form-field>
                                 <input mdInput placeholder="Organization Country" [(ngModel)]="country" name="username">
-                            </md-form-field>
+                            </md-form-field> -->
+                            <select class="contry_drop"   [(ngModel)]="country">
+                                <option value="" selected="selected" >Select Country</option>
+                                <option *ngFor="let i of country_1  let ia = index " value={{i.name}}>
+                                  {{i.name}}-{{i.code}}
+                                </option>
+                              </select>
                             <md-form-field>
                                 <input mdInput placeholder="Organization Pincode" [(ngModel)]="pincode" name="username">
                             </md-form-field>
@@ -184,7 +196,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Designation</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="add()">Add Organization</button>
                 </div>
               </div>
 

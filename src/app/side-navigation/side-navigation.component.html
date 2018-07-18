@@ -1,6 +1,6 @@
 <div class="cars">
   <!-- Overlay for fixed sidebar -->
-  <div class="sidebar-overlay"></div>
+  <div *ngIf="side_menu_visibility == '2'" class="sidebar-overlay"></div>
   <div class="tool_bar">
     <div class="button_div">
     <button md-icon-button class="sidebar-toggle mob_display_none">

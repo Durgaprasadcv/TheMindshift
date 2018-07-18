@@ -26,7 +26,10 @@
           <span class="slider round"></span>
       </label> -->
       <div class="module_control">
-      <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" (click)="store_question_id(0)">Add Question</button>
+        <!-- <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4" (click)="store_question_id(0)">Add Question</button> -->
+        <button md-fab class="create_icon_button" data-toggle="modal" data-target="#myModal4" (click)="store_question_id(0)">
+          <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+        </button>
       </div>
       <br>
   </div>
@@ -40,16 +43,22 @@
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
       </div>
       <div class="module_control">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_question_id(i.Question_Id)">Edit</button>&nbsp;
-      <button class="btn btn-info btn-lg" (click)="delete_question(i.Question_Id)">Delete</button>
-      <button class="btn btn-info btn-lg" *ngIf="i.Question_Type!='text-box'" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">Add OPTION</button>
+      <button type="button" md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal1" (click)="store_question_id(i.Question_Id)">
+        <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+      </button>&nbsp;
+      <button md-fab class="delete_icon_button" (click)="delete_question(i.Question_Id)">
+        <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
+      </button>
+      <button md-fab class="create_icon_button"  *ngIf="i.Question_Type!='text-box'" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">
+        <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+      </button>
       </div>
       <br>
       <br>
 
       <span *ngIf="i.Question_Type!='text-box'">
         <span *ngFor="let j of i.option let ja = index">
-          <div>
+          <div class="option_div">
             <div class="module_detail">
               <label>Option Id:</label>
               <h6 class="mod_name">{{j.Option_Value[selected_language].opt_lang_link_option_value}}</h6>
@@ -58,8 +67,12 @@
             </div>
 
             <div class="module_control">
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_option_id(i.Question_Id,j.Option_Id)">Edit</button>&nbsp;
-              <button class="btn btn-info btn-lg" (click)="delete_option(j.Option_Id)">Delete</button>
+              <button type="button" md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal2" (click)="store_option_id(i.Question_Id,j.Option_Id)">
+                <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+              </button>&nbsp;
+              <button md-fab class="delete_icon_button" (click)="delete_option(j.Option_Id)">
+                <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
+              </button>
             </div>
           </div>
           <br>

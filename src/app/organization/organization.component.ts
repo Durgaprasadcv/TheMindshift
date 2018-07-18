@@ -26,7 +26,12 @@ export class OrganizationComponent implements OnInit {
   contact_no;
   side_menu;
   Access_Code=4;
-  constructor(private webservice: WebService) { }
+  country_1;
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.country_1=this.webservice.countries;
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+   }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_org,'','1','');

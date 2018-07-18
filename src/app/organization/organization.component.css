@@ -47,3 +47,7 @@ input[type=text] {
 .padding_top_6vh{
     padding-top: 6vh;
 }
+.contry_drop{
+  display: block !important;
+  width:38% !important;
+}

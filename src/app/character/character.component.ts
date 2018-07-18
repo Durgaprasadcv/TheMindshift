@@ -42,8 +42,11 @@ export class CharacterComponent implements OnInit {
   returnmsg_add;
   side_menu;
   Access_Code=4;
+  side_menu_visibility;
 
-  constructor(private webservice: WebService,private http: Http) { }
+  constructor(private webservice: WebService,private http: Http) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+   }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_character,'','1','');

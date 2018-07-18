@@ -25,7 +25,9 @@
             <p class="chapter_title">Start Time&nbsp;:</p><input type="text" [(ngModel)]="start_time" class="chapter_name"/>
             <p class="chapter_title">Stop Time&nbsp;:</p><input type="text" [(ngModel)]="stop_time" class="chapter_name"/>
           </div>
-          <button class="create_test_button" (click)="creat_test()">Create Test</button>
+          <button md-fab class="create_test_button create_icon_button" (click)="creat_test()">
+              <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+          </button>
 
           <!-- <div id="div1" class="container" (drop)="drop($event)" (dragover)="allowDrop($event)">
               <p id="drag1" draggable="true"

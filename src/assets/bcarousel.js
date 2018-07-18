@@ -1,6 +1,6 @@
-var bcarouselObject = (function() { 
-return { 
-    init: function() {
+var bcarouselObject = (function() {
+return {
+    init: function(i_sidee) {
 /**
  * Created by Kupletsky Sergey on 17.10.14.
  *
@@ -15,8 +15,25 @@ return {
 // -------------------
 $(document).ready(function() {
     var overlay = $('.sidebar-overlay');
+    if(i_sidee==1)
+    {
+    // $('.sidebar-toggle').on('click', function() {
+        var sidebar = $('#sidebar');
+        sidebar.toggleClass('open');
+        if ((sidebar.hasClass('sidebar-fixed-left') || sidebar.hasClass('sidebar-fixed-right')) && sidebar.hasClass('open')) {
+            overlay.addClass('active');
+        } else {
+            overlay.removeClass('active');
+        }
+    // });
 
-    $('.sidebar-toggle').on('click', function() {
+    // overlay.on('click', function() {
+    //     $(this).removeClass('active');
+    //     $('#sidebar').removeClass('open');
+    // });
+    }
+    else{
+      $('.sidebar-toggle').on('click', function() {
         var sidebar = $('#sidebar');
         sidebar.toggleClass('open');
         if ((sidebar.hasClass('sidebar-fixed-left') || sidebar.hasClass('sidebar-fixed-right')) && sidebar.hasClass('open')) {
@@ -30,17 +47,18 @@ $(document).ready(function() {
         $(this).removeClass('active');
         $('#sidebar').removeClass('open');
     });
+    }
 
     // $(".carousel").swipe({
-        
+
     //       swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-        
+
     //         if (direction == 'left') $(this).carousel('next');
     //         if (direction == 'right') $(this).carousel('prev');
-        
+
     //       },
     //       allowPageScroll:"vertical"
-        
+
     //     });
 });
 
@@ -144,5 +162,5 @@ $(document).ready(function() {
 
 // })(jQuery.fn.removeClass);
 }
-} 
+}
 })(bcarouselObject||{})

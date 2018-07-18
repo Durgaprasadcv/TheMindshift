@@ -3,7 +3,7 @@
 <h3>
     Add Modules
 </h3>
-<div class="module_div" *ngIf="returnmsg2">
+<div class="module_div add_new_module" *ngIf="returnmsg2">
     <br>
     <div class="module_detail">
     <label>Module Name:</label>
@@ -16,7 +16,10 @@
         <span class="slider round"></span>
     </label> -->
     <div class="module_control">
-    <button *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" (click)="create_module()">Add Module</button>
+      <!-- <button *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" (click)="create_module()">Add Module</button> -->
+      <button *ngIf='Access_Code==1||Access_Code==2' md-fab class="create_icon_button" (click)="create_module()">
+          <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+      </button>
     </div>
     <br>
 </div>
@@ -34,16 +37,22 @@
         <span class="slider round"></span>
     </label> -->
     <div class="module_control">
-    <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" (click)="store_module_id(i.menu_details.Menu_Module_Id)">Edit</button>&nbsp;
-    <button *ngIf='Access_Code==1' class="btn btn-info btn-lg" (click)="delete_modules(i.menu_details.Menu_Module_Id)">Delete</button>
-    <button *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">Add Sub Module</button>
+    <button type="button" *ngIf='Access_Code==1||Access_Code==2' md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal1" (click)="store_module_id(i.menu_details.Menu_Module_Id)">
+      <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+    </button>&nbsp;
+    <button *ngIf='Access_Code==1' md-fab class="delete_icon_button" (click)="delete_modules(i.menu_details.Menu_Module_Id)">
+      <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
+    </button>
+    <button *ngIf='Access_Code==1||Access_Code==2' md-fab class="create_icon_button" data-toggle="modal" data-target="#myModal3" (click)="add_sub_modules_store(i.menu_details.Menu_Module_Id)">
+      <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
+    </button>
     </div>
     <br>
     <br>
 
 
     <span *ngFor="let j of i.submenu let ja = index">
-        <div>
+        <div class="submodule_div">
     <div class="module_detail">
       <label>Submodule Name:</label>
       <!-- <h6 class="mod_name">{{j.submenu_details.Menu_Modules_Name}}</h6> -->
@@ -58,8 +67,12 @@
       </label> -->
       <!-- <button class="create_button" (click)="create_modules()">Edit</button> -->
       <div class="module_control">
-      <button type="button" *ngIf='Access_Code==1||Access_Code==2' class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Parent_Id,returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Edit</button>&nbsp;
-      <button *ngIf='Access_Code==1' class="btn btn-info btn-lg" (click)="delete_sub_modules(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">Delete</button>
+      <button type="button" *ngIf='Access_Code==1||Access_Code==2' md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal2" (click)="store_sub_module_id(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Parent_Id,returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">
+        <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
+      </button>&nbsp;
+      <button *ngIf='Access_Code==1' md-fab class="delete_icon_button" (click)="delete_sub_modules(returnmsg2.menu[ia].submenu[ja].submenu_details.Menu_Module_Id)">
+        <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
+      </button>
         </div>
         </div>
       <br>
