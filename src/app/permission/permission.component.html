@@ -1,6 +1,5 @@
 <app-side-navigation></app-side-navigation>
-<div class="padding_top_6vh">
-</div>
+<div class="{{side_menu_visibility == '2' ? 'padding_top_6vh' : 'padding_left_main'}}">
 <h5>
   Permission
 </h5>
@@ -20,4 +19,5 @@
   <button md-fab class="edit_icon_button" (click)="permission_submit()">
     <md-icon aria-label="Example icon-button with a heart icon">create</md-icon>
   </button>
+</div>
 </div>

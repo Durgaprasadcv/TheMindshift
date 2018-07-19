@@ -35,15 +35,15 @@ export class CreateUserComponent implements OnInit {
   state;
   country;
   pincode;
-
   username;
-
   uid;
   returnmsg;
   returnmsg1;
   dataSource: any[];
     states: any[];
+  side_menu_visibility;
   constructor(private webservice: WebService,private _router: Router) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
   }
   ngOnInit() {
     this.uid=(JSON.parse(localStorage.getItem('user')));

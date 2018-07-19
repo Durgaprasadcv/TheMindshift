@@ -3,11 +3,13 @@
 
 <!-- main content -->
 <div *ngIf="online$ | async">
+  <div class="{{side_menu_visibility == '2' ? 'padding_top_6vh' : 'padding_top_6vh'}}">
+
 <div *ngIf="returnmsg&&return_report"  class="main_content" >
 
 <!-- main image and description -->
 <div class="hello">
-  <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">  
+  <img src="{{returnmsg.home_image.path}}" alt="Carousel" class="listimg">
   <div class="vh_10 web_display_none scroll_none">
     <p class="font_20px text_des">{{returnmsg.home_image.description}}</p>
   </div>
@@ -24,7 +26,7 @@
     <img class="col_img border_radius"  src="{{i.test_image}}" >
     <p class="test_name">{{i.test_name}}</p>
     <div>
-      <a (click)="selecttest(i.test_id)" > 
+      <a (click)="selecttest(i.test_id)" >
         <img class="absolute_division_up play_img "  src="assets/images/play_button.png" >
       </a>
     </div>
@@ -103,14 +105,14 @@
     <div>
       <p class="shift_des">Product</p>
     </div>
-  </div>   
+  </div>
 </div>
 <button *ngIf="returnmsg.text_data!='NO Test Assigned'" (click)="resume()" class="button_div_class web_display_none">RESUME</button>
 <button *ngIf="returnmsg.text_data=='NO Test Assigned'" class="button_div_class web_display_none"><a href="http://djitsoft.com/">VISIT US</a></button>
 
 <div class="modal fade" id="myModal_delete" role="dialog">
   <div class="modal-dialog">
-  
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -129,6 +131,7 @@
   </div>
 </div>
 </div>
+  </div>
 </div>
 
 <!-- offline message -->

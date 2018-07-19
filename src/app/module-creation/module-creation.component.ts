@@ -28,7 +28,10 @@ export class ModuleCreationComponent implements OnInit {
   returnmsg9;
   side_menu;
   Access_Code=4;
-  constructor(private webservice: WebService) {}
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+  }
   ngOnInit(){
     this.submodules[0]=0;
     this.submodules_count=0;

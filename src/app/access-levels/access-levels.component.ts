@@ -16,7 +16,10 @@ export class AccessLevelsComponent implements OnInit {
   Access_Level_Active;
   side_menu;
   Access_Code=4;
-  constructor(private webservice: WebService) { }
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+   }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_access_level,'','1','');

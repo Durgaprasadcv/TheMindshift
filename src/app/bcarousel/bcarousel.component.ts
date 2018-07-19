@@ -20,7 +20,10 @@ export class BcarouselComponent implements OnInit {
   user_email;
   public progress_bar=10;
   online$: Observable<boolean>;
+  side_menu_visibility;
 constructor(private webservice: WebService,private _router: Router,private http:Http) {
+
+  this.side_menu_visibility=this.webservice.side_menu_visibility;
   //check for connectivity
   this.online$ = Observable.merge(
     Observable.of(navigator.onLine),

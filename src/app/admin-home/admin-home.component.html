@@ -3,6 +3,7 @@
 
 <!-- main content -->
 <div *ngIf="online$ | async">
+<div class="{{side_menu_visibility == '2' ? 'padding_top_6vh' : 'padding_left_main'}}">
 <div  class="main_content" >
   <div class="table_division">
     <fusioncharts
@@ -39,5 +40,6 @@
       [dataSource]=dataSource3 >
     </fusioncharts>
   </div>
+</div>
 </div>
 </div>

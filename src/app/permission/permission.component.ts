@@ -7,8 +7,6 @@ import { WebService } from '../webservice/web.service';
   styleUrls: ['./permission.component.css']
 })
 export class PermissionComponent implements OnInit {
-
-  constructor(private webservice: WebService) { }
   returnmsg;
   refresh;
   return_access_control;
@@ -17,6 +15,11 @@ export class PermissionComponent implements OnInit {
   modules;
   access_level;
   permission_assign_status;
+  side_menu_visibility;
+
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
+   }
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
     this.webservice.webRequest(this,'post',this.webservice.get_access_level,'','2','');
@@ -29,7 +32,7 @@ export class PermissionComponent implements OnInit {
     {
       this.returnmsg = return_data.json();
       this.refresh=1;
-      
+
     }
     if(fun_id==2)
     {

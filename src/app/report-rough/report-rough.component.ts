@@ -4,9 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import * as $ from 'jquery';
 declare var $: any;
+import { WebService } from '../webservice/web.service';
 @Component({
   selector: 'app-report-rough',
   templateUrl: './report-rough.component.html',
+  providers: [WebService],
   styleUrls: ['./report-rough.component.css']
 })
 export class ReportRoughComponent implements OnInit {
@@ -23,7 +25,9 @@ designation=0;
   dataSource2: Object;
   dataSource3: Object;
   demoId: Object;
-  constructor() {
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
     this.data = {
       chart: {
         subcaption: 'MindShift',

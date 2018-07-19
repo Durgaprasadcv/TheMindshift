@@ -10,12 +10,14 @@ import { WebService } from '../webservice/web.service';
 export class TestTableComponent implements OnInit {
 uid;
 returnmsg;
+side_menu_visibility;
 constructor(private _router: Router,private webservice: WebService) { }
 
 ngOnInit(){
   this.uid=(JSON.parse(localStorage.getItem('user')));
   const body = {user_id:this.uid};
   this.webservice.webRequest(this,'post',this.webservice.gettest_admin,body,'1','');
+  this.side_menu_visibility=this.webservice.side_menu_visibility;
 }
 edit(){
   alert("Edit");

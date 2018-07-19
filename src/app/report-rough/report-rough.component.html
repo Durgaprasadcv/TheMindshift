@@ -1,5 +1,5 @@
 <app-side-navigation></app-side-navigation>
- <div class="md-content padding_top_6vh"  flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
+ <div class="md-content {{side_menu_visibility == '2' ? 'padding_top_6vh' : 'padding_left_main'}}"  flex  (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
     <!-- <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()"> -->
             <!-- <md-tab label="Tab 1"> -->
               <!-- <template md-tab-label>Profile</template> -->

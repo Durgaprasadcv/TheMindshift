@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { WebService } from '../webservice/web.service';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
+  providers: [WebService],
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
@@ -13,13 +15,15 @@ export class AdminHomeComponent implements OnInit {
   dataSource2: Object;
   dataSource3: Object;
   demoId: Object;
-  constructor() {
+  side_menu_visibility;
+  constructor(private webservice: WebService) {
+    this.side_menu_visibility=this.webservice.side_menu_visibility;
       //check for connectivity
-  this.online$ = Observable.merge(
-    Observable.of(navigator.onLine),
-    Observable.fromEvent(window, 'online').mapTo(true),
-    Observable.fromEvent(window, 'offline').mapTo(false)
-  );
+    this.online$ = Observable.merge(
+      Observable.of(navigator.onLine),
+      Observable.fromEvent(window, 'online').mapTo(true),
+      Observable.fromEvent(window, 'offline').mapTo(false)
+    );
   this.data = {
     chart: {
       subcaption: 'MindShift',
