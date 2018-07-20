@@ -75,12 +75,12 @@ webresponse(fun_id,return_data)
 // test details response
 if(fun_id==1)
 {
-  // this.returnmsg = return_data.json();
+  this.returnmsg = return_data.json();
 
   // local json begin
-  this.test_ing='{"test":[{"test_id":52,"test_name":"Epsisode1","test_description":"The meeting and flashback ","video_path":"http:\/\/www.djitsoft.xyz\/video_files\/test_6.mp4","no_of_questions":1,"test_image":"http:\/\/www.mindshift.djitsoft.xyz\/assets\/images\/Poster 5.jpg","feedback_questions":0,"test_status":1,"test_count":0,"stop_time":410,"question":[{"question_id":55,"question_title":"On a Scale of 1 to 10, how proud are you being a sales person?","question_type":"text-box","marks_assigned":1,"Pause_time":"10","wait_time":"60","num_of_box":2,"type_options":[{"id":149,"name":"1-2","Option_skip":"12"},{"id":150,"name":"3-5","Option_skip":"12"},{"id":153,"name":"6-8","Option_skip":"12"},{"id":154,"name":"9-10","Option_skip":"12"}],"answers":["149"]}],"next_test_id":1}],"num":"1"}';
-  console.log('aaa',JSON.parse(this.test_ing));
-  this.returnmsg=JSON.parse(this.test_ing);
+  // this.test_ing='{"test":[{"test_id":52,"test_name":"Epsisode1","test_description":"The meeting and flashback ","video_path":"http:\/\/www.djitsoft.xyz\/video_files\/test_6.mp4","no_of_questions":1,"test_image":"http:\/\/www.mindshift.djitsoft.xyz\/assets\/images\/Poster 5.jpg","feedback_questions":0,"test_status":1,"test_count":0,"stop_time":410,"question":[{"question_id":55,"question_title":"On a Scale of 1 to 10, how proud are you being a sales person?","question_type":"text-box","marks_assigned":1,"Pause_time":"10","wait_time":"60","num_of_box":2,"type_options":[{"id":149,"name":"1-2","Option_skip":"12"},{"id":150,"name":"3-5","Option_skip":"12"},{"id":153,"name":"6-8","Option_skip":"12"},{"id":154,"name":"9-10","Option_skip":"12"}],"answers":["149"]}],"next_test_id":1}],"num":"1"}';
+  // console.log('aaa',JSON.parse(this.test_ing));
+  // this.returnmsg=JSON.parse(this.test_ing);
   // local json end
   this.returnmsg1=this.returnmsg.test[0];
   this.video_questions();

@@ -48,6 +48,8 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Option_QuestionId;
   Option_skip;
   Option_title_arr=Array();
+  preview_flag=false;
+  preview_url="http://localhost:4200/#/video-preview/52";
 
   constructor(private webservice:WebService,private route: ActivatedRoute,private _router: Router) { }
 
@@ -154,7 +156,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
   add_option(){
     const body7={
-      Option_skip:11,
+      Option_skip:this.Option_skip,
       Option_Marks:10,
       Option_Active:1,
       Option_QuestionId:this.question_id,
@@ -167,7 +169,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   edit_option(){
     const body9={
       Option_Id:this.option_id,
-      Option_skip:11,
+      Option_skip:this.Option_skip,
       Option_Marks:10,
       Option_Active:1,
       Option_QuestionId:this.question_id,
@@ -396,6 +398,17 @@ export class QuestionOptionPreviewComponent implements OnInit {
       }
       // console.log('sss',this.returnmsg10[0].Lang_Id);
       // console.log('sssxxx',this.question_title_arr);
+    }
+  }
+
+  preview_play(){
+    if(this.preview_flag==true)
+    {
+      this.preview_flag=false;
+    }
+    else
+    {
+      this.preview_flag=true;
     }
   }
 }

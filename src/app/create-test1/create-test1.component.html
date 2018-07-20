@@ -55,6 +55,9 @@
             <video  [vgMedia]="media" [src]=video_paath #media id="singleVideo" preload="auto" width="100%" height="300" crossorigin autoplay>
             </video>
           </vg-player>
+          <div>
+            <p class="chapter_title">Search &nbsp;:</p><input type="text" [(ngModel)]="matching_string" (ngModelChange)="video_search()" class="chapter_name"/>
+          </div>
           <md-tab-group>
             <md-tab class="tab_width mat-tab-label" label="Character">
               <!-- Character -->

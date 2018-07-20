@@ -19,16 +19,18 @@ export class DepartnmentComponent implements OnInit {
   address_line_2;
   city;
   state;
-  country;
+  country='India';
   pincode;
   email;
   contact_no;
   side_menu;
   Access_Code=4;
-  country_1=Array();
+  state_1=Array();
+  city_1=Object();
   side_menu_visibility;
   constructor(private webservice: WebService) {
-    this.country_1=this.webservice.countries;
+    this.state_1=this.webservice.states;
+    this.city_1=this.webservice.district;
     this.side_menu_visibility=this.webservice.side_menu_visibility;
    }
 
@@ -143,5 +145,16 @@ export class DepartnmentComponent implements OnInit {
     this.pincode='';
     this.email='';
     this.contact_no='';
+  }
+
+  state_select()
+  {
+    console.log(this.state);
+      if(this.state!=' ')
+      {
+        // this.city_1=this.webservice.district[this.state];
+        this.city_1=this.webservice.district[this.state];
+      }
+      console.log('sss',this.webservice.district[this.state]);
   }
 }

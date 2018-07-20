@@ -23,15 +23,21 @@ export class CreateTest1Component implements OnInit {
   video_paath;
   api:VgAPI;
   create_return;
+  matching_string='';
   constructor(private webservice:WebService,public API: VgAPI) { }
 
   ngOnInit()
   {
     const body1={};
     this.webservice.webRequest(this,'post',this.webservice.get_language,body1,'1','');
-
-    this.webservice.webRequest(this,'post',this.webservice.get_character,'','2','');
-    this.webservice.webRequest(this,'post',this.webservice.get_video,'','3','');
+    const body2={
+      matching_string:this.matching_string
+    };
+    this.webservice.webRequest(this,'post',this.webservice.get_character,body2,'2','');
+    const body3={
+      matching_string:this.matching_string
+    };
+    this.webservice.webRequest(this,'post',this.webservice.get_video,body3,'3','');
   }
 
   webresponse(fun_id,return_data)
@@ -87,7 +93,7 @@ export class CreateTest1Component implements OnInit {
       version_no:1,
       parant:0
     };
-      this.webservice.webRequest(this,'post',this.webservice.create_test_new,body4,'4','');
+      this.webservice.webRequest(this,'post',this.webservice.save_test,body4,'4','');
   }
 
   allowDrop(ev) {
@@ -130,4 +136,17 @@ export class CreateTest1Component implements OnInit {
     this.api.getDefaultMedia().currentTime=0;
   }
 
+  video_search()
+  {
+    console.log('matching_string',this.matching_string);
+    const body3={
+      matching_string:this.matching_string
+    };
+    this.webservice.webRequest(this,'post',this.webservice.get_video,body3,'3','');
+
+    const body2={
+      matching_string:this.matching_string
+    };
+    this.webservice.webRequest(this,'post',this.webservice.get_character,body2,'2','');
+  }
 }
