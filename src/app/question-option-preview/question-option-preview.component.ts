@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 @Component({
   selector: 'app-question-option-preview',
   templateUrl: './question-option-preview.component.html',
@@ -49,9 +50,15 @@ export class QuestionOptionPreviewComponent implements OnInit {
   Option_skip;
   Option_title_arr=Array();
   preview_flag=false;
-  preview_url="http://localhost:4200/#/video-preview/52";
+  preview_url;
+  urrl:SafeResourceUrl;
 
-  constructor(private webservice:WebService,private route: ActivatedRoute,private _router: Router) { }
+  constructor(private webservice:WebService,private route: ActivatedRoute,private _router: Router,private sanitizer: DomSanitizer) {
+    this.test_id=this.route.snapshot.paramMap.get('idb');
+    this.preview_url='http://localhost:4200/#/video-preview/'+this.test_id;
+    console.log("test_url",this.preview_url);
+    this.urrl= this.sanitizer.bypassSecurityTrustResourceUrl(this.preview_url);
+   }
 
   ngOnInit() {
     this.test_id=this.route.snapshot.paramMap.get('idb');

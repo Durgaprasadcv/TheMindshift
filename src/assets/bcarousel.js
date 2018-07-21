@@ -22,6 +22,7 @@ $(document).ready(function() {
         sidebar.toggleClass('open');
         if ((sidebar.hasClass('sidebar-fixed-left') || sidebar.hasClass('sidebar-fixed-right')) && sidebar.hasClass('open')) {
             overlay.addClass('active');
+            overlay.removeClass('active');
         } else {
             overlay.removeClass('active');
         }

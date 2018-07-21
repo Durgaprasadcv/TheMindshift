@@ -85,12 +85,12 @@
 <div>
   <button (click)="preview_play()">Preview</button>
 </div>
-<div id="here"class="col-md-12 main_block">
+<div id="here"class="col-md-12 main_block paddingleft_preview">
     <!-- http://localhost:4200/#/preview-video-new  -->
     <!-- http://localhost:4200/#/preview-video-new  -->
     <!-- localhost/dist -->
   <div *ngIf="preview_flag">
-    <iframe [src]=preview_url width="100%" height="500">
+    <iframe [src]="urrl" width="80%" height="350">
       <p>Your browser does not support iframes.</p>
     </iframe>
   </div>

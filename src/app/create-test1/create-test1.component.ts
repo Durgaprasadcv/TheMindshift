@@ -24,7 +24,8 @@ export class CreateTest1Component implements OnInit {
   api:VgAPI;
   create_return;
   matching_string='';
-  constructor(private webservice:WebService,public API: VgAPI) { }
+  get_chapter_data;
+  constructor(private webservice:WebService,public API: VgAPI,private _router: Router) { }
 
   ngOnInit()
   {
@@ -38,6 +39,11 @@ export class CreateTest1Component implements OnInit {
       matching_string:this.matching_string
     };
     this.webservice.webRequest(this,'post',this.webservice.get_video,body3,'3','');
+    // const body5={
+    //   chapter_id:52
+    // };
+    // this.webservice.webRequest(this,'post',this.webservice.get_chapter,body5,'5','');
+
   }
 
   webresponse(fun_id,return_data)
@@ -74,6 +80,44 @@ export class CreateTest1Component implements OnInit {
     {
       this.create_return = return_data.json();
       console.log(this.create_return);
+      this._router.navigate(['/test-table']);
+    }
+    else if(fun_id==5)
+    {
+      this.get_chapter_data=return_data.json();
+      let i;
+      let j;
+      let k;
+      for(i=0;i<this.get_chapter_data.chapter.length;i++)
+      {
+        for(j=0;j<this.language.length;j++)
+        {
+          if(this.get_chapter_data.chapter[i].lang_id==this.chapter[j].language_id)
+          {
+            this.chapter[j]={};
+            this.chapter[j].language_id=this.language[i].Lang_Id;
+            this.chapter[j].chapter_name=this.get_chapter_data.chapter[i].test_name;
+            this.chapter[j].video_id=this.get_chapter_data.chapter[i].video_id;
+            this.chapter[j].chapter_description=this.get_chapter_data.chapter[i].test_description;
+          }
+        }
+      }
+      for(k=0;k<this.get_chapter_data.character.length;k++)
+      {
+          this.character_selected[k]={};
+          this.character_selected[k].character_id=this.get_chapter_data.character[k].char_id;
+          if(this.get_chapter_data.character[k].character_selected=="true")
+          {
+            this.character_selected[k].character_selected=true;
+          }
+          else
+          {
+            this.character_selected[k].character_selected=false;
+          }
+      }
+      this.start_time=this.get_chapter_data.start_time;
+      this.stop_time=this.get_chapter_data.stop_time;
+      console.log("get_chapter-",this.get_chapter_data);
     }
   }
 

@@ -144,3 +144,6 @@ tr:nth-child(even) {
 .option_div{
   height: 90px;
 }
+.paddingleft_preview{
+  padding-left:350px;
+}

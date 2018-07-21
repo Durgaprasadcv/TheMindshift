@@ -9,7 +9,7 @@
             <span *ngFor="let i of language let ia = index " >
               <div>
                 <p class="chapter_title">{{i.Lang_Tittle}}&nbsp;:</p><input type="text" [(ngModel)]="chapter[ia].chapter_name" class="chapter_name"/>
-                <p class="chapter_title" mdTooltip="Drag and Drop from Video library to select the video">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id"></div>
+                <p class="chapter_title" mdTooltip="Drag and Drop from Video library to select the video">Video&nbsp;:</p><div id="{{ia}}" (drop)="drop($event)" (dragover)="allowDrop($event)" class="chapter_name" ng-bind="chapter[ia].video_id">{{chapter[ia].video_id}}</div>
               </div>
             </span>
           </div>

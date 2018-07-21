@@ -30,6 +30,7 @@ public gettest_detail_uid=this.main_url+'gettest_detail_uid';
 public test_completion=this.main_url+'test_completion';
 public get_video_library=this.main_url+'get_video_library';
 public save_test=this.main_url+'save_test';
+public get_chapter=this.main_url+'get_chapter';
 
 //user
 public get_users=this.main_url+'get_users';
@@ -913,7 +914,7 @@ public district={
       "Raipur",
       "Rajnandgaon",
       "Sukma",
-      "Surajpur  ",
+      "Surajpur",
       "Surguja"
   ]
 };
