@@ -192,7 +192,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
       { path: 'report',component:ReportComponent },
       { path: 'report-rough',component:ReportRoughComponent },
       { path: 'create-test',component:CreateTestComponent },
-      { path: 'create-test1',component:CreateTest1Component },
+      { path: 'create-test1/:idc',component:CreateTest1Component },
       { path: 'question-option-preview/:idb',component:QuestionOptionPreviewComponent },
       { path: 'test-questions',component:TestQuestionsComponent },
       { path: 'test-details',component:TestDetailsComponent },

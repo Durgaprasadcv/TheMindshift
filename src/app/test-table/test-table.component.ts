@@ -25,8 +25,8 @@ edit(){
 delete(){
   alert("delete");
 }
-create_test(){
-  this._router.navigate(['/create-test1']);
+create_test(i){
+  this._router.navigate(['/create-test1',i]);
 }
 webresponse(fun_id,return_data){
   if(fun_id==1)
@@ -34,12 +34,24 @@ webresponse(fun_id,return_data){
     this.returnmsg = return_data.json();
     console.log('api',this.returnmsg);
   }
+  else if(fun_id==2)
+  {
+    this.returnmsg = return_data.json();
+    console.log('api',this.returnmsg);
+    const body = {user_id:this.uid};
+    this.webservice.webRequest(this,'post',this.webservice.gettest_admin,body,'1','');
+  }
 }
 view_test(i){
   console.log('test id-',i);
   this._router.navigate(['/question-option-preview',i]);
 }
 delete_test(i){
-  console.log('delete_test id-',i);
+  const body4 = {
+    Test_Status:0,
+    test_id:i,
+    Org_id:1
+  };
+  this.webservice.webRequest(this,'post',this.webservice.save_test,body4,'2','');
 }
 }

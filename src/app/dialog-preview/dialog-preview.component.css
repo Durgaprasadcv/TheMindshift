@@ -87,7 +87,6 @@
     height: auto;
   }
   .solid {
-
     border-style: solid;
     height:100%;
     width:100%;
@@ -131,4 +130,8 @@
   }
   .margin_top_timer{
     margin-top: 1.75vh;
+  }
+  .contry_drop{
+    display: block !important;
+    width:38% !important;
   }

@@ -10,16 +10,14 @@
         </div>
       </div>
     </div> -->
+<div class="add_question">
+<div class="main_div_que_abv">
   <div class="module_div" *ngIf="return_msg1">
       <br>
       <div class="module_detail">
-      <label></label>
-      <input type="text" class="opacity_zero" [(ngModel)]="Menu_Module_Name_add">
-      <label></label>
-      <input type="text" class="opacity_zero" [(ngModel)]="Menu_Module_Href_add">
-      <select class="language_dropdown" [(ngModel)]="selected_language">
-        <option *ngFor="let i of question_title_arr  let ia = index " value="{{i.language_id}}">{{i.language_title}}</option>
-      </select>
+        <select class="language_dropdown" [(ngModel)]="selected_language">
+          <option *ngFor="let i of question_title_arr  let ia = index " value="{{i.language_id}}">{{i.language_title}}</option>
+        </select>
       </div>
       <!-- <label class="switch" >
           <input type="checkbox" [(ngModel)]="Menu_Module_Active">
@@ -33,14 +31,20 @@
       </div>
       <br>
   </div>
-  <div *ngIf="return_msg1">
+</div>
+<div class="preview_div">
+    <button (click)="preview_play()">Preview</button>
+</div>
+</div>
+<div class="ques_opt_preview_div">
+<div *ngIf="return_msg1" class="main_div_ques_opt">
   <div class="module_div" *ngFor="let i of return_msg1.question  let ia = index">
       <br>
       <div class="module_detail">
-        <label>Question Title:</label>
+        <label>Question:</label>
         <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
-        <label>Question Pause Time:</label>
-        <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6>
+        <!-- <label>Question Pause Time:</label>
+        <h6 class="mod_name">{{i.Question_Title[selected_language].que_lang_link_question_title}}</h6> -->
       </div>
       <div class="module_control">
       <button type="button" md-fab class="edit_icon_button" data-toggle="modal" data-target="#myModal1" (click)="store_question_id(i.Question_Id)">
@@ -49,7 +53,7 @@
       <button md-fab class="delete_icon_button" (click)="delete_question(i.Question_Id)">
         <md-icon aria-label="Example icon-button with a heart icon">delete</md-icon>
       </button>
-      <button md-fab class="create_icon_button"  *ngIf="i.Question_Type!='text-box'" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">
+      <button md-fab class="create_icon_button"  *ngIf="i.Question_Type!='text-box'&&i.Question_Type!='text-area'" data-toggle="modal" data-target="#myModal3" (click)="add_option_store(i.Question_Id)">
         <md-icon aria-label="Example icon-button with a heart icon">add</md-icon>
       </button>
       </div>
@@ -57,13 +61,14 @@
       <br>
 
       <span *ngIf="i.Question_Type!='text-box'">
+        <span *ngIf="i.Question_Type!='text-area'">
         <span *ngFor="let j of i.option let ja = index">
           <div class="option_div">
             <div class="module_detail">
-              <label>Option Id:</label>
+              <label>Option:</label>
               <h6 class="mod_name">{{j.Option_Value[selected_language].opt_lang_link_option_value}}</h6>
-              <label>Option Id:</label>
-              <h6 class="mod_name">{{j.Option_Id}}</h6>
+              <!-- <label>Option Id:</label>
+              <h6 class="mod_name">{{j.Option_Id}}</h6> -->
             </div>
 
             <div class="module_control">
@@ -78,23 +83,28 @@
           <br>
         </span>
       </span>
+      </span>
       <br>
   </div>
+</div>
+<div class="preview_div_play">
+  <div id="here"class="col-md-12 main_block">
+    <div *ngIf="preview_flag">
+      <iframe [src]="urrl" width="100%" height="300">
+        <p>Your browser does not support iframes.</p>
+      </iframe>
+    </div>
   </div>
 </div>
-<div>
-  <button (click)="preview_play()">Preview</button>
 </div>
-<div id="here"class="col-md-12 main_block paddingleft_preview">
-    <!-- http://localhost:4200/#/preview-video-new  -->
-    <!-- http://localhost:4200/#/preview-video-new  -->
-    <!-- localhost/dist -->
+</div>
+<!-- <div id="here"class="col-md-12 main_block paddingleft_preview">
   <div *ngIf="preview_flag">
     <iframe [src]="urrl" width="80%" height="350">
       <p>Your browser does not support iframes.</p>
     </iframe>
   </div>
-</div>
+</div> -->
 
 
 <!-- Modal -->
@@ -132,6 +142,13 @@
             <option value="text-box">
                 Text Box
             </option>
+            <option value="text-area">
+                Text Area
+            </option>
+            <option value="drop-down">
+                Drop Down
+            </option>
+
           </select>
       </div>
       <div class="modal-footer">

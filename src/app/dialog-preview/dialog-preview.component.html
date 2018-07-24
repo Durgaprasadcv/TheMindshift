@@ -28,6 +28,26 @@
     </md-form-field>
     <br>
   </span>
+  <span *ngIf="this.data.type=='text-area'">
+    <md-form-field class="example-full-width">
+        <textarea mdInput placeholder="Answer"></textarea>
+    </md-form-field>
+  </span>
+  <span *ngIf="this.data.type=='drop-down'">
+    <!-- <md-form-field>
+      <md-select placeholder="Select">
+        <md-option *ngFor="let opt of this.data.option" [value]="opt.name">
+          {{opt.name}}
+        </md-option>
+      </md-select>
+    </md-form-field> -->
+    <select class="contry_drop">
+      <option value="" selected="selected" >Select</option>
+      <option *ngFor="let opt of this.data.option " value={{opt.name}>
+        {{opt.name}}
+      </option>
+    </select>
+  </span>
   </div>
   <div class="submit" [hidden]="submit_show">
     <button class="submit_button" md-raised-button (click)="onNoClick(result)">Submit</button>

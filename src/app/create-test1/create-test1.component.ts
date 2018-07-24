@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from '../webservice/web.service';
 import { VgAPI,VgFullscreenAPI,VgPlayer,VgMedia} from 'videogular2/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable} from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { ElementRef, HostListener, OnDestroy, ViewEncapsulation } from '@angular/core';
@@ -25,10 +26,12 @@ export class CreateTest1Component implements OnInit {
   create_return;
   matching_string='';
   get_chapter_data;
-  constructor(private webservice:WebService,public API: VgAPI,private _router: Router) { }
+  test_id;
+  constructor(private webservice:WebService,public API: VgAPI,private _router: Router,private route: ActivatedRoute) { }
 
   ngOnInit()
   {
+    this.test_id=this.route.snapshot.paramMap.get('idc');
     const body1={};
     this.webservice.webRequest(this,'post',this.webservice.get_language,body1,'1','');
     const body2={
@@ -39,11 +42,14 @@ export class CreateTest1Component implements OnInit {
       matching_string:this.matching_string
     };
     this.webservice.webRequest(this,'post',this.webservice.get_video,body3,'3','');
-    // const body5={
-    //   chapter_id:52
-    // };
-    // this.webservice.webRequest(this,'post',this.webservice.get_chapter,body5,'5','');
-
+    console.log('test_id',this.test_id);
+    if(this.test_id>0)
+    {
+      const body5={
+        chapter_id:this.test_id
+      };
+      this.webservice.webRequest(this,'post',this.webservice.get_chapter,body5,'5','');
+    }
   }
 
   webresponse(fun_id,return_data)
@@ -104,16 +110,16 @@ export class CreateTest1Component implements OnInit {
       }
       for(k=0;k<this.get_chapter_data.character.length;k++)
       {
-          this.character_selected[k]={};
-          this.character_selected[k].character_id=this.get_chapter_data.character[k].char_id;
-          if(this.get_chapter_data.character[k].character_selected=="true")
-          {
-            this.character_selected[k].character_selected=true;
-          }
-          else
-          {
-            this.character_selected[k].character_selected=false;
-          }
+        this.character_selected[k]={};
+        this.character_selected[k].character_id=this.get_chapter_data.character[k].char_id;
+        if(this.get_chapter_data.character[k].character_selected=="true")
+        {
+          this.character_selected[k].character_selected=true;
+        }
+        else
+        {
+          this.character_selected[k].character_selected=false;
+        }
       }
       this.start_time=this.get_chapter_data.start_time;
       this.stop_time=this.get_chapter_data.stop_time;
@@ -127,17 +133,34 @@ export class CreateTest1Component implements OnInit {
     console.log('character',this.character_selected);
     console.log('start time',this.start_time);
     console.log('stop time',this.stop_time);
-    const body4 = {
-      chapter:this.chapter,
-      character:this.character_selected,
-      start_time:this.start_time,
-      stop_time:this.stop_time,
-      Org_id:1,
-      Test_Created_By:100,
-      version_no:1,
-      parant:0
-    };
+    if(this.test_id>0)
+    {
+      const body4 = {
+        chapter:this.chapter,
+        character:this.character_selected,
+        start_time:this.start_time,
+        stop_time:this.stop_time,
+        Org_id:1,
+        Test_Created_By:100,
+        version_no:1,
+        parant:0,
+        test_id:this.test_id
+      };
       this.webservice.webRequest(this,'post',this.webservice.save_test,body4,'4','');
+    }
+    else{
+      const body4 = {
+        chapter:this.chapter,
+        character:this.character_selected,
+        start_time:this.start_time,
+        stop_time:this.stop_time,
+        Org_id:1,
+        Test_Created_By:100,
+        version_no:1,
+        parant:0
+      };
+      this.webservice.webRequest(this,'post',this.webservice.save_test,body4,'4','');
+    }
   }
 
   allowDrop(ev) {
