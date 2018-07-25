@@ -28,6 +28,7 @@ export class DepartnmentComponent implements OnInit {
   state_1=Array();
   city_1=Object();
   side_menu_visibility;
+  returnmsg6;
   constructor(private webservice: WebService) {
     this.state_1=this.webservice.states;
     this.city_1=this.webservice.district;
@@ -36,6 +37,7 @@ export class DepartnmentComponent implements OnInit {
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_dept,'','1','');
+    this.webservice.webRequest(this,'post',this.webservice.get_org,'','6','');
     this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
     console.log('meenu',this.side_menu);
     let i;
@@ -82,13 +84,18 @@ export class DepartnmentComponent implements OnInit {
       this.email=this.returnmsg1.email;
       this.contact_no=this.returnmsg1.contact_no;
     }
+    else if(fun_id=6)
+    {
+      this.returnmsg6=return_data.json();
+      console.log("org",this.returnmsg6);
+    }
   }
   add(){
     const body = {
       Dept_Name:this.Dept_Name,
       Dept_Desc:this.Dept_Desc,
       Dept_Code:this.Dept_Code,
-      Dept_Org_ID:1,
+      Dept_Org_ID:this.Dept_Org_ID,
       address_line_1:this.address_line_1,
       address_line_2:this.address_line_2,
       city:this.city,
@@ -119,7 +126,7 @@ export class DepartnmentComponent implements OnInit {
       Dept_Name:this.Dept_Name,
       Dept_Desc:this.Dept_Desc,
       Dept_Code:this.Dept_Code,
-      Dept_Org_ID:1,
+      Dept_Org_ID:this.Dept_Org_ID,
       address_line_1:this.address_line_1,
       address_line_2:this.address_line_2,
       city:this.city,

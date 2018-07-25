@@ -74,29 +74,43 @@
               </md-form-field>
               <br>
               <md-form-field>
-                    <input mdInput placeholder="Logo Path" [(ngModel)]="logo_path" name="username">
+                <input mdInput placeholder="Logo Path" [(ngModel)]="logo_path" name="username">
               </md-form-field>
               <md-form-field>
                 <input mdInput placeholder="Organization Address 1" [(ngModel)]="address_line_1" name="username">
               </md-form-field>
               <md-form-field>
-                  <input mdInput placeholder="Organization Address 2" [(ngModel)]="address_line_2" name="username">
+                <input mdInput placeholder="Organization Address 2" [(ngModel)]="address_line_2" name="username">
+              </md-form-field>
+              <!-- <md-form-field>
+                <input mdInput placeholder="Organization City" [(ngModel)]="city" name="username">
               </md-form-field>
               <md-form-field>
-                  <input mdInput placeholder="Organization City" [(ngModel)]="city" name="username">
-              </md-form-field>
-              <md-form-field>
-                  <input mdInput placeholder="Organization State" [(ngModel)]="state" name="username">
-              </md-form-field>
+                <input mdInput placeholder="Organization State" [(ngModel)]="state" name="username">
+              </md-form-field> -->
+
+              <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
+                <option value="" selected="selected" >Select State</option>
+                <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
+                  {{i.state_name}}
+                </option>
+              </select>
+              <select *ngIf="state" class="contry_drop"   [(ngModel)]="city">
+                <option value="" selected="selected" >Select city</option>
+                <option *ngFor="let i of city_1 let ia = index " value={{i}}>
+                  {{i}}
+                </option>
+              </select>
+
               <!-- <md-form-field>
                   <input mdInput placeholder="Organization Country" [(ngModel)]="country" name="username">
               </md-form-field> -->
-              <select class="contry_drop"   [(ngModel)]="country">
+              <!-- <select class="contry_drop"   [(ngModel)]="country">
                 <option value="" selected="selected" >Select Country</option>
                 <option *ngFor="let i of country_1  let ia = index " value={{i.name}}>
                     {{i.name}}-{{i.code}}
                 </option>
-              </select>
+              </select> -->
               <md-form-field>
                   <input mdInput placeholder="Organization Pincode" [(ngModel)]="pincode" name="username">
               </md-form-field>
@@ -145,52 +159,64 @@
                   <h4 class="modal-title">Add Organization</h4>
                 </div>
                 <div class="modal-body">
-                        <md-form-field>
-                                <input mdInput placeholder="Organization Name" [(ngModel)]="name" name="username">
+                            <md-form-field>
+                              <input mdInput placeholder="Organization Name" [(ngModel)]="name" name="username">
                             </md-form-field>
                             <md-form-field>
                               <input mdInput placeholder="Organization Display Name" [(ngModel)]="display_name" name="username">
                             </md-form-field>
                             <br>
                             <md-form-field>
-                                <input mdInput placeholder="Registration Info" [(ngModel)]="reg_info" name="username">
+                              <input mdInput placeholder="Registration Info" [(ngModel)]="reg_info" name="username">
                             </md-form-field>
                             <md-form-field>
-                                <input mdInput placeholder="Contact Person" [(ngModel)]="contact_person" name="username">
+                              <input mdInput placeholder="Contact Person" [(ngModel)]="contact_person" name="username">
                             </md-form-field>
                             <br>
                             <md-form-field>
-                                  <input mdInput placeholder="Logo Path" [(ngModel)]="logo_path" name="username">
-                          </md-form-field>
+                              <input mdInput placeholder="Logo Path" [(ngModel)]="logo_path" name="username">
+                            </md-form-field>
                             <md-form-field>
                               <input mdInput placeholder="Organization Address 1" [(ngModel)]="address_line_1" name="username">
                             </md-form-field>
                             <md-form-field>
                                 <input mdInput placeholder="Organization Address 2" [(ngModel)]="address_line_2" name="username">
                             </md-form-field>
-                            <md-form-field>
+                            <!-- <md-form-field>
                                 <input mdInput placeholder="Organization City" [(ngModel)]="city" name="username">
                             </md-form-field>
                             <md-form-field>
                                 <input mdInput placeholder="Organization State" [(ngModel)]="state" name="username">
-                            </md-form-field>
+                            </md-form-field> -->
                             <!-- <md-form-field>
                                 <input mdInput placeholder="Organization Country" [(ngModel)]="country" name="username">
                             </md-form-field> -->
-                            <select class="contry_drop"   [(ngModel)]="country">
+                            <!-- <select class="contry_drop"   [(ngModel)]="country">
                                 <option value="" selected="selected" >Select Country</option>
                                 <option *ngFor="let i of country_1  let ia = index " value={{i.name}}>
                                   {{i.name}}-{{i.code}}
                                 </option>
-                              </select>
+                              </select> -->
+                            <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
+                              <option value="" selected="selected" >Select State</option>
+                              <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
+                                {{i.state_name}}
+                              </option>
+                            </select>
+                            <select *ngIf="state" class="contry_drop"   [(ngModel)]="city">
+                              <option value="" selected="selected" >Select city</option>
+                              <option *ngFor="let i of city_1 let ia = index " value={{i}}>
+                                {{i}}
+                              </option>
+                            </select>
                             <md-form-field>
-                                <input mdInput placeholder="Organization Pincode" [(ngModel)]="pincode" name="username">
+                              <input mdInput placeholder="Organization Pincode" [(ngModel)]="pincode" name="username">
                             </md-form-field>
                             <md-form-field>
-                                <input mdInput placeholder="Organization Email" [(ngModel)]="email" name="username">
+                              <input mdInput placeholder="Organization Email" [(ngModel)]="email" name="username">
                             </md-form-field>
                             <md-form-field>
-                                <input mdInput placeholder="Organization Contact No" [(ngModel)]="contact_no" name="username">
+                              <input mdInput placeholder="Organization Contact No" [(ngModel)]="contact_no" name="username">
                             </md-form-field>
                     <br>
                 </div>

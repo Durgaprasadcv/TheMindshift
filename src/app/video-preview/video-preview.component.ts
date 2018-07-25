@@ -275,25 +275,28 @@ if(this.resl==999)
 // if question is answred correctly
 else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
 {
-  if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
+  if(this.resl>0)
   {
-    // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
-    console.log('Correct Answer');
-    this.q_answer++;
-    this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
-    if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+    if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
     {
-      this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+      // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
+      console.log('Correct Answer');
+      this.q_answer++;
+      this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
+      if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+      {
+        this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+      }
     }
-  }
-  //if question is answered wrong
-  else
-  {
-    console.log('Wrong Answer');
-    // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
-    if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+    //if question is answered wrong
+    else
     {
-      this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+      console.log('Wrong Answer');
+      // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
+      if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+      {
+        this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+      }
     }
   }
 }

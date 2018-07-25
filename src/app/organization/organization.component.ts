@@ -28,25 +28,29 @@ export class OrganizationComponent implements OnInit {
   Access_Code=4;
   country_1;
   side_menu_visibility;
+  state_1;
+  city_1;
   constructor(private webservice: WebService) {
     this.country_1=this.webservice.countries;
     this.side_menu_visibility=this.webservice.side_menu_visibility;
+    this.state_1=this.webservice.states;
+    this.city_1=this.webservice.district;
    }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_org,'','1','');
-    let art="arthikrao";
+    let art="usa";
     console.log('index',art.indexOf("h"));
     this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
     console.log('meenu',this.side_menu);
     let i;
     for(i=0;i<this.side_menu.menu.length;i++)
     {
-        if(this.side_menu.menu[i].Menu_Module_Href=="/organization")
-        {
-            this.Access_Code=this.side_menu.menu[i].Access_Code;
-            console.log("Access_Code-",this.Access_Code);
-        }
+      if(this.side_menu.menu[i].Menu_Module_Href=="/organization")
+      {
+        this.Access_Code=this.side_menu.menu[i].Access_Code;
+        console.log("Access_Code-",this.Access_Code);
+      }
     }
   }
   webresponse(fun_id,return_data){
@@ -147,5 +151,14 @@ export class OrganizationComponent implements OnInit {
       this.email='';
       this.contact_no='';
   }
-
+  state_select()
+  {
+    console.log(this.state);
+      if(this.state!=' ')
+      {
+        // this.city_1=this.webservice.district[this.state];
+        this.city_1=this.webservice.district[this.state];
+      }
+      console.log('sss',this.webservice.district[this.state]);
+  }
 }

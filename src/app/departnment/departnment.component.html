@@ -78,19 +78,37 @@
       <md-form-field>
           <input mdInput placeholder="Department Address 2" [(ngModel)]="address_line_2" name="username">
       </md-form-field>
-      <md-form-field>
+      <!-- <md-form-field>
           <input mdInput placeholder="Department City" [(ngModel)]="city" name="username">
-      </md-form-field>
+      </md-form-field> -->
       <!-- <md-form-field>
           <input mdInput placeholder="Department State" [(ngModel)]="state" name="username">
       </md-form-field> -->
       <!-- <md-form-field>
           <input mdInput placeholder="Department Country" [(ngModel)]="country" name="username">
       </md-form-field> -->
-      <select class="contry_drop"   [(ngModel)]="state">
+      <!-- <select class="contry_drop"   [(ngModel)]="state">
         <option value="" selected="selected" >Select State</option>
         <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
           {{i.state_name}}
+        </option>
+      </select> -->
+      <select class="contry_drop"   [(ngModel)]="Dept_Org_ID">
+        <option value="" selected="selected" >Select Organization</option>
+        <option *ngFor="let i of returnmsg6  let ia = index " value={{i.id}}>
+          {{i.name}}
+        </option>
+      </select>
+      <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
+        <option value="" selected="selected" >Select State</option>
+        <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
+          {{i.state_name}}
+        </option>
+      </select>
+      <select *ngIf="state" class="contry_drop"   [(ngModel)]="city">
+        <option value="" selected="selected" >Select city</option>
+        <option *ngFor="let i of city_1 let ia = index " value={{i}}>
+          {{i}}
         </option>
       </select>
       <md-form-field>
@@ -161,14 +179,20 @@
             <md-form-field>
                 <input mdInput placeholder="Department Address 2" [(ngModel)]="address_line_2" name="username">
             </md-form-field>
-            <md-form-field>
+            <!-- <md-form-field>
                 <input mdInput placeholder="Department City" [(ngModel)]="city" name="username">
             </md-form-field>
             <md-form-field>
                 <input mdInput placeholder="Department State" [(ngModel)]="state" name="username">
-            </md-form-field>
+            </md-form-field> -->
             <!-- <md-form-field> -->
                 <!-- <input mdInput placeholder="Department Country" [(ngModel)]="country" name="username"> -->
+                <select class="contry_drop"   [(ngModel)]="Dept_Org_ID">
+                  <option value="" selected="selected" >Select Organization</option>
+                  <option *ngFor="let i of returnmsg6  let ia = index " value={{i.id}}>
+                    {{i.name}}
+                  </option>
+                </select>
                 <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
                   <option value="" selected="selected" >Select State</option>
                   <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>

@@ -52,6 +52,11 @@ export class CreateUserComponent implements OnInit {
     current_user:0
   };
     this.webservice.webRequest(this,'post',this.webservice.get_users,body1,'1','');
+
+    this.webservice.webRequest(this,'post',this.webservice.get_dept,'','6','');
+    this.webservice.webRequest(this,'post',this.webservice.get_designation,'','7','');
+    this.webservice.webRequest(this,'post',this.webservice.get_org,'','8','');
+    this.webservice.webRequest(this,'post',this.webservice.get_zone,'','9','');
   }
 add_user(){
   alert(this.username);

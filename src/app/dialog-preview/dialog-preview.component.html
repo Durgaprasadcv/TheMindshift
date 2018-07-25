@@ -8,15 +8,16 @@
     </div>
   </div>
   <div class="opt_div">
-    <span *ngIf="this.data.type=='radio'">
-    &emsp;<md-radio-group class="example-radio-group" [(ngModel)]="result">
-    <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">
-      <h5>{{opt.name}}</h5>
-    </md-radio-button>
-    <br>
+  <span *ngIf="this.data.type=='radio'">
+    &emsp;
+    <md-radio-group class="example-radio-group" [(ngModel)]="result">
+      <md-radio-button class="example-radio-button" *ngFor="let opt of this.data.option let ia = index" [value]="ia">
+        <h5>{{opt.name}}</h5>
+      </md-radio-button>
+      <br>
     </md-radio-group>
   </span>
-    <span *ngIf="this.data.type=='check-box'">
+  <span *ngIf="this.data.type=='check-box'">
     <span *ngFor="let opt of this.data.option">
       <md-checkbox>{{opt.name}}</md-checkbox>
       <br>
@@ -30,7 +31,7 @@
   </span>
   <span *ngIf="this.data.type=='text-area'">
     <md-form-field class="example-full-width">
-        <textarea mdInput placeholder="Answer"></textarea>
+      <textarea mdInput placeholder="Answer"></textarea>
     </md-form-field>
   </span>
   <span *ngIf="this.data.type=='drop-down'">

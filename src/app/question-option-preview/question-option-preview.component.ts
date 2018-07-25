@@ -72,7 +72,6 @@ export class QuestionOptionPreviewComponent implements OnInit {
   }
 
   add_question(){
-
     const body1 = {
       Question_Test_Id:this.test_id,
       Question_Type:this.Question_Type,
