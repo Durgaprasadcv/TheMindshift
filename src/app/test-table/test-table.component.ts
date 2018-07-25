@@ -10,6 +10,7 @@ import { WebService } from '../webservice/web.service';
 export class TestTableComponent implements OnInit {
 uid;
 returnmsg;
+returnmsg1;
 side_menu_visibility;
 constructor(private _router: Router,private webservice: WebService) { }
 
@@ -36,7 +37,7 @@ webresponse(fun_id,return_data){
   }
   else if(fun_id==2)
   {
-    this.returnmsg = return_data.json();
+    this.returnmsg1 = return_data.json();
     console.log('api',this.returnmsg);
     const body = {user_id:this.uid};
     this.webservice.webRequest(this,'post',this.webservice.gettest_admin,body,'1','');

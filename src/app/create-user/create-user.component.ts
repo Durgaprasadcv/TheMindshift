@@ -60,7 +60,6 @@ export class CreateUserComponent implements OnInit {
     current_user:0
   };
     this.webservice.webRequest(this,'post',this.webservice.get_users,body1,'1','');
-
     this.webservice.webRequest(this,'post',this.webservice.get_dept,'','6','');
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','7','');
     this.webservice.webRequest(this,'post',this.webservice.get_org,'','8','');
@@ -184,7 +183,7 @@ add(){
     MobileNumber:this.MobileNumber,
     Latitud:"0",
     Longitud:"0",
-    Lang_id:"0",
+    Lang_id:"1",
     address_line_1:this.address_line_1,
     address_line_2:this.address_line_2,
     city:this.city,
@@ -232,7 +231,7 @@ edit(){
     MobileNumber:this.MobileNumber,
     Latitud:"0",
     Longitud:"0",
-    Lang_id:"0",
+    Lang_id:"1",
     address_line_1:this.address_line_1,
     address_line_2:this.address_line_2,
     city:this.city,

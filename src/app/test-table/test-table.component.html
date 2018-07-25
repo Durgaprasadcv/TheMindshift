@@ -14,6 +14,7 @@
 <div *ngIf="returnmsg" class="table_division">
   <table>
     <tr>
+      <th>Test ID</th>
       <th>Test Name</th>
       <th>Test Description</th>
       <!-- <th>Questions</th>
@@ -22,6 +23,7 @@
       <th>Control</th>
     </tr>
     <tr *ngFor="let i of returnmsg.test">
+      <td>{{i.test_id}}</td>
       <td>{{i.test_name}}</td>
       <td>{{i.test_description}}</td>
       <!-- <td>{{i.no_of_questions}}</td>
