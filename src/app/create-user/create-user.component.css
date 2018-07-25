@@ -64,3 +64,7 @@ padding-bottom: 15px;
 .page_title{
     font-weight:bold;
 }
+.contry_drop{
+  display: inline-block !important;
+  width:38% !important;
+}

@@ -83,16 +83,22 @@
         <input mdInput placeholder="Address2" [(ngModel)]="address_line_2" name="username">
       </md-form-field>
       <br>
-      <md-form-field>
-        <input mdInput placeholder="City" [(ngModel)]="city" name="username">
-      </md-form-field>
-      <md-form-field>
-        <input mdInput placeholder="State" [(ngModel)]="state" name="username">
-      </md-form-field>
+      <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
+        <option value="" selected="selected" >Select State</option>
+        <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
+          {{i.state_name}}
+        </option>
+      </select>
+      <select *ngIf="state" class="contry_drop"   [(ngModel)]="city">
+        <option value="" selected="selected" >Select city</option>
+        <option *ngFor="let i of city_1 let ia = index " value={{i}}>
+          {{i}}
+        </option>
+      </select>
       <br>
-      <md-form-field>
+      <!-- <md-form-field>
         <input mdInput placeholder="Country" [(ngModel)]="country" name="username">
-      </md-form-field>
+      </md-form-field> -->
       <md-form-field>
         <input mdInput placeholder="Pincode" [(ngModel)]="pincode" name="username">
       </md-form-field>
@@ -178,12 +184,45 @@
               <input mdInput placeholder="Address 2" [(ngModel)]="address_line_2" name="username">
             </md-form-field>
             <br>
-            <md-form-field>
-              <input mdInput placeholder="City" [(ngModel)]="city" name="username">
-            </md-form-field>
-            <md-form-field>
-              <input mdInput placeholder="State" [(ngModel)]="state" name="username">
-            </md-form-field>
+            <select class="contry_drop"   [(ngModel)]="state" (ngModelChange)="state_select()">
+              <option value="" selected="selected" >Select State</option>
+              <option *ngFor="let i of state_1  let ia = index " value={{i.state_name}}>
+                {{i.state_name}}
+              </option>
+            </select>
+            <select *ngIf="state" class="contry_drop"   [(ngModel)]="city">
+              <option value="" selected="selected" >Select city</option>
+              <option *ngFor="let i of city_1 let ia = index " value={{i}}>
+                {{i}}
+              </option>
+            </select>
+            <br>
+            <select class="contry_drop"   [(ngModel)]="Dept_Id">
+              <option value="" selected="selected" >Select Departnment</option>
+              <option *ngFor="let i of returnmsg6  let ia = index " value={{i.Dept_Id}}>
+                {{i.Dept_Name}}
+              </option>
+            </select>
+            <select class="contry_drop"   [(ngModel)]="Did">
+              <option value="" selected="selected" >Select Designation</option>
+              <option *ngFor="let i of returnmsg7 let ia = index " value={{i.Designation_Id}}>
+                {{i.Designation_Name}}
+              </option>
+            </select>
+            <br>
+            <br>
+            <select class="contry_drop"   [(ngModel)]="Org_ID">
+              <option value="" selected="selected" >Select Organization</option>
+              <option *ngFor="let i of returnmsg8  let ia = index " value={{i.id}}>
+                {{i.name}}
+              </option>
+            </select>
+            <select class="contry_drop"   [(ngModel)]="Zone_Id">
+              <option value="" selected="selected" >Select Zone</option>
+              <option *ngFor="let i of returnmsg9 let ia = index " value={{i.Zone_Id}}>
+                {{i.Zone_Name}}
+              </option>
+            </select>
             <br>
             <md-form-field>
               <input mdInput placeholder="Country" [(ngModel)]="country" name="username">

@@ -42,8 +42,16 @@ export class CreateUserComponent implements OnInit {
   dataSource: any[];
     states: any[];
   side_menu_visibility;
+  returnmsg6;
+  returnmsg7;
+  returnmsg8;
+  returnmsg9;
+  state_1;
+  city_1;
   constructor(private webservice: WebService,private _router: Router) {
     this.side_menu_visibility=this.webservice.side_menu_visibility;
+    this.state_1=this.webservice.states;
+    this.city_1=this.webservice.district;
   }
   ngOnInit() {
     this.uid=(JSON.parse(localStorage.getItem('user')));
@@ -135,6 +143,26 @@ webresponse(fun_id,return_data){
     this.pincode=this.returnmsg1.users.pincode;
     console.log("username",this.User_UName);
   }
+  else if(fun_id==6)
+  {
+    this.returnmsg6 = return_data.json();
+    console.log("returnmsg6",this.returnmsg6);
+  }
+  else if(fun_id==7)
+  {
+    this.returnmsg7 = return_data.json();
+    console.log("returnmsg7",this.returnmsg7);
+  }
+  else if(fun_id==8)
+  {
+    this.returnmsg8 = return_data.json();
+    console.log("returnmsg8",this.returnmsg8);
+  }
+  else if(fun_id==9)
+  {
+    this.returnmsg9 = return_data.json();
+    console.log("returnmsg9",this.returnmsg9);
+  }
 }
 add(){
   const body = {
@@ -143,11 +171,16 @@ add(){
     User_Name:this.User_Name,
     User_Lastname:this.User_Lastname,
     UserEmail:this.UserEmail,
-    Did:"1",
-    Org_ID:"1",
-    Pid:"1",
-    Dept_Id:"1",
+    Did:this.Did,
+    Org_ID:this.Org_ID,
+    // Pid:this.Pid,
+    Dept_Id:this.Dept_Id,
     Zone_Id:this.Zone_Id,
+    // Did:"1",
+    // Org_ID:"1",
+    Pid:"1",
+    // Dept_Id:"1",
+    // Zone_Id:this.Zone_Id,
     MobileNumber:this.MobileNumber,
     Latitud:"0",
     Longitud:"0",
@@ -186,16 +219,16 @@ edit(){
     User_Name:this.User_Name,
     User_Lastname:this.User_Lastname,
     UserEmail:this.UserEmail,
-    // Did:this.Did,
-    // Org_ID:this.Org_ID,
+    Did:this.Did,
+    Org_ID:this.Org_ID,
     // Pid:this.Pid,
-    // Dept_Id:this.Dept_Id,
-    // Zone_Id:this.Zone_Id,
-    Did:"1",
-    Org_ID:"1",
-    Pid:"1",
-    Dept_Id:"1",
+    Dept_Id:this.Dept_Id,
     Zone_Id:this.Zone_Id,
+    // Did:"1",
+    // Org_ID:"1",
+    Pid:"1",
+    // Dept_Id:"1",
+    // Zone_Id:this.Zone_Id,
     MobileNumber:this.MobileNumber,
     Latitud:"0",
     Longitud:"0",
@@ -211,5 +244,15 @@ edit(){
 }
 navigate_profile(){
   this._router.navigate(['/user-profile']);
+}
+state_select()
+{
+  console.log(this.state);
+    if(this.state!=' ')
+    {
+      // this.city_1=this.webservice.district[this.state];
+      this.city_1=this.webservice.district[this.state];
+    }
+    console.log('sss',this.webservice.district[this.state]);
 }
 }
