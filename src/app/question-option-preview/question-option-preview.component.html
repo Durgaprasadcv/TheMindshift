@@ -33,7 +33,13 @@
   </div>
 </div>
 <div class="preview_div">
-    <button (click)="preview_play()">Preview</button>
+  <button md-fab class="play_icon_button" (click)="preview_play()">
+    <md-icon *ngIf="preview_flag" aria-label="Example icon-button with a heart icon">stop</md-icon>
+    <md-icon *ngIf="!preview_flag" aria-label="Example icon-button with a heart icon">play_circle_filled</md-icon>
+  </button>
+  <button *ngIf="preview_flag" md-fab class="play_icon_button" (click)="replay()">
+      <md-icon aria-label="Example icon-button with a heart icon">replay</md-icon>
+  </button>
 </div>
 </div>
 <div class="ques_opt_preview_div">

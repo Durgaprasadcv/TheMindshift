@@ -3,6 +3,7 @@ import { WebService } from '../webservice/web.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { Observable} from 'rxjs/Rx';
 @Component({
   selector: 'app-question-option-preview',
   templateUrl: './question-option-preview.component.html',
@@ -10,6 +11,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
   styleUrls: ['./question-option-preview.component.css']
 })
 export class QuestionOptionPreviewComponent implements OnInit {
+  ticks=0;
   return_msg1;
   lang_id=1;
   question_title_arr=Array();
@@ -416,5 +418,10 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.preview_flag=true;
     }
+  }
+  replay(){
+    this.preview_flag=false;
+    setTimeout(()=>{this.preview_flag=true; }, 300);
+
   }
 }

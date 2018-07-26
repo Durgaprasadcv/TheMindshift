@@ -1,5 +1,5 @@
 <div id="pop_up">
-  <div>
+  <div *ngIf="this.data.form==0">
     <div class="alert_head">
       <h5>{{data.name}}&nbsp;</h5>
     </div>
@@ -7,7 +7,8 @@
       <h5 class="margin_top_timer">{{ticks}}</h5>
     </div>
   </div>
-  <div class="opt_div">
+
+  <div class="opt_div" *ngIf="this.data.form==0">
   <span *ngIf="this.data.type=='radio'">
     &emsp;
     <md-radio-group class="example-radio-group" [(ngModel)]="result">
@@ -50,6 +51,54 @@
     </select>
   </span>
   </div>
+
+  <div *ngIf="this.data.form==1">
+    <div *ngFor="let i of this.data.form_data let ia = index">
+      <div>
+        <div class="alert_head">
+          <h5>{{i.question_title}}&nbsp;</h5>
+        </div>
+      </div>
+
+      <div class="opt_div">
+        <span *ngIf="i.question_type=='radio'">
+          &emsp;
+          <md-radio-group class="example-radio-group" [(ngModel)]="result">
+            <md-radio-button class="example-radio-button" *ngFor="let opt of i.type_options let ja = index" [value]="ia">
+              <h5>{{opt.name}}</h5>
+            </md-radio-button>
+            <br>
+          </md-radio-group>
+        </span>
+        <span *ngIf="i.question_type=='check-box'">
+          <span *ngFor="let opt of i.type_options">
+            <md-checkbox>{{opt.name}}</md-checkbox>
+            <br>
+          </span>
+        </span>
+        <span *ngIf="i.question_type=='text-box'">
+          <md-form-field>
+            <input mdInput placeholder="Answer" name="username">
+          </md-form-field>
+          <br>
+        </span>
+        <span *ngIf="i.question_type=='text-area'">
+          <md-form-field class="example-full-width">
+            <textarea mdInput placeholder="Answer"></textarea>
+          </md-form-field>
+        </span>
+        <span *ngIf="i.question_type=='drop-down'">
+          <select class="contry_drop">
+            <option value="" selected="selected" >Select</option>
+            <option *ngFor="let opt of i.type_options" value={{opt.name}>
+              {{opt.name}}
+            </option>
+          </select>
+        </span>
+      </div>
+  </div>
+  </div>
+
   <div class="submit" [hidden]="submit_show">
     <button class="submit_button" md-raised-button (click)="onNoClick(result)">Submit</button>
   </div>

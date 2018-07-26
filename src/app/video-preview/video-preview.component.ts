@@ -54,7 +54,8 @@ export class VideoPreviewComponent implements OnInit {
   //to get test details
   const body = {
     user_id:(JSON.parse(localStorage.getItem('user'))),
-    test_id:id};
+    test_id:id
+  };
   this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'1','');
   }
 
@@ -67,7 +68,8 @@ const body1 = {
   question_no:question_no,
   marks_per_question:marks_per_question,
   option_id:option_id,
-  user_id:(JSON.parse(localStorage.getItem('user')))};
+  user_id:(JSON.parse(localStorage.getItem('user')))
+};
 this.webservice.webRequest(this,'post',this.webservice.save_result,body1,'2','');
 }
 webresponse(fun_id,return_data)
@@ -75,7 +77,7 @@ webresponse(fun_id,return_data)
 // test details response
 if(fun_id==1)
 {
-  // this.returnmsg = return_data.json();
+  this.returnmsg = return_data.json();
 
   // local json begin
   this.test_ing={
@@ -93,9 +95,142 @@ if(fun_id==1)
         "stop_time":410,
         "question":[
         {
+          "form":0,
           "question_id":55,
           "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
-          "question_type":"radio",
+          "question_type":"check-box",
+          "marks_assigned":1,
+          "Pause_time":"5",
+          "wait_time":"60",
+          "num_of_box":2,
+          "type_options":[
+          {
+            "id":149,
+            "name":"1-2",
+            "Option_skip":"6"
+          },
+          {
+            "id":150,
+            "name":"3-5",
+            "Option_skip":"6"
+          },
+          {
+            "id":153,
+            "name":"6-8",
+            "Option_skip":"6"
+          },
+          {
+            "id":154,
+            "name":"9-10",
+            "Option_skip":"6"
+          }
+          ],
+          "answers":["149"]
+        },
+        {
+          "form":1,
+          "Pause_time":"10",
+          "form_questions":[
+          {
+            "question_id":55,
+            "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
+            "question_type":"text-box",
+            "marks_assigned":1,
+            "Pause_time":"10",
+            "wait_time":"60",
+            "num_of_box":2,
+            "type_options":[
+            {
+              "id":149,
+              "name":"1-2",
+              "Option_skip":"12"
+            },
+            {
+              "id":150,
+              "name":"3-5",
+              "Option_skip":"12"
+            },
+            {
+              "id":153,
+              "name":"6-8",
+              "Option_skip":"12"
+            },
+            {
+              "id":154,
+              "name":"9-10",
+              "Option_skip":"12"
+            }
+            ],
+            "answers":["149"]
+          },
+          {
+            "question_id":55,
+            "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
+            "question_type":"check-box",
+            "marks_assigned":1,
+            "Pause_time":"10",
+            "wait_time":"60",
+            "num_of_box":2,
+            "type_options":[
+            {
+              "id":149,
+              "name":"1-2",
+              "Option_skip":"12"
+            },
+            {
+              "id":150,
+              "name":"3-5",
+              "Option_skip":"12"
+            },
+            {
+              "id":153,
+              "name":"6-8",
+              "Option_skip":"12"
+            },
+            {
+              "id":154,
+              "name":"9-10",
+              "Option_skip":"12"
+            }
+            ],
+            "answers":["149"]
+          },
+          {
+            "question_id":55,
+            "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
+            "question_type":"text-box",
+            "marks_assigned":1,
+            "Pause_time":"10",
+            "wait_time":"60",
+            "num_of_box":2,
+            "type_options":[
+            {
+              "id":149,
+              "name":"1-2",
+              "Option_skip":"12"
+            },
+            {
+              "id":150,
+              "name":"3-5",
+              "Option_skip":"12"
+            },
+            {
+              "id":153,
+              "name":"6-8",
+              "Option_skip":"12"
+            },
+            {
+              "id":154,
+              "name":"9-10",
+              "Option_skip":"12"
+            }
+          ],
+          "answers":["149"]
+        },
+        {
+          "question_id":55,
+          "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
+          "question_type":"text-area",
           "marks_assigned":1,
           "Pause_time":"10",
           "wait_time":"60",
@@ -123,6 +258,40 @@ if(fun_id==1)
           }
           ],
           "answers":["149"]
+        },
+        {
+          "question_id":55,
+          "question_title":"On a Scale of 1 to 10, how proud are you being a sales person?",
+          "question_type":"drop-down",
+          "marks_assigned":1,
+          "Pause_time":"10",
+          "wait_time":"60",
+          "num_of_box":2,
+          "type_options":[
+          {
+            "id":149,
+            "name":"1-2",
+            "Option_skip":"12"
+          },
+          {
+            "id":150,
+            "name":"3-5",
+            "Option_skip":"12"
+          },
+          {
+            "id":153,
+            "name":"6-8",
+            "Option_skip":"12"
+          },
+          {
+            "id":154,
+            "name":"9-10",
+            "Option_skip":"12"
+          }
+          ],
+          "answers":["149"]
+        }
+        ]
         }
         ],
         "next_test_id":1
@@ -275,7 +444,9 @@ if(this.api.getDefaultMedia())
   else
   {
     if((this.returnmsg1.question[this.z].Pause_time)==this.ticks)
+    {
       this.api.getDefaultMedia().pause();
+    }
     if((this.returnmsg1.question[this.z].Pause_time-1)==this.ticks)
     {
       this.pop_up();
@@ -297,18 +468,38 @@ else{
   this.h='220px';
   this.w='700px';
 }
-//dialog box for question
-let dialogRef=this.dialog.open(DialogPreviewComponent, {
-  disableClose:true,
-  data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z],type:this.returnmsg1.question[this.z].question_type}
-});
-// handling result after dialog box is closed
-dialogRef.afterClosed().subscribe(result => {
-  this.skip(result);
-  this.z++;
-  if(result!= undefined)
-  this.api.getDefaultMedia().play();
-});
+if(this.returnmsg1.question[this.z].form==1)
+{
+  //dialog box for question
+  let dialogRef=this.dialog.open(DialogPreviewComponent, {
+    disableClose:true,
+    data: {form_data:this.returnmsg1.question[this.z].form_questions,form:1}
+  });
+
+  // handling result after dialog box is closed
+  dialogRef.afterClosed().subscribe(result => {
+    this.skip(result);
+    this.z++;
+    if(result!= undefined)
+      this.api.getDefaultMedia().play();
+  });
+
+}
+else{
+  //dialog box for question
+  let dialogRef=this.dialog.open(DialogPreviewComponent, {
+    disableClose:true,
+    data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z],type:this.returnmsg1.question[this.z].question_type,form:0}
+  });
+
+  // handling result after dialog box is closed
+  dialogRef.afterClosed().subscribe(result => {
+    this.skip(result);
+    this.z++;
+    if(result!= undefined)
+      this.api.getDefaultMedia().play();
+  });
+}
 return;
 }
 

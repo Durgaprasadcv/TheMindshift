@@ -62,10 +62,14 @@ export class DialogPreviewComponent implements OnInit {
     this.dialogRef.updateSize('80%', '90%');
     let timer = Observable.timer(1000,1000);
     timer.subscribe(t=>{this.ticks=this.ticks-1;
-    if(this.ticks==0)
-    {
-      this.dialogRef.close(999);
-    }});
+      if(this.ticks==0)
+      {
+        if(this.data.form==0)
+        {
+          this.dialogRef.close(999);
+        }
+      }
+    });
   }
 
 }
