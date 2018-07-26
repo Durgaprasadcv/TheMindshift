@@ -25,7 +25,7 @@ export class LooginComponent implements OnInit {
   constructor(private _router: Router,private http: Http,private webservice: WebService) {
     if(localStorage.getItem("user"))
     {
-      this._router.navigate(['/bcarousel']);
+      this._router.navigate(['/mobile-home']);
     }
     if(this.webservice.platform==2)
     {
@@ -92,7 +92,7 @@ export class LooginComponent implements OnInit {
       this.returnmsg=return_data.json();
       localStorage.setItem("side_menu", JSON.stringify(this.returnmsg));
       if(this.admin==0){
-        this._router.navigate(['/bcarousel']);
+        this._router.navigate(['/mobile-home']);
       }
       else{
         this._router.navigate(['/admin-home']);

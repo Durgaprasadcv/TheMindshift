@@ -16,7 +16,7 @@ export class LoginMobileComponent implements OnInit {
   constructor(private _router: Router,private webservice: WebService) {
     if(localStorage.getItem("user"))
     {
-      this._router.navigate(['/bcarousel']);
+      this._router.navigate(['/mobile-home']);
     }
    }
 

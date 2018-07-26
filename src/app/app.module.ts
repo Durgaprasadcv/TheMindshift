@@ -182,7 +182,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     RouterModule.forRoot([
       { path: 'login',component:LoginComponent },
       { path: 'home',component: HomeComponent },
-      { path: 'bcarousel',component: BcarouselComponent },
+      { path: 'mobile-home',component: BcarouselComponent },
       { path: 'admin-home',component: AdminHomeComponent },
       { path: 'video/:id',component:VideoComponent },
       { path: 'video-preview/:id',component:VideoPreviewComponent },

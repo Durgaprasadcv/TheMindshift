@@ -12,7 +12,7 @@ export class VideoListsComponent implements OnInit {
  returnmsg;
  id_received;
  count=0;
-  constructor(private webservice:WebService,private _router: Router,private route: ActivatedRoute) 
+  constructor(private webservice:WebService,private _router: Router,private route: ActivatedRoute)
   {
     this.count=0;
    }
@@ -21,9 +21,9 @@ export class VideoListsComponent implements OnInit {
     this.count=0;
     //receiving data of previous page
     let id = this.route.snapshot.paramMap.get('ida');
-    this.id_received=id
+    this.id_received=id;
     //this.video_path_html=this.returnmsg1.test[id].video_path;
-    console.log('data from bcarousel to video-list',id)
+    console.log('data from mobile-home to video-list',id);
     //this.route.params.subscribe(params => {
       //let id = Number.parseInt(params['id']);
       //this.person = this.peopleService.get(id);
@@ -44,7 +44,7 @@ export class VideoListsComponent implements OnInit {
   {
     let id = i;
     localStorage.setItem("videolist", JSON.stringify(i));
-           this._router.navigate(['/video',id]);
+    this._router.navigate(['/video',id]);
   }
   incr_count(i)
   {
@@ -60,6 +60,6 @@ export class VideoListsComponent implements OnInit {
   //back button
   back()
   {
-    this._router.navigate(['/bcarousel']);
+    this._router.navigate(['/mobile-home']);
   }
 }

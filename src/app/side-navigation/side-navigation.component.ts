@@ -50,7 +50,7 @@ export class SideNavigationComponent implements OnInit {
   }
   Home()
   {
-    this._router.navigate(['/bcarousel']);
+    this._router.navigate(['/mobile-home']);
   }
   Tests()
   {

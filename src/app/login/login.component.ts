@@ -18,10 +18,10 @@ export class LoginComponent {
   public errorMsg1 = '';
   public errorMsg2 = '';
   public login_page = false;
-  constructor(private _service:AuthenticateService,private _router: Router,private http: Http,private webservice: WebService) { 
+  constructor(private _service:AuthenticateService,private _router: Router,private http: Http,private webservice: WebService) {
     if(localStorage.getItem("user"))
     {
-      this._router.navigate(['/bcarousel']);
+      this._router.navigate(['/mobile-home']);
     }
   }
   sendmsg() {
@@ -42,7 +42,7 @@ export class LoginComponent {
           err => {  console.log('failed');
                     this.errorMsg1 = 'User not registered ...';},
           () =>     console.log('Success return data',this.returnmsg1)
-       
+
     );
   }
   login() {
@@ -59,11 +59,11 @@ export class LoginComponent {
   data =>{ this.returnmsg1 = data.json();
     localStorage.setItem("user", JSON.stringify(this.returnmsg1.uid));
     localStorage.setItem("user_email", JSON.stringify(this.returnmsg1.u_email));
-    this._router.navigate(['/bcarousel']);},
+    this._router.navigate(['/mobile-home']);},
   err => {  console.log('failed');
     this.errorMsg2 = 'Failed to login! try again ...';
   },
        () => console.log('Success return data',this.returnmsg1.uid)
    );
 }
-}                                                                                                                                                                                                                                                                                                               
+}

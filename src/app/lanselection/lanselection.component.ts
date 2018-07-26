@@ -12,10 +12,10 @@ import {AuthenticateService} from "../login/loginService/authenticate.service";
 export class LanselectionComponent implements OnInit {
   public returnmsg;
   public returnmsg_menu;
-  constructor(private http:Http,private _router: Router,private _service:WebService,private _service1:AuthenticateService) { 
+  constructor(private http:Http,private _router: Router,private _service:WebService,private _service1:AuthenticateService) {
     if(localStorage.getItem("language"))
     {
-      this._router.navigate(['/bcarousel']);
+      this._router.navigate(['/mobile-home']);
     }
   }
   ngOnInit() : void {
@@ -25,7 +25,7 @@ export class LanselectionComponent implements OnInit {
  selectlang(i)
  {
    localStorage.setItem("language", JSON.stringify(i));
-          this._router.navigate(['/bcarousel']);
+          this._router.navigate(['/mobile-home']);
  }
  webresponse(fun_id,r2)
  {
