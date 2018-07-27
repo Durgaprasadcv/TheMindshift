@@ -73,8 +73,6 @@
             <div class="module_detail">
               <label>Option:</label>
               <h6 class="mod_name">{{j.Option_Value[selected_language].opt_lang_link_option_value}}</h6>
-              <!-- <label>Option Id:</label>
-              <h6 class="mod_name">{{j.Option_Id}}</h6> -->
             </div>
 
             <div class="module_control">
@@ -104,20 +102,12 @@
 </div>
 </div>
 </div>
-<!-- <div id="here"class="col-md-12 main_block paddingleft_preview">
-  <div *ngIf="preview_flag">
-    <iframe [src]="urrl" width="80%" height="350">
-      <p>Your browser does not support iframes.</p>
-    </iframe>
-  </div>
-</div> -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal1" role="dialog">
   <div class="modal-dialog">
 
-    <!-- Modal content-->
+    <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -139,21 +129,21 @@
         </md-form-field>
         <br>
         <select class="question_type" placeholder="Question Type" [(ngModel)]="Question_Type">
-            <option value="radio">
-              Radio
-            </option>
-            <option value="check-box">
-              Check Box
-            </option>
-            <option value="text-box">
-              Text Box
-            </option>
-            <option value="text-area">
-              Text Area
-            </option>
-            <option value="drop-down">
-              Drop Down
-            </option>
+          <option value="radio">
+            Radio
+          </option>
+          <option value="check-box">
+            Check Box
+          </option>
+          <option value="text-box">
+            Text Box
+          </option>
+          <option value="text-area">
+            Text Area
+          </option>
+          <option value="drop-down">
+            Drop Down
+          </option>
         </select>
       </div>
       <div class="modal-footer">

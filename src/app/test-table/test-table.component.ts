@@ -20,12 +20,6 @@ ngOnInit(){
   this.webservice.webRequest(this,'post',this.webservice.gettest_admin,body,'1','');
   this.side_menu_visibility=this.webservice.side_menu_visibility;
 }
-edit(){
-  alert("Edit");
-}
-delete(){
-  alert("delete");
-}
 create_test(i){
   this._router.navigate(['/create-test1',i]);
 }

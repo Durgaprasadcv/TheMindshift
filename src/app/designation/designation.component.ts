@@ -21,11 +21,10 @@ export class DesignationComponent implements OnInit {
   side_menu_visibility;
   constructor(private webservice: WebService) {
     this.side_menu_visibility=this.webservice.side_menu_visibility;
-   }
+  }
 
   ngOnInit() {
     this.webservice.webRequest(this,'post',this.webservice.get_designation,'','1','');
-
     this.side_menu=(JSON.parse(localStorage.getItem('side_menu')));
     console.log('meenu',this.side_menu);
     let i;
@@ -42,10 +41,8 @@ export class DesignationComponent implements OnInit {
   {
     if(fun_id==1)
     {
-      // window.location.reload(true);
       this.returnmsg = return_data.json();
       this.refresh=1;
-      console.log(this.returnmsg);
     }
     else if(fun_id==5)
     {

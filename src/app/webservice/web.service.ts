@@ -1219,44 +1219,51 @@ webRequest(scope,type,url,body,fun_id,loader){
       this.createAuthorizationHeader(headers);
       this._http.get(url,{headers: headers})
       .subscribe(
-       data =>  {
-        this.returnmsg = data.json();
-        this.return_header = data.headers.get('Authorization');
-        if(this.return_header){
-          localStorage.setItem("token", JSON.stringify(this.return_header));
-        }
-        scope.webresponse(fun_id,data);
-       },
-       err =>{ console.log('Web service:failed');
-                scope.webresponse(fun_id,0);
-        },
-       () =>{ console.log('Web service:Success Return data:',this.returnmsg);
+          data =>  {
+              this.returnmsg = data.json();
+              this.return_header = data.headers.get('Authorization');
+              if(this.return_header){
+                localStorage.setItem("token", JSON.stringify(this.return_header));
+               }
+              scope.webresponse(fun_id,data);
+          },
+          err =>{
+              console.log('Web service:failed');
+              scope.webresponse(fun_id,0);
+          },
+          () =>{
+              console.log('Web service:Success Return data:',this.returnmsg);
               console.log('Web service:Success Return Header:',this.return_header);
-      });
+          }
+      );
       break;
-     }
+    }
     case 'post' :{
       console.log("Web service:POST Method");
       let headers = new Headers();
       this.createAuthorizationHeader(headers);
       this._http.post(url,body,{headers: headers})
       .subscribe(
-       data =>  {
-       this.returnmsg = data.json();
-       this.return_header = data.headers.get('Authorization');
-       if(this.return_header){
-        localStorage.setItem("token", JSON.stringify(this.return_header));
-       }
-       scope.webresponse(fun_id,data);
-       },
-       err =>{ console.log('Web service:failed');
-                scope.webresponse(fun_id,0);
-        },
-       () => {
-         console.log('Web service:Success Return data:',this.returnmsg);
-         console.log('Web service:Success Return Header:',this.return_header);
-      });
-      break;}
+          data =>  {
+              this.returnmsg = data.json();
+              this.return_header = data.headers.get('Authorization');
+              if(this.return_header)
+              {
+                  localStorage.setItem("token", JSON.stringify(this.return_header));
+              }
+              scope.webresponse(fun_id,data);
+          },
+          err =>{
+              console.log('Web service:failed');
+              scope.webresponse(fun_id,0);
+          },
+          () => {
+              console.log('Web service:Success Return data:',this.returnmsg);
+              console.log('Web service:Success Return Header:',this.return_header);
+          }
+      );
+      break;
+    }
   }
 }
 checkCredentials() {

@@ -45,6 +45,7 @@ export class VideoPreviewComponent implements OnInit {
   current_test;
   system_back=0;
   test_ing;
+  lang_id;
   constructor(private webservice:WebService,private route: ActivatedRoute,public API: VgAPI,private _router: Router,public dialog: MdDialog,private http:Http,public fsAPI: VgFullscreenAPI) { }
 
   ngOnInit() {
@@ -52,9 +53,11 @@ export class VideoPreviewComponent implements OnInit {
   this.current_test=this.route.snapshot.paramMap.get('id');
   console.log('data from video_list to video: ',id);
   //to get test details
+  this.lang_id=JSON.parse(localStorage.getItem('current_test_lang'));
   const body = {
     user_id:(JSON.parse(localStorage.getItem('user'))),
-    test_id:id
+    test_id:id,
+    lang_id:this.lang_id
   };
   this.webservice.webRequest(this,'post',this.webservice.gettest_detail_uid,body,'1','');
   }
@@ -300,7 +303,7 @@ if(fun_id==1)
     "num":"1"
   };
   // console.log('aaa',JSON.parse(this.test_ing));
-  this.returnmsg=this.test_ing;
+  // this.returnmsg=this.test_ing;
   // local json end
   this.returnmsg1=this.returnmsg.test[0];
   this.video_questions();
@@ -459,94 +462,95 @@ if(this.api.getDefaultMedia())
 //pop up the question
 pop_up()
 {
-if(window.innerHeight > window.innerWidth)
-{
-  this.w='220px';
-  this.h='700px';
-}
-else{
-  this.h='220px';
-  this.w='700px';
-}
-if(this.returnmsg1.question[this.z].form==1)
-{
-  //dialog box for question
-  let dialogRef=this.dialog.open(DialogPreviewComponent, {
-    disableClose:true,
-    data: {form_data:this.returnmsg1.question[this.z].form_questions,form:1}
-  });
+  if(window.innerHeight > window.innerWidth)
+  {
+    this.w='220px';
+    this.h='700px';
+  }
+  else
+  {
+    this.h='220px';
+    this.w='700px';
+  }
+  if(this.returnmsg1.question[this.z].form==1)
+  {
+    //dialog box for question
+    let dialogRef=this.dialog.open(DialogPreviewComponent, {
+      disableClose:true,
+      data: {form_data:this.returnmsg1.question[this.z].form_questions,form:1}
+    });
 
-  // handling result after dialog box is closed
-  dialogRef.afterClosed().subscribe(result => {
-    this.skip(result);
-    this.z++;
-    if(result!= undefined)
-      this.api.getDefaultMedia().play();
-  });
+    // handling result after dialog box is closed
+    dialogRef.afterClosed().subscribe(result => {
+      this.skip(result);
+      this.z++;
+      if(result!= undefined)
+        this.api.getDefaultMedia().play();
+    });
+  }
+  else
+  {
+    //dialog box for question
+    let dialogRef=this.dialog.open(DialogPreviewComponent, {
+      disableClose:true,
+      data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z],type:this.returnmsg1.question[this.z].question_type,form:0}
+    });
 
-}
-else{
-  //dialog box for question
-  let dialogRef=this.dialog.open(DialogPreviewComponent, {
-    disableClose:true,
-    data: {name:this.returnmsg1.question[this.z].question_title,option:this.returnmsg1.question[this.z].type_options,timer:this.returnmsg1.question[this.z].wait_time,ans:this.returnmsg1.question[this.z],type:this.returnmsg1.question[this.z].question_type,form:0}
-  });
-
-  // handling result after dialog box is closed
-  dialogRef.afterClosed().subscribe(result => {
-    this.skip(result);
-    this.z++;
-    if(result!= undefined)
-      this.api.getDefaultMedia().play();
-  });
-}
-return;
+    // handling result after dialog box is closed
+    dialogRef.afterClosed().subscribe(result => {
+      this.skip(result);
+      this.z++;
+      if(result!= undefined)
+        this.api.getDefaultMedia().play();
+    });
+  }
+  return;
 }
 
 //skip the video depending on result
 skip(result)
 {
-this.resl= result;
-//if question is not answered
-if(this.resl==999)
-{
-  console.log('Not Answered');
-  // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0,0);
-}
-// if question is answred correctly
-else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
-{
-  if(this.resl>0)
+  this.resl= result;
+  //if question is not answered
+  if(this.resl==999)
   {
-    if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
+    console.log('Not Answered');
+    // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,this.returnmsg1.question[this.z].wait_time,this.returnmsg1.question[this.z].question_id,0,0);
+  }
+  // if question is answred correctly
+  else if(this.returnmsg1.question[this.z].type_options.length>0 && this.resl != undefined)
+  {
+    if(this.resl>0)
     {
-      // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
-      console.log('Correct Answer');
-      this.q_answer++;
-      this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
-      if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+      if(this.returnmsg1.question[this.z].type_options[this.resl].id==this.returnmsg1.question[this.z].answers)
       {
-        this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+        // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,10,this.returnmsg1.question[this.z].question_id,this.returnmsg1.question[this.z].marks_assigned,this.returnmsg1.question[this.z].type_options[this.resl].id);
+        console.log('Correct Answer');
+        this.q_answer++;
+        this.marks=this.marks+this.returnmsg1.question[this.z].marks_assigned;
+        if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+        {
+          this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+        }
       }
-    }
-    //if question is answered wrong
-    else
-    {
-      console.log('Wrong Answer');
-      // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
-      if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+      //if question is answered wrong
+      else
       {
-        this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+        console.log('Wrong Answer');
+        // this.question_update(this.returnmsg1.test_id,this.returnmsg1.test_name,15,this.returnmsg1.question[this.z].question_id,0,this.returnmsg1.question[this.z].type_options[this.resl].id);
+        if(this.returnmsg1.question[this.z].type_options[this.resl].Option_skip.length>0)
+        {
+          this.api.getDefaultMedia().currentTime=this.returnmsg1.question[this.z].type_options[this.resl].Option_skip;
+        }
       }
     }
   }
-}
 console.log('The dialog was closed',this.resl);
 return;
 }
 fullscreen()
 {
-this.api.fsAPI.toggleFullscreen();
+  this.api.fsAPI.toggleFullscreen();
 }
 onPlayerReady(api:VgAPI) {
 this.api = api;
@@ -556,11 +560,10 @@ this.api.getDefaultMedia().subscriptions.seeked.subscribe(
       // Set the video to the beginning
       // this.api.getDefaultMedia().currentTime = 0;
       console.log('hai',Math.trunc(this.api.getDefaultMedia().currentTime));
-  // if((this.api.getDefaultMedia().currentTime)>(JSON.parse( localStorage.getItem('Video_preview_lastpause['+this.returnmsg1.test_id+']')))){
-  //   this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('Video_preview_lastpause['+this.returnmsg1.test_id+']')));
-  // }
+      // if((this.api.getDefaultMedia().currentTime)>(JSON.parse( localStorage.getItem('Video_preview_lastpause['+this.returnmsg1.test_id+']')))){
+      //   this.api.getDefaultMedia().currentTime=(JSON.parse( localStorage.getItem('Video_preview_lastpause['+this.returnmsg1.test_id+']')));
+      // }
   }
-
 );
 }
 

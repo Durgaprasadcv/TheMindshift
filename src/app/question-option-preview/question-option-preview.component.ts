@@ -71,6 +71,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
     const body10={
     };
     this.webservice.webRequest(this,'post',this.webservice.get_language,body10,'10','');
+    localStorage.setItem('current_test_lang',  JSON.stringify(this.selected_language));
   }
 
   add_question(){
@@ -92,18 +93,18 @@ export class QuestionOptionPreviewComponent implements OnInit {
 
   edit_question(){
     const body8={
-    Question_Test_Id:this.test_id,
-    Question_Id:this.question_id,
-    Question_Type:this.Question_Type,
-    Question_MarksAllocated:this.Question_MarksAllocated,
-    Question_PauseTime:this.Question_PauseTime,
-    Question_WaitTime:this.Question_WaitTime,
-    Question_NumOfOption:10,
-    Question_Answer:0,
-    Platform:0,
-    order_no:0,
-    Question_Active:1,
-    question_title_arr:this.question_title_arr
+      Question_Test_Id:this.test_id,
+      Question_Id:this.question_id,
+      Question_Type:this.Question_Type,
+      Question_MarksAllocated:this.Question_MarksAllocated,
+      Question_PauseTime:this.Question_PauseTime,
+      Question_WaitTime:this.Question_WaitTime,
+      Question_NumOfOption:10,
+      Question_Answer:0,
+      Platform:0,
+      order_no:0,
+      Question_Active:1,
+      question_title_arr:this.question_title_arr
     };
     this.webservice.webRequest(this,'post',this.webservice.save_question,body8,'8','');
   }
@@ -410,6 +411,7 @@ export class QuestionOptionPreviewComponent implements OnInit {
   }
 
   preview_play(){
+    localStorage.setItem('current_test_lang',  JSON.stringify(this.selected_language));
     if(this.preview_flag==true)
     {
       this.preview_flag=false;
@@ -418,10 +420,12 @@ export class QuestionOptionPreviewComponent implements OnInit {
     {
       this.preview_flag=true;
     }
+    console.log('current_test_lang',this.selected_language);
   }
   replay(){
+    localStorage.setItem('current_test_lang',  JSON.stringify(this.selected_language));
     this.preview_flag=false;
     setTimeout(()=>{this.preview_flag=true; }, 300);
-
+    console.log('current_test_lang',this.selected_language);
   }
 }
