@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 @Injectable()
 export class WebService {
-//  public main_url='http://www.lg.djitsoft.xyz/api/';
-public main_url='http://10.0.0.7:8000/api/';
+ public main_url='http://www.lg.djitsoft.xyz/api/';
+// public main_url='http://10.0.0.7:8000/api/';
 // public main_url='http://localhost:8000/api/';
 public platform=1; //0-common 1-web 2-mobile
 public orgaization_id=1;
@@ -92,6 +92,7 @@ public menu_items;
 public returnmsg;
 public request_header_token;
 public return_header;
+public api_status;
 
 //modules creation
 public add_module=this.main_url+"add_module";
@@ -1221,6 +1222,7 @@ webRequest(scope,type,url,body,fun_id,loader){
       .subscribe(
           data =>  {
               this.returnmsg = data.json();
+              this.api_status=data.status;
               this.return_header = data.headers.get('Authorization');
               if(this.return_header){
                 localStorage.setItem("token", JSON.stringify(this.return_header));
@@ -1232,6 +1234,7 @@ webRequest(scope,type,url,body,fun_id,loader){
               scope.webresponse(fun_id,0);
           },
           () =>{
+              console.log('status',this.api_status);
               console.log('Web service:Success Return data:',this.returnmsg);
               console.log('Web service:Success Return Header:',this.return_header);
           }
@@ -1246,6 +1249,7 @@ webRequest(scope,type,url,body,fun_id,loader){
       .subscribe(
           data =>  {
               this.returnmsg = data.json();
+              this.api_status=data.status;
               this.return_header = data.headers.get('Authorization');
               if(this.return_header)
               {
@@ -1258,6 +1262,7 @@ webRequest(scope,type,url,body,fun_id,loader){
               scope.webresponse(fun_id,0);
           },
           () => {
+              console.log('status',this.api_status);
               console.log('Web service:Success Return data:',this.returnmsg);
               console.log('Web service:Success Return Header:',this.return_header);
           }
